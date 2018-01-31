@@ -5,6 +5,7 @@
 【壁纸宝贝】是我于2015年开发的一款壁纸类APP，可以通过此款APP查看、下载并设置桌面或者锁屏壁纸。【壁纸宝贝】的设计师是策少，我负责iOS以及Android的开发工作。
 
 <div align=center><img width="150" height="150" src="http://7xij1g.com1.z0.glb.clouddn.com/wallpaper_appstore_link_ios.png"/></div>
+<div align=center>【壁纸宝贝】交流群</div>
 
 为了便于大家交流学习，我近期打算开源【壁纸宝贝】的所有源代码。如果大家有兴趣可以加入群（QQ群号：692060993）一起讨论。
 
