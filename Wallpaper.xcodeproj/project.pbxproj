@@ -662,17 +662,9 @@
 		DEBDBC7E1A4E601A0092521E /* networkservice */ = {
 			isa = PBXGroup;
 			children = (
-				DEBDBC7F1A4E601A0092521E /* model */,
 				DEBDBC801A4E601A0092521E /* networkaccess */,
 			);
 			path = networkservice;
-			sourceTree = "<group>";
-		};
-		DEBDBC7F1A4E601A0092521E /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		DEBDBC801A4E601A0092521E /* networkaccess */ = {
