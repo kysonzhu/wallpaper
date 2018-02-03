@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09D5DCD54013AC5A14890356 /* libPods-ZOLWallWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A4BA5D7E1BCA45F0CCE2DE /* libPods-ZOLWallWrapper.a */; };
+		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		DE0904471A3EC39A006B1FCD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* HomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
@@ -165,9 +165,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4CE94716ECBC8DBE23EA8673 /* Pods-ZOLWallWrapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZOLWallWrapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZOLWallWrapper/Pods-ZOLWallWrapper.debug.xcconfig"; sourceTree = "<group>"; };
-		5A878048755474F9C80D4A3E /* Pods-ZOLWallWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZOLWallWrapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZOLWallWrapper/Pods-ZOLWallWrapper.release.xcconfig"; sourceTree = "<group>"; };
-		98A4BA5D7E1BCA45F0CCE2DE /* libPods-ZOLWallWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZOLWallWrapper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
+		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DE09045A1A3F1E76006B1FCD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -399,6 +398,7 @@
 		DEE67B3E1A43BE5B00BFA114 /* ViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPager.m; sourceTree = "<group>"; };
 		DEF963EB1A6CE8A6009A7D4E /* EnvironmentConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentConfigure.h; sourceTree = "<group>"; };
 		DEF963EC1A6CE8A6009A7D4E /* EnvironmentConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentConfigure.m; sourceTree = "<group>"; };
+		EC92B4F4120D692AF72997D2 /* Pods-Wallpaper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +417,7 @@
 				DECCCD1E1A36FAA1000C73BA /* CoreGraphics.framework in Frameworks */,
 				DECCCD201A36FAA1000C73BA /* UIKit.framework in Frameworks */,
 				DECCCD1C1A36FAA1000C73BA /* Foundation.framework in Frameworks */,
-				09D5DCD54013AC5A14890356 /* libPods-ZOLWallWrapper.a in Frameworks */,
+				8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,8 +427,8 @@
 		B991A543E4C347A1A27096E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4CE94716ECBC8DBE23EA8673 /* Pods-ZOLWallWrapper.debug.xcconfig */,
-				5A878048755474F9C80D4A3E /* Pods-ZOLWallWrapper.release.xcconfig */,
+				51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */,
+				EC92B4F4120D692AF72997D2 /* Pods-Wallpaper.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -837,7 +837,7 @@
 				DECCCD1D1A36FAA1000C73BA /* CoreGraphics.framework */,
 				DECCCD1F1A36FAA1000C73BA /* UIKit.framework */,
 				DECCCD3A1A36FAA1000C73BA /* XCTest.framework */,
-				98A4BA5D7E1BCA45F0CCE2DE /* libPods-ZOLWallWrapper.a */,
+				BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1175,7 +1175,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ZOLWallWrapper-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Wallpaper-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1194,7 +1194,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZOLWallWrapper/Pods-ZOLWallWrapper-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AC646AF123BEA744E61264AD /* [CP] Copy Pods Resources */ = {
@@ -1203,16 +1203,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ZOLWallWrapper/Pods-ZOLWallWrapper-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZOLWallWrapper/Pods-ZOLWallWrapper-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1418,7 +1418,7 @@
 		};
 		DECCCD4B1A36FAA1000C73BA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CE94716ECBC8DBE23EA8673 /* Pods-ZOLWallWrapper.debug.xcconfig */;
+			baseConfigurationReference = 51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1451,7 +1451,7 @@
 		};
 		DECCCD4C1A36FAA1000C73BA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A878048755474F9C80D4A3E /* Pods-ZOLWallWrapper.release.xcconfig */;
+			baseConfigurationReference = EC92B4F4120D692AF72997D2 /* Pods-Wallpaper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
