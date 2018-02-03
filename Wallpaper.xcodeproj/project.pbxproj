@@ -385,9 +385,6 @@
 		DECCCD2B1A36FAA1000C73BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DECCCD331A36FAA1000C73BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DECCCD3A1A36FAA1000C73BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		DECCCD421A36FAA1000C73BA /* WallpaperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WallpaperTests-Info.plist"; sourceTree = "<group>"; };
-		DECCCD441A36FAA1000C73BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DECCCD461A36FAA1000C73BA /* ZOLWallWrapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZOLWallWrapperTests.m; sourceTree = "<group>"; };
 		DECCCD921A381BBF000C73BA /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		DECCCD931A381BBF000C73BA /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		DECCCD951A381F55000C73BA /* MenuViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController_iphone.xib; sourceTree = "<group>"; };
@@ -807,7 +804,6 @@
 			isa = PBXGroup;
 			children = (
 				DECCCD211A36FAA1000C73BA /* Wallpaper */,
-				DECCCD401A36FAA1000C73BA /* WallpaperTests */,
 				DECCCD1A1A36FAA1000C73BA /* Frameworks */,
 				DECCCD191A36FAA1000C73BA /* Products */,
 				B991A543E4C347A1A27096E6 /* Pods */,
@@ -865,24 +861,6 @@
 				DECCCD241A36FAA1000C73BA /* InfoPlist.strings */,
 				DECCCD271A36FAA1000C73BA /* main.m */,
 				DECCCD291A36FAA1000C73BA /* Wallpaper-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DECCCD401A36FAA1000C73BA /* WallpaperTests */ = {
-			isa = PBXGroup;
-			children = (
-				DECCCD461A36FAA1000C73BA /* ZOLWallWrapperTests.m */,
-				DECCCD411A36FAA1000C73BA /* Supporting Files */,
-			);
-			path = WallpaperTests;
-			sourceTree = "<group>";
-		};
-		DECCCD411A36FAA1000C73BA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DECCCD421A36FAA1000C73BA /* WallpaperTests-Info.plist */,
-				DECCCD431A36FAA1000C73BA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1303,14 +1281,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				DECCCD251A36FAA1000C73BA /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		DECCCD431A36FAA1000C73BA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DECCCD441A36FAA1000C73BA /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
