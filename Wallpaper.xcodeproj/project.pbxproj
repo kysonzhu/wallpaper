@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
+		96A70D092026A6EC00790B1D /* AboutUsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A70D082026A6EC00790B1D /* AboutUsViewController_iphone.xib */; };
+		96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */; };
+		96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */; };
 		DE0904471A3EC39A006B1FCD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* HomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
@@ -59,7 +62,6 @@
 		DEADAF151A4A934000C19A2B /* SubCategoryViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */; };
 		DEADAF191A4AAFCE00C19A2B /* desk_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF181A4AAFCE00C19A2B /* desk_white@2x.png */; };
 		DEADAF241A4AB97200C19A2B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF231A4AB97200C19A2B /* AboutUsViewController.m */; };
-		DEADAF261A4AB99000C19A2B /* AboutUsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF251A4AB99000C19A2B /* AboutUsViewController_iphone.xib */; };
 		DEADAF281A4AB9A400C19A2B /* FeedbackViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */; };
 		DEADAF2C1A4ABD0F00C19A2B /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF2B1A4ABD0F00C19A2B /* FeedbackViewController.m */; };
 		DEAED54B1A64CE0C0047318C /* ViewPager.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEAED54A1A64CE0C0047318C /* ViewPager.xib */; };
@@ -144,8 +146,6 @@
 		DEC4E4E81A64E7A800E3A593 /* lockscreen_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC4E4E61A64E7A800E3A593 /* lockscreen_4@2x.png */; };
 		DEC4E4EC1A64E99600E3A593 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4E4EB1A64E99600E3A593 /* Platform.m */; };
 		DEC4E5221A66831B00E3A593 /* outofnework@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC4E5211A66831B00E3A593 /* outofnework@2x.png */; };
-		DEC4E5261A66855400E3A593 /* OutOfNetworkView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4E5251A66855400E3A593 /* OutOfNetworkView.m */; };
-		DEC4E5281A66857500E3A593 /* OutOfNetworkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC4E5271A66857500E3A593 /* OutOfNetworkView.xib */; };
 		DEC4E52C1A67812200E3A593 /* UIScrollView+touch.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4E52B1A67812200E3A593 /* UIScrollView+touch.m */; };
 		DEC4E52F1A67860A00E3A593 /* KSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4E52E1A67860A00E3A593 /* KSScrollView.m */; };
 		DEC4E5311A67B76B00E3A593 /* icon_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC4E5301A67B76B00E3A593 /* icon_share@2x.png */; };
@@ -166,6 +166,11 @@
 
 /* Begin PBXFileReference section */
 		51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
+		96A70D082026A6EC00790B1D /* AboutUsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController_iphone.xib; sourceTree = "<group>"; };
+		96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigatiaonTitleView.m; sourceTree = "<group>"; };
+		96A70D0B2026A8DB00790B1D /* HomeNavigatiaonTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigatiaonTitleView.h; sourceTree = "<group>"; };
+		96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationTitileViewButton.m; sourceTree = "<group>"; };
+		96A70D0E2026A95B00790B1D /* HomeNavigationTitileViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationTitileViewButton.h; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -245,7 +250,6 @@
 		DEADAF181A4AAFCE00C19A2B /* desk_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "desk_white@2x.png"; sourceTree = "<group>"; };
 		DEADAF221A4AB97200C19A2B /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		DEADAF231A4AB97200C19A2B /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
-		DEADAF251A4AB99000C19A2B /* AboutUsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController_iphone.xib; sourceTree = "<group>"; };
 		DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController_iphone.xib; sourceTree = "<group>"; };
 		DEADAF2A1A4ABD0F00C19A2B /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		DEADAF2B1A4ABD0F00C19A2B /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
@@ -365,9 +369,6 @@
 		DEC4E4EA1A64E99600E3A593 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		DEC4E4EB1A64E99600E3A593 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		DEC4E5211A66831B00E3A593 /* outofnework@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outofnework@2x.png"; sourceTree = "<group>"; };
-		DEC4E5241A66855400E3A593 /* OutOfNetworkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutOfNetworkView.h; sourceTree = "<group>"; };
-		DEC4E5251A66855400E3A593 /* OutOfNetworkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutOfNetworkView.m; sourceTree = "<group>"; };
-		DEC4E5271A66857500E3A593 /* OutOfNetworkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutOfNetworkView.xib; sourceTree = "<group>"; };
 		DEC4E52A1A67812200E3A593 /* UIScrollView+touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+touch.h"; sourceTree = "<group>"; };
 		DEC4E52B1A67812200E3A593 /* UIScrollView+touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+touch.m"; sourceTree = "<group>"; };
 		DEC4E52D1A67860A00E3A593 /* KSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSScrollView.h; sourceTree = "<group>"; };
@@ -433,6 +434,10 @@
 		DE0904441A3EC39A006B1FCD /* home */ = {
 			isa = PBXGroup;
 			children = (
+				96A70D0E2026A95B00790B1D /* HomeNavigationTitileViewButton.h */,
+				96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */,
+				96A70D0B2026A8DB00790B1D /* HomeNavigatiaonTitleView.h */,
+				96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */,
 				DE0904451A3EC39A006B1FCD /* HomeViewController.h */,
 				DE0904461A3EC39A006B1FCD /* HomeViewController.m */,
 				DEE67B0D1A415B7200BFA114 /* WrapperDetailViewController.h */,
@@ -781,16 +786,6 @@
 			path = platform;
 			sourceTree = "<group>";
 		};
-		DEC4E5231A66852000E3A593 /* outofnetwork */ = {
-			isa = PBXGroup;
-			children = (
-				DEC4E5241A66855400E3A593 /* OutOfNetworkView.h */,
-				DEC4E5251A66855400E3A593 /* OutOfNetworkView.m */,
-				DEC4E5271A66857500E3A593 /* OutOfNetworkView.xib */,
-			);
-			path = outofnetwork;
-			sourceTree = "<group>";
-		};
 		DEC4E5291A67810C00E3A593 /* uiscrollview+utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,11 +942,11 @@
 		DECCCD591A37075F000C73BA /* layout */ = {
 			isa = PBXGroup;
 			children = (
+				96A70D082026A6EC00790B1D /* AboutUsViewController_iphone.xib */,
 				DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */,
 				DE9584F51A3935E9000C6B70 /* HomeViewController_iphone.xib */,
 				DECCCD951A381F55000C73BA /* MenuViewController_iphone.xib */,
 				DEE67B101A415C5300BFA114 /* WrapperDetailViewController_iphone.xib */,
-				DEADAF251A4AB99000C19A2B /* AboutUsViewController_iphone.xib */,
 				DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */,
 				DEBDBC451A4C04450092521E /* SearchViewController_iphone.xib */,
 				DEBDBCCC1A538BC00092521E /* CateListViewController_iphone.xib */,
@@ -966,7 +961,6 @@
 		DECCCD881A381B72000C73BA /* widget */ = {
 			isa = PBXGroup;
 			children = (
-				DEC4E5231A66852000E3A593 /* outofnetwork */,
 				DEBDBD7E1A590A0F0092521E /* SearchHistoryItemCell */,
 				DEBDBCCE1A538E390092521E /* CateListItemCell */,
 				DEADAF011A4A630E00C19A2B /* CategoryCell */,
@@ -1085,7 +1079,6 @@
 				DEADAF001A4A5FE300C19A2B /* GridViewCell.xib in Resources */,
 				DE0AB4951A6DF669004F12FC /* icon-76.png in Resources */,
 				DEBDC0101A5D3CAE0092521E /* nav_info@2x.png in Resources */,
-				DEADAF261A4AB99000C19A2B /* AboutUsViewController_iphone.xib in Resources */,
 				DEBDBD831A590A440092521E /* SearchHistoryItemCell.xib in Resources */,
 				DEADAF191A4AAFCE00C19A2B /* desk_white@2x.png in Resources */,
 				DEC4E4E71A64E7A800E3A593 /* launtchscreen_4@2x.png in Resources */,
@@ -1112,7 +1105,6 @@
 				DEBDBCB21A5245530092521E /* CategoryTableViewCell.xib in Resources */,
 				DEBDBCCD1A538BC00092521E /* CateListViewController_iphone.xib in Resources */,
 				DE0AB4941A6DF669004F12FC /* icon-60.png in Resources */,
-				DEC4E5281A66857500E3A593 /* OutOfNetworkView.xib in Resources */,
 				DEAED5581A64E61A0047318C /* lockscreen_1@2x.png in Resources */,
 				DE4392F41A8731EB0009181D /* SelectBgViewController_iphone.xib in Resources */,
 				DECCCD341A36FAA1000C73BA /* Images.xcassets in Resources */,
@@ -1131,6 +1123,7 @@
 				DEBDBC341A4BB9F50092521E /* mod_bg@2x.png in Resources */,
 				DEBDC0081A5D35160092521E /* lef_del@2x.png in Resources */,
 				DEAED5591A64E61A0047318C /* lockscreen_2@2x.png in Resources */,
+				96A70D092026A6EC00790B1D /* AboutUsViewController_iphone.xib in Resources */,
 				DE0AB4961A6DF669004F12FC /* icon-80.png in Resources */,
 				DE9585351A3AD9BB000C6B70 /* recommended_nav_background@2x.png in Resources */,
 				DEBDBD871A5911E00092521E /* SearchDetailViewController_iphone.xib in Resources */,
@@ -1225,6 +1218,7 @@
 				DEBDBCA41A4E9AF30092521E /* Controller.m in Sources */,
 				DEBDBCD31A538E640092521E /* CateListItemCell.m in Sources */,
 				DEBDBC921A4E601A0092521E /* NetworkAccess.m in Sources */,
+				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
 				DEACA81E1A481AF800CFF53D /* RecommndCollectionView.m in Sources */,
 				DEE67B0F1A415B7200BFA114 /* WrapperDetailViewController.m in Sources */,
 				DECCCD941A381BBF000C73BA /* MenuViewController.m in Sources */,
@@ -1248,7 +1242,6 @@
 				DEBDBC991A4E649C0092521E /* WrapperServiceMediator.m in Sources */,
 				DE95854B1A3ADDE4000C6B70 /* ImageCache.m in Sources */,
 				DE4392F21A8731030009181D /* SelectBgViewController.m in Sources */,
-				DEC4E5261A66855400E3A593 /* OutOfNetworkView.m in Sources */,
 				DEACA8381A493CF500CFF53D /* CategoryCollectionViewLayout.m in Sources */,
 				DEBDBCAD1A5243110092521E /* CategoryTableView.m in Sources */,
 				DEBDBDF51A5BB10D0092521E /* UIImage+KVNEmpty.m in Sources */,
@@ -1260,6 +1253,7 @@
 				DEACA8241A481BD100CFF53D /* KSCollectionView.m in Sources */,
 				DEBDBCBB1A5256CC0092521E /* Bigcategory.m in Sources */,
 				DEACA8211A481B0600CFF53D /* CategoryCollectionView.m in Sources */,
+				96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */,
 				DE4392F71A8732880009181D /* EditCardViewController.m in Sources */,
 				DEBDBC931A4E601A0092521E /* NetworkResponse.m in Sources */,
 				DEBDBD811A590A270092521E /* SearchHistoryItemCell.m in Sources */,

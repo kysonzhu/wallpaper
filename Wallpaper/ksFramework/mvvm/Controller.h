@@ -10,14 +10,11 @@
 #import "TaskPool.h"
 #import "ServiceMediator.h"
 #import "KVNProgress.h"
-#import "OutOfNetworkView.h"
 #import <Masonry/Masonry.h>
 
 #define TAG_IMGV_OUTOFNETWORK  8913
 
 @interface Controller : UIViewController
-
--(OutOfNetworkView *)outOfNetworkView;
 
 -(void)doNetworkService:(ServiceMediator *) service;
 

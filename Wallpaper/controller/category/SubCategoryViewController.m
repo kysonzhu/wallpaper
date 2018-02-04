@@ -341,7 +341,6 @@ typedef enum _CurrentCategoryType{
  *   Button event
  */
 -(void)buttonClicked:(UIButton *) button{
-    [self.outOfNetworkView dismiss];
     switch (button.tag) {
         case TAG_BTN_RECOMMEND:{
             mViewPager.currentPage = 1;
@@ -513,7 +512,6 @@ typedef enum _CurrentCategoryType{
  */
 -(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
     [KVNProgress dismiss];
-    [self.outOfNetworkView dismiss];
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_CATEGORYRECOMMENDEDLIST] ||[serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST] ) {
 

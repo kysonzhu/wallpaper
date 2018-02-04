@@ -12,7 +12,6 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface Controller ()<TaskPoolDelegate>{
-    OutOfNetworkView *outOfNetworkView;
     NSMutableArray *requestTokens;
 }
 
@@ -49,16 +48,6 @@
      * clear all
      */
     [[ImageCache shareInstance] clearCache];
-}
-//indicator view
--(OutOfNetworkView *)outOfNetworkView{
-    if (nil == outOfNetworkView) {
-        outOfNetworkView = [OutOfNetworkView loadView];
-        outOfNetworkView.tag = TAG_IMGV_OUTOFNETWORK;
-        outOfNetworkView.hidden = YES;
-        [self.view addSubview:outOfNetworkView];
-    }
-    return outOfNetworkView;
 }
 
 

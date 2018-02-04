@@ -32,6 +32,7 @@
 #import "UIScrollView+MJRefresh.h"
 
 #import "EnvironmentConfigure.h"
+#import "HomeNavigatiaonTitleView.h"
 @import GoogleMobileAds;
 
 
@@ -43,17 +44,11 @@
 #define TAG_BTN_NAV_TITLE   8912
 
 @interface HomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
-    RecommndCollectionView      *mRecommndCollectionView;
-    LatestCollectionView        *mLastestCollectionView;
-    CategoryTableView           *mCategoryTableView;
-    
     __weak IBOutlet UIButton *recommendButton;
     __weak IBOutlet UIButton *latestButton;
     __weak IBOutlet UIButton *categoryButton;
     __weak IBOutlet UIView *seperateView;
-
     ViewPager *mViewPager;
-    
     UIButton *leftNavigationBarButton;
     UIButton *rightNavigationBarButton;
 }
@@ -62,8 +57,12 @@
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataLatest;
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataCategory;
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataRecommended;
-@property (nonatomic, strong) RecommndCollectionView      *mRecommndCollectionView;;
+@property (nonatomic, strong) HomeNavigatiaonTitleView *titleView;
 @property (weak, nonatomic) IBOutlet UIView *titleBarView;
+
+@property (nonatomic, strong) LatestCollectionView        *mLastestCollectionView;;
+@property (nonatomic, strong) CategoryTableView           *mCategoryTableView;;
+@property (nonatomic, strong) RecommndCollectionView      *mRecommndCollectionView;
 
 @property(nonatomic, strong) GADBannerView *bannerView;
 
@@ -72,9 +71,14 @@
 @implementation HomeViewController
 
 @synthesize startRecommended,startLatest;
-@synthesize mRecommndCollectionView;
-@synthesize isFirstTimeFetchDataLatest,isFirstTimeFetchDataCategory,isFirstTimeFetchDataRecommended;
 
+@synthesize isFirstTimeFetchDataLatest,isFirstTimeFetchDataCategory,isFirstTimeFetchDataRecommended;
+- (HomeNavigatiaonTitleView *)titleView{
+    if (!_titleView) {
+        _titleView = [[HomeNavigatiaonTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 200 , 44)];
+    }
+    return _titleView;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -90,7 +94,7 @@
      */
     UIBarButtonItem *btnItem1 = [[UIBarButtonItem alloc]init];
     leftNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image1 = [UIImage imageNamed:@"nav_info"];
+    UIImage *image1 = [UIImage imageNamed:@"nav_icon_home"];
     [leftNavigationBarButton setBackgroundImage:image1 forState:UIControlStateNormal];
     [leftNavigationBarButton setFrame:CGRectMake(0, 0, 23, 20)];
     [leftNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -102,7 +106,7 @@
      */
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
     rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image2 = [UIImage imageNamed:@"nav_search"];
+    UIImage *image2 = [UIImage imageNamed:@"nav_icon_sea"];
     [rightNavigationBarButton setBackgroundImage:image2 forState:UIControlStateNormal];
     [rightNavigationBarButton setFrame:CGRectMake(0, 0, 20, 20)];
     [rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -110,14 +114,28 @@
     [btnItem2 setCustomView:rightNavigationBarButton];
     self.navigationItem.rightBarButtonItem = btnItem2;
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
-    [button setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    button.tag = TAG_BTN_NAV_TITLE;
-    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = button;
+    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    button.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
+    //    [button setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
+    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    //    button.tag = TAG_BTN_NAV_TITLE;
+    //    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    //    self.navigationItem.titleView = button;
+    __weak typeof(self) weakself = self;
+    self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {
+        UIButton *btn = [UIButton buttonWithType:0];
+        if (index == 0) {
+            btn.tag = TAG_BTN_LATEST;
+        } else if (index == 1) {
+            btn.tag = TAG_BTN_RECOMMEND;
+        }
+        else if (index == 2) {
+            btn.tag = TAG_BTN_CATEGORY;
+        }
+        [weakself buttonClicked:btn];
+    };
+    self.navigationItem.titleView = self.titleView;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     /*
@@ -159,16 +177,16 @@
             frame2.origin.y = 88;
             self.titleBarView.frame = frame2;
             
-            frame.size.height -= (88 + 30);
-            frame.origin.y = (88 + 30);
+            frame.size.height -= (88);
+            frame.origin.y = (88);
         }else
         {
-            frame.size.height -= (68 + 30);
-            frame.origin.y = (68 + 30);
+            frame.size.height -= (64);
+            frame.origin.y = (64);
         }
     } else {
-        frame.size.height -= (68 + 30);
-        frame.origin.y = (68 + 30);
+        frame.size.height -= (64);
+        frame.origin.y = (64);
     }
     mViewPager = [[ViewPager alloc]initWithFrame:frame];
     mViewPager.mDelegate = self;
@@ -180,69 +198,8 @@
     self.title = @"壁纸宝贝";
     seperateView.backgroundColor = [UIColor colorWithHex:0xc8c8c8];
     //init recommend
-    RecommndCollectionViewLayout *layout1 = [[RecommndCollectionViewLayout alloc]initWithDelegate:self];
-    self.mRecommndCollectionView = [[RecommndCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout1];
-    self.mRecommndCollectionView.delegate = layout1;
-    self.mRecommndCollectionView.dataSource = layout1;
-    //load more data of recommend collection view
-    ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
-    __weak typeof(self) weakSelf = self;
-    self.mRecommndCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-        weakSelf.startRecommended = weakSelf.startRecommended + 30;
-        NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-        ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
-        [weakSelf doNetworkService:serviceMediator];
-        [KVNProgress show];
-    }];
-
-    mRecommndCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        // remove all cache
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-        weakSelf.startRecommended = 0;
-        NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-        ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
-        [weakSelf doNetworkService:serviceMediator];
-        [KVNProgress show];
-    }];
-    //init latest
-    LatestCollectionViewLayout *layout2 = [[LatestCollectionViewLayout alloc]initWithDelegate:self];
-    mLastestCollectionView = [[LatestCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout2];
-    mLastestCollectionView.delegate = layout2;
-    mLastestCollectionView.dataSource = layout2;
-    //load more data of latest collection view
-    mLastestCollectionView .mj_footer =  [MJRefreshFooter footerWithRefreshingBlock:^{
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-        weakSelf.startLatest = weakSelf.startLatest + 30;
-        NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
-        ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
-        [weakSelf doNetworkService:serviceMediator];
-        [KVNProgress show];
-    }];
-
-    mLastestCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        //remove all cache
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-        weakSelf.startLatest = 0;
-        NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
-        ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
-        [weakSelf doNetworkService:serviceMediator];
-        [KVNProgress show];
-    }];
     
-    //init category
-    mCategoryTableView = [[CategoryTableView alloc]initWithFrame:self.view.frame];
-//    mCategoryTableView.backgroundColor = [UIColor colorWithHex:0xe2e3e3];
-    mCategoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    mCategoryTableView.mDelegate = self;
-    mCategoryTableView.delegate = mCategoryTableView;
-    mCategoryTableView.dataSource = mCategoryTableView;
-    
-    NSArray *array = [NSArray arrayWithObjects:mLastestCollectionView,mRecommndCollectionView,mCategoryTableView, nil];
+    NSArray *array = [NSArray arrayWithObjects:self.mLastestCollectionView,self.mRecommndCollectionView,self.mCategoryTableView, nil];
     adapter.views = array;
     [mViewPager setAdapter:adapter];
     
@@ -251,8 +208,8 @@
     self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-7896672979027584/7587295301";
-//    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-
+    //    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.delegate = self;
@@ -288,7 +245,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
     NSInteger page = mViewPager.currentPage;
     if (0 == page) {
         [self buttonClicked:latestButton];
@@ -300,7 +259,11 @@
     [self handleBanner];
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.navigationController.navigationBar.barTintColor =  [UIColor colorWithHex:0x1fb1e8];
+}
 -(void)handleBanner{
     if (self.bannerView.hidden == YES || self.bannerView.alpha == 0) {
         [mViewPager mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -330,6 +293,7 @@
     }else if (2 == page){
         [self buttonClicked:categoryButton];
     }
+    
 }
 
 -(void)viewPagerDidScroll:(ViewPager *)viewPager{
@@ -392,50 +356,52 @@
  */
 -(void)buttonClicked:(UIButton *) button{
     //dissmiss out of network view
-    [self.outOfNetworkView dismiss];
     
     switch (button.tag) {
         case TAG_BTN_RECOMMEND:{
             mViewPager.currentPage = 1;
             [self setButtonHighlighed:button];
+            [self.titleView setButtonHighlighedAtIndex:1];
             //request
             if (isFirstTimeFetchDataRecommended) {
-                    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
-                    ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
-                    [self doNetworkService:serviceMediator];
-                    [KVNProgress show];
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
+                ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
+                [self doNetworkService:serviceMediator];
+                [KVNProgress show];
             }
         }
             break;
         case TAG_BTN_LATEST:{
             mViewPager.currentPage = 0;
             [self setButtonHighlighed:button];
+            [self.titleView setButtonHighlighedAtIndex:0];
             //request
             if (isFirstTimeFetchDataLatest) {
-                    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
-                    self.startLatest = 0;
-                    ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
-                    [self doNetworkService:serviceMediator];
-                    [KVNProgress show];
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
+                self.startLatest = 0;
+                ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
+                [self doNetworkService:serviceMediator];
+                [KVNProgress show];
             }
         }
             break;
         case TAG_BTN_CATEGORY:{
             mViewPager.currentPage = 2;
             [self setButtonHighlighed:button];
+            [self.titleView setButtonHighlighedAtIndex:2];
             //request
             if (isFirstTimeFetchDataCategory ) {
-                    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLIST];
-                    [self doNetworkService:serviceMediator];
-                    [KVNProgress show];
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLIST];
+                [self doNetworkService:serviceMediator];
+                [KVNProgress show];
             }
         }
             break;
         case TAG_BTN_NAV_TITLE:{
             if (mViewPager.currentPage == 0) {
-                [mLastestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+                [self.mLastestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
             }else if (mViewPager.currentPage == 1){
-                [mRecommndCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+                [self.mRecommndCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
             }
         }
             break;
@@ -464,7 +430,7 @@
     if ([layout isKindOfClass:[RecommndCollectionViewLayout class]]) {
         NSInteger section = [indexPath section];
         NSInteger row = [indexPath row];
-        RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)mRecommndCollectionView.collectionViewLayout;
+        RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *3 +row ];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
@@ -474,7 +440,7 @@
     }else if ([layout isKindOfClass:[LatestCollectionViewLayout class]]){
         NSInteger section = [indexPath section];
         NSInteger row = [indexPath row];
-        LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)mLastestCollectionView.collectionViewLayout;
+        LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *3 +row ];
         
@@ -488,10 +454,9 @@
 
 -(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
     [KVNProgress dismiss];
-    [self.outOfNetworkView dismiss];
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-
+            
             NSArray *Aryresponse1 = response.response;
             NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
             for (Group *item in Aryresponse1)
@@ -502,7 +467,7 @@
                 }
             }
             
-            RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)mRecommndCollectionView.collectionViewLayout;
+            RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
             NSMutableArray *temAry = nil;
             if (startRecommended != 0) {
                 temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
@@ -511,9 +476,9 @@
             }
             [temAry addObjectsFromArray:Aryresponse];
             layout1.groupList = temAry;
-            [mRecommndCollectionView reloadData];
-            [mRecommndCollectionView .mj_footer endRefreshing];
-            [mRecommndCollectionView .mj_header endRefreshing];
+            [self.mRecommndCollectionView reloadData];
+            [self.mRecommndCollectionView .mj_footer endRefreshing];
+            [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
             NSArray *Aryresponse1 = response.response;
@@ -526,7 +491,7 @@
                 }
             }
             
-            LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)mLastestCollectionView.collectionViewLayout;
+            LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
             NSMutableArray *temAry = nil;
             if (startLatest != 0) {
                 temAry = [[NSMutableArray alloc]initWithArray:layout2.groupList];
@@ -535,9 +500,9 @@
             }
             [temAry addObjectsFromArray:Aryresponse];
             layout2.groupList = temAry;
-            [mLastestCollectionView reloadData];
-            [mLastestCollectionView .mj_footer endRefreshing];
-            [mLastestCollectionView .mj_header endRefreshing];
+            [self.mLastestCollectionView reloadData];
+            [self.mLastestCollectionView .mj_footer endRefreshing];
+            [self.mLastestCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataLatest = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
             NSArray *Aryresponse1 = response.response;
@@ -550,22 +515,22 @@
                 }
             }
             
-            mCategoryTableView.categoryList = Aryresponse;
+            self.mCategoryTableView.categoryList = Aryresponse;
             //reload data
-            [mCategoryTableView reloadData];
+            [self.mCategoryTableView reloadData];
             isFirstTimeFetchDataCategory = NO;
         }
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
         
         if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-            [mRecommndCollectionView .mj_footer endRefreshing];
-            [mRecommndCollectionView .mj_header endRefreshing];
+            [self.mRecommndCollectionView .mj_footer endRefreshing];
+            [self.mRecommndCollectionView .mj_header endRefreshing];
             startRecommended -= 30;
             startRecommended = startRecommended >0 ? startRecommended :0;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-            [mLastestCollectionView .mj_footer endRefreshing];
-            [mLastestCollectionView .mj_header endRefreshing];
+            [self.mLastestCollectionView .mj_footer endRefreshing];
+            [self.mLastestCollectionView .mj_header endRefreshing];
             startLatest -= 30;
             startLatest = startLatest >0 ? startLatest :0;
         }
@@ -575,14 +540,95 @@
 
 -(void)categoryTableViewItemClicked:(NSIndexPath *)indexPath{
     SubCategoryViewController *subCategoryViewController = [[SubCategoryViewController alloc]initWithNibName:@"SubCategoryViewController_iphone" bundle:nil];
-    subCategoryViewController.category = mCategoryTableView.categoryList[indexPath.row];
+    subCategoryViewController.category = self.mCategoryTableView.categoryList[indexPath.row];
     [self.navigationController pushViewController:subCategoryViewController animated:YES];
 }
-
 
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
+-(RecommndCollectionView *)mRecommndCollectionView{
+    if (!_mRecommndCollectionView) {
+        RecommndCollectionViewLayout *layout1 = [[RecommndCollectionViewLayout alloc]initWithDelegate:self];
+        _mRecommndCollectionView = [[RecommndCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout1];
+        _mRecommndCollectionView.delegate = layout1;
+        _mRecommndCollectionView.dataSource = layout1;
+        //load more data of recommend collection view
+        ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
+        __weak typeof(self) weakSelf = self;
+        _mRecommndCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+            weakSelf.startRecommended = weakSelf.startRecommended + 30;
+            NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
+            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
+            [weakSelf doNetworkService:serviceMediator];
+            [KVNProgress show];
+        }];
+        
+        _mRecommndCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            // remove all cache
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+            weakSelf.startRecommended = 0;
+            NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
+            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
+            [weakSelf doNetworkService:serviceMediator];
+            [KVNProgress show];
+        }];
+    }
+    return _mRecommndCollectionView;
+}
+
+
+-(LatestCollectionView *)mLastestCollectionView{
+    if (!_mLastestCollectionView) {
+        //init latest
+        LatestCollectionViewLayout *layout2 = [[LatestCollectionViewLayout alloc]initWithDelegate:self];
+        _mLastestCollectionView = [[LatestCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout2];
+        _mLastestCollectionView.delegate = layout2;
+        _mLastestCollectionView.dataSource = layout2;
+        //load more data of latest collection view
+        __weak typeof(self) weakSelf = self;
+        _mLastestCollectionView .mj_footer =  [MJRefreshFooter footerWithRefreshingBlock:^{
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+            weakSelf.startLatest = weakSelf.startLatest + 30;
+            NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
+            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
+            [weakSelf doNetworkService:serviceMediator];
+            [KVNProgress show];
+        }];
+        
+        _mLastestCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            //remove all cache
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+            weakSelf.startLatest = 0;
+            NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
+            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
+            [weakSelf doNetworkService:serviceMediator];
+            [KVNProgress show];
+        }];
+    }
+    return _mLastestCollectionView;
+    
+}
+
+-(CategoryTableView *)mCategoryTableView{
+    if (!_mCategoryTableView) {
+        //init category
+        _mCategoryTableView = [[CategoryTableView alloc]initWithFrame:self.view.frame];
+        //    mCategoryTableView.backgroundColor = [UIColor colorWithHex:0xe2e3e3];
+        _mCategoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _mCategoryTableView.mDelegate = self;
+        _mCategoryTableView.delegate = _mCategoryTableView;
+        _mCategoryTableView.dataSource = _mCategoryTableView;
+    }
+    return _mCategoryTableView;
+}
+
 
 @end
+

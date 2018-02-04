@@ -87,7 +87,7 @@
         }
             break;
         case TAG_BTN_VALUE:{
-            NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=957675155"];
+            NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id1334013423"];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:evaluateString]];
         }
             break;
