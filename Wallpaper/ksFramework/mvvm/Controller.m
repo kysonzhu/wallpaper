@@ -11,24 +11,21 @@
 #import "AppDelegate.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface Controller ()<TaskPoolDelegate>{
+@interface Controller ()<MGTaskPoolDelegate>{
     NSMutableArray *requestTokens;
 }
 
-@property (nonatomic,strong) TaskPool *taskPool;
-
+@property (nonatomic,strong) MGTaskPool *taskPool;
 
 @end
 
 @implementation Controller
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     requestTokens = [[NSMutableArray alloc]init];
-    
 }
 
 
@@ -50,11 +47,10 @@
     [[ImageCache shareInstance] clearCache];
 }
 
-
 //network
 
--(TaskPool *)taskPool{
-    return [TaskPool shareInstance];
+-(MGTaskPool *)taskPool{
+    return [MGTaskPool shareInstance];
 }
 
 - (void)showNetWorkStateError
@@ -62,7 +58,7 @@
     
 }
 
--(void)doNetworkService:(ServiceMediator *) service{
+-(void)doNetworkService:(MGNetworkServiceMediator *) service{
 //    AFNetworkReachabilityManager *netReachabilityManger = [AFNetworkReachabilityManager sharedManager];
 //    if (netReachabilityManger.reachable == NO)
 //    {
@@ -71,29 +67,27 @@
 //        }];
 //        [alertVC addAction:alertAct];
 //    }
-    
-    
-    self.taskPool.mDelegate = self;
+    [self.taskPool addDelegate:self];
     [requestTokens addObject:service.serviceName];
     [self.taskPool doTaskWithService:service];
 }
 
 
 
--(void)taskpool:(TaskPool *)pool serviceFinished:(ServiceMediator *)service response:(NetworkResponse *)response{
+-(void)taskpool:(MGTaskPool *)pool serviceFinished:(MGNetworkServiceMediator *)service response:(MGNetwokResponse *)response{
     
     [self refreshData:service.serviceName response:response];
 }
 
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     
 }
 
 -(void)dealloc{
     //cancel all tasks
     for (NSString *taskItem in requestTokens) {
-        [self.taskPool cancelTaskWithService:taskItem];
+        [self.taskPool cancelServiceWithName:taskItem];
     }
     
 }

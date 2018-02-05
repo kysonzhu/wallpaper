@@ -8,23 +8,21 @@
 //
 
 #import "WrapperServiceMediator.h"
-#import "NetworkAccess.h"
+#import <MGNetworkAccess.h>
+#import <MGJsonHandler.h>
 
 //#define HOST @"http://sj.zol.com.cn:8088"
 #define HOST @"http://sj.zol.com.cn"
 
 @implementation WrapperServiceMediator
 
-
 -(void)main{
     [super main];
 }
 
--(NetworkResponse *)getRecommendList:(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getRecommendList:(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"isAttion"] = @"1";
     if (nil != start) {
         params[@"start"] = start;
     }
@@ -35,9 +33,9 @@
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -45,9 +43,8 @@
 }
 
 
--(NetworkResponse *)getRecommendDetail:(NSString *)gId{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getRecommendDetail:(NSString *)gId{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"gId"]=gId;
@@ -63,14 +60,10 @@
         width = 480;
         height = 854;
     }
-    
-    
     params[@"picSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupPic.php" params:params];
-    
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDDETAIL params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -78,37 +71,31 @@
 }
 
 
--(NetworkResponse *)getLatestList:(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getLatestList:(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"isNow"] = @"1";
     params[@"start"] = start;
     params[@"end"] = @"30";
-    
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
-    
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_LATESTLIST params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
     return response;
 }
 
--(NetworkResponse *)getCategoryList{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getCateInfo.php" params:nil];
+-(MGNetwokResponse *)getCategoryList{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_CATEGORYLIST params:nil];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -118,9 +105,8 @@
 /**
  * Category list
  */
--(NetworkResponse *)getCategoryRecommendedList:(NSString *)cateId :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getCategoryRecommendedList:(NSString *)cateId :(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = cateId;
     params[@"isAttion"] = @"1";
@@ -128,66 +114,57 @@
         params[@"start"] = start;
     }
     params[@"end"] = @"30";
-    
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
     return response;
 }
 
-
--(NetworkResponse *)getCategoryLatestList:(NSString *)cateId :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getCategoryLatestList:(NSString *)cateId :(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"] = cateId;
-    params[@"isNow"] = @"1";
-    params[@"start"] = start;
-    params[@"end"] = @"30";
-    
+    params[@"cateId"]   = cateId;
+    params[@"isNow"]    = @"1";
+    params[@"start"]    = start;
+    params[@"end"]      = @"30";
     //filter image size
-    CGRect rect = [UIScreen mainScreen].bounds;
+    CGRect rect     = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
-    NSInteger height = (int) (rect.size.height * 2);
+    NSInteger height   = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getGroupInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
     return response;
-    
 }
 
--(NetworkResponse *)getCategoryHotestList:(NSString *)cateId :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
-    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"] = cateId;
-    params[@"isDown"] = @"1";
-    params[@"start"] = start;
-    params[@"end"] = @"30";
-    
+-(MGNetwokResponse *)getCategoryHotestList:(NSString *)cateId :(NSString *)start{
+    MGNetworkAccess *networkAccess  = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
+    NSMutableDictionary *params     = [[NSMutableDictionary alloc]init];
+    params[@"cateId"]   = cateId;
+    params[@"isDown"]   = @"1";
+    params[@"start"]    = start;
+    params[@"end"]      = @"30";
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+//    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getGroupInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -197,14 +174,13 @@
 /**
  * Secondary category
  */
--(NetworkResponse *)getSecondaryCategoryList:(NSString *)fatherId{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getSecondaryCategoryList:(NSString *)fatherId{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"fatherId"] = fatherId;
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getCateInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getCateInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -212,9 +188,8 @@
 }
 
 
--(NetworkResponse *)getSecondaryCategoryRecommendedList:(NSString *)cateId :(NSString *)subId :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getSecondaryCategoryRecommendedList:(NSString *)cateId :(NSString *)subId :(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = cateId;
     params[@"subId"] = subId;
@@ -225,10 +200,9 @@
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getGroupInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -237,9 +211,8 @@
 }
 
 
--(NetworkResponse *)getSecondaryCategoryLatestList:(NSString *)cateId :(NSString*) subId :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getSecondaryCategoryLatestList:(NSString *)cateId :(NSString*) subId :(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = cateId;
     params[@"subId"] = subId;
@@ -250,10 +223,9 @@
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getGroupInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -261,9 +233,8 @@
     
 }
 
--(NetworkResponse *)getSecondaryCategoryHotestList:(NSString *)cateId :(NSString *)subId :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getSecondaryCategoryHotestList:(NSString *)cateId :(NSString *)subId :(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = cateId;
     params[@"subId"] = subId;
@@ -274,26 +245,24 @@
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getGroupInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
     return response;
 }
 
--(NetworkResponse *)getSearchResultList:(NSString *)word :(NSString *)start{
-    NetworkAccess *networkAccess = [[NetworkAccess alloc]init];
-    networkAccess.host = HOST;
+-(MGNetwokResponse *)getSearchResultList:(NSString *)word :(NSString *)start{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"wd"] = word;
     params[@"start"] = start;
     params[@"end"] = @"30";
-    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getSearchInfo.php" params:params];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getSearchInfo.php" params:params];
     if (0 == response.errorCode) {
-        [JsonHandler convertToListWithResponse:&response];
+        [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }

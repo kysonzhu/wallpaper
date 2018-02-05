@@ -61,7 +61,7 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
     [mTableView registerNib:cellNib forCellReuseIdentifier:CategoryListItemCellReuseIdentifier];
     
     //other
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYSECONDARY];
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYSECONDARY params:nil];
     ((ParamsModel *)[ParamsModel shareInstance]).fatherId = self.category.cateId;
     [self doNetworkService:serviceMediator];
     
@@ -81,11 +81,12 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
 }
 
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     if ([serviceName isEqualToString:SERVICENAME_CATEGORYSECONDARY]) {
-        NSArray *aryResponse = response.response;
-        self.classficationList = aryResponse;
-        [mTableView reloadData];
+#warning 111
+//        NSArray *aryResponse = response.response;
+//        self.classficationList = aryResponse;
+//        [mTableView reloadData];
     }
 }
 

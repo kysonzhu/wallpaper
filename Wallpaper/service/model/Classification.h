@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 zhujinhui. All rights reserved.
 //
 
-#import "BaseModel.h"
+#import "KSModel.h"
 
-@interface Classification : BaseModel
+@interface Classification : KSModel
 
 
 @property (nonatomic, copy) NSString *cateId;

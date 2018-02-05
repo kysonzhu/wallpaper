@@ -56,7 +56,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"搜索";
-
     /**
      *  navigation bar left bar button
      */
@@ -73,14 +72,8 @@
     mSearchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, HEIGHT_SEARCHBAR)];
     mSearchBar.delegate = self;
     [mSearchBar setPlaceholder:@"搜索列表"];
-    
     //clear cache
-//    clearCacheButton.tag = TAG_BTN_CLEARCACHE;
-//    [clearCacheButton setTitleColor:[UIColor colorWithHex:0x999999] forState:UIControlStateNormal];
-//    [clearCacheButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
     separaterView.backgroundColor = [UIColor colorWithHex:0xc8c8c8];
-    
     /**
      * adapter must be setted as a property or member valiable
      */
@@ -90,7 +83,6 @@
     historyTableView.delegate = mAdapter;
     historyTableView.dataSource = mAdapter;
     historyTableView.tableHeaderView = mSearchBar;
-    
     searchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:mSearchBar contentsController:self];
     searchDisplayController.active = NO;
     searchDisplayController.searchResultsDataSource = self;
@@ -122,12 +114,10 @@
             [historyTableView reloadData];
         }
             break;
-            
         default:
             break;
     }
 }
-
 
 #pragma mark -tableview delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -148,8 +138,6 @@
     return cell;
 }
 
-
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SearchDetailViewController *detailViewController = [[SearchDetailViewController alloc]initWithNibName:@"SearchDetailViewController_iphone" bundle:nil];
     Group *group = _groupList[indexPath.row];
@@ -157,7 +145,6 @@
     detailViewController.searchText = self.searchWord;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
-
 
 #pragma mark - SearchHistoryAdapterDelegate
 -(void)searchHistoryAdapter:(SearchHistoryAdapter *)adapter itemClicked:(NSIndexPath *)indexPath{
@@ -167,7 +154,6 @@
     SearchDetailViewController *detailViewController = [[SearchDetailViewController alloc]initWithNibName:@"SearchDetailViewController_iphone" bundle:nil];
     detailViewController.searchText = mSearchBar.text;
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
 }
 
 -(void)searchHistoryAdapterClearHistoryButtonClicked:(SearchHistoryAdapter *)adapter{
@@ -176,8 +162,6 @@
     [historyTableView reloadData];
 }
 
-
-
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     SearchDetailViewController *detailViewController = [[SearchDetailViewController alloc]initWithNibName:@"SearchDetailViewController_iphone" bundle:nil];
     self.searchWord = searchBar.text;
@@ -185,20 +169,20 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     _searchWord = searchText;
     /**
      * Do request
      */
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST];
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:nil];
     ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
     ((ParamsModel *)[ParamsModel shareInstance]).word = searchText;
     [self doNetworkService:serviceMediator];
 }
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
-    self.groupList = response.response;
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
+#warning 111
+//    self.groupList = response.response;
     [searchDisplayController.searchResultsTableView reloadData];
 }
 

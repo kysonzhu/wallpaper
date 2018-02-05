@@ -95,15 +95,15 @@
     //request
     [KVNProgress show];
     if (self.fromcontroller == FromControllerRecommended) {
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL];
+        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:nil];
         ((ParamsModel *)[ParamsModel shareInstance]).gId = self.group.gId;
         [self doNetworkService:serviceMediator];
     }else if (self.fromcontroller == FromControllerLatest){
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL];
+        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:nil];
         ((ParamsModel *)[ParamsModel shareInstance]).gId = self.group.gId;
         [self doNetworkService:serviceMediator];
     }else if (self.fromcontroller == FromControllerHotest){
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL];
+        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:nil];
         ((ParamsModel *)[ParamsModel shareInstance]).gId = self.group.gId;
         [self doNetworkService:serviceMediator];
     }
@@ -309,19 +309,21 @@
     [super viewWillDisappear:animated];
 }
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     if (0 == response.errorCode) {
         [KVNProgress dismiss];
-        NSArray *Aryresponse = response.response;
-        NSMutableArray *imgUrls = [[NSMutableArray alloc]init];
-        for (Image *imageItem in Aryresponse) {
-            NSURL *imgURL = [NSURL URLWithString:imageItem.imgUrl];
-            if ([imgURL.scheme isEqualToString:@"http"] || [imgURL.scheme isEqualToString:@"https"]) {
-                [imgUrls addObject:imageItem.imgUrl];
-            }
-        }
-        mViewPager.imageUrls = imgUrls;
-        self.imageList = Aryresponse;
+#warning 111
+//        NSArray *Aryresponse = response.response;
+        
+//        NSMutableArray *imgUrls = [[NSMutableArray alloc]init];
+//        for (Image *imageItem in Aryresponse) {
+//            NSURL *imgURL = [NSURL URLWithString:imageItem.imgUrl];
+//            if ([imgURL.scheme isEqualToString:@"http"] || [imgURL.scheme isEqualToString:@"https"]) {
+//                [imgUrls addObject:imageItem.imgUrl];
+//            }
+//        }
+//        mViewPager.imageUrls = imgUrls;
+//        self.imageList = Aryresponse;
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
     }

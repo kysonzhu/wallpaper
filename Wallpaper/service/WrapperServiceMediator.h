@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ServiceMediator.h"
+#import <MGNetworkServiceMediator.h>
 
 #define HOST_PICSHOW @"http://app.zol.com.cn/bizhi"
 
-#define SERVICENAME_RECOMMENDEDLIST     @"SERVICENAME_RECOMMENDEDLIST"
-#define SERVICENAME_RECOMMENDEDDETAIL   @"SERVICENAME_RECOMMENDEDDETAIL"
-#define SERVICENAME_LATESTLIST          @"SERVICENAME_LATESTLIST"
-#define SERVICENAME_CATEGORYLIST        @"SERVICENAME_CATEGORYLIST"
+#define SERVICENAME_RECOMMENDEDLIST     @"corp/bizhiClient/getGroupInfo.php?isAttion=1"
+#define SERVICENAME_RECOMMENDEDDETAIL   @"corp/bizhiClient/getGroupPic.php"
+#define SERVICENAME_LATESTLIST          @"corp/bizhiClient/getGroupInfo.php?isNow=1"
+#define SERVICENAME_CATEGORYLIST        @"corp/bizhiClient/getCateInfo.php"
 //category
-#define SERVICENAME_CATEGORYRECOMMENDEDLIST         @"SERVICENAME_CATEGORYRECOMMENDEDLIST"
+#define SERVICENAME_CATEGORYRECOMMENDEDLIST         @"corp/bizhiClient/getGroupInfo.php"
 #define SERVICENAME_CATEGORYHOTESTLIST              @"SERVICENAME_CATEGORYHOTESTLIST"
 #define SERVICENAME_CATEGORYLATESTLIST              @"SERVICENAME_CATEGORYLATESTLIST"
 //second category
@@ -32,6 +32,6 @@
 
 
 
-@interface WrapperServiceMediator : ServiceMediator
+@interface WrapperServiceMediator : MGNetworkServiceMediator
 
 @end

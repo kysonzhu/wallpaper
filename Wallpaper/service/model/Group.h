@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseModel.h"
+#import "KSModel.h"
 
-@interface Group : BaseModel
+@interface Group : KSModel
 
-@property (nonatomic, copy) NSString *gId;
-@property (nonatomic, copy) NSString *gName;
-@property (nonatomic, copy) NSString *voteGood;
-@property (nonatomic, copy) NSString *subId;
-@property (nonatomic, copy) NSString *downNum;
-@property (nonatomic, copy) NSString *editDate;
-@property (nonatomic, copy) NSString *coverImgUrl;
-@property (nonatomic, copy) NSString *picNum;
+CREATE_STRING_PROPERTY(gId)
+CREATE_STRING_PROPERTY(gName)
+CREATE_STRING_PROPERTY(voteGood)
+CREATE_STRING_PROPERTY(subId)
+CREATE_STRING_PROPERTY(downNum)
+CREATE_STRING_PROPERTY(editDate)
+CREATE_STRING_PROPERTY(coverImgUrl)
+CREATE_STRING_PROPERTY(picNum)
 
 
 @end

@@ -8,4 +8,5 @@ target "Wallpaper" do
         pod 'Masonry','1.1.0' # DDUIStyle限制
         pod 'AFNetworking', '~> 3.0'
         pod 'Google-Mobile-Ads-SDK'
+        pod 'Mangogo'
 end

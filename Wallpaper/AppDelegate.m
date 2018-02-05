@@ -13,6 +13,7 @@
 #import <AFNetworking/AFNetworking.h>
 #define CHINAL_ID_APP_STORE @"App Store"
 #define CHINAL_ID_ZOL @"zol"
+#import <MGTaskPool.h>
 @import GoogleMobileAds;
 #import <Bugly/Bugly.h>
 
@@ -31,6 +32,7 @@
 #endif
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
     [[EnvironmentConfigure shareInstance] setShowAllData:NO];
+    [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TaskPool.h"
-#import "ServiceMediator.h"
+#import <MGTaskPool.h>
+#import <MGNetworkServiceMediator.h>
+#import <MGNetwokResponse.h>
 #import "KVNProgress.h"
 #import <Masonry/Masonry.h>
 
@@ -16,9 +17,9 @@
 
 @interface Controller : UIViewController
 
--(void)doNetworkService:(ServiceMediator *) service;
+-(void)doNetworkService:(MGNetworkServiceMediator *) service;
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response;
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response;
 
 
 @end

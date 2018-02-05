@@ -25,7 +25,7 @@
 #import "AppDelegate.h"
 #import "DDMenuController.h"
 
-#import "TaskPool.h"
+#import "MGTaskPool.h"
 #import "WrapperServiceMediator.h"
 #import "Group.h"
 #import "Classification.h"
@@ -364,8 +364,7 @@
             [self.titleView setButtonHighlighedAtIndex:1];
             //request
             if (isFirstTimeFetchDataRecommended) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
-                ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":@"0"}];
                 [self doNetworkService:serviceMediator];
                 [KVNProgress show];
             }
@@ -377,7 +376,7 @@
             [self.titleView setButtonHighlighedAtIndex:0];
             //request
             if (isFirstTimeFetchDataLatest) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":@"0"}];
                 self.startLatest = 0;
                 ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
                 [self doNetworkService:serviceMediator];
@@ -391,7 +390,7 @@
             [self.titleView setButtonHighlighedAtIndex:2];
             //request
             if (isFirstTimeFetchDataCategory ) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLIST];
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLIST params:@{@"start":@"0"}];
                 [self doNetworkService:serviceMediator];
                 [KVNProgress show];
             }
@@ -452,12 +451,14 @@
 }
 
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     [KVNProgress dismiss];
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-            
-            NSArray *Aryresponse1 = response.response;
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *Aryresponse1 = resultDict[@"result"][@"groupList"];
+            Group *group = [[Group alloc] init];
+            Aryresponse1 = [group loadArrayPropertyWithDataSource:Aryresponse1 requireModel:@"Group"];
             NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
             for (Group *item in Aryresponse1)
             {
@@ -466,7 +467,6 @@
                     [Aryresponse addObject:item];
                 }
             }
-            
             RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
             NSMutableArray *temAry = nil;
             if (startRecommended != 0) {
@@ -481,41 +481,45 @@
             [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-            NSArray *Aryresponse1 = response.response;
-            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-            for (Group *item in Aryresponse1)
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *responseArray = resultDict[@"result"][@"groupList"];
+            Group *group = [[Group alloc] init];
+            responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
+            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            for (Group *item in responseArray)
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [Aryresponse addObject:item];
+                    [tempArray addObject:item];
                 }
             }
-            
             LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
-            NSMutableArray *temAry = nil;
+            NSMutableArray *temAry2 = nil;
             if (startLatest != 0) {
-                temAry = [[NSMutableArray alloc]initWithArray:layout2.groupList];
+                temAry2 = [[NSMutableArray alloc]initWithArray:layout2.groupList];
             }else{
-                temAry = [[NSMutableArray alloc]init];
+                temAry2 = [[NSMutableArray alloc]init];
             }
-            [temAry addObjectsFromArray:Aryresponse];
-            layout2.groupList = temAry;
+            [temAry2 addObjectsFromArray:tempArray];
+            layout2.groupList = temAry2;
             [self.mLastestCollectionView reloadData];
             [self.mLastestCollectionView .mj_footer endRefreshing];
             [self.mLastestCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataLatest = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
-            NSArray *Aryresponse1 = response.response;
-            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-            for (Group *item in Aryresponse1)
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *classificationlist = resultDict[@"result"][@"classificationlist"];
+            Classification *group = [[Classification alloc] init];
+            NSArray* responseArray = [group loadArrayPropertyWithDataSource:classificationlist requireModel:@"Classification"];
+            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            for (Classification *item in responseArray)
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [Aryresponse addObject:item];
+                    [tempArray addObject:item];
                 }
             }
-            
-            self.mCategoryTableView.categoryList = Aryresponse;
+            self.mCategoryTableView.categoryList = tempArray;
             //reload data
             [self.mCategoryTableView reloadData];
             isFirstTimeFetchDataCategory = NO;
@@ -562,7 +566,7 @@
             weakSelf.startRecommended = weakSelf.startRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
             ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];
         }];
@@ -572,8 +576,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST];
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];
         }];
@@ -595,8 +598,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startLatest = weakSelf.startLatest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
-            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];
         }];
@@ -606,8 +608,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startLatest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
-            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST];
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];
         }];

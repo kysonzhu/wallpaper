@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Classification;
 
 @protocol CategoryTableViewDelegate;
 
@@ -16,7 +16,7 @@
 
 @property (nonatomic, assign) id<CategoryTableViewDelegate> mDelegate;
 
-@property (nonatomic,retain) NSArray *categoryList;
+@property (nonatomic,retain) NSArray<Classification *> *categoryList;
 
 @end
 

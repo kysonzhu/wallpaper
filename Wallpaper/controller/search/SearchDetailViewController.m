@@ -73,17 +73,12 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     mCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         startRecommended = startRecommended + 30;
         NSString *startString = [NSString stringWithFormat:@"%i",startRecommended];
-        ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST];
+        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":startString}];
         [weakSelf doNetworkService:serviceMediator];
     }];
     [self.view addSubview:mCollectionView];
-
-    /**
-     * Do request
-     */
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST];
-    ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
+    //Do request
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":@"0"}];
     ((ParamsModel *)[ParamsModel shareInstance]).word = self.searchText;
     [self doNetworkService:serviceMediator];
     [KVNProgress show];
@@ -100,17 +95,17 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 
--(void)refreshData:(NSString *)serviceName response:(NetworkResponse *)response{
+-(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     [KVNProgress dismiss];
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_SEARCHGETSEARCHRESULTLIST]) {
-            NSArray *Aryresponse = response.response;
-            SearchHistoryLayout *layout1 = (SearchHistoryLayout *)mCollectionView.collectionViewLayout;
-            NSMutableArray *temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
-            [temAry addObjectsFromArray:Aryresponse];
-            layout1.groupList = temAry;
-            [mCollectionView reloadData];
-            [mCollectionView.mj_footer endRefreshing];
+//            NSArray *Aryresponse = response.response;
+//            SearchHistoryLayout *layout1 = (SearchHistoryLayout *)mCollectionView.collectionViewLayout;
+//            NSMutableArray *temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
+//            [temAry addObjectsFromArray:Aryresponse];
+//            layout1.groupList = temAry;
+//            [mCollectionView reloadData];
+//            [mCollectionView.mj_footer endRefreshing];
         }
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
