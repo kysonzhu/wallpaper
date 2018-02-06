@@ -13,6 +13,10 @@
 
 //#define HOST @"http://sj.zol.com.cn:8088"
 #define HOST @"http://sj.zol.com.cn"
+#define SERVICE_METHOD_MAP(__SERVICENAME_,METHODNAME) \
+if ([self.serviceName isEqualToString:__SERVICENAME_]) {\
+self.methodName = NSStringFromSelector(@selector(METHODNAME));\
+}\
 
 @implementation WrapperServiceMediator
 
@@ -20,12 +24,10 @@
     [super main];
 }
 
--(MGNetwokResponse *)getRecommendList:(NSString *)start{
+-(MGNetwokResponse *)getRecommendList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    if (nil != start) {
-        params[@"start"] = start;
-    }
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
@@ -43,7 +45,7 @@
 }
 
 
--(MGNetwokResponse *)getRecommendDetail:(NSString *)gId{
+-(MGNetwokResponse *)getRecommendDetail{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
@@ -71,11 +73,11 @@
 }
 
 
--(MGNetwokResponse *)getLatestList:(NSString *)start{
+-(MGNetwokResponse *)getLatestList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"start"] = start;
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
@@ -105,14 +107,12 @@
 /**
  * Category list
  */
--(MGNetwokResponse *)getCategoryRecommendedList:(NSString *)cateId :(NSString *)start{
+-(MGNetwokResponse *)getCategoryRecommendedList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"] = cateId;
+    params[@"cateId"] = self.requestParams[@"cateId"];
     params[@"isAttion"] = @"1";
-    if (nil != start) {
-        params[@"start"] = start;
-    }
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
@@ -128,12 +128,12 @@
     return response;
 }
 
--(MGNetwokResponse *)getCategoryLatestList:(NSString *)cateId :(NSString *)start{
+-(MGNetwokResponse *)getCategoryLatestList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"]   = cateId;
+    params[@"cateId"]   = self.requestParams[@"cateId"];
     params[@"isNow"]    = @"1";
-    params[@"start"]    = start;
+    params[@"start"]    = self.requestParams[@"start"];
     params[@"end"]      = @"30";
     //filter image size
     CGRect rect     = [UIScreen mainScreen].bounds;
@@ -149,19 +149,18 @@
     return response;
 }
 
--(MGNetwokResponse *)getCategoryHotestList:(NSString *)cateId :(NSString *)start{
+-(MGNetwokResponse *)getCategoryHotestList{
     MGNetworkAccess *networkAccess  = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params     = [[NSMutableDictionary alloc]init];
-    params[@"cateId"]   = cateId;
+    params[@"cateId"]   = self.requestParams[@"cateId"];
     params[@"isDown"]   = @"1";
-    params[@"start"]    = start;
+    params[@"start"]    = self.requestParams[@"start"];
     params[@"end"]      = @"30";
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-//    NetworkResponse *response = [networkAccess doHttpRequest:@"corp/bizhiClient/getGroupInfo.php" params:params];
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getGroupInfo.php" params:params];
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
@@ -174,10 +173,10 @@
 /**
  * Secondary category
  */
--(MGNetwokResponse *)getSecondaryCategoryList:(NSString *)fatherId{
+-(MGNetwokResponse *)getSecondaryCategoryList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"fatherId"] = fatherId;
+    params[@"fatherId"] = self.requestParams[@"fatherId"];
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getCateInfo.php" params:params];
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
@@ -188,13 +187,13 @@
 }
 
 
--(MGNetwokResponse *)getSecondaryCategoryRecommendedList:(NSString *)cateId :(NSString *)subId :(NSString *)start{
+-(MGNetwokResponse *)getSecondaryCategoryRecommendedList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"] = cateId;
-    params[@"subId"] = subId;
+    params[@"cateId"] = self.requestParams[@"cateId"];
+    params[@"subId"] = self.requestParams[@"subId"];
     params[@"isAttion"] = @"1";
-    params[@"start"] = start;
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
@@ -211,13 +210,13 @@
 }
 
 
--(MGNetwokResponse *)getSecondaryCategoryLatestList:(NSString *)cateId :(NSString*) subId :(NSString *)start{
+-(MGNetwokResponse *)getSecondaryCategoryLatestList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"] = cateId;
-    params[@"subId"] = subId;
+    params[@"cateId"] = self.requestParams[@"cateId"];
+    params[@"subId"] = self.requestParams[@"subId"];
     params[@"isNow"] = @"1";
-    params[@"start"] = start;
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
@@ -233,13 +232,13 @@
     
 }
 
--(MGNetwokResponse *)getSecondaryCategoryHotestList:(NSString *)cateId :(NSString *)subId :(NSString *)start{
+-(MGNetwokResponse *)getSecondaryCategoryHotestList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"cateId"] = cateId;
-    params[@"subId"] = subId;
+    params[@"cateId"] = self.requestParams[@"cateId"];
+    params[@"subId"] = self.requestParams[@"subId"];
     params[@"isDown"] = @"1";
-    params[@"start"] = start;
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
@@ -254,11 +253,11 @@
     return response;
 }
 
--(MGNetwokResponse *)getSearchResultList:(NSString *)word :(NSString *)start{
+-(MGNetwokResponse *)getSearchResultList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"wd"] = word;
-    params[@"start"] = start;
+    params[@"wd"] = self.requestParams[@"wd"];
+    params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getSearchInfo.php" params:params];
     if (0 == response.errorCode) {
@@ -272,43 +271,18 @@
 
 -(void)setServiceName:(NSString *)serviceName{
     super.serviceName = serviceName;
-    if ([self.serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-        self.methodName = NSStringFromSelector(@selector(getRecommendList:));
-        self.paramNames = [NSArray arrayWithObjects:@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_RECOMMENDEDDETAIL]) {
-            self.methodName = NSStringFromSelector(@selector(getRecommendDetail:));
-            self.paramNames = [NSArray arrayWithObjects:@"gId", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-        self.methodName = NSStringFromSelector(@selector(getLatestList:));
-        self.paramNames = [NSArray arrayWithObjects:@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
-        self.methodName = NSStringFromSelector(@selector(getCategoryList));
-    }else if ([self.serviceName isEqualToString:SERVICENAME_CATEGORYRECOMMENDEDLIST]){
-        self.methodName = NSStringFromSelector(@selector(getCategoryRecommendedList::));
-        self.paramNames = [NSArray arrayWithObjects:@"cateId",@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_CATEGORYLATESTLIST]){
-        self.methodName = NSStringFromSelector(@selector(getCategoryLatestList::));
-        self.paramNames = [NSArray arrayWithObjects:@"cateId",@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_CATEGORYHOTESTLIST]){
-        self.methodName = NSStringFromSelector(@selector(getCategoryHotestList::));
-        self.paramNames = [NSArray arrayWithObjects:@"cateId",@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_CATEGORYSECONDARY]){
-        self.methodName = NSStringFromSelector(@selector(getSecondaryCategoryList:));
-        self.paramNames = [NSArray arrayWithObjects:@"fatherId", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST]){
-        self.methodName = NSStringFromSelector(@selector(getSecondaryCategoryRecommendedList:::));
-        self.paramNames = [NSArray arrayWithObjects:@"cateId",@"subId",@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYLATESTLIST]){
-        self.methodName = NSStringFromSelector(@selector(getSecondaryCategoryLatestList:::));
-        self.paramNames = [NSArray arrayWithObjects:@"cateId",@"subId",@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYHOTESTLIST]){
-        self.methodName = NSStringFromSelector(@selector(getSecondaryCategoryHotestList:::));
-        self.paramNames = [NSArray arrayWithObjects:@"cateId",@"subId",@"start", nil];
-    }else if ([self.serviceName isEqualToString:SERVICENAME_SEARCHGETSEARCHRESULTLIST]){
-        self.methodName = NSStringFromSelector(@selector(getSearchResultList::));
-        self.paramNames = [NSArray arrayWithObjects:@"word",@"start", nil];
-    }
-    
+    SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDLIST,getRecommendList)
+    SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDDETAIL,getRecommendDetail)
+    SERVICE_METHOD_MAP(SERVICENAME_LATESTLIST,getLatestList)
+    SERVICE_METHOD_MAP(SERVICENAME_CATEGORYLIST,getCategoryList)
+    SERVICE_METHOD_MAP(SERVICENAME_CATEGORYRECOMMENDEDLIST,getCategoryRecommendedList)
+    SERVICE_METHOD_MAP(SERVICENAME_CATEGORYLATESTLIST,getCategoryLatestList)
+    SERVICE_METHOD_MAP(SERVICENAME_CATEGORYHOTESTLIST,getCategoryHotestList)
+    SERVICE_METHOD_MAP(SERVICENAME_CATEGORYSECONDARY,getSecondaryCategoryList)
+    SERVICE_METHOD_MAP(SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST,getSecondaryCategoryRecommendedList)
+    SERVICE_METHOD_MAP(SERVICENAME_SECONDARYCATEGORYLATESTLIST,getSecondaryCategoryLatestList)
+    SERVICE_METHOD_MAP(SERVICENAME_SECONDARYCATEGORYHOTESTLIST,getSecondaryCategoryHotestList)
+    SERVICE_METHOD_MAP(SERVICENAME_SEARCHGETSEARCHRESULTLIST,getSearchResultList)
 }
 
 

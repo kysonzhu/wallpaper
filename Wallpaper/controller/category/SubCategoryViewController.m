@@ -40,9 +40,6 @@ typedef enum _CurrentCategoryType{
 }CurrentCategoryType;
 
 @interface SubCategoryViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CateListViewControllerDelegate>{
-    RecommndCollectionView    *mRecommndCollectionView;
-    LatestCollectionView      *mLastestCollectionView;
-    HotestCollectionView      *mHotestCollectionView;
     
     __weak IBOutlet UIButton *recommendButton;
     __weak IBOutlet UIButton *latestButton;
@@ -67,9 +64,10 @@ typedef enum _CurrentCategoryType{
 @property (nonatomic, assign) int startSecondaryCategoryLatest;
 @property (nonatomic, assign) int startCategoryHottest;
 @property (nonatomic, assign) int startSecondaryCategoryHottest;
-//@property (nonatomic, assign) int shouldUpdateDataRecommend;
-//@property (nonatomic, assign) int shouldUpdateDataLatest;
-//@property (nonatomic, assign) int shouldUpdateDataHottest;
+@property (nonatomic, strong) LatestCollectionView      *mLastestCollectionView;
+@property (nonatomic, strong) RecommndCollectionView    *mRecommndCollectionView;
+@property (nonatomic, strong) HotestCollectionView      *mHotestCollectionView;;
+
 
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataLatest;
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataHottest;
@@ -201,128 +199,132 @@ typedef enum _CurrentCategoryType{
     self.title = self.category.cateName;
     //init recommend
     RecommndCollectionViewLayout *layout1 = [[RecommndCollectionViewLayout alloc]initWithDelegate:self];
-    mRecommndCollectionView = [[RecommndCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout1];
-    mRecommndCollectionView.delegate = layout1;
-    mRecommndCollectionView.dataSource = layout1;
+    self.mRecommndCollectionView = [[RecommndCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout1];
+    self.mRecommndCollectionView.delegate = layout1;
+    self.mRecommndCollectionView.dataSource = layout1;
     //init latest
     LatestCollectionViewLayout *layout2 = [[LatestCollectionViewLayout alloc]initWithDelegate:self];
-    mLastestCollectionView = [[LatestCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout2];
-    mLastestCollectionView.delegate = layout2;
-    mLastestCollectionView.dataSource = layout2;
+    self.mLastestCollectionView = [[LatestCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout2];
+    self.mLastestCollectionView.delegate = layout2;
+    self.mLastestCollectionView.dataSource = layout2;
     //init hotest
     HotestCollectionViewLayout *layout3 = [[HotestCollectionViewLayout alloc]initWithDelegate:self];
-    mHotestCollectionView = [[HotestCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout3];
-    mHotestCollectionView.delegate = layout3;
-    mHotestCollectionView.dataSource = layout3;
+    self.mHotestCollectionView = [[HotestCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout3];
+    self.mHotestCollectionView.delegate = layout3;
+    self.mHotestCollectionView.dataSource = layout3;
 
-    NSArray *array = [NSArray arrayWithObjects:mLastestCollectionView,mRecommndCollectionView,mHotestCollectionView, nil];
+    NSArray *array = [NSArray arrayWithObjects:self.mLastestCollectionView,self.mRecommndCollectionView,self.mHotestCollectionView, nil];
     adapter.views = array;
     [mViewPager setAdapter:adapter];
     
+    [self configHeaderAndFooterView];
+    /**
+     * Do request
+     */
+    [self buttonClicked:latestButton];
+}
+
+-(void)configHeaderAndFooterView{
     /**
      * Add header view and footer view
      */
     __weak typeof(self) weakSelf = self;
-    mRecommndCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.mRecommndCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         WrapperServiceMediator *serviceMediator = nil;
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryRecommended = weakSelf.startCategoryRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }else{
             weakSelf.startSecondaryCategoryRecommended = weakSelf.startSecondaryCategoryRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
     }];
-
-    mRecommndCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    
+    self.mRecommndCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [[NSURLCache sharedURLCache] removeAllCachedResponses];
         weakSelf.isFirstTimeFetchDataRecommended = YES;
         WrapperServiceMediator *serviceMediator = nil;
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }else{
             weakSelf.startSecondaryCategoryRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
     }];
-
-
-    mLastestCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    
+    
+    self.mLastestCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         WrapperServiceMediator *serviceMediator = nil;
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryLatest = weakSelf.startCategoryLatest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }else{
             weakSelf.startSecondaryCategoryLatest = weakSelf.startSecondaryCategoryLatest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
     }];
-
-    mLastestCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    
+    self.mLastestCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.isFirstTimeFetchDataLatest = YES;
         [[NSURLCache sharedURLCache] removeAllCachedResponses];
         WrapperServiceMediator *serviceMediator = nil;
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryLatest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }else{
             weakSelf.startSecondaryCategoryLatest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
     }];
-
-    mHotestCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    
+    self.mHotestCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         WrapperServiceMediator *serviceMediator = nil;
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryHottest = weakSelf.startCategoryHottest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }else{
             weakSelf.startSecondaryCategoryHottest = weakSelf.startSecondaryCategoryHottest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
     }];
-
-    mHotestCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    
+    self.mHotestCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.isFirstTimeFetchDataHottest = YES;
         [[NSURLCache sharedURLCache] removeAllCachedResponses];
         WrapperServiceMediator *serviceMediator = nil;
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryHottest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }else{
             weakSelf.startSecondaryCategoryHottest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
     }];
-    /**
-     * Do request
-     */
-    [self buttonClicked:latestButton];
 }
 
 /*
@@ -338,11 +340,10 @@ typedef enum _CurrentCategoryType{
                     WrapperServiceMediator *serviceMediator = nil;
                     self.startCategoryLatest = 0;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":@"0"}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":@"0"}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
                     }
-                    ((ParamsModel *)[ParamsModel shareInstance]).cateId = self.category.cateId;
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
             }
@@ -355,15 +356,12 @@ typedef enum _CurrentCategoryType{
             if (isFirstTimeFetchDataLatest) {
                     WrapperServiceMediator *serviceMediator = nil;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":@"0"}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":@"0"}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
                     }
-                    ((ParamsModel *)[ParamsModel shareInstance]).cateId = self.category.cateId;
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
-
-                
             }
         }
             break;
@@ -374,9 +372,9 @@ typedef enum _CurrentCategoryType{
             if (isFirstTimeFetchDataHottest) {
                     WrapperServiceMediator *serviceMediator = nil;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":@"0"}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":@"0"}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
                     }
                     ((ParamsModel *)[ParamsModel shareInstance]).cateId = self.category.cateId;
                     [self doNetworkService:serviceMediator];
@@ -397,11 +395,11 @@ typedef enum _CurrentCategoryType{
         }
         case TAG_BTN_NAV_TITLE:{
             if (mViewPager.currentPage == 0) {
-                [mLastestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+                [self.mLastestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
             }else if (mViewPager.currentPage == 1){
-                [mRecommndCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+                [self.mRecommndCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
             }else if (mViewPager.currentPage == 2){
-                [mHotestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+                [self.mHotestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
             }
         }
             break;
@@ -459,7 +457,7 @@ typedef enum _CurrentCategoryType{
     if ([layout isKindOfClass:[RecommndCollectionViewLayout class]]) {
         NSInteger section = [indexPath section];
         NSInteger row = [indexPath row];
-        RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)mRecommndCollectionView.collectionViewLayout;
+        RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *3 +row ];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
@@ -469,7 +467,7 @@ typedef enum _CurrentCategoryType{
     }else if ([layout isKindOfClass:[LatestCollectionViewLayout class]]) {
         NSInteger section = [indexPath section];
         NSInteger row = [indexPath row];
-        LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)mLastestCollectionView.collectionViewLayout;
+        LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *3 +row ];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
@@ -479,7 +477,7 @@ typedef enum _CurrentCategoryType{
     }else if ([layout isKindOfClass:[HotestCollectionViewLayout class]]) {
         NSInteger section = [indexPath section];
         NSInteger row = [indexPath row];
-        HotestCollectionViewLayout *layout1 = (HotestCollectionViewLayout *)mHotestCollectionView.collectionViewLayout;
+        HotestCollectionViewLayout *layout1 = (HotestCollectionViewLayout *)self.mHotestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *3 +row];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
@@ -499,78 +497,86 @@ typedef enum _CurrentCategoryType{
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_CATEGORYRECOMMENDEDLIST] ||[serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST] ) {
 
-//            NSArray *Aryresponse1 = response.response;
-//            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-//            for (Group *item in Aryresponse1)
-//            {
-//                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
-//                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-//                    [Aryresponse addObject:item];
-//                }
-//            }
-//
-//            RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)mRecommndCollectionView.collectionViewLayout;
-//            NSMutableArray *temAry = nil ;
-//            if (isFirstTimeFetchDataRecommended) {
-//                temAry = [[NSMutableArray alloc]init];
-//            }else{
-//                temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
-//            }
-//            isFirstTimeFetchDataRecommended = NO;
-//            [temAry addObjectsFromArray:Aryresponse];
-//            layout1.groupList = temAry;
-//            [mRecommndCollectionView reloadData];
-//            [mRecommndCollectionView.mj_footer endRefreshing];
-//            [mRecommndCollectionView.mj_header endRefreshing];
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *Aryresponse1 = resultDict[@"result"][@"groupList"];
+            Group *group = [[Group alloc] init];
+            Aryresponse1 = [group loadArrayPropertyWithDataSource:Aryresponse1 requireModel:@"Group"];
+            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
+            for (Group *item in Aryresponse1)
+            {
+                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
+                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
+                    [Aryresponse addObject:item];
+                }
+            }
+            RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.self.mRecommndCollectionView.collectionViewLayout;
+            NSMutableArray *temAry = nil;
+            if (!isFirstTimeFetchDataRecommended) {
+                temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
+            }else{
+                temAry = [[NSMutableArray alloc]init];
+            }
+            [temAry addObjectsFromArray:Aryresponse];
+            layout1.groupList = temAry;
+            [self.mRecommndCollectionView reloadData];
+            [self.mRecommndCollectionView .mj_footer endRefreshing];
+            [self.mRecommndCollectionView .mj_header endRefreshing];
+            isFirstTimeFetchDataRecommended = NO;
+            
         }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLATESTLIST] || [serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYLATESTLIST]) {
-//            NSArray *Aryresponse1 = response.response;
-//            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-//            for (Group *item in Aryresponse1)
-//            {
-//                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
-//                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-//                    [Aryresponse addObject:item];
-//                }
-//            }
-//
-//            LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)mLastestCollectionView.collectionViewLayout;
-//            NSMutableArray *temAry = nil ;
-//            if (isFirstTimeFetchDataLatest) {
-//                temAry = [[NSMutableArray alloc]init];
-//            }else{
-//                temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
-//            }
-//            isFirstTimeFetchDataLatest = NO;
-//            [temAry addObjectsFromArray:Aryresponse];
-//            layout1.groupList = temAry;
-//            [mLastestCollectionView reloadData];
-//            [mLastestCollectionView .mj_footer endRefreshing];
-//            [mLastestCollectionView .mj_header endRefreshing];
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *responseArray = resultDict[@"result"][@"groupList"];
+            Group *group = [[Group alloc] init];
+            responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
+            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            for (Group *item in responseArray)
+            {
+                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
+                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
+                    [tempArray addObject:item];
+                }
+            }
+            LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
+            NSMutableArray *temAry2 = nil;
+            if (!isFirstTimeFetchDataLatest) {
+                temAry2 = [[NSMutableArray alloc]initWithArray:layout2.groupList];
+            }else{
+                temAry2 = [[NSMutableArray alloc]init];
+            }
+            [temAry2 addObjectsFromArray:tempArray];
+            layout2.groupList = temAry2;
+            [self.mLastestCollectionView reloadData];
+            [self.mLastestCollectionView .mj_footer endRefreshing];
+            [self.mLastestCollectionView .mj_header endRefreshing];
+            isFirstTimeFetchDataLatest = NO;
+            
         }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYHOTESTLIST] ||[serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYHOTESTLIST]) {
 
-//            NSArray *Aryresponse1 = response.response;
-//            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-//            for (Group *item in Aryresponse1)
-//            {
-//                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
-//                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-//                    [Aryresponse addObject:item];
-//                }
-//            }
-//
-//            HotestCollectionViewLayout *layout1 = (HotestCollectionViewLayout *)mHotestCollectionView.collectionViewLayout;
-//            NSMutableArray *temAry = nil ;
-//            if (isFirstTimeFetchDataHottest) {
-//                temAry = [[NSMutableArray alloc]init];
-//            }else{
-//                temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
-//            }
-//            isFirstTimeFetchDataHottest = NO;
-//            [temAry addObjectsFromArray:Aryresponse];
-//            layout1.groupList = temAry;
-//            [mHotestCollectionView reloadData];
-//            [mHotestCollectionView .mj_footer endRefreshing];
-//            [mHotestCollectionView .mj_header endRefreshing];
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *responseArray = resultDict[@"result"][@"groupList"];
+            Group *group = [[Group alloc] init];
+            responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
+            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            for (Group *item in responseArray)
+            {
+                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
+                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
+                    [tempArray addObject:item];
+                }
+            }
+            HotestCollectionViewLayout *layout3 = (HotestCollectionViewLayout *)self.mHotestCollectionView.collectionViewLayout;
+            NSMutableArray *temAry2 = nil;
+            if (!isFirstTimeFetchDataHottest) {
+                temAry2 = [[NSMutableArray alloc]initWithArray:layout3.groupList];
+            }else{
+                temAry2 = [[NSMutableArray alloc]init];
+            }
+            [temAry2 addObjectsFromArray:tempArray];
+            layout3.groupList = temAry2;
+            [self.mHotestCollectionView reloadData];
+            [self.mHotestCollectionView .mj_footer endRefreshing];
+            [self.mHotestCollectionView .mj_header endRefreshing];
+            isFirstTimeFetchDataHottest = NO;
         }
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
@@ -579,33 +585,33 @@ typedef enum _CurrentCategoryType{
         if ([serviceName isEqualToString:SERVICENAME_CATEGORYRECOMMENDEDLIST]){
             weakSelf.startCategoryRecommended -= 30;
             weakSelf.startCategoryRecommended = weakSelf.startCategoryRecommended < 0 ? 0 : weakSelf.startCategoryRecommended;
-            [mRecommndCollectionView .mj_footer endRefreshing];
-            [mRecommndCollectionView .mj_header endRefreshing];
+            [self.mRecommndCollectionView .mj_footer endRefreshing];
+            [self.mRecommndCollectionView .mj_header endRefreshing];
         }else if([serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST] ){
             weakSelf.startSecondaryCategoryRecommended -= 30;
             weakSelf.startSecondaryCategoryRecommended = weakSelf.startSecondaryCategoryRecommended < 0 ? 0 : weakSelf.startSecondaryCategoryRecommended;
-            [mRecommndCollectionView .mj_footer endRefreshing];
-            [mRecommndCollectionView .mj_header endRefreshing];
+            [self.mRecommndCollectionView .mj_footer endRefreshing];
+            [self.mRecommndCollectionView .mj_header endRefreshing];
         }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLATESTLIST]){
             weakSelf.startCategoryLatest -= 30;
             weakSelf.startCategoryLatest = weakSelf.startCategoryLatest < 0 ? 0 : weakSelf.startCategoryLatest;
-            [mLastestCollectionView .mj_footer endRefreshing];
-            [mLastestCollectionView .mj_header endRefreshing];
+            [self.mLastestCollectionView .mj_footer endRefreshing];
+            [self.mLastestCollectionView .mj_header endRefreshing];
         }else if ([serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYLATESTLIST]){
             weakSelf.startSecondaryCategoryLatest -= 30;
             weakSelf.startSecondaryCategoryLatest = weakSelf.startSecondaryCategoryLatest < 0 ? 0 : weakSelf.startSecondaryCategoryLatest;
-            [mLastestCollectionView .mj_footer endRefreshing];
-            [mLastestCollectionView .mj_header endRefreshing];
+            [self.mLastestCollectionView .mj_footer endRefreshing];
+            [self.mLastestCollectionView .mj_header endRefreshing];
         }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYHOTESTLIST]){
             weakSelf.startCategoryHottest -= 30;
             weakSelf.startCategoryHottest = weakSelf.startCategoryHottest < 0 ? 0 : weakSelf.startCategoryHottest;
-            [mHotestCollectionView .mj_footer endRefreshing];
-            [mHotestCollectionView .mj_header endRefreshing];
+            [self.mHotestCollectionView .mj_footer endRefreshing];
+            [self.mHotestCollectionView .mj_header endRefreshing];
         }else if ([serviceName isEqualToString:SERVICENAME_SECONDARYCATEGORYHOTESTLIST]){
             weakSelf.startSecondaryCategoryHottest -= 30;
             weakSelf.startSecondaryCategoryHottest = weakSelf.startSecondaryCategoryHottest < 0 ? 0 : weakSelf.startSecondaryCategoryHottest;
-            [mHotestCollectionView .mj_footer endRefreshing];
-            [mHotestCollectionView .mj_header endRefreshing];
+            [self.mHotestCollectionView .mj_footer endRefreshing];
+            [self.mHotestCollectionView .mj_header endRefreshing];
         }
         
     }
