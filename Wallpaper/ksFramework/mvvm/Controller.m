@@ -59,14 +59,6 @@
 }
 
 -(void)doNetworkService:(MGNetworkServiceMediator *) service{
-//    AFNetworkReachabilityManager *netReachabilityManger = [AFNetworkReachabilityManager sharedManager];
-//    if (netReachabilityManger.reachable == NO)
-//    {
-//        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"您的网络似乎没有连接" message:@"请至手机 设置->壁纸宝贝->无线数据 检查网络使用情况 " preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction * alertAct = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        }];
-//        [alertVC addAction:alertAct];
-//    }
     [self.taskPool addDelegate:self];
     [requestTokens addObject:service.serviceName];
     [self.taskPool doTaskWithService:service];

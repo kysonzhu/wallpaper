@@ -12,16 +12,12 @@
 #import "HotestCollectionView.h"
 #import "ViewPager.h"
 #import "ViewPagerAdapter.h"
-
 #import "LatestCollectionViewLayout.h"
 #import "RecommndCollectionViewLayout.h"
 #import "HotestCollectionViewLayout.h"
-
 #import "WrapperDetailViewController.h"
 #import "WrapperServiceMediator.h"
 #import "CateListViewController.h"
-
-#import "ParamsModel.h"
 #import "UIScrollView+MJRefresh.h"
 
 #define TAG_BTN_OFFSET      89091
@@ -67,7 +63,8 @@ typedef enum _CurrentCategoryType{
 @property (nonatomic, strong) LatestCollectionView      *mLastestCollectionView;
 @property (nonatomic, strong) RecommndCollectionView    *mRecommndCollectionView;
 @property (nonatomic, strong) HotestCollectionView      *mHotestCollectionView;;
-
+@property (nonatomic, strong) NSString *subId;
+@property (nonatomic, strong) NSString *cateId;
 
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataLatest;
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataHottest;
@@ -316,11 +313,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryHottest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId,@"subId":self.subId}];
         }else{
             weakSelf.startSecondaryCategoryHottest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId,@"subId":self.subId}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
@@ -340,9 +337,9 @@ typedef enum _CurrentCategoryType{
                     WrapperServiceMediator *serviceMediator = nil;
                     self.startCategoryLatest = 0;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
                     }
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
@@ -356,9 +353,9 @@ typedef enum _CurrentCategoryType{
             if (isFirstTimeFetchDataLatest) {
                     WrapperServiceMediator *serviceMediator = nil;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
                     }
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
@@ -372,11 +369,10 @@ typedef enum _CurrentCategoryType{
             if (isFirstTimeFetchDataHottest) {
                     WrapperServiceMediator *serviceMediator = nil;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
                     }
-                    ((ParamsModel *)[ParamsModel shareInstance]).cateId = self.category.cateId;
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
                 
@@ -630,8 +626,8 @@ typedef enum _CurrentCategoryType{
         isFirstTimeFetchDataRecommended = YES;
         isFirstTimeFetchDataHottest = YES;
         self.title = category.cateName;
-        ((ParamsModel *)[ParamsModel shareInstance]).subId = category.cateId;
-        ((ParamsModel *)[ParamsModel shareInstance]).cateId = self.category.cateId;
+        self.subId = category.cateId;
+        self.cateId = self.category.cateId;
         //set button background color and request data
         UIButton *button = [[UIButton alloc]init];
         button.tag = mViewPager.currentPage + TAG_BTN_OFFSET;

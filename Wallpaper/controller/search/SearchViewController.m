@@ -171,12 +171,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     _searchWord = searchText;
-    /**
-     * Do request
-     */
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:nil];
-    ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
-    ((ParamsModel *)[ParamsModel shareInstance]).word = searchText;
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":@"0",@"word":searchText}];
     [self doNetworkService:serviceMediator];
 }
 

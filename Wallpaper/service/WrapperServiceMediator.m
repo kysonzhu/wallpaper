@@ -256,7 +256,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 -(MGNetwokResponse *)getSearchResultList{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"wd"] = self.requestParams[@"wd"];
+    params[@"wd"] = self.requestParams[@"word"];
     params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"corp/bizhiClient/getSearchInfo.php" params:params];

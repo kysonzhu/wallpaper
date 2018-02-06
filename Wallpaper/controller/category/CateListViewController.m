@@ -59,10 +59,8 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
     //register nib
     UINib *cellNib = [UINib nibWithNibName:@"CateListItemCell" bundle:nil];
     [mTableView registerNib:cellNib forCellReuseIdentifier:CategoryListItemCellReuseIdentifier];
-    
     //other
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYSECONDARY params:nil];
-    ((ParamsModel *)[ParamsModel shareInstance]).fatherId = self.category.cateId;
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYSECONDARY params:@{@"fatherId":self.category.cateId}];
     [self doNetworkService:serviceMediator];
     
 }

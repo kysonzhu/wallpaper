@@ -356,7 +356,6 @@
  */
 -(void)buttonClicked:(UIButton *) button{
     //dissmiss out of network view
-    
     switch (button.tag) {
         case TAG_BTN_RECOMMEND:{
             mViewPager.currentPage = 1;
@@ -378,7 +377,6 @@
             if (isFirstTimeFetchDataLatest) {
                 WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":@"0"}];
                 self.startLatest = 0;
-                ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
                 [self doNetworkService:serviceMediator];
                 [KVNProgress show];
             }
@@ -559,13 +557,11 @@
         _mRecommndCollectionView.delegate = layout1;
         _mRecommndCollectionView.dataSource = layout1;
         //load more data of recommend collection view
-        ((ParamsModel *)[ParamsModel shareInstance]).start = @"0";
         __weak typeof(self) weakSelf = self;
         _mRecommndCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startRecommended = weakSelf.startRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-            ((ParamsModel *)[ParamsModel shareInstance]).start = startString;
             WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];

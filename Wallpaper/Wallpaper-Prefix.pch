@@ -16,7 +16,6 @@
     #import <Foundation/Foundation.h>
     #import "UIColor+Hex.h"
     #import "Controller.h"
-    #import "ParamsModel.h"
 
 
 //获取屏幕 宽度、高度

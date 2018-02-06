@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KSModel.h"
 
-@interface Bigcategory : BaseModel
+@interface Bigcategory : KSModel
 
 @property (nonatomic, copy) NSString *cateId;
 @property (nonatomic, copy) NSString *cateName;

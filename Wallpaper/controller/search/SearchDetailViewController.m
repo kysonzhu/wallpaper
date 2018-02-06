@@ -59,7 +59,7 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     
     SearchHistoryLayout *layout = [[SearchHistoryLayout alloc]initWithDelegate:self];
     
-    mCollectionView = [[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout];
+    mCollectionView = [[UICollectionView alloc]initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
     mCollectionView.backgroundColor = [UIColor whiteColor];
     mCollectionView.delegate = layout;
     mCollectionView.dataSource = layout;
@@ -73,13 +73,12 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     mCollectionView.mj_footer =  [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         startRecommended = startRecommended + 30;
         NSString *startString = [NSString stringWithFormat:@"%i",startRecommended];
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":startString}];
+        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":startString,@"word":self.searchText}];
         [weakSelf doNetworkService:serviceMediator];
     }];
     [self.view addSubview:mCollectionView];
     //Do request
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":@"0"}];
-    ((ParamsModel *)[ParamsModel shareInstance]).word = self.searchText;
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SEARCHGETSEARCHRESULTLIST params:@{@"start":@"0",@"word":self.searchText}];
     [self doNetworkService:serviceMediator];
     [KVNProgress show];
 }
@@ -99,13 +98,25 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     [KVNProgress dismiss];
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_SEARCHGETSEARCHRESULTLIST]) {
-//            NSArray *Aryresponse = response.response;
-//            SearchHistoryLayout *layout1 = (SearchHistoryLayout *)mCollectionView.collectionViewLayout;
-//            NSMutableArray *temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
-//            [temAry addObjectsFromArray:Aryresponse];
-//            layout1.groupList = temAry;
-//            [mCollectionView reloadData];
-//            [mCollectionView.mj_footer endRefreshing];
+            
+            NSDictionary *resultDict = response.rawResponseDictionary;
+            NSArray *Aryresponse1 = resultDict[@"result"][@"groupList"];
+            Group *group = [[Group alloc] init];
+            Aryresponse1 = [group loadArrayPropertyWithDataSource:Aryresponse1 requireModel:@"Group"];
+            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
+            for (Group *item in Aryresponse1)
+            {
+                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
+                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
+                    [Aryresponse addObject:item];
+                }
+            }
+            SearchHistoryLayout *layout1 = (SearchHistoryLayout *)mCollectionView.collectionViewLayout;
+            NSMutableArray *temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
+            [temAry addObjectsFromArray:Aryresponse];
+            layout1.groupList = temAry;
+            [mCollectionView reloadData];
+            [mCollectionView .mj_footer endRefreshing];
         }
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];

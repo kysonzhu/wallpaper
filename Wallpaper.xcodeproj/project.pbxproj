@@ -83,7 +83,6 @@
 		DEBDBC991A4E649C0092521E /* WrapperServiceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBC981A4E649C0092521E /* WrapperServiceMediator.m */; };
 		DEBDBCA01A4E9A1F0092521E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBC9F1A4E9A1F0092521E /* Group.m */; };
 		DEBDBCA41A4E9AF30092521E /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCA31A4E9AF30092521E /* Controller.m */; };
-		DEBDBCA71A4EA11E0092521E /* ParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCA61A4EA11E0092521E /* ParamsModel.m */; };
 		DEBDBCAA1A50FF250092521E /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCA91A50FF250092521E /* Image.m */; };
 		DEBDBCAD1A5243110092521E /* CategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCAC1A5243110092521E /* CategoryTableView.m */; };
 		DEBDBCB01A5245400092521E /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCAF1A5245400092521E /* CategoryTableViewCell.m */; };
@@ -274,8 +273,6 @@
 		DEBDBC9F1A4E9A1F0092521E /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		DEBDBCA21A4E9AF30092521E /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		DEBDBCA31A4E9AF30092521E /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		DEBDBCA51A4EA11E0092521E /* ParamsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamsModel.h; sourceTree = "<group>"; };
-		DEBDBCA61A4EA11E0092521E /* ParamsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamsModel.m; sourceTree = "<group>"; };
 		DEBDBCA81A50FF250092521E /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		DEBDBCA91A50FF250092521E /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		DEBDBCAB1A5243110092521E /* CategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableView.h; sourceTree = "<group>"; };
@@ -654,8 +651,6 @@
 				DEBDBCBA1A5256CC0092521E /* Bigcategory.h */,
 				DEBDBC9E1A4E9A1F0092521E /* Group.h */,
 				DEBDBC9F1A4E9A1F0092521E /* Group.m */,
-				DEBDBCA51A4EA11E0092521E /* ParamsModel.h */,
-				DEBDBCA61A4EA11E0092521E /* ParamsModel.m */,
 				DEBDBCA81A50FF250092521E /* Image.h */,
 				DEBDBCA91A50FF250092521E /* Image.m */,
 				DEBDBCBC1A5273EE0092521E /* Classification.h */,
@@ -1144,7 +1139,6 @@
 				DEBDBD7D1A5909030092521E /* SearchHistoryAdapter.m in Sources */,
 				DE95854A1A3ADDE4000C6B70 /* FileDownload.m in Sources */,
 				DEACA8321A493A0000CFF53D /* RecommndCollectionViewLayout.m in Sources */,
-				DEBDBCA71A4EA11E0092521E /* ParamsModel.m in Sources */,
 				DEBDBDF01A5BAF040092521E /* KVNProgress.m in Sources */,
 				DEC4E52C1A67812200E3A593 /* UIScrollView+touch.m in Sources */,
 				DEACA81B1A481ADB00CFF53D /* LatestCollectionView.m in Sources */,
