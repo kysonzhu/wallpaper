@@ -44,10 +44,10 @@
 
 
 -(MGNetwokResponse *)getRecommendDetail:(NSString *)gId{
-    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"gId"]=gId;
+    params[@"gId"]= self.requestParams[@"gId"];
     //filter image size
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);

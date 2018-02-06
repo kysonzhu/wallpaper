@@ -7,8 +7,9 @@
 //
 
 #import "BaseModel.h"
+#import "KSModel.h"
 
-@interface Image : BaseModel
+@interface Image : KSModel
 
 @property (nonatomic, copy) NSString *gId;
 @property (nonatomic, copy) NSString *gName;
