@@ -13,10 +13,10 @@
 
 KysonFramework
 
-Mongo
+[Mangogo](https://github.com/kysonzhu/Mangogo.git)
 
 如果有对框架不了解的，可以在这里找到他们的介绍：
 
-[高解耦的网络请求框架Mongo](http://kyson.cn/index.php/archives/28/)
+[高解耦的网络请求框架Mangogo](http://kyson.cn/index.php/archives/28/)
 
 [kysonFramework之图片下载器（附带压缩功能）](http://kyson.cn/index.php/archives/4/)
