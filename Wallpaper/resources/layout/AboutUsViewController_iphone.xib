@@ -23,9 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-fO-3t3">
-                    <rect key="frame" x="146" y="105" width="83" height="83"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-fO-3t3">
+                    <rect key="frame" x="146" y="105" width="57" height="57"/>
                     <autoresizingMask key="autoresizingMask"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="壁纸宝贝" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-IX-7h8">
                     <rect key="frame" x="0.0" y="207" width="178" height="21"/>
@@ -78,6 +83,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo.png" width="83" height="83"/>
+        <image name="logo" width="57" height="57"/>
     </resources>
 </document>

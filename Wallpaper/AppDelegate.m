@@ -52,11 +52,8 @@
     
     DDMenuController *rootViewController = [[DDMenuController alloc]initWithRootViewController:navigationController];
     rootViewController.leftViewController = menuViewController;
-    
     self.rootViewController = rootViewController;
-    
     self.window.rootViewController = self.rootViewController;
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

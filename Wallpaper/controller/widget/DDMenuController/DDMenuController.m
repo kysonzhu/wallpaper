@@ -96,6 +96,10 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidUnload {
     [super viewDidUnload];
     _tap = nil;
@@ -622,10 +626,6 @@
     if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self showRootController:YES];
     }
-    
-    
-//    [gesture setEnabled:NO];
-
 }
 
 - (void)setRootController:(UIViewController *)controller animated:(BOOL)animated {
@@ -650,56 +650,38 @@
             rootRef.view.frame = frame;
             
         } completion:^(BOOL finished) {
-            
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-
             [selfRef setRootViewController:controller];
             _root.view.frame = frame;
             [selfRef showRootController:animated];
-            
         }];
         
     } else {
-        
-        // just add the root and move to it if it's not center
         [self setRootViewController:controller];
         [self showRootController:animated];
-        
     }
-     
 }
 
 
 #pragma mark - Root Controller Navigation
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
     NSAssert((_root!=nil), @"no root controller set");
-    
     UINavigationController *navController = nil;
-    
     if ([_root isKindOfClass:[UINavigationController class]]) {
-    
         navController = (UINavigationController*)_root;
-    
     } else if ([_root isKindOfClass:[UITabBarController class]]) {
-        
         UIViewController *topController = [(UITabBarController*)_root selectedViewController];
         if ([topController isKindOfClass:[UINavigationController class]]) {
             navController = (UINavigationController*)topController;
         }
-        
-    } 
+    }
     
     if (navController == nil) {
-       
         NSLog(@"root controller is not a navigation controller.");
         return;
     }
-    
-   
     if (_menuFlags.showingRightView) {
-        
         // if we're showing the right it works a bit different, we'll make a screen shot of the menu overlay, then push, and move everything over
         __block CALayer *layer = [CALayer layer];
         CGRect layerFrame = self.view.bounds;
@@ -720,19 +702,12 @@
         frame.origin.x = 0.0f;
         
         CGAffineTransform currentTransform = self.view.transform;
-        
         [UIView animateWithDuration:0.25f animations:^{
-            
             if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-                
                   self.view.transform = CGAffineTransformConcat(currentTransform, CGAffineTransformMakeTranslation(0, -[[UIScreen mainScreen] applicationFrame].size.height));
-                
             } else {
-                
                   self.view.transform = CGAffineTransformConcat(currentTransform, CGAffineTransformMakeTranslation(-[[UIScreen mainScreen] applicationFrame].size.width, 0));
             }
-          
-            
         } completion:^(BOOL finished) {
             
             [self showRootController:NO];
@@ -740,28 +715,20 @@
             [layer removeFromSuperlayer];
             
         }];
-        
     } else {
-        
         [navController pushViewController:viewController animated:animated];
-        
     }
-    
 }
 
 
 #pragma mark - Actions 
 
 - (void)showLeft:(id)sender {
-    
     [self showLeftController:YES];
-    
 }
 
 - (void)showRight:(id)sender {
-    
     [self showRightController:YES];
-    
 }
 
 @end
