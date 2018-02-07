@@ -1,6 +1,6 @@
 //
 //  Platform.h
-//  ZOLWallWrapper
+//  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 15-1-13.
 //  Copyright (c) 2015年 zhujinhui. All rights reserved.
