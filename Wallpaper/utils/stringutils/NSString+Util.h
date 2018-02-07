@@ -28,5 +28,6 @@
 
 - (NSString *)md5;
 
+NSString * safeString(NSString * source);
 
 @end

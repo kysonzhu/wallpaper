@@ -19,6 +19,7 @@
 #import "WrapperServiceMediator.h"
 #import "CateListViewController.h"
 #import "UIScrollView+MJRefresh.h"
+#import "NSString+Util.h"
 
 #define TAG_BTN_OFFSET      89091
 #define TAG_BTN_LATEST      89091
@@ -337,9 +338,9 @@ typedef enum _CurrentCategoryType{
                     WrapperServiceMediator *serviceMediator = nil;
                     self.startCategoryLatest = 0;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":@"0",@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
                     }
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
@@ -353,9 +354,9 @@ typedef enum _CurrentCategoryType{
             if (isFirstTimeFetchDataLatest) {
                     WrapperServiceMediator *serviceMediator = nil;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":@"0",@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
                     }
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];
@@ -369,9 +370,9 @@ typedef enum _CurrentCategoryType{
             if (isFirstTimeFetchDataHottest) {
                     WrapperServiceMediator *serviceMediator = nil;
                     if (type == CurrentCategoryTypeTotal) {
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
                     }else{
-                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":self.category.cateId,@"subId":self.subId}];
+                        serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":@"0",@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
                     }
                     [self doNetworkService:serviceMediator];
                     [KVNProgress show];

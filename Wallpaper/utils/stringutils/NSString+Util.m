@@ -115,4 +115,21 @@
 }
 
 
+NSString * safeString(NSString * source){
+    if (isEmptyString(source)) {
+        return @"";
+    }
+    return source.copy;
+}
+
+
+BOOL isEmptyString(NSString *string) {
+    return !string || [string isEqual:[NSNull null]] ||
+    ([string isKindOfClass:[NSString class]] &&
+     [@""
+      isEqualToString:[string
+                       stringByTrimmingCharactersInSet:
+                       [NSCharacterSet
+                        whitespaceAndNewlineCharacterSet]]]);
+}
 @end
