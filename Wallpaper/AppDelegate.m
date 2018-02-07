@@ -27,9 +27,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [NSThread sleepForTimeInterval:2];
-#ifndef DEBUG
-    [Bugly startWithAppId:@"fc2ba95d28"];
-#endif
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
     [[EnvironmentConfigure shareInstance] setShowAllData:NO];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
