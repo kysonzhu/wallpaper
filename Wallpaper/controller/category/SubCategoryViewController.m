@@ -384,7 +384,8 @@ typedef enum _CurrentCategoryType{
             CateListViewController *cateListViewController = [[CateListViewController alloc]initWithNibName:@"CateListViewController_iphone" bundle:nil];
             cateListViewController.mDelegate = self;
             cateListViewController.category = self.category;
-            [self.navigationController presentViewController:cateListViewController animated:YES completion:^{}];
+            UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:cateListViewController];
+            [self.navigationController presentViewController:navc animated:YES completion:^{}];
         }
             break;
         case TAG_BTN_NAV_LEFT:{

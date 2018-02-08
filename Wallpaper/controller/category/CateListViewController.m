@@ -14,9 +14,7 @@
 
 @interface CateListViewController ()<UITableViewDataSource,UITableViewDelegate>{
     __weak IBOutlet UITableView *mTableView;
-    
     UIButton *rightNavigationBarButton;
-
 }
 
 @property (nonatomic, strong)    NSArray *classficationList;
@@ -31,13 +29,8 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     mTableView.dataSource = self;
     mTableView.delegate = self;
-    
-    CGRect rect = [UIScreen mainScreen].bounds;
-    UINavigationBar *navigationBar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, rect.size.width, 64)];
-    [self.view addSubview:navigationBar];
     
     /**
      * navigation bar right button
@@ -45,7 +38,6 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
     rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [rightNavigationBarButton setTitle:@"关闭" forState:UIControlStateNormal];
-//    [rightNavigationBarButton setTitle:@"关闭" forState:UIControlStateHighlighted];
     [rightNavigationBarButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [rightNavigationBarButton setFrame:CGRectMake(0, 0, 37, 37)];
     [rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -53,7 +45,7 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
     [btnItem2 setCustomView:rightNavigationBarButton];
     UINavigationItem *item = [[UINavigationItem alloc]init];
     item.rightBarButtonItem = btnItem2 ;
-    [navigationBar pushNavigationItem:item animated:NO];
+    self.navigationItem.rightBarButtonItem = btnItem2;
     
     _classficationList = [[NSArray alloc]init];
     //register nib
@@ -81,10 +73,20 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
 
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     if ([serviceName isEqualToString:SERVICENAME_CATEGORYSECONDARY]) {
-#warning 111
-//        NSArray *aryResponse = response.response;
-//        self.classficationList = aryResponse;
-//        [mTableView reloadData];
+        NSDictionary *resultDict = response.rawResponseDictionary;
+        NSArray *classificationlist = resultDict[@"result"][@"classificationlist"];
+        Classification *group = [[Classification alloc] init];
+        NSArray* responseArray = [group loadArrayPropertyWithDataSource:classificationlist requireModel:@"Classification"];
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        for (Classification *item in responseArray)
+        {
+            NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
+            if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
+                [tempArray addObject:item];
+            }
+        }
+        self.classficationList = tempArray;
+        [mTableView reloadData];
     }
 }
 
