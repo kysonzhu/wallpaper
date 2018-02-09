@@ -106,7 +106,7 @@ typedef enum _CurrentCategoryType{
     leftNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image1 = [UIImage imageNamed:@"icon_navi_back"];
     [leftNavigationBarButton setBackgroundImage:image1 forState:UIControlStateNormal];
-    [leftNavigationBarButton setFrame:CGRectMake(0, 0, 12, 21)];
+    [leftNavigationBarButton setFrame:CGRectMake(0, 0, 20, 21)];
     [leftNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     leftNavigationBarButton.tag = TAG_BTN_NAV_LEFT;
     [btnItem1 setCustomView:leftNavigationBarButton];
