@@ -38,7 +38,7 @@ static NSString *CategoryListItemCellReuseIdentifier = @"CategoryListItemCellReu
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
     rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [rightNavigationBarButton setTitle:@"关闭" forState:UIControlStateNormal];
-    [rightNavigationBarButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightNavigationBarButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightNavigationBarButton setFrame:CGRectMake(0, 0, 37, 37)];
     [rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     rightNavigationBarButton.tag = TAG_BTN_NAV_RIGHT;

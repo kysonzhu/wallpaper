@@ -245,8 +245,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     NSInteger page = mViewPager.currentPage;
     if (0 == page) {
@@ -261,8 +261,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    self.navigationController.navigationBar.barTintColor =  [UIColor colorWithHex:0x1fb1e8];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    self.navigationController.navigationBar.barTintColor =  [UIColor colorWithHex:0x1fb1e8];
 }
 -(void)handleBanner{
     if (self.bannerView.hidden == YES || self.bannerView.alpha == 0) {

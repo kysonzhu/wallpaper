@@ -38,23 +38,25 @@
     self.title = @"意见反馈";
     
     feedbackTextView.textColor = [UIColor colorWithHex:0x333333 alpha:0.25];
-
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
     /**
      *  navigation bar left bar button
      */
     UIBarButtonItem *btnItem1 = [[UIBarButtonItem alloc]init];
     leftNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image1 = [UIImage imageNamed:@"nav_back"];
+    UIImage *image1 = [UIImage imageNamed:@"icon_navi_back"];
     [leftNavigationBarButton setBackgroundImage:image1 forState:UIControlStateNormal];
     [leftNavigationBarButton setFrame:CGRectMake(0, 0, 12, 21)];
     [leftNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     leftNavigationBarButton.tag = TAG_BTN_NAV_LEFT;
     [btnItem1 setCustomView:leftNavigationBarButton];
     self.navigationItem.leftBarButtonItem = btnItem1;
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+   
+    
     
     feedbackTextView.delegate = self;
     emailTextField.delegate = self;

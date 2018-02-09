@@ -104,7 +104,7 @@ typedef enum _CurrentCategoryType{
      */
     UIBarButtonItem *btnItem1 = [[UIBarButtonItem alloc]init];
     leftNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image1 = [UIImage imageNamed:@"nav_back"];
+    UIImage *image1 = [UIImage imageNamed:@"icon_navi_back"];
     [leftNavigationBarButton setBackgroundImage:image1 forState:UIControlStateNormal];
     [leftNavigationBarButton setFrame:CGRectMake(0, 0, 12, 21)];
     [leftNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -117,7 +117,7 @@ typedef enum _CurrentCategoryType{
      */
     UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
     rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image2 = [UIImage imageNamed:@"nav_screen"];
+    UIImage *image2 = [UIImage imageNamed:@"icon_navi_fech"];
     [rightNavigationBarButton setBackgroundImage:image2 forState:UIControlStateNormal];
     [rightNavigationBarButton setFrame:CGRectMake(0, 0, 17, 17)];
     [rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -133,8 +133,8 @@ typedef enum _CurrentCategoryType{
     navigationBarTitleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     navigationBarTitleButton.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
     [navigationBarTitleButton setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
-    [navigationBarTitleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [navigationBarTitleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     navigationBarTitleButton.tag = TAG_BTN_NAV_TITLE;
     [navigationBarTitleButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = navigationBarTitleButton;

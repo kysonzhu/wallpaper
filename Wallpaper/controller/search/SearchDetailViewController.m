@@ -49,7 +49,7 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
      */
     UIBarButtonItem *btnItem1 = [[UIBarButtonItem alloc]init];
     leftNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image1 = [UIImage imageNamed:@"nav_back"];
+    UIImage *image1 = [UIImage imageNamed:@"icon_navi_back"];
     [leftNavigationBarButton setBackgroundImage:image1 forState:UIControlStateNormal];
     [leftNavigationBarButton setFrame:CGRectMake(0, 0, 12, 21)];
     [leftNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
