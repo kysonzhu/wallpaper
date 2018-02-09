@@ -39,11 +39,11 @@
     [netReachabilityManger startMonitoring];
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 //    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    UINavigationBar * appearance = [UINavigationBar appearance];
-    [appearance setBarTintColor:[UIColor whiteColor]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
-    [appearance setTitleTextAttributes:dictionary];
+//    UINavigationBar * appearance = [UINavigationBar appearance];
+//    [appearance setBarTintColor:[UIColor whiteColor]];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
+//    [appearance setTitleTextAttributes:dictionary];
     
     HomeViewController *homeViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController_iphone" bundle:nil];
     
