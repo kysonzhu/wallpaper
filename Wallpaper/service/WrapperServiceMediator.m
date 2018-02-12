@@ -102,7 +102,6 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
             resultDictionary2[@"gName"] = @"美女";
             resultDictionary2[@"voteGood"] = @"111";
             resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
-            resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
             [array2 addObject:resultDictionary2];
         }
         [array2 addObjectsFromArray:babyList];
