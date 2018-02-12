@@ -13,6 +13,9 @@
 
 //#define HOST @"http://sj.zol.com.cn:8088"
 #define HOST @"http://sj.zol.com.cn"
+
+#define HOST_KYSON @"http://kyson.cn/wallpaper/index.php"
+
 #define SERVICE_METHOD_MAP(__SERVICENAME_,METHODNAME) \
 if ([self.serviceName isEqualToString:__SERVICENAME_]) {\
 self.methodName = NSStringFromSelector(@selector(METHODNAME));\
@@ -87,6 +90,24 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_LATESTLIST params:params];
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
+        
+        MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
+        MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:@"baby" params:nil];
+        NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+        NSArray *resultArry = response2.rawResponseDictionary[@"content"];
+        NSMutableArray *array2 = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictItem in resultArry) {
+            NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
+            resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
+            resultDictionary2[@"gName"] = @"美女";
+            resultDictionary2[@"voteGood"] = @"111";
+            resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
+            resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
+            [array2 addObject:resultDictionary2];
+        }
+        [array2 addObjectsFromArray:babyList];
+        response.rawResponseArray = array2;
+        
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
