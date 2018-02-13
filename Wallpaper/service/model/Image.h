@@ -16,4 +16,8 @@
 @property (nonatomic, copy) NSString *imgUrl;
 @property (nonatomic, copy) NSString *pId;
 
+//以下为kyson的image 属性
+@property (nonatomic, copy) NSString *babyImgUrl;
+
+
 @end

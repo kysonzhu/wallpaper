@@ -94,16 +94,8 @@
     [praiseButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     //request
     [KVNProgress show];
-    if (self.fromcontroller == FromControllerRecommended) {
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:@{@"gId":self.group.gId}];
-        [self doNetworkService:serviceMediator];
-    }else if (self.fromcontroller == FromControllerLatest){
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:@{@"gId":self.group.gId}];
-        [self doNetworkService:serviceMediator];
-    }else if (self.fromcontroller == FromControllerHotest){
-        WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:@{@"gId":self.group.gId}];
-        [self doNetworkService:serviceMediator];
-    }
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:@{@"gId":self.group.gId,@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)}];
+    [self doNetworkService:serviceMediator];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -310,6 +302,22 @@
     if (0 == response.errorCode) {
         [KVNProgress dismiss];
         NSDictionary *resultDict = response.rawResponseDictionary;
+        if (safeString(self.group.wallPaperSource).integerValue == 2) {
+            NSArray *imageList = resultDict[@"content"];
+            Image *image = [[Image alloc] init];
+            imageList = [image loadArrayPropertyWithDataSource:imageList requireModel:@"Image"];
+            NSMutableArray *imgUrls = [[NSMutableArray alloc]init];
+            for (Image *imageItem in imageList) {
+                NSURL *imgURL = [NSURL URLWithString:imageItem.babyImgUrl];
+                if ([imgURL.scheme isEqualToString:@"http"] || [imgURL.scheme isEqualToString:@"https"]) {
+                    [imgUrls addObject:imageItem.babyImgUrl];
+                }
+            }
+            mViewPager.imageUrls = imgUrls;
+            self.imageList = imageList;
+            return;
+        }
+        
         NSArray *imageList = resultDict[@"result"][@"imageList"];
         Image *image = [[Image alloc] init];
         imageList = [image loadArrayPropertyWithDataSource:imageList requireModel:@"Image"];

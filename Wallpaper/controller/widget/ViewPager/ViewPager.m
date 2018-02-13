@@ -121,6 +121,7 @@
             [imgv setFrame:frame];
             //add gesture to image
             imgv.userInteractionEnabled = YES;
+            imgv.contentMode = UIViewContentModeScaleAspectFit;
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]init];
             [tapGestureRecognizer addTarget:self action:@selector(tapped:)];
             [imgv addGestureRecognizer:tapGestureRecognizer];

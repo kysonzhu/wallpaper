@@ -49,6 +49,21 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 
 
 -(MGNetwokResponse *)getRecommendDetail{
+    NSString *source = self.requestParams[@"source"];
+#define kWallPaperSourceKyson @"2"
+    if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue) {
+        MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
+        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+        params[@"id"]= self.requestParams[@"id"];
+        MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"babyImageDetail" params:params];
+        if (0 == response.errorCode) {
+            [MGJsonHandler convertToErrorResponse:&response];
+        }else{
+            NSLog(@"error message:%@",response.errorMessage);
+        }
+        return response;
+    }
+    
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
@@ -90,7 +105,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_LATESTLIST params:params];
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
-        
+        //以下来自kyson源
         MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
         MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:@"baby" params:nil];
         NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
@@ -100,12 +115,15 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
             NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
             resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
             resultDictionary2[@"gName"] = @"美女";
+            resultDictionary2[@"id"] = dictItem[@"id"];
+            resultDictionary2[@"wallPaperSource"] = kWallPaperSourceKyson;
             resultDictionary2[@"voteGood"] = @"111";
             resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
             [array2 addObject:resultDictionary2];
         }
         [array2 addObjectsFromArray:babyList];
         response.rawResponseArray = array2;
+        ////////
         
     }else{
         NSLog(@"error message:%@",response.errorMessage);

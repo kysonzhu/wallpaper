@@ -15,6 +15,7 @@
     #import <MJRefresh/MJRefresh.h>
     #import <Foundation/Foundation.h>
     #import "UIColor+Hex.h"
+    #import "NSString+Util.h"
     #import "Controller.h"
 
 
