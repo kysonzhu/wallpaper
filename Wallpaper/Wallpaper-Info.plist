@@ -74,6 +74,8 @@
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>为保证信息准确，请允许使用相册</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>为保证信息准确，请允许使用相册</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
