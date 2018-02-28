@@ -23,9 +23,9 @@
 #endif
 
 /// 个推开发者网站中申请App时，注册的AppId、AppKey、AppSecret
-#define kGtAppId           @"iMahVVxurw6BNr7XSn9EF2"
-#define kGtAppKey          @"yIPfqwq6OMAPp6dkqgLpG5"
-#define kGtAppSecret       @"G0aBqAD6t79JfzTB6Z5lo5"
+#define kGtAppId           @"JCVpsMzFg57SaRrSurMMy9"
+#define kGtAppKey          @"JjAa1jYxwT8olxak8i2jc5"
+#define kGtAppSecret       @"2eUr7GxAIq5s9XsLhKC4Y2"
 
 
 @interface AppDelegate ()<UIApplicationDelegate, GeTuiSdkDelegate, UNUserNotificationCenterDelegate>{
