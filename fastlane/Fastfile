@@ -1,0 +1,59 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+
+platform :ios do
+
+  # 当前任务的描述
+  desc "Creating a code signing certificate and provisioning profile"
+  # 任务名称
+  lane :provision do
+    # 创建 ITC 中的 App 信息
+    produce(
+      app_name: 'Wallpaper',
+      language: 'zh-Hans',
+      app_version: '1.22',
+      sku: 'cnkysonwallpaper'
+    )
+    # 使用证书创建私钥及签名
+    cert
+    # 每次运行时创建新的配置文件
+    sigh(force: true)
+  end
+ 
+  error do |lane, exception|
+  
+  end
+  desc "Create ipa"
+  lane :build do
+    increment_build_number
+    # cocoapods
+    # 编译配置，编译的scheme，导出包方式
+    match(type: "appstore")
+    system "security unlock-keychain -p asdfghjkl;'"
+    gym(
+      clean:"true",
+      # 使用.env配置的环境变量
+      scheme: ENV['Scheme'],
+      # app-store, ad-hoc, package, enterprise, development, developer-id
+      export_method: "app-store", 
+      # 输出日志的目录
+      buildlog_path: "fastlanelog",
+      # 输出编译结果
+      output_directory: "build",
+      configuration: "Release",
+      include_bitcode: false
+    )
+  end
+
+end
