@@ -9,4 +9,5 @@ target "Wallpaper" do
         pod 'AFNetworking', '~> 3.0'
         pod 'Google-Mobile-Ads-SDK'
         pod 'Mangogo'
+        pod 'GTSDK','2.2.0.0'
 end

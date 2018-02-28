@@ -159,6 +159,7 @@
 		96A70D11202756ED00790B1D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		96A70D1320276BAE00790B1D /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		96A70D1420276BAE00790B1D /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
+		96E6CBBC2046F98800689E89 /* Wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallpaper.entitlements; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -759,6 +760,7 @@
 		DECCCD211A36FAA1000C73BA /* Wallpaper */ = {
 			isa = PBXGroup;
 			children = (
+				96E6CBBC2046F98800689E89 /* Wallpaper.entitlements */,
 				DEBDBC961A4E603A0092521E /* service */,
 				DEBDBC631A4E5FD10092521E /* ksFramework */,
 				DE95854D1A3ADE65000C6B70 /* utils */,
@@ -944,7 +946,12 @@
 				TargetAttributes = {
 					DECCCD171A36FAA1000C73BA = {
 						DevelopmentTeam = T7Z76WDTD6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1284,9 +1291,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1304,8 +1312,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2c9936c6-dfec-43b7-9b76-411eaffcec1b";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1318,9 +1326,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1338,8 +1347,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2c9936c6-dfec-43b7-9b76-411eaffcec1b";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
