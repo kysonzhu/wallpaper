@@ -71,8 +71,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view sendSubviewToBack:mViewPager];
     
-    //ca-app-pub-7896672979027584/3984670568
-    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7896672979027584/3984670568"];
     GADRequest *request = [GADRequest request];
     [self.interstitial loadRequest:request];
 
@@ -111,6 +110,22 @@
     //hide all widgets
     isWidgetRevealed = YES;
     [self revealWidgets:YES];
+    
+    //广告出现时间1-5s
+    NSInteger adTime = [self getRandomNumber:1 to:5];
+    [self performSelector:@selector(showAd) withObject:nil afterDelay:adTime];
+}
+
+-(int)getRandomNumber:(int)from to:(int)to{
+    return (int)(from + (arc4random() % (to - from + 1)));
+}
+
+-(void)showAd{
+    if (self.interstitial.isReady) {
+        [self.interstitial presentFromRootViewController:self];
+    } else {
+        NSLog(@"Ad wasn't ready");
+    }
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -145,12 +160,8 @@
     [self hideLockScreenViewAndLauntchScreenView];
     switch (sender.tag) {
         case TAG_BTN_BACK:{
-//            [self.navigationController popViewControllerAnimated:YES];
-            if (self.interstitial.isReady) {
-                [self.interstitial presentFromRootViewController:self];
-            } else {
-                NSLog(@"Ad wasn't ready");
-            }
+            
+            [self.navigationController popViewControllerAnimated:YES];
         }
             break;
             
