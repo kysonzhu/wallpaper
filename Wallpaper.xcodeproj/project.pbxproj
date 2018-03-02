@@ -1295,6 +1295,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1313,9 +1316,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c9936c6-dfec-43b7-9b76-411eaffcec1b";
+				PROVISIONING_PROFILE = "2f8feb67-9973-4225-91b5-80973b5c7141";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1330,6 +1335,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1348,9 +1357,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c9936c6-dfec-43b7-9b76-411eaffcec1b";
+				PROVISIONING_PROFILE = "2f8feb67-9973-4225-91b5-80973b5c7141";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

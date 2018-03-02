@@ -1,0 +1,56 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :beta do
+    # add actions here: https://docs.fastlane.tools/actions
+    match(
+    	git_url: "https://github.com/zjh171/fastlaneProvingProfile",
+    	type: "appstore" ,#can be appstore,adhoc, development,enterprise
+    	app_identifier:"cn.kyson.wallpaper",
+    	username:"zjh171@qq.com",
+    	readonly: true
+    	)
+    # 编译代码
+    gym(
+    	scheme:"Wallpaper",
+    	export_method:"development",
+    	output_directory:"./build",
+    	archive_path:"./Archive",       
+    	)
+  end
+
+  lane :release do
+  	  # 增加build版本号
+  	increment_build_number
+  	match(
+    	git_url: "https://github.com/zjh171/fastlaneProvingProfile",
+    	type: "appstore" ,#can be appstore,adhoc, development,enterprise
+    	app_identifier:"cn.kyson.wallpaper",
+    	username:"zjh171@qq.com",
+    	readonly: true
+    	)
+  	# 编译代码
+    gym(
+    	scheme:"Wallpaper",
+    	export_method:"app-store",
+    	)
+    # 发布到Apple Store
+    deliver(
+    	username:"zjh171@qq.com"
+    	)
+  end
+
+end
