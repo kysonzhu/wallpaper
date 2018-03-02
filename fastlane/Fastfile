@@ -45,11 +45,12 @@ platform :ios do
   	# 编译代码
     gym(
     	scheme:"Wallpaper",
-    	export_method:"app-store",
+    	export_method:"app-store"
     	)
     # 发布到Apple Store
     deliver(
-    	username:"zjh171@qq.com"
+    	username:"zjh171@qq.com",
+      skip_metadata:true
     	)
   end
 
