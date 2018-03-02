@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
-		96A70D092026A6EC00790B1D /* AboutUsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A70D082026A6EC00790B1D /* AboutUsViewController_iphone.xib */; };
 		96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */; };
 		96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */; };
 		96A70D12202756ED00790B1D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D11202756ED00790B1D /* BaseModel.m */; };
@@ -16,6 +15,7 @@
 		96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBBE20498FC800689E89 /* KSRouter.m */; };
 		96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */; };
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
+		96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC62049B1A000689E89 /* WPWebViewController.m */; };
 		DE0904471A3EC39A006B1FCD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* HomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
@@ -153,7 +153,6 @@
 
 /* Begin PBXFileReference section */
 		51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
-		96A70D082026A6EC00790B1D /* AboutUsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController_iphone.xib; sourceTree = "<group>"; };
 		96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigatiaonTitleView.m; sourceTree = "<group>"; };
 		96A70D0B2026A8DB00790B1D /* HomeNavigatiaonTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigatiaonTitleView.h; sourceTree = "<group>"; };
 		96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationTitileViewButton.m; sourceTree = "<group>"; };
@@ -168,6 +167,8 @@
 		96E6CBC02049A12500689E89 /* WPAboutUsTableViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPAboutUsTableViewHeaderView.h; sourceTree = "<group>"; };
 		96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPAboutUsTableViewHeaderView.m; sourceTree = "<group>"; };
 		96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPAboutUsTableViewHeaderView.xib; sourceTree = "<group>"; };
+		96E6CBC52049B1A000689E89 /* WPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPWebViewController.h; sourceTree = "<group>"; };
+		96E6CBC62049B1A000689E89 /* WPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPWebViewController.m; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -868,7 +869,6 @@
 		DECCCD591A37075F000C73BA /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				96A70D082026A6EC00790B1D /* AboutUsViewController_iphone.xib */,
 				DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */,
 				DE9584F51A3935E9000C6B70 /* HomeViewController_iphone.xib */,
 				DECCCD951A381F55000C73BA /* MenuViewController_iphone.xib */,
@@ -907,6 +907,8 @@
 			children = (
 				DECCCD921A381BBF000C73BA /* MenuViewController.h */,
 				DECCCD931A381BBF000C73BA /* MenuViewController.m */,
+				96E6CBC52049B1A000689E89 /* WPWebViewController.h */,
+				96E6CBC62049B1A000689E89 /* WPWebViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1050,7 +1052,6 @@
 				DEBDBC341A4BB9F50092521E /* mod_bg@2x.png in Resources */,
 				DEBDC0081A5D35160092521E /* lef_del@2x.png in Resources */,
 				DEAED5591A64E61A0047318C /* lockscreen_2@2x.png in Resources */,
-				96A70D092026A6EC00790B1D /* AboutUsViewController_iphone.xib in Resources */,
 				DE9585351A3AD9BB000C6B70 /* recommended_nav_background@2x.png in Resources */,
 				DEBDBD871A5911E00092521E /* SearchDetailViewController_iphone.xib in Resources */,
 				DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */,
@@ -1165,6 +1166,7 @@
 				DEADAEFE1A4A5FC600C19A2B /* GridViewCell.m in Sources */,
 				DEC4E4EC1A64E99600E3A593 /* Platform.m in Sources */,
 				DEBDBD911A594BEF0092521E /* UserCenter.m in Sources */,
+				96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */,
 				DEBDBC991A4E649C0092521E /* WrapperServiceMediator.m in Sources */,
 				DE95854B1A3ADDE4000C6B70 /* ImageCache.m in Sources */,
 				DE4392F21A8731030009181D /* SelectBgViewController.m in Sources */,

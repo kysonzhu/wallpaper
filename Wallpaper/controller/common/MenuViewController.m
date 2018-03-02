@@ -67,7 +67,7 @@
     [navigationController popToRootViewControllerAnimated:NO];
     switch (button.tag) {
         case TAG_BTN_ABOUTUS:{
-            AboutUsViewController *aboutusViewController = [[AboutUsViewController alloc]initWithNibName:@"AboutUsViewController_iphone" bundle:nil];
+            AboutUsViewController *aboutusViewController = [[AboutUsViewController alloc]init];
             [navigationController pushViewController:aboutusViewController animated:YES];
             
         }

@@ -11,4 +11,6 @@ target "Wallpaper" do
         pod 'Mangogo'
         pod 'GTSDK','2.2.0.0'
         pod 'IQKeyboardManager'
+        pod 'ReactiveObjC','3.1.0'
+
 end

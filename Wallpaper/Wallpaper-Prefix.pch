@@ -18,6 +18,7 @@
     #import "UIColor+Hex.h"
     #import "NSString+Util.h"
     #import "Controller.h"
+    #import <ReactiveObjC/ReactiveObjC.h>
 
 
 //获取屏幕 宽度、高度

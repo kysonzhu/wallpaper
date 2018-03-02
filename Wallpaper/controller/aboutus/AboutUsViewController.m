@@ -9,17 +9,11 @@
 #import "AboutUsViewController.h"
 #import "WPAboutUsTableViewHeaderView.h"
 #define TAG_BTN_NAV_LEFT 1090
-
+#import "WPWebViewController.h"
 
 @interface AboutUsViewController ()<UITableViewDelegate,UITableViewDataSource>{
-    __weak IBOutlet UILabel *rightsDetailLabel;
-    __weak IBOutlet UILabel *statementLabel;
-    
-    __weak IBOutlet UILabel *versionLabel;
-    
     UIButton *leftNavigationBarButton;
 }
-@property (weak, nonatomic) IBOutlet UIImageView *logoIcon;
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray    *titles;
@@ -36,11 +30,6 @@
     [self handleNavigationWithScrollView:self.tableView];
 	// Do any additional setup after loading the view.
     self.title = @"关于我们";
-    [self.logoIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.top.mas_equalTo(100);
-        make.size.mas_equalTo(CGSizeMake(83, 83));
-    }];
     
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
@@ -68,13 +57,7 @@
     leftNavigationBarButton.tag = TAG_BTN_NAV_LEFT;
     [btnItem1 setCustomView:leftNavigationBarButton];
     self.navigationItem.leftBarButtonItem = btnItem1;
-    
-    rightsDetailLabel.textColor = [UIColor colorWithHex:0x333333];
-    statementLabel.textColor = [UIColor colorWithHex:0x333333];
-    
-    versionLabel.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped:)];
-    [versionLabel addGestureRecognizer:tap];
+
 }
 
 
@@ -189,6 +172,49 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section)
+    {
+        case 1:
+        {
+            WPWebViewController *webViewController = [[WPWebViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webViewController];
+            webViewController.title = self.titles[indexPath.row];
+            switch (indexPath.row)
+            {
+                case 0:
+                {
+                    webViewController.loadingURL = @"https://www.jianshu.com/u/98c026b409f2";
+                }
+                    break;
+                case 1:
+                {
+                    webViewController.loadingURL = @"http://www.baidu.com";
+
+                }
+                    break;
+                case 2:
+                {
+                    webViewController.loadingURL = @"https://github.com/yaohuaiguangDear";
+
+                }
+                    break;
+                case 3:
+                {
+                    webViewController.loadingURL = @"http://www.kyson.cn";
+
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            [self showDetailViewController:nav sender:nil];
+        }
+            break;
+        default:
+            break;
+    }
+    
 }
 
 -(UITableView *)tableView{

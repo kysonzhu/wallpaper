@@ -21,6 +21,7 @@ PODS:
   - Mangogo (1.0.1)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
+  - ReactiveObjC (3.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - Mangogo
   - Masonry (= 1.1.0)
   - MJRefresh (= 3.1.15.1)
+  - ReactiveObjC
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   Mangogo: d5efed62a47b156eed6355c5edffa1a6ced49143
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
 
-PODFILE CHECKSUM: e6d35e7f695a096de819cee07f018a8de087816c
+PODFILE CHECKSUM: 5efaf48374ed7f421477ffcfed8da8fbf8daf9b3
 
 COCOAPODS: 1.4.0

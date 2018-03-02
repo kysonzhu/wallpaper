@@ -25,7 +25,7 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    
+
     [self.logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(65, 65));
         make.centerX.equalTo(self);
