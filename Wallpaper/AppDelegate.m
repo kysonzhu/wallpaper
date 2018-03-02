@@ -37,7 +37,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [NSThread sleepForTimeInterval:2];
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
     [[EnvironmentConfigure shareInstance] setShowAllData:NO];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
@@ -131,6 +130,7 @@
     // 处理APNs代码，通过userInfo可以取到推送的信息（包括内容，角标，自定义参数等）。如果需要弹窗等其他操作，则需要自行编码。
     NSLog(@"\n>>>[Receive RemoteNotification - Background Fetch]:%@\n\n",userInfo);
     
+    [[KSRouter shareRouter] routeWithServiceName:nil params:userInfo];
     //静默推送收到消息后也需要将APNs信息传给个推统计
     [GeTuiSdk handleRemoteNotification:userInfo];
     

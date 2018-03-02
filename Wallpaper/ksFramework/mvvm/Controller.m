@@ -17,6 +17,7 @@
 
 @property (nonatomic,strong) MGTaskPool *taskPool;
 
+
 @end
 
 @implementation Controller
@@ -26,6 +27,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     requestTokens = [[NSMutableArray alloc]init];
+}
+
+
+-(void)handleNavigationWithScrollView:(UIScrollView *) scrollView;
+{
+    self.navigationController.navigationBar.translucent = NO;
+    if (@available(iOS 11.0, *)) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 }
 
 

@@ -17,6 +17,7 @@ PODS:
   - Bugly (2.4.7)
   - Google-Mobile-Ads-SDK (7.28.0)
   - GTSDK (2.2.0.0)
+  - IQKeyboardManager (5.0.7)
   - Mangogo (1.0.1)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
@@ -25,7 +26,8 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Bugly (= 2.4.7)
   - Google-Mobile-Ads-SDK
-  - GTSDK
+  - GTSDK (= 2.2.0.0)
+  - IQKeyboardManager
   - Mangogo
   - Masonry (= 1.1.0)
   - MJRefresh (= 3.1.15.1)
@@ -35,10 +37,11 @@ SPEC CHECKSUMS:
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   Google-Mobile-Ads-SDK: 7f9bc0011df363ae5616449de3682a14c4701612
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   Mangogo: d5efed62a47b156eed6355c5edffa1a6ced49143
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
 
-PODFILE CHECKSUM: 5e5177ee6086191aba737ca207629c1b7b7a06e0
+PODFILE CHECKSUM: e6d35e7f695a096de819cee07f018a8de087816c
 
 COCOAPODS: 1.4.0

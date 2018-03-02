@@ -10,4 +10,5 @@ target "Wallpaper" do
         pod 'Google-Mobile-Ads-SDK'
         pod 'Mangogo'
         pod 'GTSDK','2.2.0.0'
+        pod 'IQKeyboardManager'
 end

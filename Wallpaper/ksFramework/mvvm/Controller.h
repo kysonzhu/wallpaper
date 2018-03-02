@@ -17,6 +17,13 @@
 
 @interface Controller : UIViewController
 
+/**
+ 处理覆盖导航栏问题
+ 
+ @return 处理
+ */
+-(void)handleNavigationWithScrollView:(UIScrollView *) scrollView;
+
 -(void)doNetworkService:(MGNetworkServiceMediator *) service;
 
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response;
