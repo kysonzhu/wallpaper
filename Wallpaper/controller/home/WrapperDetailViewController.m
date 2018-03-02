@@ -19,6 +19,8 @@
 #import "UserCenter.h"
 #import "EnvironmentConfigure.h"
 
+@import GoogleMobileAds;
+
 #define TAG_BTN_BACK        2109
 #define TAG_BTN_LOCKSCREEN  2110
 #define TAG_BTN_LAUNCH        2111
@@ -47,6 +49,7 @@
     FileDownload *fileDownload;
 
 }
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @property (nonatomic, retain) NSArray *imageList;
 
@@ -67,6 +70,11 @@
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view sendSubviewToBack:mViewPager];
+    
+    //ca-app-pub-7896672979027584/3984670568
+    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"];
+    GADRequest *request = [GADRequest request];
+    [self.interstitial loadRequest:request];
 
     mViewPager.mDelegate = self;
 //    if (nil != _group && nil != _group.coverImgUrl) {
@@ -137,7 +145,12 @@
     [self hideLockScreenViewAndLauntchScreenView];
     switch (sender.tag) {
         case TAG_BTN_BACK:{
-            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popViewControllerAnimated:YES];
+            if (self.interstitial.isReady) {
+                [self.interstitial presentFromRootViewController:self];
+            } else {
+                NSLog(@"Ad wasn't ready");
+            }
         }
             break;
             
