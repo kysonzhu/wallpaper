@@ -1,20 +1,19 @@
-
-<div align=center><img width="150" height="150" src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/54/cd/29/54cd294b-eb80-d2fd-bb65-1ae42f24f685/AppIcon-1x_U007emarketing-85-220-5.png/230x0w.jpg"/></div>
-
-* [1.【壁纸宝贝】介绍](#1)
-* [2.版本计划](#2)
-* [3.参与项目](#3)
-* [4.商业联系](#4)
-
-<h1 id="1">1.【壁纸宝贝】介绍</h1>
+ # 【壁纸宝贝】开源计划
+![logo](https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/54/cd/29/54cd294b-eb80-d2fd-bb65-1ae42f24f685/AppIcon-1x_U007emarketing-85-220-5.png/230x0w.jpg)
 
 【壁纸宝贝】是我于2015年开发的一款壁纸类APP，可以通过此款APP查看、下载并设置桌面或者锁屏壁纸。【壁纸宝贝】的设计师是策少，我负责iOS以及Android的开发工作。
 
-
-<div align=center><img width="150" height="150" src="http://7xij1g.com1.z0.glb.clouddn.com/wallpaper_appstore_link_ios.png"/></div>
-<div align=center>【壁纸宝贝】交流群</div>
-
+![iOS版下载地址](http://7xij1g.com1.z0.glb.clouddn.com/wallpaper_appstore_link_ios.png)
+iOS版下载地址
 为了便于大家交流学习，我近期打算开源【壁纸宝贝】的所有源代码。如果大家有兴趣可以加入群（QQ群号：692060993）一起讨论。
+
+![](http://7xij1g.com1.z0.glb.clouddn.com/kyson_wallpaper_qun_qrcode.png)
+【壁纸宝贝】交流群
+
+
+ ### 1.【壁纸宝贝】介绍
+
+[github地址](https://github.com/kysonzhu/wallpaper.git)
 
 其中用到的开源框架：
 
@@ -28,18 +27,36 @@ KysonFramework
 
 [kysonFramework之图片下载器（附带压缩功能）](http://kyson.cn/index.php/archives/4/)
 
-<h1 id="2">2.版本计划</h1>
+APP的版本迭代目前的周期是一周一次，版本的信息如下：
 
- ### v1.2.1（2018.02.02-2018.02.09）
+ ### 2.版本计划
+
+ #### v1.2.1（2018.02.02-2018.02.09）
 
 更新内容
  - 首页样式更改 （[@yaohuaiguangDear](https://github.com/yaohuaiguangDear)）
 
+ #### v1.3.1（2018.02.09-2018.02.16）
 
-<h1 id="3">3.参与项目</h1>
+ - 宅男福利来啦，新版本会添加更多美女图片
 
-如果你对本项目有兴趣，可以[联系我](http://kyson.cn/index.php/start-page.html)
+ ### 3.参与项目
+加入【壁纸宝贝】项目组，你可以：
 
-<h1 id="4">4.商业联系</h1>
+ - 结交iOS开发大牛，迅速提升你的开发能力
 
-未经作者许可，不得用于商业用途。
+ - 经历规范、完整的APP开发流程体验，让你对单元测试、多人开发、Code Review、bug管理等有更深入的理解
+
+ - 共享APP各项数据，包括不限于APP的装机量，使用群体，群体特征等
+
+ - 获得收入。我们将按照贡献度分配每位开发者一定的收入
+
+如果你对本项目有兴趣，可以[联系我](http://kyson.cn/index.php/start-page.html)，目前缺少
+
+ - Python工程师。负责爬取网络上的图片以及其他资源
+
+ - iOS工程师。负责客户端开发
+
+ - Android工程师
+
+ - 微信小程序工程师
