@@ -17,7 +17,8 @@
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
 		96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC62049B1A000689E89 /* WPWebViewController.m */; };
 		96E6CBC9204A31B600689E89 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC8204A31B600689E89 /* LICENSE */; };
-		DE0904471A3EC39A006B1FCD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* HomeViewController.m */; };
+		96E6CBCB204A3A6300689E89 /* WPHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */; };
+		DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
 		DE09046A1A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0904691A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png */; };
@@ -32,7 +33,6 @@
 		DE4392F91A8732E20009181D /* EditCardViewController——iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE4392F81A8732E20009181D /* EditCardViewController——iphone.xib */; };
 		DE85011E1A64E6B10000FDD3 /* launtchscreen_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85011A1A64E6B10000FDD3 /* launtchscreen_3@2x.png */; };
 		DE8501201A64E6B10000FDD3 /* lockscreen_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85011C1A64E6B10000FDD3 /* lockscreen_3@2x.png */; };
-		DE9584F61A3935E9000C6B70 /* HomeViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9584F51A3935E9000C6B70 /* HomeViewController_iphone.xib */; };
 		DE95852F1A3AD41D000C6B70 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95852E1A3AD41D000C6B70 /* DDMenuController.m */; };
 		DE9585351A3AD9BB000C6B70 /* recommended_nav_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9585341A3AD9BB000C6B70 /* recommended_nav_background@2x.png */; };
 		DE95853E1A3ADD1A000C6B70 /* GalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95853C1A3ADD1A000C6B70 /* GalleryView.m */; };
@@ -171,9 +171,10 @@
 		96E6CBC52049B1A000689E89 /* WPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPWebViewController.h; sourceTree = "<group>"; };
 		96E6CBC62049B1A000689E89 /* WPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPWebViewController.m; sourceTree = "<group>"; };
 		96E6CBC8204A31B600689E89 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPHomeViewController.xib; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE0904451A3EC39A006B1FCD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		DE0904461A3EC39A006B1FCD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHomeViewController.h; sourceTree = "<group>"; };
+		DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHomeViewController.m; sourceTree = "<group>"; };
 		DE09045A1A3F1E76006B1FCD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recommended_praise@2x.png"; sourceTree = "<group>"; };
@@ -193,7 +194,6 @@
 		DE4392F81A8732E20009181D /* EditCardViewController——iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EditCardViewController——iphone.xib"; sourceTree = "<group>"; };
 		DE85011A1A64E6B10000FDD3 /* launtchscreen_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launtchscreen_3@2x.png"; sourceTree = "<group>"; };
 		DE85011C1A64E6B10000FDD3 /* lockscreen_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockscreen_3@2x.png"; sourceTree = "<group>"; };
-		DE9584F51A3935E9000C6B70 /* HomeViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController_iphone.xib; sourceTree = "<group>"; };
 		DE95852D1A3AD41D000C6B70 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		DE95852E1A3AD41D000C6B70 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		DE9585341A3AD9BB000C6B70 /* recommended_nav_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recommended_nav_background@2x.png"; sourceTree = "<group>"; };
@@ -411,8 +411,9 @@
 				96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */,
 				96A70D0B2026A8DB00790B1D /* HomeNavigatiaonTitleView.h */,
 				96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */,
-				DE0904451A3EC39A006B1FCD /* HomeViewController.h */,
-				DE0904461A3EC39A006B1FCD /* HomeViewController.m */,
+				DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */,
+				DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */,
+				96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */,
 				DEE67B0D1A415B7200BFA114 /* WrapperDetailViewController.h */,
 				DEE67B0E1A415B7200BFA114 /* WrapperDetailViewController.m */,
 				DEACA8191A481ADA00CFF53D /* LatestCollectionView.h */,
@@ -873,7 +874,6 @@
 			isa = PBXGroup;
 			children = (
 				DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */,
-				DE9584F51A3935E9000C6B70 /* HomeViewController_iphone.xib */,
 				DECCCD951A381F55000C73BA /* MenuViewController_iphone.xib */,
 				DEE67B101A415C5300BFA114 /* WrapperDetailViewController_iphone.xib */,
 				DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */,
@@ -998,7 +998,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE4392F91A8732E20009181D /* EditCardViewController——iphone.xib in Resources */,
-				DE9584F61A3935E9000C6B70 /* HomeViewController_iphone.xib in Resources */,
 				DEBDBD851A590A750092521E /* icon_add@2x.png in Resources */,
 				DEC4E5221A66831B00E3A593 /* outofnework@2x.png in Resources */,
 				DEADAF061A4A634000C19A2B /* CategoryCell.xib in Resources */,
@@ -1053,6 +1052,7 @@
 				DEBDBCD61A53BBB00092521E /* nav_back@2x.png in Resources */,
 				DEBDBE2B1A5D17A20092521E /* tab_bg@2x.png in Resources */,
 				DECCCD261A36FAA1000C73BA /* InfoPlist.strings in Resources */,
+				96E6CBCB204A3A6300689E89 /* WPHomeViewController.xib in Resources */,
 				DEBDBC341A4BB9F50092521E /* mod_bg@2x.png in Resources */,
 				DEBDC0081A5D35160092521E /* lef_del@2x.png in Resources */,
 				DEAED5591A64E61A0047318C /* lockscreen_2@2x.png in Resources */,
@@ -1180,7 +1180,7 @@
 				DEADAF131A4A928900C19A2B /* SubCategoryViewController.m in Sources */,
 				DEADAF041A4A632C00C19A2B /* CategoryCell.m in Sources */,
 				DEBDBE0F1A5CCBA10092521E /* GridViewCell2.m in Sources */,
-				DE0904471A3EC39A006B1FCD /* HomeViewController.m in Sources */,
+				DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */,
 				DEACA8241A481BD100CFF53D /* KSCollectionView.m in Sources */,
 				DEBDBCBB1A5256CC0092521E /* Bigcategory.m in Sources */,
 				DEACA8211A481B0600CFF53D /* CategoryCollectionView.m in Sources */,

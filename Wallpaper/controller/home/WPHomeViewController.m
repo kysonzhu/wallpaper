@@ -1,5 +1,5 @@
 //
-//  HomeViewController.m
+//  WPHomeViewController.m
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-9.
@@ -348,7 +348,7 @@
  Public License instead of this License.
  */
 
-#import "HomeViewController.h"
+#import "WPHomeViewController.h"
 #import "GridViewCell.h"
 #import "RecommndCollectionView.h"
 #import "LatestCollectionView.h"
@@ -385,7 +385,7 @@
 #define TAG_BTN_NAV_RIGHT   8911
 #define TAG_BTN_NAV_TITLE   8912
 
-@interface HomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
+@interface WPHomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
     __weak IBOutlet UIButton *recommendButton;
     __weak IBOutlet UIButton *latestButton;
     __weak IBOutlet UIButton *categoryButton;
@@ -410,7 +410,7 @@
 
 @end
 
-@implementation HomeViewController
+@implementation WPHomeViewController
 
 @synthesize startRecommended,startLatest;
 
