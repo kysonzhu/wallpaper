@@ -9,7 +9,7 @@
 #import "MenuViewController.h"
 #import "AppDelegate.h"
 #import "DDMenuController.h"
-#import "HomeViewController.h"
+#import "WPHomeViewController.h"
 
 #import "AboutUsViewController.h"
 #import "FeedbackViewController.h"

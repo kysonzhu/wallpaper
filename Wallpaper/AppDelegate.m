@@ -350,7 +350,7 @@
  */
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
+#import "WPHomeViewController.h"
 #import "MenuViewController.h"
 #import "EnvironmentConfigure.h"
 #import <AFNetworking/AFNetworking.h>
@@ -404,10 +404,8 @@
 //    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
 //    [appearance setTitleTextAttributes:dictionary];
     
-    HomeViewController *homeViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController_iphone" bundle:nil];
-    
+    WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithNibName:@"MenuViewController_iphone" bundle:nil];
-    
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
     
     DDMenuController *rootViewController = [[DDMenuController alloc]initWithRootViewController:navigationController];

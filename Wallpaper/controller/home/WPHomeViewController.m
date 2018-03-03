@@ -1,5 +1,5 @@
 //
-//  HomeViewController.m
+//  WPHomeViewController.m
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-9.
@@ -348,7 +348,7 @@
  Public License instead of this License.
  */
 
-#import "HomeViewController.h"
+#import "WPHomeViewController.h"
 #import "GridViewCell.h"
 #import "RecommndCollectionView.h"
 #import "LatestCollectionView.h"
@@ -385,7 +385,7 @@
 #define TAG_BTN_NAV_RIGHT   8911
 #define TAG_BTN_NAV_TITLE   8912
 
-@interface HomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
+@interface WPHomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
     __weak IBOutlet UIButton *recommendButton;
     __weak IBOutlet UIButton *latestButton;
     __weak IBOutlet UIButton *categoryButton;
@@ -410,20 +410,16 @@
 
 @end
 
-@implementation HomeViewController
+@implementation WPHomeViewController
 
 @synthesize startRecommended,startLatest;
 
 @synthesize isFirstTimeFetchDataLatest,isFirstTimeFetchDataCategory,isFirstTimeFetchDataRecommended;
-- (HomeNavigatiaonTitleView *)titleView{
-    if (!_titleView) {
-        _titleView = [[HomeNavigatiaonTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 200 , 44)];
-    }
-    return _titleView;
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self handleNavigationWithScrollView:mViewPager.scrollView];
     
     isFirstTimeFetchDataCategory = YES;
     isFirstTimeFetchDataLatest = YES;
@@ -528,7 +524,6 @@
         }
     } else {
         frame.size.height -= (64);
-        frame.origin.y = (64);
     }
     mViewPager = [[ViewPager alloc]initWithFrame:frame];
     mViewPager.mDelegate = self;
@@ -574,6 +569,7 @@
 /// Tells the delegate an ad request failed.
 - (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+    self.bannerView.hidden = YES;
     [self handleBanner];
 }
 
@@ -586,9 +582,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     NSInteger page = mViewPager.currentPage;
     if (0 == page) {
@@ -598,13 +591,11 @@
     }else if (2 == page){
         [self buttonClicked:categoryButton];
     }
-    [self handleBanner];
+//    [self handleBanner];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    self.navigationController.navigationBar.barTintColor =  [UIColor colorWithHex:0x1fb1e8];
 }
 -(void)handleBanner{
     if (self.bannerView.hidden == YES || self.bannerView.alpha == 0) {
@@ -638,7 +629,8 @@
     
 }
 
--(void)viewPagerDidScroll:(ViewPager *)viewPager{
+-(void)viewPagerDidScroll:(ViewPager *)viewPager
+{
     CGFloat contentOffsetX = viewPager.scrollView.contentOffset.x;
     //if draged to the firstpage , we can show the menu
     if (contentOffsetX < -5) {
@@ -893,7 +885,8 @@
 }
 
 -(RecommndCollectionView *)mRecommndCollectionView{
-    if (!_mRecommndCollectionView) {
+    if (!_mRecommndCollectionView)
+    {
         RecommndCollectionViewLayout *layout1 = [[RecommndCollectionViewLayout alloc]initWithDelegate:self];
         _mRecommndCollectionView = [[RecommndCollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout1];
         _mRecommndCollectionView.delegate = layout1;
@@ -968,6 +961,12 @@
     return _mCategoryTableView;
 }
 
+- (HomeNavigatiaonTitleView *)titleView{
+    if (!_titleView) {
+        _titleView = [[HomeNavigatiaonTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 200 , 44)];
+    }
+    return _titleView;
+}
 
 @end
 
