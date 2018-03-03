@@ -504,6 +504,8 @@
     /**
      * add network status listener
      */
+    [GeTuiSdk setBadge:0];
+     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
 
