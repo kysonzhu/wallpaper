@@ -16,6 +16,7 @@
 		96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */; };
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
 		96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC62049B1A000689E89 /* WPWebViewController.m */; };
+		96E6CBC9204A31B600689E89 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC8204A31B600689E89 /* LICENSE */; };
 		DE0904471A3EC39A006B1FCD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* HomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
@@ -169,6 +170,7 @@
 		96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPAboutUsTableViewHeaderView.xib; sourceTree = "<group>"; };
 		96E6CBC52049B1A000689E89 /* WPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPWebViewController.h; sourceTree = "<group>"; };
 		96E6CBC62049B1A000689E89 /* WPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPWebViewController.m; sourceTree = "<group>"; };
+		96E6CBC8204A31B600689E89 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 		DECCCD0F1A36FAA1000C73BA = {
 			isa = PBXGroup;
 			children = (
+				96E6CBC8204A31B600689E89 /* LICENSE */,
 				DECCCD211A36FAA1000C73BA /* Wallpaper */,
 				DECCCD1A1A36FAA1000C73BA /* Frameworks */,
 				DECCCD191A36FAA1000C73BA /* Products */,
@@ -1018,6 +1021,7 @@
 				DEBDBDF81A5BB1650092521E /* KVNProgressView.xib in Resources */,
 				DECCCD961A381F55000C73BA /* MenuViewController_iphone.xib in Resources */,
 				DEADAF151A4A934000C19A2B /* SubCategoryViewController_iphone.xib in Resources */,
+				96E6CBC9204A31B600689E89 /* LICENSE in Resources */,
 				DE2F64121A846EC100958C41 /* SearchClearHistoryItemCell.xib in Resources */,
 				DEBDBC461A4C04450092521E /* SearchViewController_iphone.xib in Resources */,
 				DEBDC00E1A5D35160092521E /* spec@2x.png in Resources */,
