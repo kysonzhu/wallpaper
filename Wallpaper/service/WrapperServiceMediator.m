@@ -114,7 +114,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
         for (NSDictionary *dictItem in resultArry) {
             NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
             resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
-            resultDictionary2[@"gName"] = @"美女";
+            resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
             resultDictionary2[@"id"] = dictItem[@"id"];
             resultDictionary2[@"wallPaperSource"] = kWallPaperSourceKyson;
             resultDictionary2[@"voteGood"] = @"111";
