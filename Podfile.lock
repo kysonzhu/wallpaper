@@ -32,7 +32,7 @@ DEPENDENCIES:
   - Mangogo
   - Masonry (= 1.1.0)
   - MJRefresh (= 3.1.15.1)
-  - ReactiveObjC
+  - ReactiveObjC (= 3.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -45,6 +45,6 @@ SPEC CHECKSUMS:
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
 
-PODFILE CHECKSUM: 5efaf48374ed7f421477ffcfed8da8fbf8daf9b3
+PODFILE CHECKSUM: 823fa4557547c5eb691e2452eba7262ca00fbccd
 
 COCOAPODS: 1.4.0

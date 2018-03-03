@@ -550,7 +550,6 @@
     self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-7896672979027584/7587295301";
-    //    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
     
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
@@ -572,8 +571,10 @@
 }
 
 /// Tells the delegate an ad request failed.
-- (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error
+{
     NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+    self.bannerView.hidden = YES;
     [self handleBanner];
 }
 
@@ -587,8 +588,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     NSInteger page = mViewPager.currentPage;
     if (0 == page) {
@@ -603,8 +602,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    self.navigationController.navigationBar.barTintColor =  [UIColor colorWithHex:0x1fb1e8];
 }
 -(void)handleBanner{
     if (self.bannerView.hidden == YES || self.bannerView.alpha == 0) {
