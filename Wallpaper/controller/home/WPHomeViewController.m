@@ -512,15 +512,13 @@
     if (@available(iOS 11.0, *)) {
         if (KIsiPhoneX) {
             CGRect frame2 = self.titleBarView.frame;
-            frame2.origin.y = 88;
+            frame2.origin.y = 24;
             self.titleBarView.frame = frame2;
             
             frame.size.height -= (88);
-            frame.origin.y = (88);
         }else
         {
             frame.size.height -= (64);
-            frame.origin.y = (64);
         }
     } else {
         frame.size.height -= (64);
