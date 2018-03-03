@@ -509,19 +509,13 @@
      */
     ViewPagerAdapter *adapter = [[ViewPagerAdapter alloc]init];
     CGRect frame = [UIScreen mainScreen].bounds;
-    if (@available(iOS 11.0, *)) {
-        if (KIsiPhoneX) {
-            CGRect frame2 = self.titleBarView.frame;
-            frame2.origin.y = 24;
-            self.titleBarView.frame = frame2;
-            
-            frame.size.height -= (88);
-        }else
-        {
-            frame.size.height -= (64);
-        }
-    } else {
-        frame.size.height -= (64);
+    //compatible iPhoneX
+    if (KIsiPhoneX) {
+        CGRect frame2 = self.titleBarView.frame;
+        frame2.origin.y = 24;
+        self.titleBarView.frame = frame2;
+        
+        frame.size.height -= (24);
     }
     mViewPager = [[ViewPager alloc]initWithFrame:frame];
     mViewPager.mDelegate = self;
