@@ -545,7 +545,6 @@
     self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-7896672979027584/7587295301";
-    //    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
     
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
@@ -567,7 +566,8 @@
 }
 
 /// Tells the delegate an ad request failed.
-- (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error
+{
     NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
     self.bannerView.hidden = YES;
     [self handleBanner];
@@ -813,7 +813,7 @@
             [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-//            NSDictionary *resultDict = response.rawResponseDictionary;
+            //            NSDictionary *resultDict = response.rawResponseDictionary;
             NSArray *responseArray = response.rawResponseArray;
             Group *group = [[Group alloc] init];
             responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];

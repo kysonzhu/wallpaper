@@ -11,7 +11,11 @@
 
 
 typedef void(^HomeNavigatiaonTitleViewAction)(HomeNavigationTitileViewButton * button, int index);
+
 @interface HomeNavigatiaonTitleView : UIView
+
 @property (nonatomic, copy) HomeNavigatiaonTitleViewAction clieckButtonAtIndex;
+
 - (void)setButtonHighlighedAtIndex:(int)index;
+
 @end

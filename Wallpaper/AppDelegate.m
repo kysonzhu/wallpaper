@@ -387,7 +387,7 @@
     [[EnvironmentConfigure shareInstance] setShowAllData:NO];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
     [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
-    // 注册 APNs
+    // register APNs
     [self registerRemoteNotification];
 
     // Override point for customization after application launch.
@@ -396,13 +396,6 @@
     // 开启网络监控
     AFNetworkReachabilityManager *netReachabilityManger = [AFNetworkReachabilityManager sharedManager];
     [netReachabilityManger startMonitoring];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-//    UINavigationBar * appearance = [UINavigationBar appearance];
-//    [appearance setBarTintColor:[UIColor whiteColor]];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
-//    [appearance setTitleTextAttributes:dictionary];
     
     WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithNibName:@"MenuViewController_iphone" bundle:nil];
