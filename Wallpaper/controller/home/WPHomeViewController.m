@@ -386,9 +386,6 @@
 #define TAG_BTN_NAV_TITLE   8912
 
 @interface WPHomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
-    __weak IBOutlet UIButton *recommendButton;
-    __weak IBOutlet UIButton *latestButton;
-    __weak IBOutlet UIButton *categoryButton;
     __weak IBOutlet UIView *seperateView;
     ViewPager *mViewPager;
     UIButton *leftNavigationBarButton;
@@ -415,12 +412,8 @@
 @synthesize startRecommended,startLatest;
 
 @synthesize isFirstTimeFetchDataLatest,isFirstTimeFetchDataCategory,isFirstTimeFetchDataRecommended;
-- (HomeNavigatiaonTitleView *)titleView{
-    if (!_titleView) {
-        _titleView = [[HomeNavigatiaonTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 200 , 44)];
-    }
-    return _titleView;
-}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -456,14 +449,6 @@
     [btnItem2 setCustomView:rightNavigationBarButton];
     self.navigationItem.rightBarButtonItem = btnItem2;
     
-    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    button.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
-    //    [button setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
-    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    //    button.tag = TAG_BTN_NAV_TITLE;
-    //    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    //    self.navigationItem.titleView = button;
     __weak typeof(self) weakself = self;
     self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {
         UIButton *btn = [UIButton buttonWithType:0];
@@ -478,59 +463,11 @@
         [weakself buttonClicked:btn];
     };
     self.navigationItem.titleView = self.titleView;
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    /*
-     * Button init and event binding
-     */
-    recommendButton.tag = TAG_BTN_RECOMMEND;
-    latestButton.tag    = TAG_BTN_LATEST;
-    categoryButton.tag  = TAG_BTN_CATEGORY;
-    
-    [recommendButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(recommendButton.superview);
-        make.top.mas_equalTo(0.f);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
-    }];
-    
-    [latestButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(recommendButton.mas_left).offset(-60);
-        make.top.mas_equalTo(0.f);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
-    }];
-    
-    [categoryButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(recommendButton.mas_right).offset(60);
-        make.top.mas_equalTo(0.f);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
-    }];
-    
-    [recommendButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [latestButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [categoryButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     /*
      * ViewPager init and set frame
      */
     ViewPagerAdapter *adapter = [[ViewPagerAdapter alloc]init];
-    CGRect frame = [UIScreen mainScreen].bounds;
-    if (@available(iOS 11.0, *)) {
-        if (KIsiPhoneX) {
-            CGRect frame2 = self.titleBarView.frame;
-            frame2.origin.y = 88;
-            self.titleBarView.frame = frame2;
-            
-            frame.size.height -= (88);
-            frame.origin.y = (88);
-        }else
-        {
-            frame.size.height -= (64);
-            frame.origin.y = (64);
-        }
-    } else {
-        frame.size.height -= (64);
-        frame.origin.y = (64);
-    }
-    mViewPager = [[ViewPager alloc]initWithFrame:frame];
     mViewPager.mDelegate = self;
     [self.view addSubview:mViewPager];
     
@@ -550,8 +487,6 @@
     self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.bannerView];
     self.bannerView.adUnitID = @"ca-app-pub-7896672979027584/7587295301";
-    //    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-    
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.delegate = self;
@@ -563,79 +498,48 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
     NSLog(@"adViewDidReceiveAd");
-    adView.alpha = 0;
-    [UIView animateWithDuration:1.0 animations:^{
-        adView.alpha = 1;
-        [self handleBanner];
-    }];
+//    adView.alpha = 0;
+//    [UIView animateWithDuration:1.0 animations:^{
+//        adView.alpha = 1;
+//        [self handleBanner];
+//    }];
     
 }
 
 /// Tells the delegate an ad request failed.
 - (void)adView:(GADBannerView *)adView didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
-    [self handleBanner];
+//    [self handleBanner];
 }
 
 - (void)adViewWillLeaveApplication:(GADBannerView *)bannerView
 {
     self.bannerView.hidden = YES;
-    [self handleBanner];
+//    [self handleBanner];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
-    NSInteger page = mViewPager.currentPage;
-    if (0 == page) {
-        [self buttonClicked:latestButton];
-    }else if (1== page){
-        [self buttonClicked:recommendButton];
-    }else if (2 == page){
-        [self buttonClicked:categoryButton];
-    }
-    [self handleBanner];
+//    [self handleBanner];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    self.navigationController.navigationBar.barTintColor =  [UIColor colorWithHex:0x1fb1e8];
-}
--(void)handleBanner{
-    if (self.bannerView.hidden == YES || self.bannerView.alpha == 0) {
-        [mViewPager mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(mViewPager.frame.origin.y);
-            make.left.equalTo(self.view);
-            make.right.equalTo(self.view);
-            make.bottom.equalTo(self.view);
-        }];
-    }else{
-        [mViewPager mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(mViewPager.frame.origin.y);
-            make.left.equalTo(self.view);
-            make.right.equalTo(self.view);
-            make.bottom.equalTo(self.view).offset(-50);
-        }];
-    }
 }
 
 #pragma mark - ScrollView Delegate
 
 - (void)viewPagerDidEndDecelerating:(ViewPager *)viewPager{
     NSInteger page = viewPager.currentPage;
-    if (0 == page) {
-        [self buttonClicked:latestButton];
-    }else if (1== page){
-        [self buttonClicked:recommendButton];
-    }else if (2 == page){
-        [self buttonClicked:categoryButton];
-    }
-    
+//    if (0 == page) {
+//        [self buttonClicked:latestButton];
+//    }else if (1== page){
+//        [self buttonClicked:recommendButton];
+//    }else if (2 == page){
+//        [self buttonClicked:categoryButton];
+//    }
 }
 
 -(void)viewPagerDidScroll:(ViewPager *)viewPager{
@@ -651,43 +555,42 @@
 -(void)viewPagerItemDidClicked:(int)index imageName:(NSString *)imageName imageUrl:(NSString *)imageUrl{
     switch (index) {
         case 0:{
-            [self buttonClicked:latestButton];
+            mViewPager.currentPage = 1;
+            [self.titleView setButtonHighlighedAtIndex:1];
+            //request
+            if (isFirstTimeFetchDataRecommended)
+            {
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":@"0"}];
+                [self doNetworkService:serviceMediator];
+                [KVNProgress show];
+            }
         }
             break;
         case 1:{
-            [self buttonClicked:recommendButton];
+            mViewPager.currentPage = 0;
+            [self.titleView setButtonHighlighedAtIndex:0];
+            //request
+            if (isFirstTimeFetchDataLatest)
+            {
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":@"0"}];
+                self.startLatest = 0;
+                [self doNetworkService:serviceMediator];
+                [KVNProgress show];
+            }
         }
             break;
         case 2:{
-            [self buttonClicked:categoryButton];
+            mViewPager.currentPage = 2;
+            //request
+            if (isFirstTimeFetchDataCategory )
+            {
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLIST params:@{@"start":@"0"}];
+                [self doNetworkService:serviceMediator];
+                [KVNProgress show];
+            }
         }
             break;
             
-        default:
-            break;
-    }
-}
-
-/*
- * Set Button highlight manually
- */
--(void)setButtonHighlighed:(UIButton *) button{
-    [recommendButton setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
-    [latestButton setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
-    [categoryButton setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
-    switch (button.tag) {
-        case TAG_BTN_RECOMMEND:{
-            [recommendButton setTitleColor:[UIColor colorWithHex:0x1fb1e8] forState:UIControlStateNormal];
-        }
-            break;
-        case TAG_BTN_LATEST:{
-            [latestButton setTitleColor:[UIColor colorWithHex:0x1fb1e8] forState:UIControlStateNormal];
-        }
-            break;
-        case TAG_BTN_CATEGORY:{
-            [categoryButton setTitleColor:[UIColor colorWithHex:0x1fb1e8] forState:UIControlStateNormal];
-        }
-            break;
         default:
             break;
     }
@@ -699,43 +602,6 @@
 -(void)buttonClicked:(UIButton *) button{
     //dissmiss out of network view
     switch (button.tag) {
-        case TAG_BTN_RECOMMEND:{
-            mViewPager.currentPage = 1;
-            [self setButtonHighlighed:button];
-            [self.titleView setButtonHighlighedAtIndex:1];
-            //request
-            if (isFirstTimeFetchDataRecommended) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":@"0"}];
-                [self doNetworkService:serviceMediator];
-                [KVNProgress show];
-            }
-        }
-            break;
-        case TAG_BTN_LATEST:{
-            mViewPager.currentPage = 0;
-            [self setButtonHighlighed:button];
-            [self.titleView setButtonHighlighedAtIndex:0];
-            //request
-            if (isFirstTimeFetchDataLatest) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":@"0"}];
-                self.startLatest = 0;
-                [self doNetworkService:serviceMediator];
-                [KVNProgress show];
-            }
-        }
-            break;
-        case TAG_BTN_CATEGORY:{
-            mViewPager.currentPage = 2;
-            [self setButtonHighlighed:button];
-            [self.titleView setButtonHighlighedAtIndex:2];
-            //request
-            if (isFirstTimeFetchDataCategory ) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLIST params:@{@"start":@"0"}];
-                [self doNetworkService:serviceMediator];
-                [KVNProgress show];
-            }
-        }
-            break;
         case TAG_BTN_NAV_TITLE:{
             if (mViewPager.currentPage == 0) {
                 [self.mLastestCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
@@ -821,7 +687,6 @@
             [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-//            NSDictionary *resultDict = response.rawResponseDictionary;
             NSArray *responseArray = response.rawResponseArray;
             Group *group = [[Group alloc] init];
             responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
@@ -959,7 +824,6 @@
     if (!_mCategoryTableView) {
         //init category
         _mCategoryTableView = [[CategoryTableView alloc]initWithFrame:self.view.frame];
-        //    mCategoryTableView.backgroundColor = [UIColor colorWithHex:0xe2e3e3];
         _mCategoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mCategoryTableView.mDelegate = self;
         _mCategoryTableView.delegate = _mCategoryTableView;
@@ -968,6 +832,12 @@
     return _mCategoryTableView;
 }
 
+- (HomeNavigatiaonTitleView *)titleView{
+    if (!_titleView) {
+        _titleView = [[HomeNavigatiaonTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 200 , 44)];
+    }
+    return _titleView;
+}
 
 @end
 

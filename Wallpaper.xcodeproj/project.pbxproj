@@ -18,6 +18,15 @@
 		96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC62049B1A000689E89 /* WPWebViewController.m */; };
 		96E6CBC9204A31B600689E89 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC8204A31B600689E89 /* LICENSE */; };
 		96E6CBCB204A3A6300689E89 /* WPHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */; };
+		96E6CBE6204A4D4F00689E89 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBCD204A4D4E00689E89 /* LICENSE */; };
+		96E6CBE7204A4D4F00689E89 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBD0204A4D4E00689E89 /* README.md */; };
+		96E6CBE8204A4D4F00689E89 /* YXViewPagerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBD2204A4D4E00689E89 /* YXViewPagerBaseViewController.m */; };
+		96E6CBE9204A4D4F00689E89 /* YXViewPagerBaseSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBD4204A4D4E00689E89 /* YXViewPagerBaseSubViewController.m */; };
+		96E6CBEA204A4D4F00689E89 /* YXViewPagerItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBD9204A4D4E00689E89 /* YXViewPagerItemViewModel.m */; };
+		96E6CBEB204A4D4F00689E89 /* YXViewPagerTopItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBDB204A4D4E00689E89 /* YXViewPagerTopItemView.m */; };
+		96E6CBEC204A4D4F00689E89 /* YXViewPagerTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBDC204A4D4E00689E89 /* YXViewPagerTopView.m */; };
+		96E6CBED204A4D4F00689E89 /* UIView+YX.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBE1204A4D4E00689E89 /* UIView+YX.m */; };
+		96E6CBEE204A4D4F00689E89 /* UIColor+YX.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBE5204A4D4E00689E89 /* UIColor+YX.m */; };
 		DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
@@ -172,6 +181,26 @@
 		96E6CBC62049B1A000689E89 /* WPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPWebViewController.m; sourceTree = "<group>"; };
 		96E6CBC8204A31B600689E89 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPHomeViewController.xib; sourceTree = "<group>"; };
+		96E6CBCD204A4D4E00689E89 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		96E6CBCF204A4D4E00689E89 /* YXViewPagerEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerEventDelegate.h; sourceTree = "<group>"; };
+		96E6CBD0204A4D4E00689E89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		96E6CBD2204A4D4E00689E89 /* YXViewPagerBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXViewPagerBaseViewController.m; sourceTree = "<group>"; };
+		96E6CBD3204A4D4E00689E89 /* YXViewPagerBaseSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerBaseSubViewController.h; sourceTree = "<group>"; };
+		96E6CBD4204A4D4E00689E89 /* YXViewPagerBaseSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXViewPagerBaseSubViewController.m; sourceTree = "<group>"; };
+		96E6CBD5204A4D4E00689E89 /* YXViewPagerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerBaseViewController.h; sourceTree = "<group>"; };
+		96E6CBD8204A4D4E00689E89 /* YXViewPagerItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerItemViewModel.h; sourceTree = "<group>"; };
+		96E6CBD9204A4D4E00689E89 /* YXViewPagerItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXViewPagerItemViewModel.m; sourceTree = "<group>"; };
+		96E6CBDA204A4D4E00689E89 /* YXViewPagerTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerTopView.h; sourceTree = "<group>"; };
+		96E6CBDB204A4D4E00689E89 /* YXViewPagerTopItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXViewPagerTopItemView.m; sourceTree = "<group>"; };
+		96E6CBDC204A4D4E00689E89 /* YXViewPagerTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXViewPagerTopView.m; sourceTree = "<group>"; };
+		96E6CBDD204A4D4E00689E89 /* YXViewPagerTopItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerTopItemView.h; sourceTree = "<group>"; };
+		96E6CBDE204A4D4E00689E89 /* YXViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPager.h; sourceTree = "<group>"; };
+		96E6CBE0204A4D4E00689E89 /* YXViewPagerDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerDefine.h; sourceTree = "<group>"; };
+		96E6CBE1204A4D4E00689E89 /* UIView+YX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YX.m"; sourceTree = "<group>"; };
+		96E6CBE2204A4D4E00689E89 /* UIColor+YX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YX.h"; sourceTree = "<group>"; };
+		96E6CBE3204A4D4E00689E89 /* UIView+YX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YX.h"; sourceTree = "<group>"; };
+		96E6CBE4204A4D4E00689E89 /* YXViewPagerUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXViewPagerUtility.h; sourceTree = "<group>"; };
+		96E6CBE5204A4D4E00689E89 /* UIColor+YX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YX.m"; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHomeViewController.m; sourceTree = "<group>"; };
@@ -395,6 +424,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96E6CBCC204A4D4E00689E89 /* YXViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				96E6CBCD204A4D4E00689E89 /* LICENSE */,
+				96E6CBCE204A4D4E00689E89 /* Delegate */,
+				96E6CBD0204A4D4E00689E89 /* README.md */,
+				96E6CBD1204A4D4E00689E89 /* VC */,
+				96E6CBD6204A4D4E00689E89 /* View */,
+				96E6CBDE204A4D4E00689E89 /* YXViewPager.h */,
+				96E6CBDF204A4D4E00689E89 /* Utility */,
+			);
+			path = YXViewPager;
+			sourceTree = "<group>";
+		};
+		96E6CBCE204A4D4E00689E89 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				96E6CBCF204A4D4E00689E89 /* YXViewPagerEventDelegate.h */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		96E6CBD1204A4D4E00689E89 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				96E6CBD2204A4D4E00689E89 /* YXViewPagerBaseViewController.m */,
+				96E6CBD3204A4D4E00689E89 /* YXViewPagerBaseSubViewController.h */,
+				96E6CBD4204A4D4E00689E89 /* YXViewPagerBaseSubViewController.m */,
+				96E6CBD5204A4D4E00689E89 /* YXViewPagerBaseViewController.h */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		96E6CBD6204A4D4E00689E89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				96E6CBD7204A4D4E00689E89 /* ViewModel */,
+				96E6CBDA204A4D4E00689E89 /* YXViewPagerTopView.h */,
+				96E6CBDB204A4D4E00689E89 /* YXViewPagerTopItemView.m */,
+				96E6CBDC204A4D4E00689E89 /* YXViewPagerTopView.m */,
+				96E6CBDD204A4D4E00689E89 /* YXViewPagerTopItemView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96E6CBD7204A4D4E00689E89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96E6CBD8204A4D4E00689E89 /* YXViewPagerItemViewModel.h */,
+				96E6CBD9204A4D4E00689E89 /* YXViewPagerItemViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96E6CBDF204A4D4E00689E89 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				96E6CBE0204A4D4E00689E89 /* YXViewPagerDefine.h */,
+				96E6CBE1204A4D4E00689E89 /* UIView+YX.m */,
+				96E6CBE2204A4D4E00689E89 /* UIColor+YX.h */,
+				96E6CBE3204A4D4E00689E89 /* UIView+YX.h */,
+				96E6CBE4204A4D4E00689E89 /* YXViewPagerUtility.h */,
+				96E6CBE5204A4D4E00689E89 /* UIColor+YX.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		B991A543E4C347A1A27096E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +585,7 @@
 		DE95854D1A3ADE65000C6B70 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				96E6CBCC204A4D4E00689E89 /* YXViewPager */,
 				DEC4E5291A67810C00E3A593 /* uiscrollview+utils */,
 				DEC4E4E91A64E98600E3A593 /* platform */,
 				DEBDBDED1A5BAF040092521E /* KVNProgress */,
@@ -1007,12 +1104,14 @@
 				DEE67B111A415C5300BFA114 /* WrapperDetailViewController_iphone.xib in Resources */,
 				DEADAF281A4AB9A400C19A2B /* FeedbackViewController_iphone.xib in Resources */,
 				DEBDBCD01A538E490092521E /* CateListItemCell.xib in Resources */,
+				96E6CBE6204A4D4F00689E89 /* LICENSE in Resources */,
 				DEBDBCD71A53BBB00092521E /* nav_screen@2x.png in Resources */,
 				DEBDBCC21A5288DC0092521E /* mod_icon@2x.png in Resources */,
 				DEBDBC361A4BBA760092521E /* button_add@2x.png in Resources */,
 				DEBDC00C1A5D35160092521E /* lef_remove@2x.png in Resources */,
 				DEADAF001A4A5FE300C19A2B /* GridViewCell.xib in Resources */,
 				DEBDC0101A5D3CAE0092521E /* nav_info@2x.png in Resources */,
+				96E6CBE7204A4D4F00689E89 /* README.md in Resources */,
 				DEBDBD831A590A440092521E /* SearchHistoryItemCell.xib in Resources */,
 				DEADAF191A4AAFCE00C19A2B /* desk_white@2x.png in Resources */,
 				DEC4E4E71A64E7A800E3A593 /* launtchscreen_4@2x.png in Resources */,
@@ -1129,11 +1228,14 @@
 				DEE67B3F1A43BE5B00BFA114 /* ViewPager.m in Sources */,
 				DECCCD2C1A36FAA1000C73BA /* AppDelegate.m in Sources */,
 				DEBDBD7D1A5909030092521E /* SearchHistoryAdapter.m in Sources */,
+				96E6CBEB204A4D4F00689E89 /* YXViewPagerTopItemView.m in Sources */,
 				DE95854A1A3ADDE4000C6B70 /* FileDownload.m in Sources */,
 				DEACA8321A493A0000CFF53D /* RecommndCollectionViewLayout.m in Sources */,
 				DEBDBDF01A5BAF040092521E /* KVNProgress.m in Sources */,
+				96E6CBED204A4D4F00689E89 /* UIView+YX.m in Sources */,
 				DEC4E52C1A67812200E3A593 /* UIScrollView+touch.m in Sources */,
 				DEACA81B1A481ADB00CFF53D /* LatestCollectionView.m in Sources */,
+				96E6CBEE204A4D4F00689E89 /* UIColor+YX.m in Sources */,
 				DEBDBCC51A529B240092521E /* HotestCollectionViewLayout.m in Sources */,
 				DE95854C1A3ADDE4000C6B70 /* ImageDownloader.m in Sources */,
 				DEADAF091A4A8B2900C19A2B /* KSCollectionViewLayout.m in Sources */,
@@ -1146,12 +1248,14 @@
 				DEBDBC441A4C02C80092521E /* SearchViewController.m in Sources */,
 				DE95852F1A3AD41D000C6B70 /* DDMenuController.m in Sources */,
 				DEBDBCB01A5245400092521E /* CategoryTableViewCell.m in Sources */,
+				96E6CBEA204A4D4F00689E89 /* YXViewPagerItemViewModel.m in Sources */,
 				DEBDBCA41A4E9AF30092521E /* WPBaseViewController.m in Sources */,
 				DEBDBCD31A538E640092521E /* CateListItemCell.m in Sources */,
 				96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */,
 				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
 				DEACA81E1A481AF800CFF53D /* RecommndCollectionView.m in Sources */,
 				DEE67B0F1A415B7200BFA114 /* WrapperDetailViewController.m in Sources */,
+				96E6CBEC204A4D4F00689E89 /* YXViewPagerTopView.m in Sources */,
 				DECCCD941A381BBF000C73BA /* MenuViewController.m in Sources */,
 				DE9585511A3ADEAC000C6B70 /* FileManager.m in Sources */,
 				DEACA82E1A491D4B00CFF53D /* ViewPagerAdapter.m in Sources */,
@@ -1192,6 +1296,8 @@
 				DEADAF241A4AB97200C19A2B /* AboutUsViewController.m in Sources */,
 				DEBDBC491A4C090C0092521E /* SearchDetailViewController.m in Sources */,
 				DEBDBCBE1A5273EE0092521E /* Classification.m in Sources */,
+				96E6CBE9204A4D4F00689E89 /* YXViewPagerBaseSubViewController.m in Sources */,
+				96E6CBE8204A4D4F00689E89 /* YXViewPagerBaseViewController.m in Sources */,
 				96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */,
 				DEBDBCC81A529C020092521E /* HotestCollectionView.m in Sources */,
 			);
