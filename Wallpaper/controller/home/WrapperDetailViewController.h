@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Group.h"
+#import "WPBaseViewController.h"
 
 typedef enum _FromController{
     FromControllerRecommended,
@@ -15,7 +16,7 @@ typedef enum _FromController{
     FromControllerHotest
 }FromController;
 
-@interface WrapperDetailViewController : Controller
+@interface WrapperDetailViewController : WPBaseViewController
 
 @property (nonatomic, retain) Group *group;
 

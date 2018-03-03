@@ -7,6 +7,7 @@
 //
 
 #import "WPAboutUsTableViewHeaderView.h"
+#import <Masonry/Masonry.h>
 
 @interface WPAboutUsTableViewHeaderView()
 

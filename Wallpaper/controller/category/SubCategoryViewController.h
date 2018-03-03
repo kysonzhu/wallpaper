@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Classification.h"
+#import "WPBaseViewController.h"
 
-@interface SubCategoryViewController : Controller
+@interface SubCategoryViewController : WPBaseViewController
 
 @property (nonatomic, strong) Classification *category;
 

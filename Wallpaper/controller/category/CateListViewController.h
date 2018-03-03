@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Classification.h"
+#import "WPBaseViewController.h"
 
 @protocol CateListViewControllerDelegate ;
 
-
-@interface CateListViewController : Controller
+@interface CateListViewController : WPBaseViewController
 
 @property (nonatomic, assign) id<CateListViewControllerDelegate> mDelegate;
 

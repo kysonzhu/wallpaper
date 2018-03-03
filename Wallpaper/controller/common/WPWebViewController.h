@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Controller.h"
+#import "WPBaseViewController.h"
 
-@interface WPWebViewController : Controller
+@interface WPWebViewController : WPBaseViewController
 
 @property(nonatomic, copy) NSString *loadingURL;
 

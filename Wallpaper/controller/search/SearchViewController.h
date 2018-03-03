@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WPBaseViewController.h"
 
-@interface SearchViewController : Controller
+@interface SearchViewController : WPBaseViewController
 
 @end

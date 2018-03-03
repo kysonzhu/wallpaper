@@ -17,7 +17,6 @@
     #import "KSRouter.h"
     #import "UIColor+Hex.h"
     #import "NSString+Util.h"
-    #import "Controller.h"
     #import <ReactiveObjC/ReactiveObjC.h>
 
 

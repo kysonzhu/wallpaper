@@ -6,12 +6,12 @@
 //  Copyright (c) 2014年 zhujinhui( http://kyson.cn ). All rights reserved.
 //
 
-#import "Controller.h"
+#import "WPBaseViewController.h"
 #import "ImageCache.h"
 #import "AppDelegate.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface Controller ()<MGTaskPoolDelegate>{
+@interface WPBaseViewController ()<MGTaskPoolDelegate>{
     NSMutableArray *requestTokens;
 }
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation Controller
+@implementation WPBaseViewController
 
 - (void)viewDidLoad
 {

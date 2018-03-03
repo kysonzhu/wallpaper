@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WPBaseViewController.h"
 
-@interface SearchDetailViewController : Controller
+@interface SearchDetailViewController : WPBaseViewController
 
 
 @property (nonatomic, copy) NSString *searchText;

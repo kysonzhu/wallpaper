@@ -77,7 +77,7 @@
 		DEBDBC491A4C090C0092521E /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBC481A4C090C0092521E /* SearchDetailViewController.m */; };
 		DEBDBC991A4E649C0092521E /* WrapperServiceMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBC981A4E649C0092521E /* WrapperServiceMediator.m */; };
 		DEBDBCA01A4E9A1F0092521E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBC9F1A4E9A1F0092521E /* Group.m */; };
-		DEBDBCA41A4E9AF30092521E /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCA31A4E9AF30092521E /* Controller.m */; };
+		DEBDBCA41A4E9AF30092521E /* WPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCA31A4E9AF30092521E /* WPBaseViewController.m */; };
 		DEBDBCAA1A50FF250092521E /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCA91A50FF250092521E /* Image.m */; };
 		DEBDBCAD1A5243110092521E /* CategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCAC1A5243110092521E /* CategoryTableView.m */; };
 		DEBDBCB01A5245400092521E /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBDBCAF1A5245400092521E /* CategoryTableViewCell.m */; };
@@ -264,8 +264,8 @@
 		DEBDBC981A4E649C0092521E /* WrapperServiceMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapperServiceMediator.m; sourceTree = "<group>"; };
 		DEBDBC9E1A4E9A1F0092521E /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		DEBDBC9F1A4E9A1F0092521E /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		DEBDBCA21A4E9AF30092521E /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		DEBDBCA31A4E9AF30092521E /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		DEBDBCA21A4E9AF30092521E /* WPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPBaseViewController.h; sourceTree = "<group>"; };
+		DEBDBCA31A4E9AF30092521E /* WPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPBaseViewController.m; sourceTree = "<group>"; };
 		DEBDBCA81A50FF250092521E /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		DEBDBCA91A50FF250092521E /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		DEBDBCAB1A5243110092521E /* CategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableView.h; sourceTree = "<group>"; };
@@ -656,8 +656,8 @@
 		DEBDBCA11A4E9AC00092521E /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
-				DEBDBCA21A4E9AF30092521E /* Controller.h */,
-				DEBDBCA31A4E9AF30092521E /* Controller.m */,
+				DEBDBCA21A4E9AF30092521E /* WPBaseViewController.h */,
+				DEBDBCA31A4E9AF30092521E /* WPBaseViewController.m */,
 				96E6CBBD20498FC800689E89 /* KSRouter.h */,
 				96E6CBBE20498FC800689E89 /* KSRouter.m */,
 			);
@@ -1142,7 +1142,7 @@
 				DEBDBC441A4C02C80092521E /* SearchViewController.m in Sources */,
 				DE95852F1A3AD41D000C6B70 /* DDMenuController.m in Sources */,
 				DEBDBCB01A5245400092521E /* CategoryTableViewCell.m in Sources */,
-				DEBDBCA41A4E9AF30092521E /* Controller.m in Sources */,
+				DEBDBCA41A4E9AF30092521E /* WPBaseViewController.m in Sources */,
 				DEBDBCD31A538E640092521E /* CateListItemCell.m in Sources */,
 				96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */,
 				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
@@ -1312,8 +1312,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
@@ -1333,8 +1333,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
+				PROVISIONING_PROFILE = "6d6a7391-a3e8-404e-b605-f3f73a50607f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1349,7 +1349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 16;
@@ -1370,8 +1370,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
+				PROVISIONING_PROFILE = "6d6a7391-a3e8-404e-b605-f3f73a50607f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";

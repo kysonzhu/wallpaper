@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WPBaseViewController.h"
 
-@interface AboutUsViewController : Controller
+
+@interface AboutUsViewController : WPBaseViewController
 
 @end

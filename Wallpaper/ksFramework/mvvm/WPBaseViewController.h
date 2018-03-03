@@ -15,7 +15,7 @@
 
 #define TAG_IMGV_OUTOFNETWORK  8913
 
-@interface Controller : UIViewController
+@interface WPBaseViewController : UIViewController
 
 /**
  处理覆盖导航栏问题

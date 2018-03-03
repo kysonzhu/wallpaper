@@ -9,6 +9,7 @@
 #import "RecommndCollectionView.h"
 #import "WrapperDetailViewController.h"
 #import "GalleryView.h"
+#import "WPBaseViewController.h"
 
 static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 

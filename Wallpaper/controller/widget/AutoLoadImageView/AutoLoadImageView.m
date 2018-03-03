@@ -9,6 +9,7 @@
 #import "AutoLoadImageView.h"
 #import "ImageDownloader.h"
 #import "UserCenter.h"
+#import <Masonry/Masonry.h>
 
 @interface AutoLoadImageView ()<ImageDownloaderDelegate>{
     ImageDownloader *imageDownloader;

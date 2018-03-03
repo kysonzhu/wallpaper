@@ -7,6 +7,7 @@
 //
 
 #import "CategoryTableViewCell.h"
+#import <Masonry/Masonry.h>
 
 @interface CategoryTableViewCell (){
     __weak IBOutlet UILabel *subTitleLabel;

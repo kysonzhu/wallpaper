@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 zhujinhui. All rights reserved.
 //
 
-#import "Controller.h"
+#import "WPBaseViewController.h"
 
-@interface SelectBgViewController : Controller
+@interface SelectBgViewController : WPBaseViewController
 
 @end

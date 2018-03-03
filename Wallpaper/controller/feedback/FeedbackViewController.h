@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WPBaseViewController.h"
 
-@interface FeedbackViewController : Controller
+@interface FeedbackViewController : WPBaseViewController
 
 @end
