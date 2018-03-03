@@ -150,7 +150,7 @@
                     break;
                 case 1:
                 {
-                    
+                    cell.textLabel.text = [NSString stringWithFormat:@"评价我们"];
                 }
                     break;
                 default:
@@ -174,6 +174,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section)
     {
+            
+        case 0:{
+            switch (indexPath.row) {
+                case 0:
+                    break;
+                case 1:
+                {
+                    NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id1334013423"];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:evaluateString]];
+                }
+                default:
+                    break;
+            }
+        }
+            break;
         case 1:
         {
             WPWebViewController *webViewController = [[WPWebViewController alloc] init];

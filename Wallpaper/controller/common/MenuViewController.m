@@ -21,7 +21,6 @@
 #define TAG_BTN_ABOUTUS         1287
 #define TAG_BTN_FEEDBACK        1288
 #define TAG_BTN_CLEARCACHE      1289
-#define TAG_BTN_VALUE           1290
 #define TAG_BTN_GREENINGCARD    1291
 
 @interface MenuViewController()<UIActionSheetDelegate,UIAlertViewDelegate>{
@@ -29,7 +28,6 @@
     __weak IBOutlet UIButton *aboutUsButton;
     __weak IBOutlet UIButton *feedbackButton;
     __weak IBOutlet UIButton *clearCacheButton;
-    __weak IBOutlet UIButton *valueButton;
     __weak IBOutlet UIButton *greetingCardButton;
     
     
@@ -45,13 +43,11 @@
     aboutUsButton.tag = TAG_BTN_ABOUTUS;
     feedbackButton.tag = TAG_BTN_FEEDBACK;
     clearCacheButton.tag = TAG_BTN_CLEARCACHE;
-    valueButton.tag = TAG_BTN_VALUE;
     greetingCardButton.tag = TAG_BTN_GREENINGCARD;
     
     [aboutUsButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [feedbackButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [clearCacheButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [valueButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [greetingCardButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -80,11 +76,6 @@
         case TAG_BTN_CLEARCACHE:{
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"马上清除缓存" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:@"取消", nil];
             [alertView show];
-        }
-            break;
-        case TAG_BTN_VALUE:{
-            NSString *evaluateString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id1334013423"];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:evaluateString]];
         }
             break;
         case TAG_BTN_GREENINGCARD:{

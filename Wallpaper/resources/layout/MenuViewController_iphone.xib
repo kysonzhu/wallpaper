@@ -15,7 +15,6 @@
                 <outlet property="clearCacheButton" destination="2lg-ww-qPO" id="mYl-hs-ymW"/>
                 <outlet property="feedbackButton" destination="cu2-Fo-190" id="gpd-jM-eoh"/>
                 <outlet property="greetingCardButton" destination="iEo-Sh-qkq" id="31q-Jd-3lI"/>
-                <outlet property="valueButton" destination="5jp-dR-6zm" id="b1c-bM-rg7"/>
                 <outlet property="view" destination="1" id="AbH-7G-ogU"/>
             </connections>
         </placeholder>
@@ -57,19 +56,10 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu2-Fo-190">
-                    <rect key="frame" x="58" y="405" width="66" height="30"/>
+                    <rect key="frame" x="58" y="342" width="66" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="意见反馈">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jp-dR-6zm">
-                    <rect key="frame" x="58" y="344" width="66" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="评价我们">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -84,7 +74,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-ob-EHE">
-                    <rect key="frame" x="58" y="468" width="66" height="30"/>
+                    <rect key="frame" x="58" y="405" width="66" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="关于我们">
@@ -96,16 +86,12 @@
                     <rect key="frame" x="48" y="328" width="168" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="leftbar_Dividing-line.png" translatesAutoresizingMaskIntoConstraints="NO" id="8ks-JX-iXS">
-                    <rect key="frame" x="48" y="388" width="168" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="leftbar_Dividing-line.png" translatesAutoresizingMaskIntoConstraints="NO" id="BVQ-U1-9ZQ">
-                    <rect key="frame" x="48" y="448" width="168" height="1"/>
+                    <rect key="frame" x="48" y="385" width="168" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="leftbar_Dividing-line.png" translatesAutoresizingMaskIntoConstraints="NO" id="GfE-3d-jM6">
-                    <rect key="frame" x="48" y="508" width="168" height="1"/>
+                    <rect key="frame" x="48" y="445" width="168" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lef_del.png" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-qC-TMq">
@@ -129,16 +115,12 @@
                     <rect key="frame" x="19" y="247" width="19" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lef_remove.png" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-MN-tpw">
-                    <rect key="frame" x="15" y="344" width="26" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lef_on.png" translatesAutoresizingMaskIntoConstraints="NO" id="RM5-mJ-Ikc">
-                    <rect key="frame" x="15" y="470" width="26" height="26"/>
+                    <rect key="frame" x="15" y="407" width="26" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lef_Feedback.png" translatesAutoresizingMaskIntoConstraints="NO" id="UIs-v6-Tbc">
-                    <rect key="frame" x="15" y="408" width="26" height="23"/>
+                    <rect key="frame" x="15" y="345" width="26" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -150,7 +132,6 @@
         <image name="lef_Feedback.png" width="26" height="23"/>
         <image name="lef_del.png" width="19" height="25"/>
         <image name="lef_on.png" width="26" height="26"/>
-        <image name="lef_remove.png" width="26" height="30"/>
         <image name="leftbar_Dividing-line.png" width="168" height="1"/>
         <image name="logo" width="57" height="57"/>
     </resources>
