@@ -818,7 +818,7 @@
             [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-//            NSDictionary *resultDict = response.rawResponseDictionary;
+            //            NSDictionary *resultDict = response.rawResponseDictionary;
             NSArray *responseArray = response.rawResponseArray;
             Group *group = [[Group alloc] init];
             responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];

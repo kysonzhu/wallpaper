@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+
 typedef void(^HomeNavigationTitileViewButtonAction)(id button);
+
 @interface HomeNavigationTitileViewButton : UIView
+
 @property (nonatomic, assign) BOOL isSelected;//是否被点击选中
+
 @property (nonatomic, copy) HomeNavigationTitileViewButtonAction buttonAction;
+
 - (void)setTitle:(NSString *)title;
+
 @end
