@@ -454,7 +454,7 @@
     [self revealWidgets:YES];
     
     //广告出现时间1-5s
-    NSInteger adTime = [self getRandomNumber:1 to:5];
+    NSInteger adTime = [self getRandomNumber:2 to:11];
     [self performSelector:@selector(showAd) withObject:nil afterDelay:adTime];
 }
 
