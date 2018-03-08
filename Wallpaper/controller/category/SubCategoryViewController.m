@@ -20,6 +20,7 @@
 #import "CateListViewController.h"
 #import "UIScrollView+MJRefresh.h"
 #import "NSString+Util.h"
+#import "HomeNavigatiaonTitleView.h"
 
 #define TAG_BTN_OFFSET      89091
 #define TAG_BTN_LATEST      89091
@@ -72,6 +73,7 @@ typedef enum _CurrentCategoryType{
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataRecommended;
 
 @property (weak, nonatomic) IBOutlet UIView *titleBarView;
+@property (nonatomic, strong) HomeNavigatiaonTitleView *titleView;
 
 @end
 
@@ -86,6 +88,8 @@ typedef enum _CurrentCategoryType{
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self handleNavigationWithScrollView:mViewPager.scrollView];
+
     self.type = CurrentCategoryTypeTotal;
     // should update tag
     isFirstTimeFetchDataLatest = YES;
@@ -130,14 +134,30 @@ typedef enum _CurrentCategoryType{
     /**
      * navigation bar title view
      */
-    navigationBarTitleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    navigationBarTitleButton.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
-    [navigationBarTitleButton setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
-    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    navigationBarTitleButton.tag = TAG_BTN_NAV_TITLE;
-    [navigationBarTitleButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = navigationBarTitleButton;
+//    navigationBarTitleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    navigationBarTitleButton.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
+//    [navigationBarTitleButton setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
+//    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+//    navigationBarTitleButton.tag = TAG_BTN_NAV_TITLE;
+//    [navigationBarTitleButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.titleView = navigationBarTitleButton;
+    
+    __weak typeof(self) weakself = self;
+    self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {
+        UIButton *btn = [UIButton buttonWithType:0];
+        if (index == 0) {
+            btn.tag = TAG_BTN_LATEST;
+        } else if (index == 1) {
+            btn.tag = TAG_BTN_RECOMMEND;
+        }
+        else if (index == 2) {
+            btn.tag = TAG_BTN_HOTEST;
+        }
+        [weakself buttonClicked:btn];
+    };
+    self.navigationItem.titleView = self.titleView;
+
     /*
      * Button event binding
      */
@@ -172,23 +192,17 @@ typedef enum _CurrentCategoryType{
      */
     ViewPagerAdapter *adapter = [[ViewPagerAdapter alloc]init];
     CGRect frame = [UIScreen mainScreen].bounds;
-    if (@available(iOS 11.0, *)) {
-        if (KIsiPhoneX) {
-            CGRect frame2 = self.titleBarView.frame;
-            frame2.origin.y = 88;
-            self.titleBarView.frame = frame2;
-            
-            frame.size.height -= (88 + 30);
-            frame.origin.y = (88 + 30);
-        }else
-        {
-            frame.size.height -= (68 + 30);
-            frame.origin.y = (68 + 30);
-        }
-    } else {
-        frame.size.height -= (68 + 30);
-        frame.origin.y = (68 + 30);
+    //compatible iPhoneX
+    if (KIsiPhoneX) {
+        CGRect frame2 = self.titleBarView.frame;
+        frame2.origin.y = 24;
+        self.titleBarView.frame = frame2;
+        
+        frame.size.height -= (24);
     }
+    mViewPager = [[ViewPager alloc]initWithFrame:frame];
+    mViewPager.mDelegate = self;
+    [self.view addSubview:mViewPager];
     
     mViewPager = [[ViewPager alloc]initWithFrame:frame];
     mViewPager.mDelegate = self;
@@ -685,5 +699,12 @@ typedef enum _CurrentCategoryType{
     [navigationBarTitleButton setTitle:title forState:UIControlStateNormal];
 }
 
+
+- (HomeNavigatiaonTitleView *)titleView{
+    if (!_titleView) {
+        _titleView = [[HomeNavigatiaonTitleView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 200 , 44)];
+    }
+    return _titleView;
+}
 
 @end

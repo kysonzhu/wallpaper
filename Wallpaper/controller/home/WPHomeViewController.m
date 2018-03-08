@@ -375,6 +375,7 @@
 
 #import "EnvironmentConfigure.h"
 #import "HomeNavigatiaonTitleView.h"
+#import "EnvironmentConfigure.h"
 @import GoogleMobileAds;
 
 
@@ -840,7 +841,9 @@
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [tempArray addObject:item];
+                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.cateShortName]) {
+                        [tempArray addObject:item];
+                    }
                 }
             }
             self.mCategoryTableView.categoryList = tempArray;

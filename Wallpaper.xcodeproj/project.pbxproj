@@ -17,7 +17,6 @@
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
 		96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC62049B1A000689E89 /* WPWebViewController.m */; };
 		96E6CBC9204A31B600689E89 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC8204A31B600689E89 /* LICENSE */; };
-		96E6CBCB204A3A6300689E89 /* WPHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */; };
 		DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
@@ -172,7 +171,6 @@
 		96E6CBC52049B1A000689E89 /* WPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPWebViewController.h; sourceTree = "<group>"; };
 		96E6CBC62049B1A000689E89 /* WPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPWebViewController.m; sourceTree = "<group>"; };
 		96E6CBC8204A31B600689E89 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPHomeViewController.xib; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHomeViewController.h; sourceTree = "<group>"; };
 		DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHomeViewController.m; sourceTree = "<group>"; };
@@ -416,7 +414,6 @@
 				DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */,
 				DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */,
 				DE9584F51A3935E9000C6B70 /* WPHomeViewController.xib */,
-				96E6CBCA204A3A6300689E89 /* WPHomeViewController.xib */,
 				DEE67B0D1A415B7200BFA114 /* WrapperDetailViewController.h */,
 				DEE67B0E1A415B7200BFA114 /* WrapperDetailViewController.m */,
 				DEACA8191A481ADA00CFF53D /* LatestCollectionView.h */,
@@ -1056,7 +1053,6 @@
 				DEBDBCD61A53BBB00092521E /* nav_back@2x.png in Resources */,
 				DEBDBE2B1A5D17A20092521E /* tab_bg@2x.png in Resources */,
 				DECCCD261A36FAA1000C73BA /* InfoPlist.strings in Resources */,
-				96E6CBCB204A3A6300689E89 /* WPHomeViewController.xib in Resources */,
 				DEBDBC341A4BB9F50092521E /* mod_bg@2x.png in Resources */,
 				DEBDC0081A5D35160092521E /* lef_del@2x.png in Resources */,
 				DEAED5591A64E61A0047318C /* lockscreen_2@2x.png in Resources */,
