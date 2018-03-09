@@ -18,6 +18,7 @@ PODS:
   - Google-Mobile-Ads-SDK (7.28.0)
   - GTSDK (2.2.0.0)
   - IQKeyboardManager (5.0.7)
+  - JSDecoupledAppDelegate (1.1.0)
   - Mangogo (1.0.1)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - GTSDK (= 2.2.0.0)
   - IQKeyboardManager
+  - JSDecoupledAppDelegate (~> 1.1.0)
   - Mangogo
   - Masonry (= 1.1.0)
   - MJRefresh (= 3.1.15.1)
@@ -40,11 +42,12 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 7f9bc0011df363ae5616449de3682a14c4701612
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
+  JSDecoupledAppDelegate: ec2e9480b893fa27ba3db5b12d51a6d5803c550b
   Mangogo: d5efed62a47b156eed6355c5edffa1a6ced49143
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
 
-PODFILE CHECKSUM: 823fa4557547c5eb691e2452eba7262ca00fbccd
+PODFILE CHECKSUM: 234982ef861f9a364bb18abccb960f4bfc99b977
 
 COCOAPODS: 1.4.0

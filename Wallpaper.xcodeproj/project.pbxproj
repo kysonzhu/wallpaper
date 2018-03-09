@@ -137,6 +137,7 @@
 		DEC4E52C1A67812200E3A593 /* UIScrollView+touch.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4E52B1A67812200E3A593 /* UIScrollView+touch.m */; };
 		DEC4E52F1A67860A00E3A593 /* KSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC4E52E1A67860A00E3A593 /* KSScrollView.m */; };
 		DEC4E5311A67B76B00E3A593 /* icon_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC4E5301A67B76B00E3A593 /* icon_share@2x.png */; };
+		DECC453320529D59009F884C /* WPNotificationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DECC453220529D59009F884C /* WPNotificationAppDelegate.m */; };
 		DECCCD1C1A36FAA1000C73BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DECCCD1B1A36FAA1000C73BA /* Foundation.framework */; };
 		DECCCD1E1A36FAA1000C73BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DECCCD1D1A36FAA1000C73BA /* CoreGraphics.framework */; };
 		DECCCD201A36FAA1000C73BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DECCCD1F1A36FAA1000C73BA /* UIKit.framework */; };
@@ -347,6 +348,8 @@
 		DEC4E52D1A67860A00E3A593 /* KSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSScrollView.h; sourceTree = "<group>"; };
 		DEC4E52E1A67860A00E3A593 /* KSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSScrollView.m; sourceTree = "<group>"; };
 		DEC4E5301A67B76B00E3A593 /* icon_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share@2x.png"; sourceTree = "<group>"; };
+		DECC453120529D59009F884C /* WPNotificationAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPNotificationAppDelegate.h; sourceTree = "<group>"; };
+		DECC453220529D59009F884C /* WPNotificationAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPNotificationAppDelegate.m; sourceTree = "<group>"; };
 		DECCCD181A36FAA1000C73BA /* Wallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECCCD1B1A36FAA1000C73BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DECCCD1D1A36FAA1000C73BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -785,6 +788,8 @@
 				DECCCD2B1A36FAA1000C73BA /* AppDelegate.m */,
 				DECCCD331A36FAA1000C73BA /* Images.xcassets */,
 				DECCCD221A36FAA1000C73BA /* Supporting Files */,
+				DECC453120529D59009F884C /* WPNotificationAppDelegate.h */,
+				DECC453220529D59009F884C /* WPNotificationAppDelegate.m */,
 			);
 			path = Wallpaper;
 			sourceTree = "<group>";
@@ -1170,6 +1175,7 @@
 				DEADAEFE1A4A5FC600C19A2B /* GridViewCell.m in Sources */,
 				DEC4E4EC1A64E99600E3A593 /* Platform.m in Sources */,
 				DEBDBD911A594BEF0092521E /* UserCenter.m in Sources */,
+				DECC453320529D59009F884C /* WPNotificationAppDelegate.m in Sources */,
 				96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */,
 				DEBDBC991A4E649C0092521E /* WrapperServiceMediator.m in Sources */,
 				DE95854B1A3ADDE4000C6B70 /* ImageCache.m in Sources */,
