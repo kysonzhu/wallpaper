@@ -51,7 +51,7 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds )/2 - 0.5f;
-    return CGSizeMake(width, width / 9.f * 16);
+    return CGSizeMake(width, width / 3.f * 4);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -79,7 +79,7 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     Group *group = _groupList[section *2 +row ];
     GridViewCell2   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier2 forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
-    imageView.layer.cornerRadius = 4.f;
+    imageView.layer.cornerRadius = 2.f;
     imageView.clipsToBounds = YES;
     [imageView loadImage:group.coverImgUrl];
     

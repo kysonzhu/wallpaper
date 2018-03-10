@@ -360,6 +360,7 @@
 #import "Platform.h"
 #import "UserCenter.h"
 #import "EnvironmentConfigure.h"
+#import <UIAlertView+BlocksKit.h>
 
 @import GoogleMobileAds;
 
@@ -453,8 +454,8 @@
     isWidgetRevealed = YES;
     [self revealWidgets:YES];
     
-    //广告出现时间1-5s
-    NSInteger adTime = [self getRandomNumber:2 to:11];
+    //广告出现时间25s
+    NSInteger adTime = 30.f;
     [self performSelector:@selector(showAd) withObject:nil afterDelay:adTime];
 }
 
@@ -463,11 +464,22 @@
 }
 
 -(void)showAd{
-    if (self.interstitial.isReady) {
-        [self.interstitial presentFromRootViewController:self];
-    } else {
-        NSLog(@"Ad wasn't ready");
-    }
+    [UIAlertView bk_showAlertViewWithTitle:@"提示" message:@"花5S观看广告支持一下作者?" cancelButtonTitle:@"好的" otherButtonTitles:@[@"不了"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        switch (buttonIndex) {
+            case 0:{
+                if (self.interstitial.isReady)
+                    [self.interstitial presentFromRootViewController:self.navigationController];
+            }
+                break;
+            case 1:{
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+                
+            default:
+                break;
+        }
+    }];
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

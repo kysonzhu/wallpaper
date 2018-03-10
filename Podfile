@@ -13,5 +13,6 @@ target "Wallpaper" do
         pod 'IQKeyboardManager'
         pod 'ReactiveObjC','3.1.0'
         pod 'JSDecoupledAppDelegate', '~> 1.1.0'
+        pod 'BlocksKit'
 
 end

@@ -14,6 +14,21 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - Bugly (2.4.7)
   - Google-Mobile-Ads-SDK (7.28.0)
   - GTSDK (2.2.0.0)
@@ -26,6 +41,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - BlocksKit
   - Bugly (= 2.4.7)
   - Google-Mobile-Ads-SDK
   - GTSDK (= 2.2.0.0)
@@ -38,6 +54,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   Google-Mobile-Ads-SDK: 7f9bc0011df363ae5616449de3682a14c4701612
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
@@ -48,6 +65,6 @@ SPEC CHECKSUMS:
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
 
-PODFILE CHECKSUM: 234982ef861f9a364bb18abccb960f4bfc99b977
+PODFILE CHECKSUM: b281f3d78b98f35ecd090d7d8360cdbb9ee63192
 
 COCOAPODS: 1.4.0
