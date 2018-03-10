@@ -50,7 +50,6 @@ platform :ios do
     # 发布到Apple Store
     deliver(
     	username:"zjh171@qq.com",
-      skip_metadata:true,
       skip_screenshots:true,
       force:true,
       submit_for_review:true
