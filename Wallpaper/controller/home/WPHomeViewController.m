@@ -453,14 +453,6 @@
     [btnItem2 setCustomView:rightNavigationBarButton];
     self.navigationItem.rightBarButtonItem = btnItem2;
     
-    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    button.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
-    //    [button setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
-    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    //    button.tag = TAG_BTN_NAV_TITLE;
-    //    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    //    self.navigationItem.titleView = button;
     __weak typeof(self) weakself = self;
     self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {
         UIButton *btn = [UIButton buttonWithType:0];
@@ -806,7 +798,6 @@
             [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
         }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-            //            NSDictionary *resultDict = response.rawResponseDictionary;
             NSArray *responseArray = response.rawResponseArray;
             Group *group = [[Group alloc] init];
             responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];

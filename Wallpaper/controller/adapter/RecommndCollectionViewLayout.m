@@ -102,11 +102,11 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     range.location = 0;
     [attributePicNumString setAttributes:attriDictionary range:range];
     //group name
-    NSMutableAttributedString *attributeGroupNameString = [[NSMutableAttributedString alloc]initWithString:group.gName];
-    NSDictionary *attriDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
-    NSRange range2;
-    range2.length = [attributeGroupNameString length];
-    range2.location = 0;
+//    NSMutableAttributedString *attributeGroupNameString = [[NSMutableAttributedString alloc]initWithString:group.gName];
+//    NSDictionary *attriDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
+//    NSRange range2;
+//    range2.length = [attributeGroupNameString length];
+//    range2.location = 0;
 //    NSInteger stringLength = 0;
 //    
 //    
@@ -126,20 +126,20 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 //        attributeGroupNameString = [[NSMutableAttributedString alloc]initWithString:tempString];
 //        range2.length = [attributeGroupNameString length];
 //    }
-    [attributeGroupNameString setAttributes:attriDictionary2 range:range2];
-    NSMutableAttributedString *detailString = [[NSMutableAttributedString alloc]initWithAttributedString:attributePicNumString];
-    [detailString insertAttributedString:attributeGroupNameString atIndex:0];
-    
-    cell.themeNameLabel.attributedText = detailString;
-    BOOL isPraised = [[UserCenter shareInstance] isPraised:group.gId];
-    //vote good
-    NSString *voteGood = nil;
-    if (isPraised) {
-        voteGood = [NSString stringWithFormat:@"%i",[group.voteGood intValue] + 1];
-    }else{
-        voteGood = group.voteGood ;
-    }
-    cell.detailLabel.text = voteGood;
+//    [attributeGroupNameString setAttributes:attriDictionary2 range:range2];
+//    NSMutableAttributedString *detailString = [[NSMutableAttributedString alloc]initWithAttributedString:attributePicNumString];
+//    [detailString insertAttributedString:attributeGroupNameString atIndex:0];
+//
+//    cell.themeNameLabel.attributedText = detailString;
+//    BOOL isPraised = [[UserCenter shareInstance] isPraised:group.gId];
+//    //vote good
+//    NSString *voteGood = nil;
+//    if (isPraised) {
+//        voteGood = [NSString stringWithFormat:@"%i",[group.voteGood intValue] + 1];
+//    }else{
+//        voteGood = group.voteGood ;
+//    }
+//    cell.detailLabel.text = voteGood;
 //    NSDictionary *dictionary = [[NSDictionary alloc]init];
 //    cell.detailLabel.attributedText = [[NSAttributedString alloc]initWithString:@"风景(12张)" attributes:dictionary];
 
