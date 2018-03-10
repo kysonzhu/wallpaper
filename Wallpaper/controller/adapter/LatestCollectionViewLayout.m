@@ -25,7 +25,7 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    int mod = _groupList.count%3;
+    int mod = _groupList.count%2;
     
     int sectionCount = (int)_groupList.count/2;
     if (mod > 0 ) {
