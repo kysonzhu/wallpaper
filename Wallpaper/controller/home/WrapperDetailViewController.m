@@ -444,7 +444,8 @@
     [praiseButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     //request
     [KVNProgress show];
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:@{@"gId":self.group.gId,@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)}];
+    NSDictionary *params = @{@"gId":self.group.gId,@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
+    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:params];
     [self doNetworkService:serviceMediator];
 }
 
@@ -455,8 +456,11 @@
     [self revealWidgets:YES];
     
     //广告出现时间25s
-    NSInteger adTime = 30.f;
-    [self performSelector:@selector(showAd) withObject:nil afterDelay:adTime];
+    @weakify(self);
+    [[RACScheduler schedulerWithPriority:RACSchedulerPriorityDefault] afterDelay:30 schedule:^{
+        @strongify(self);
+        [self showAd];
+    }];
 }
 
 -(int)getRandomNumber:(int)from to:(int)to{

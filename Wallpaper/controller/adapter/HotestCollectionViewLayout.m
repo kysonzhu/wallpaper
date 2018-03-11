@@ -68,7 +68,7 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     
     NSInteger section = [indexPath section];
     NSInteger row = [indexPath row];
-    Group *group = _groupList[section *3 +row ];
+    Group *group = _groupList[section *2 +row ];
     GridViewCell2   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier2 forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
     [imageView loadImage:group.coverImgUrl];

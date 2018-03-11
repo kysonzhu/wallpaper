@@ -471,7 +471,7 @@ typedef enum _CurrentCategoryType{
         NSInteger row = [indexPath row];
         RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
-        Group *group = groupList[section *3 +row ];
+        Group *group = groupList[section *2 +row ];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
         detailViewController.fromcontroller = FromControllerRecommended;
         detailViewController.group = group;
@@ -481,7 +481,7 @@ typedef enum _CurrentCategoryType{
         NSInteger row = [indexPath row];
         LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
-        Group *group = groupList[section *3 +row ];
+        Group *group = groupList[section *2 +row ];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
         detailViewController.fromcontroller = FromControllerLatest;
         detailViewController.group = group;
@@ -491,7 +491,7 @@ typedef enum _CurrentCategoryType{
         NSInteger row = [indexPath row];
         HotestCollectionViewLayout *layout1 = (HotestCollectionViewLayout *)self.mHotestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
-        Group *group = groupList[section *3 +row];
+        Group *group = groupList[section *2 +row];
         WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
         detailViewController.fromcontroller = FromControllerHotest;
         detailViewController.group = group;
