@@ -619,8 +619,7 @@
     CGFloat contentOffsetX = viewPager.scrollView.contentOffset.x;
     //if draged to the firstpage , we can show the menu
     if (contentOffsetX < -5) {
-        AppDelegate *delegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-        DDMenuController *rootViewController =  (DDMenuController *)delegate.window.rootViewController;
+        DDMenuController *rootViewController =  (DDMenuController *)kAppDelegate.window.rootViewController;
         [rootViewController showLeftController:YES];
     }
 }
@@ -722,8 +721,9 @@
         }
             break;
         case TAG_BTN_NAV_LEFT:{
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            DDMenuController *rootViewController =  (DDMenuController *)delegate.window.rootViewController;
+//            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            
+            DDMenuController *rootViewController =  (DDMenuController *)kAppDelegate.window.rootViewController;
             [rootViewController showLeftController:YES];
         }
             break;

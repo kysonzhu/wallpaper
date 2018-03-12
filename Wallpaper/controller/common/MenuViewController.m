@@ -57,8 +57,7 @@
 }
 
 -(void)buttonClicked:(UIButton *)button{
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    DDMenuController *rootViewController =  delegate.rootViewController;
+    DDMenuController *rootViewController =  kAppDelegate.rootViewController;
     UINavigationController *navigationController = (UINavigationController *)rootViewController.rootViewController;
     [navigationController popToRootViewControllerAnimated:NO];
     switch (button.tag) {
