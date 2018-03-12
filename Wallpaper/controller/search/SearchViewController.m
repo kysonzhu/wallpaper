@@ -87,6 +87,7 @@
     searchDisplayController.active = NO;
     searchDisplayController.searchResultsDataSource = self;
     searchDisplayController.searchResultsDelegate = self;
+    [self handleNavigationWithScrollView:self.searchDisplayController.searchResultsTableView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
