@@ -455,34 +455,12 @@
     isWidgetRevealed = YES;
     [self revealWidgets:YES];
     
-    //广告出现时间25s
-    @weakify(self);
-    [[RACScheduler schedulerWithPriority:RACSchedulerPriorityDefault] afterDelay:30 schedule:^{
-        @strongify(self);
-        [self showAd];
-    }];
-}
-
--(int)getRandomNumber:(int)from to:(int)to{
-    return (int)(from + (arc4random() % (to - from + 1)));
-}
-
--(void)showAd{
-    [UIAlertView bk_showAlertViewWithTitle:@"提示" message:@"花5S观看广告支持一下作者?" cancelButtonTitle:@"好的" otherButtonTitles:@[@"不了"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-        switch (buttonIndex) {
-            case 0:{
-                if (self.interstitial.isReady)
-                    [self.interstitial presentFromRootViewController:self.navigationController];
-            }
-                break;
-            case 1:{
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-                
-            default:
-                break;
-        }
-    }];
+    //延迟执行
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC); //设置时间2秒
+    dispatch_after(time, dispatch_get_main_queue(), ^{
+        if (self.interstitial.isReady)
+            [self.interstitial presentFromRootViewController:self];
+    });
     
 }
 
