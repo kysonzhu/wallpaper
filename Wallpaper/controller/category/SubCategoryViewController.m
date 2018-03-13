@@ -131,18 +131,6 @@ typedef enum _CurrentCategoryType{
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    /**
-     * navigation bar title view
-     */
-//    navigationBarTitleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    navigationBarTitleButton.frame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44);
-//    [navigationBarTitleButton setTitle:@"壁纸宝贝" forState:UIControlStateNormal];
-//    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [navigationBarTitleButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-//    navigationBarTitleButton.tag = TAG_BTN_NAV_TITLE;
-//    [navigationBarTitleButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.titleView = navigationBarTitleButton;
-    
     __weak typeof(self) weakself = self;
     self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {
         UIButton *btn = [UIButton buttonWithType:0];
@@ -246,11 +234,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryRecommended = weakSelf.startCategoryRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }else{
             weakSelf.startSecondaryCategoryRecommended = weakSelf.startSecondaryCategoryRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
@@ -263,11 +251,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYRECOMMENDEDLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }else{
             weakSelf.startSecondaryCategoryRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryRecommended];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYRECOMMENDEDLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
@@ -279,11 +267,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryLatest = weakSelf.startCategoryLatest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }else{
             weakSelf.startSecondaryCategoryLatest = weakSelf.startSecondaryCategoryLatest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
@@ -296,11 +284,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryLatest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYLATESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }else{
             weakSelf.startSecondaryCategoryLatest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryLatest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYLATESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
@@ -311,11 +299,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryHottest = weakSelf.startCategoryHottest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }else{
             weakSelf.startSecondaryCategoryHottest = weakSelf.startSecondaryCategoryHottest + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId)}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
@@ -328,11 +316,11 @@ typedef enum _CurrentCategoryType{
         if (weakSelf.type == CurrentCategoryTypeTotal) {
             weakSelf.startCategoryHottest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId,@"subId":self.subId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_CATEGORYHOTESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
         }else{
             weakSelf.startSecondaryCategoryHottest = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startSecondaryCategoryHottest];
-            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":startString,@"cateId":self.category.cateId,@"subId":self.subId}];
+            serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_SECONDARYCATEGORYHOTESTLIST params:@{@"start":safeString(startString),@"cateId":safeString(self.category.cateId),@"subId":safeString(self.subId)}];
         }
         [weakSelf doNetworkService:serviceMediator];
         [KVNProgress show];
