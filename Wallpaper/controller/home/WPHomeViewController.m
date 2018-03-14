@@ -393,7 +393,6 @@
     __weak IBOutlet UIView *seperateView;
     ViewPager *mViewPager;
     UIButton *leftNavigationBarButton;
-    UIButton *rightNavigationBarButton;
 }
 
 @property (nonatomic, assign) int startRecommended,startLatest;
@@ -401,6 +400,8 @@
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataCategory;
 @property (nonatomic, assign) BOOL isFirstTimeFetchDataRecommended;
 @property (nonatomic, strong) HomeNavigatiaonTitleView *titleView;
+@property (nonatomic, strong) UIButton *rightNavigationBarButton;
+
 @property (weak, nonatomic) IBOutlet UIView *titleBarView;
 
 @property (nonatomic, strong) LatestCollectionView        *mLastestCollectionView;;
@@ -443,15 +444,15 @@
     /**
      * navigation bar right button
      */
-    UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
-    rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image2 = [UIImage imageNamed:@"nav_icon_sea"];
-    [rightNavigationBarButton setBackgroundImage:image2 forState:UIControlStateNormal];
-    [rightNavigationBarButton setFrame:CGRectMake(0, 0, 20, 20)];
-    [rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    rightNavigationBarButton.tag = TAG_BTN_NAV_RIGHT;
-    [btnItem2 setCustomView:rightNavigationBarButton];
-    self.navigationItem.rightBarButtonItem = btnItem2;
+//    UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
+//    self.rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *image2 = [UIImage imageNamed:@"nav_icon_sea"];
+//    [self.rightNavigationBarButton setBackgroundImage:image2 forState:UIControlStateNormal];
+//    [self.rightNavigationBarButton setFrame:CGRectMake(0, 0, 20, 20)];
+//    [self.rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    self.rightNavigationBarButton.tag = TAG_BTN_NAV_RIGHT;
+//    [btnItem2 setCustomView:self.rightNavigationBarButton];
+//    self.navigationItem.rightBarButtonItem = btnItem2;
     
     __weak typeof(self) weakself = self;
     self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {

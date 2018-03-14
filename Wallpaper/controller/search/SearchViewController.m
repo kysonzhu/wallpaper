@@ -32,7 +32,6 @@
     SearchHistoryAdapter        *mAdapter;
     UIButton *leftNavigationBarButton;
         
-    UISearchDisplayController *searchDisplayController;
 }
 
 @property (nonatomic, retain) NSArray *groupList;
@@ -83,11 +82,6 @@
     historyTableView.delegate = mAdapter;
     historyTableView.dataSource = mAdapter;
     historyTableView.tableHeaderView = mSearchBar;
-    searchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:mSearchBar contentsController:self];
-    searchDisplayController.active = NO;
-    searchDisplayController.searchResultsDataSource = self;
-    searchDisplayController.searchResultsDelegate = self;
-    [self handleNavigationWithScrollView:self.searchDisplayController.searchResultsTableView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -175,9 +169,7 @@
 }
 
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
-#warning 111
 //    self.groupList = response.response;
-    [searchDisplayController.searchResultsTableView reloadData];
 }
 
 

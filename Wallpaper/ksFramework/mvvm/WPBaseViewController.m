@@ -42,23 +42,20 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    // 设置状态栏和导航栏
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
-- (void)viewWillDisappear:(BOOL)animated
-{
+
+#pragma mark - 状态栏隐藏
+
+-(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
 
-// 返回状态栏的样式
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleDefault;
-}
 
-- (BOOL)prefersStatusBarHidden {
-    return NO;
-}
 
 - (void)didReceiveMemoryWarning
 {

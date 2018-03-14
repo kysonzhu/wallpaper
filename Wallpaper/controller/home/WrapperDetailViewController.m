@@ -402,21 +402,20 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-}
-// 返回状态栏的样式
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+    // 设置状态栏和导航栏
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:animated];
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
+#pragma mark - 状态栏隐藏
 
 -(void)viewWillDisappear:(BOOL)animated{
-    
-    self.navigationController.navigationBarHidden = NO;
-//    [UIApplication sharedApplication].statusBarHidden = NO;
+    // 下面这两句顺序不能改
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 

@@ -362,6 +362,7 @@
 #import <Bugly/Bugly.h>
 #import <AFNetworking/AFNetworking.h>
 #import "WPNotificationAppDelegate.h"
+#import "WPNavigationController.h"
 
 @interface AppDelegate ()<UIApplicationDelegate>{
 }
@@ -385,7 +386,7 @@
         
     WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithNibName:@"MenuViewController_iphone" bundle:nil];
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
+    WPNavigationController *navigationController = [[WPNavigationController alloc]initWithRootViewController:homeViewController];
     
     DDMenuController *rootViewController = [[DDMenuController alloc]initWithRootViewController:navigationController];
     rootViewController.leftViewController = menuViewController;
