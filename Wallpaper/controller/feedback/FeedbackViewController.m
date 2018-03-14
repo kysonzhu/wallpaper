@@ -132,7 +132,6 @@
 #pragma
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [UIApplication sharedApplication].statusBarHidden = NO;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     NSData *data = nil;
     if ([mediaType isEqualToString:@"public.image"]){

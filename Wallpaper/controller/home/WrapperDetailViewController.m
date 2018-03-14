@@ -403,7 +403,21 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-    [UIApplication sharedApplication].statusBarHidden = YES;
+}
+// 返回状态栏的样式
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    self.navigationController.navigationBarHidden = NO;
+//    [UIApplication sharedApplication].statusBarHidden = NO;
+    [super viewWillDisappear:animated];
 }
 
 
@@ -451,6 +465,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+
     //hide all widgets
     isWidgetRevealed = YES;
     [self revealWidgets:YES];
@@ -471,12 +486,10 @@
 -(void)revealWidgets:(BOOL)reveal{
     if (!reveal) {
         shareButton.hidden = YES;
-        [UIApplication sharedApplication].statusBarHidden = YES;
         mToolBar.hidden = YES;
         isWidgetRevealed = NO;
     }else{
         shareButton.hidden = NO;
-        [UIApplication sharedApplication].statusBarHidden = NO;
         mToolBar.hidden = NO;
         isWidgetRevealed = YES;
     }
@@ -651,12 +664,6 @@
     
 }
 
-
--(void)viewWillDisappear:(BOOL)animated{
-    [UIApplication sharedApplication].statusBarHidden = NO;
-    self.navigationController.navigationBarHidden = NO;
-    [super viewWillDisappear:animated];
-}
 
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     if (0 == response.errorCode) {

@@ -731,4 +731,17 @@
     [self showRightController:YES];
 }
 
+// 返回状态栏的样式
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleDefault;
+}
+// 控制状态栏的现实与隐藏
+- (BOOL)prefersStatusBarHidden{
+    return NO;
+}
+
+-(UIViewController *)childViewControllerForStatusBarStyle{
+    return self.rootViewController;
+}
+
 @end
