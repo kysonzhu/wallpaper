@@ -7,8 +7,11 @@
 //
 
 #import "WPNavigationController.h"
+@import GoogleMobileAds;
 
 @interface WPNavigationController ()
+
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -17,6 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    BOOL hasBuyed = [[NSUserDefaults standardUserDefaults] boolForKey:kHasBuySuccess];
+    if (!hasBuyed) {
+        self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7896672979027584/3984670568"];
+        GADRequest *request = [GADRequest request];
+        [self.interstitial loadRequest:request];
+        //延迟执行
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 30 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_after(time, dispatch_get_main_queue(), ^{
+            if (self.interstitial.isReady)
+                [self.interstitial presentFromRootViewController:self.topViewController];
+        });
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -526,19 +526,22 @@
     adapter.views = array;
     [mViewPager setAdapter:adapter];
     
-    // In this case, we instantiate the banner with desired ad size.
-    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:self.bannerView];
-    self.bannerView.adUnitID = @"ca-app-pub-7896672979027584/7587295301";
-    
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
-    self.bannerView.delegate = self;
-    [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
+    BOOL hasBuyed = [[NSUserDefaults standardUserDefaults] boolForKey:kHasBuySuccess];
+    if (!hasBuyed) {
+        // In this case, we instantiate the banner with desired ad size.
+        self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:self.bannerView];
+        [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view.mas_bottom);
+            make.centerX.equalTo(self.view.mas_centerX);
+        }];
+        
+        self.bannerView.adUnitID = @"ca-app-pub-7896672979027584/7587295301";
+        self.bannerView.rootViewController = self;
+        [self.bannerView loadRequest:[GADRequest request]];
+        self.bannerView.delegate = self;
+    }
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
@@ -577,7 +580,16 @@
     }else if (2 == page){
         [self buttonClicked:categoryButton];
     }
-//    [self handleBanner];
+    
+    //购买后强制去掉广告View
+    BOOL hasBuyed = [[NSUserDefaults standardUserDefaults] boolForKey:kHasBuySuccess];
+    if (hasBuyed)
+    {
+        GADBannerView *a = nil;
+        GADRequestError *e = nil;
+        [self adView:a didFailToReceiveAdWithError:e];
+    }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

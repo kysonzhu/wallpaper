@@ -422,14 +422,23 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    //clear all cache
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view sendSubviewToBack:mViewPager];
     
-    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7896672979027584/3984670568"];
-    GADRequest *request = [GADRequest request];
-    [self.interstitial loadRequest:request];
+    // 广告
+    BOOL hasBuyed = [[NSUserDefaults standardUserDefaults] boolForKey:kHasBuySuccess];
+    if (!hasBuyed) {
+        self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7896672979027584/3984670568"];
+        GADRequest *request = [GADRequest request];
+        [self.interstitial loadRequest:request];
+        //延迟执行
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 15 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_after(time, dispatch_get_main_queue(), ^{
+            if (self.interstitial.isReady)
+                [self.interstitial presentFromRootViewController:self];
+        });
+    }
 
     mViewPager.mDelegate = self;
 //    if (nil != _group && nil != _group.coverImgUrl) {
@@ -468,14 +477,6 @@
     //hide all widgets
     isWidgetRevealed = YES;
     [self revealWidgets:YES];
-    
-    //延迟执行
-    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC); //设置时间2秒
-    dispatch_after(time, dispatch_get_main_queue(), ^{
-        if (self.interstitial.isReady)
-            [self.interstitial presentFromRootViewController:self];
-    });
-    
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

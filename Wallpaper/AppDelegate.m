@@ -381,6 +381,8 @@
     [[EnvironmentConfigure shareInstance] setShowAllData:NO];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
+    
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
         
