@@ -51,7 +51,7 @@ static EnvironmentConfigure *environmentConfigure = nil;
         return NO;
     }
     BOOL shouldFilter = NO;
-    NSArray  *filterStringArray = [[NSArray alloc]initWithObjects:@"性感",@"写真",@"唯美",@"清纯",@"车模",@"美女",@"模特",@"清新",@"cosplay",@"可爱",@"china joy",@"show girl",@"泳衣",@"萌",@"丰满",@"尤物",@"比基尼",@"女孩",@"巨星",@"诱惑",@"巨乳",@"宅男",@"惠特莉",@"组合",@"魔鬼身材",@"时尚女王",@"内衣",@"妖娆",@"超模",@"私房",@"波神",@"宝贝",@"情",@"妖艳",@"徐立",@"女友", nil];
+    NSArray  *filterStringArray = [[NSArray alloc]initWithObjects:@"性感",@"写真",@"唯美",@"清纯",@"车模",@"美女",@"模特",@"清新",@"cosplay",@"可爱",@"china joy",@"show girl",@"泳衣",@"萌",@"丰满",@"尤物",@"比基尼",@"女孩",@"巨星",@"诱惑",@"巨乳",@"宅男",@"惠特莉",@"组合",@"魔鬼身材",@"时尚女王",@"内衣",@"妖娆",@"超模",@"私房",@"波神",@"宝贝",@"情",@"妖艳",@"徐立",@"女友",@"志玲", nil];
     for (NSString *filterItem in filterStringArray) {
         if (NSNotFound != [gName rangeOfString:filterItem].location) {
             shouldFilter = YES;

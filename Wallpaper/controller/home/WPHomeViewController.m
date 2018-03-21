@@ -794,7 +794,9 @@
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [Aryresponse addObject:item];
+                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
+                        [Aryresponse addObject:item];
+                    }
                 }
             }
             RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
@@ -819,7 +821,9 @@
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [tempArray addObject:item];
+                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
+                        [tempArray addObject:item];
+                    }
                 }
             }
             LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;

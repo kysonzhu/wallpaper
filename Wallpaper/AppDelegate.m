@@ -364,6 +364,10 @@
 #import "WPNotificationAppDelegate.h"
 #import "WPNavigationController.h"
 
+#import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
+
+
 @interface AppDelegate ()<UIApplicationDelegate>{
 }
 
@@ -381,27 +385,42 @@
     [[EnvironmentConfigure shareInstance] setShowAllData:NO];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
-    
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
+
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-        
+
     WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithNibName:@"MenuViewController_iphone" bundle:nil];
     WPNavigationController *navigationController = [[WPNavigationController alloc]initWithRootViewController:homeViewController];
-    
+
     DDMenuController *rootViewController = [[DDMenuController alloc]initWithRootViewController:navigationController];
     rootViewController.leftViewController = menuViewController;
     self.rootViewController = rootViewController;
     self.window.rootViewController = self.rootViewController;
     [self.window makeKeyAndVisible];
-    
+
     //通知相关
     WPNotificationAppDelegate *notificationDelegate = (WPNotificationAppDelegate *)[JSDecoupledAppDelegate sharedAppDelegate].remoteNotificationsDelegate;
     [notificationDelegate didFinishLaunchingWithOptions];
     // 开启网络监控
     AFNetworkReachabilityManager *netReachabilityManger = [AFNetworkReachabilityManager sharedManager];
     [netReachabilityManger startMonitoring];
+
+    
+//    NSString *urlString = @"http://192.168.0.:8081/index.ios.bundle?platform=ios";
+//    NSURL *jsCodeLocation = [NSURL URLWithString:urlString];
+//    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+//                                                        moduleName:@"Wallpaper"
+//                                                 initialProperties:nil
+//                                                     launchOptions:launchOptions];
+//    rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+//
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    UIViewController *rootViewController = [UIViewController new];
+//    rootViewController.view = rootView;
+//    self.window.rootViewController = rootViewController;
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }

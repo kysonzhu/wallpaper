@@ -21,6 +21,7 @@
 #import "UIScrollView+MJRefresh.h"
 #import "NSString+Util.h"
 #import "HomeNavigatiaonTitleView.h"
+#import "EnvironmentConfigure.h"
 
 #define TAG_BTN_OFFSET      89091
 #define TAG_BTN_LATEST      89091
@@ -506,7 +507,9 @@ typedef enum _CurrentCategoryType{
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [Aryresponse addObject:item];
+                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
+                        [Aryresponse addObject:item];
+                    }
                 }
             }
             RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.self.mRecommndCollectionView.collectionViewLayout;
@@ -533,7 +536,9 @@ typedef enum _CurrentCategoryType{
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [tempArray addObject:item];
+                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
+                        [tempArray addObject:item];
+                    }
                 }
             }
             LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
@@ -561,7 +566,9 @@ typedef enum _CurrentCategoryType{
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    [tempArray addObject:item];
+                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
+                        [tempArray addObject:item];
+                    }
                 }
             }
             HotestCollectionViewLayout *layout3 = (HotestCollectionViewLayout *)self.mHotestCollectionView.collectionViewLayout;
