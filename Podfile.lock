@@ -37,7 +37,21 @@ PODS:
   - Mangogo (1.0.1)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
+  - React/Core (0.54.2):
+    - yoga (= 0.54.2.React)
+  - React/fishhook (0.54.2)
+  - React/RCTBlob (0.54.2):
+    - React/Core
+  - React/RCTNetwork (0.54.2):
+    - React/Core
+  - React/RCTText (0.54.2):
+    - React/Core
+  - React/RCTWebSocket (0.54.2):
+    - React/Core
+    - React/fishhook
+    - React/RCTBlob
   - ReactiveObjC (3.1.0)
+  - yoga (0.54.2.React)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -50,7 +64,18 @@ DEPENDENCIES:
   - Mangogo
   - Masonry (= 1.1.0)
   - MJRefresh (= 3.1.15.1)
+  - React/Core (from `./node_modules/react-native`)
+  - React/RCTNetwork (from `./node_modules/react-native`)
+  - React/RCTText (from `./node_modules/react-native`)
+  - React/RCTWebSocket (from `./node_modules/react-native`)
   - ReactiveObjC (= 3.1.0)
+  - yoga (from `./node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: ./node_modules/react-native
+  yoga:
+    :path: ./node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -63,8 +88,10 @@ SPEC CHECKSUMS:
   Mangogo: d5efed62a47b156eed6355c5edffa1a6ced49143
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
+  React: c237e42de9c70e5cac6eeb52b4cfd3a0910c1f00
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  yoga: 55da126afc384965b96bff46652464373b330add
 
-PODFILE CHECKSUM: 86bfee7e78572f525fdb90e543e2b6d177f0ddc6
+PODFILE CHECKSUM: b00981d13a64d05268330587a269432de1038a0d
 
 COCOAPODS: 1.4.0
