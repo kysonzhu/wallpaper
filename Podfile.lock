@@ -29,7 +29,14 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - boost-for-react-native (1.63.0)
   - Bugly (2.4.7)
+  - DoubleConversion (1.1.5)
+  - Folly (2016.09.26.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.4)
   - Google-Mobile-Ads-SDK (7.29.0)
   - GTSDK (2.2.0.0)
   - IQKeyboardManager (5.0.8)
@@ -39,7 +46,24 @@ PODS:
   - MJRefresh (3.1.15.1)
   - React/Core (0.54.2):
     - yoga (= 0.54.2.React)
+  - React/CxxBridge (0.54.2):
+    - Folly (= 2016.09.26.00)
+    - React/Core
+    - React/cxxreact
+  - React/cxxreact (0.54.2):
+    - boost-for-react-native (= 1.63.0)
+    - Folly (= 2016.09.26.00)
+    - React/jschelpers
+    - React/jsinspector
+  - React/DevSupport (0.54.2):
+    - React/Core
+    - React/RCTWebSocket
   - React/fishhook (0.54.2)
+  - React/jschelpers (0.54.2):
+    - Folly (= 2016.09.26.00)
+    - React/PrivateDatabase
+  - React/jsinspector (0.54.2)
+  - React/PrivateDatabase (0.54.2)
   - React/RCTBlob (0.54.2):
     - React/Core
   - React/RCTNetwork (0.54.2):
@@ -65,6 +89,8 @@ DEPENDENCIES:
   - Masonry (= 1.1.0)
   - MJRefresh (= 3.1.15.1)
   - React/Core (from `./node_modules/react-native`)
+  - React/CxxBridge (from `./node_modules/react-native`)
+  - React/DevSupport (from `./node_modules/react-native`)
   - React/RCTNetwork (from `./node_modules/react-native`)
   - React/RCTText (from `./node_modules/react-native`)
   - React/RCTWebSocket (from `./node_modules/react-native`)
@@ -80,7 +106,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
+  DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
+  Folly: 211775e49d8da0ca658aebc8eab89d642935755c
+  glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   Google-Mobile-Ads-SDK: 375bbb821b3df2106c37b74f6b0a97576ddc5f6b
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
@@ -92,6 +122,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   yoga: 55da126afc384965b96bff46652464373b330add
 
-PODFILE CHECKSUM: b00981d13a64d05268330587a269432de1038a0d
+PODFILE CHECKSUM: ddd70badc7521532d66877e73eb5c973449d91f2
 
 COCOAPODS: 1.4.0

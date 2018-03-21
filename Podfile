@@ -19,6 +19,9 @@ target "Wallpaper" do
         'RCTText’,
         'RCTNetwork',
         'RCTWebSocket',
+        'DevSupport',
+        'CxxBridge',
+        
         ]
         pod "yoga", :path => './node_modules/react-native/ReactCommon/yoga'
 end
