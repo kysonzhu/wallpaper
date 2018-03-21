@@ -364,8 +364,8 @@
 #import "WPNotificationAppDelegate.h"
 #import "WPNavigationController.h"
 
-#import <React/RCTBundleURLProvider.h>
-#import <React/RCTRootView.h>
+//#import <React/RCTBundleURLProvider.h>
+//#import <React/RCTRootView.h>
 
 
 @interface AppDelegate ()<UIApplicationDelegate>{
