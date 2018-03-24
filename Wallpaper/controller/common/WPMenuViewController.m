@@ -1,12 +1,12 @@
 //
-//  MenuViewController.m
+//  WPMenuViewController.m
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-9.
 //  Copyright (c) 2014年 zhujinhui( http://kyson.cn ). All rights reserved.
 //
 
-#import "MenuViewController.h"
+#import "WPMenuViewController.h"
 #import "AppDelegate.h"
 #import "DDMenuController.h"
 #import "WPHomeViewController.h"
@@ -23,7 +23,7 @@
 #define TAG_BTN_CLEARCACHE      1289
 #define TAG_BTN_GREENINGCARD    1291
 
-@interface MenuViewController()<UIActionSheetDelegate,UIAlertViewDelegate>{
+@interface WPMenuViewController()<UIActionSheetDelegate,UIAlertViewDelegate>{
     
     __weak IBOutlet UIButton *aboutUsButton;
     __weak IBOutlet UIButton *feedbackButton;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation MenuViewController
+@implementation WPMenuViewController
 
 - (void)viewDidLoad
 {
