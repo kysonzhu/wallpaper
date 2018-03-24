@@ -16,9 +16,15 @@
 #import <AFNetworking/AFNetworking.h>
 
 /// 个推开发者网站中申请App时，注册的AppId、AppKey、AppSecret
+#ifdef DEBUG
 #define kGtAppId           @"JCVpsMzFg57SaRrSurMMy9"
 #define kGtAppKey          @"JjAa1jYxwT8olxak8i2jc5"
 #define kGtAppSecret       @"2eUr7GxAIq5s9XsLhKC4Y2"
+#else
+#define kGtAppId           @"B0KM0hWYOi8lAq0vM5sf44"
+#define kGtAppKey          @"3gs0fRfgKq5ZDDJGIkMji8"
+#define kGtAppSecret       @"StvkGGyHG379uwdoF20Mq5"
+#endif
 
 @interface WPNotificationAppDelegate() <JSApplicationStateDelegate,UNUserNotificationCenterDelegate,GeTuiSdkDelegate>
 

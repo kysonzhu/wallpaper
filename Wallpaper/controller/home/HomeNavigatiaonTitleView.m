@@ -74,8 +74,8 @@
 - (NSMutableArray *)titleArray{
     if (!_titleArray) {
         _titleArray = [NSMutableArray array];
-        [_titleArray addObject:@"最新"];
-        [_titleArray addObject:@"推荐"];
+        [_titleArray addObject:@"壁纸"];
+        [_titleArray addObject:@"宝贝"];
         [_titleArray addObject:@"分类"];
     }
     return _titleArray;

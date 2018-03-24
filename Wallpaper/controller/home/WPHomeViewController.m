@@ -387,10 +387,10 @@
 #define TAG_BTN_NAV_TITLE   8912
 
 @interface WPHomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
-    __weak IBOutlet UIButton *recommendButton;
-    __weak IBOutlet UIButton *latestButton;
-    __weak IBOutlet UIButton *categoryButton;
-    __weak IBOutlet UIView *seperateView;
+    UIButton *recommendButton;
+    UIButton *latestButton;
+    UIButton *categoryButton;
+    UIView *seperateView;
     ViewPager *mViewPager;
     UIButton *leftNavigationBarButton;
 }
@@ -402,7 +402,7 @@
 @property (nonatomic, strong) HomeNavigatiaonTitleView *titleView;
 @property (nonatomic, strong) UIButton *rightNavigationBarButton;
 
-@property (weak, nonatomic) IBOutlet UIView *titleBarView;
+@property (weak, nonatomic) UIView *titleBarView;
 
 @property (nonatomic, strong) LatestCollectionView        *mLastestCollectionView;;
 @property (nonatomic, strong) CategoryTableView           *mCategoryTableView;;
@@ -441,18 +441,6 @@
     leftNavigationBarButton.tag = TAG_BTN_NAV_LEFT;
     [btnItem1 setCustomView:leftNavigationBarButton];
     self.navigationItem.leftBarButtonItem = btnItem1;
-    /**
-     * navigation bar right button
-     */
-//    UIBarButtonItem *btnItem2 = [[UIBarButtonItem alloc]init];
-//    self.rightNavigationBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    UIImage *image2 = [UIImage imageNamed:@"nav_icon_sea"];
-//    [self.rightNavigationBarButton setBackgroundImage:image2 forState:UIControlStateNormal];
-//    [self.rightNavigationBarButton setFrame:CGRectMake(0, 0, 20, 20)];
-//    [self.rightNavigationBarButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    self.rightNavigationBarButton.tag = TAG_BTN_NAV_RIGHT;
-//    [btnItem2 setCustomView:self.rightNavigationBarButton];
-//    self.navigationItem.rightBarButtonItem = btnItem2;
     
     __weak typeof(self) weakself = self;
     self.titleView.clieckButtonAtIndex = ^(HomeNavigationTitileViewButton *button, int index) {
@@ -520,7 +508,6 @@
      */
     self.title = @"壁纸宝贝";
     seperateView.backgroundColor = [UIColor colorWithHex:0xc8c8c8];
-    //init recommend
     
     NSArray *array = [NSArray arrayWithObjects:self.mLastestCollectionView,self.mRecommndCollectionView,self.mCategoryTableView, nil];
     adapter.views = array;
@@ -544,7 +531,8 @@
     }
 }
 
-- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+- (void)adViewDidReceiveAd:(GADBannerView *)adView
+{
     NSLog(@"adViewDidReceiveAd");
     adView.alpha = 0;
     [UIView animateWithDuration:1.0 animations:^{
@@ -569,7 +557,8 @@
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     
     NSInteger page = mViewPager.currentPage;
@@ -595,8 +584,10 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
--(void)handleBanner{
-    if (self.bannerView.hidden == YES || self.bannerView.alpha == 0) {
+-(void)handleBanner
+{
+    if (self.bannerView.hidden == YES || self.bannerView.alpha == 0)
+    {
         [mViewPager mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(mViewPager.frame.origin.y);
             make.left.equalTo(self.view);
@@ -615,7 +606,8 @@
 
 #pragma mark - ScrollView Delegate
 
-- (void)viewPagerDidEndDecelerating:(ViewPager *)viewPager{
+- (void)viewPagerDidEndDecelerating:(ViewPager *)viewPager
+{
     NSInteger page = viewPager.currentPage;
     if (0 == page) {
         [self buttonClicked:latestButton];
@@ -637,7 +629,8 @@
     }
 }
 
--(void)viewPagerItemDidClicked:(int)index imageName:(NSString *)imageName imageUrl:(NSString *)imageUrl{
+-(void)viewPagerItemDidClicked:(int)index imageName:(NSString *)imageName imageUrl:(NSString *)imageUrl
+{
     switch (index) {
         case 0:{
             [self buttonClicked:latestButton];
@@ -734,8 +727,6 @@
         }
             break;
         case TAG_BTN_NAV_LEFT:{
-//            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            
             DDMenuController *rootViewController =  (DDMenuController *)kAppDelegate.window.rootViewController;
             [rootViewController showLeftController:YES];
         }
