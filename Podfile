@@ -14,11 +14,4 @@ target "Wallpaper" do
         pod 'ReactiveObjC','3.1.0'
         pod 'JSDecoupledAppDelegate', '~> 1.1.0'
         pod 'BlocksKit'
-#        pod 'React', :path => './node_modules/react-native', :subspecs => [
-#        'Core',
-#        'RCTText’,
-#        'RCTNetwork',
-#        'RCTWebSocket',
-#        ]
-#        pod "yoga", :path => './node_modules/react-native/ReactCommon/yoga'
 end
