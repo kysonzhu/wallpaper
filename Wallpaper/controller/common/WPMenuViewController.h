@@ -1,5 +1,5 @@
 //
-//  MenuViewController.h
+//  WPMenuViewController.h
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-9.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WPBaseViewController.h"
 
-@interface MenuViewController : UIViewController
+@interface WPMenuViewController : WPBaseViewController
 
 @end

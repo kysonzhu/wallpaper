@@ -351,7 +351,6 @@
 
 #import "AppDelegate.h"
 #import "WPHomeViewController.h"
-#import "MenuViewController.h"
 #import "EnvironmentConfigure.h"
 #import <JSDecoupledAppDelegate.h>
 
@@ -363,9 +362,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "WPNotificationAppDelegate.h"
 #import "WPNavigationController.h"
-
-//#import <React/RCTBundleURLProvider.h>
-//#import <React/RCTRootView.h>
+#import "WPMenuViewController.h"
 
 
 @interface AppDelegate ()<UIApplicationDelegate>{
@@ -382,7 +379,7 @@
     [Bugly startWithAppId:@"fc2ba95d28"];
 #endif
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
-    [[EnvironmentConfigure shareInstance] setShowAllData:NO];
+    [[EnvironmentConfigure shareInstance] setShowAllData:YES];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 
 //    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
@@ -391,7 +388,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 
     WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
-    MenuViewController *menuViewController = [[MenuViewController alloc]initWithNibName:@"MenuViewController_iphone" bundle:nil];
+    WPMenuViewController *menuViewController = [[WPMenuViewController alloc] init];
     WPNavigationController *navigationController = [[WPNavigationController alloc]initWithRootViewController:homeViewController];
 
     DDMenuController *rootViewController = [[DDMenuController alloc]initWithRootViewController:navigationController];
