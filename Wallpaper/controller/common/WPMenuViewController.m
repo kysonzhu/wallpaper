@@ -24,13 +24,10 @@
 #define TAG_BTN_GREENINGCARD    1291
 
 @interface WPMenuViewController()<UIActionSheetDelegate,UIAlertViewDelegate>{
-    
     __weak IBOutlet UIButton *aboutUsButton;
     __weak IBOutlet UIButton *feedbackButton;
     __weak IBOutlet UIButton *clearCacheButton;
     __weak IBOutlet UIButton *greetingCardButton;
-    
-    
 }
 
 @end
@@ -49,6 +46,7 @@
     [feedbackButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [clearCacheButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [greetingCardButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 
