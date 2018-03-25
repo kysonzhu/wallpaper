@@ -13,11 +13,4 @@
 
 
 
-+ (void)load {
-    [JSDecoupledAppDelegate sharedAppDelegate].appStateDelegate = [[self alloc] init];
-}
-
-
-
-
 @end

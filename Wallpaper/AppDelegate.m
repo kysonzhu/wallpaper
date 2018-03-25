@@ -364,14 +364,18 @@
 #import "WPNavigationController.h"
 #import "WPMenuViewController.h"
 
+#import <WXApi.h>
 
-@interface AppDelegate ()<UIApplicationDelegate>{
+@interface AppDelegate ()<UIApplicationDelegate,WXApiDelegate>{
 }
 
 @end
 
 @implementation AppDelegate
 
+/**
+ https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417694084&token=cc718493c6f2e38fc2e8459453a2f03ce2d3c7ef&lang=zh_CN
+ */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -381,6 +385,8 @@
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
     [[EnvironmentConfigure shareInstance] setShowAllData:YES];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
+    
+    [WXApi registerApp:@""];
 
 //    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
 
@@ -412,5 +418,29 @@
     WPNotificationAppDelegate *notificationDelegate = (WPNotificationAppDelegate *)[JSDecoupledAppDelegate sharedAppDelegate].remoteNotificationsDelegate;
     [notificationDelegate applicationDidBecomeActive];
 }
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
+}
+
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
+}
+
+-(void) onReq:(BaseReq*)reqonReq
+{
+    
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+    
+}
+
 
 @end
