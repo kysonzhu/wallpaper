@@ -358,7 +358,7 @@
 #import "SearchViewController.h"
 
 #import "WrapperDetailViewController.h"
-#import "SubCategoryViewController.h"
+#import "WPSubCategoryViewController.h"
 
 #import "GalleryView.h"
 #import "ViewPager.h"
@@ -869,7 +869,7 @@
 }
 
 -(void)categoryTableViewItemClicked:(NSIndexPath *)indexPath{
-    SubCategoryViewController *subCategoryViewController = [[SubCategoryViewController alloc]initWithNibName:@"SubCategoryViewController_iphone" bundle:nil];
+    WPSubCategoryViewController *subCategoryViewController = [[WPSubCategoryViewController alloc]init];
     subCategoryViewController.category = self.mCategoryTableView.categoryList[indexPath.row];
     [self.navigationController pushViewController:subCategoryViewController animated:YES];
 }

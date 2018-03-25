@@ -61,8 +61,8 @@
 		DEADAF041A4A632C00C19A2B /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF031A4A632C00C19A2B /* CategoryCell.m */; };
 		DEADAF061A4A634000C19A2B /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF051A4A634000C19A2B /* CategoryCell.xib */; };
 		DEADAF091A4A8B2900C19A2B /* KSCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF081A4A8B2900C19A2B /* KSCollectionViewLayout.m */; };
-		DEADAF131A4A928900C19A2B /* SubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF121A4A928900C19A2B /* SubCategoryViewController.m */; };
-		DEADAF151A4A934000C19A2B /* SubCategoryViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */; };
+		DEADAF131A4A928900C19A2B /* WPSubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF121A4A928900C19A2B /* WPSubCategoryViewController.m */; };
+		DEADAF151A4A934000C19A2B /* WPSubCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF141A4A934000C19A2B /* WPSubCategoryViewController.xib */; };
 		DEADAF191A4AAFCE00C19A2B /* desk_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF181A4AAFCE00C19A2B /* desk_white@2x.png */; };
 		DEADAF241A4AB97200C19A2B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEADAF231A4AB97200C19A2B /* AboutUsViewController.m */; };
 		DEADAF281A4AB9A400C19A2B /* FeedbackViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */; };
@@ -247,9 +247,9 @@
 		DEADAF051A4A634000C19A2B /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		DEADAF071A4A8B2900C19A2B /* KSCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCollectionViewLayout.h; sourceTree = "<group>"; };
 		DEADAF081A4A8B2900C19A2B /* KSCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCollectionViewLayout.m; sourceTree = "<group>"; };
-		DEADAF111A4A928900C19A2B /* SubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryViewController.h; sourceTree = "<group>"; };
-		DEADAF121A4A928900C19A2B /* SubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryViewController.m; sourceTree = "<group>"; };
-		DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCategoryViewController_iphone.xib; sourceTree = "<group>"; };
+		DEADAF111A4A928900C19A2B /* WPSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSubCategoryViewController.h; sourceTree = "<group>"; };
+		DEADAF121A4A928900C19A2B /* WPSubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSubCategoryViewController.m; sourceTree = "<group>"; };
+		DEADAF141A4A934000C19A2B /* WPSubCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPSubCategoryViewController.xib; sourceTree = "<group>"; };
 		DEADAF181A4AAFCE00C19A2B /* desk_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "desk_white@2x.png"; sourceTree = "<group>"; };
 		DEADAF221A4AB97200C19A2B /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		DEADAF231A4AB97200C19A2B /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
@@ -580,12 +580,13 @@
 		DEADAF0A1A4A91A100C19A2B /* category */ = {
 			isa = PBXGroup;
 			children = (
-				DEADAF111A4A928900C19A2B /* SubCategoryViewController.h */,
-				DEADAF121A4A928900C19A2B /* SubCategoryViewController.m */,
-				DEBDBCC61A529C020092521E /* HotestCollectionView.h */,
-				DEBDBCC71A529C020092521E /* HotestCollectionView.m */,
 				DEBDBCC91A538B250092521E /* CateListViewController.h */,
 				DEBDBCCA1A538B250092521E /* CateListViewController.m */,
+				DEBDBCC61A529C020092521E /* HotestCollectionView.h */,
+				DEBDBCC71A529C020092521E /* HotestCollectionView.m */,
+				DEADAF111A4A928900C19A2B /* WPSubCategoryViewController.h */,
+				DEADAF121A4A928900C19A2B /* WPSubCategoryViewController.m */,
+				DEADAF141A4A934000C19A2B /* WPSubCategoryViewController.xib */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -890,7 +891,6 @@
 		DECCCD591A37075F000C73BA /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				DEADAF141A4A934000C19A2B /* SubCategoryViewController_iphone.xib */,
 				DEE67B101A415C5300BFA114 /* WrapperDetailViewController_iphone.xib */,
 				DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */,
 				DEBDBC451A4C04450092521E /* SearchViewController_iphone.xib */,
@@ -1039,7 +1039,7 @@
 				DEC4E4E71A64E7A800E3A593 /* launtchscreen_4@2x.png in Resources */,
 				DEACA8181A48004500CFF53D /* GalleryView.xib in Resources */,
 				DEBDBDF81A5BB1650092521E /* KVNProgressView.xib in Resources */,
-				DEADAF151A4A934000C19A2B /* SubCategoryViewController_iphone.xib in Resources */,
+				DEADAF151A4A934000C19A2B /* WPSubCategoryViewController.xib in Resources */,
 				96E6CBC9204A31B600689E89 /* LICENSE in Resources */,
 				DE2F64121A846EC100958C41 /* SearchClearHistoryItemCell.xib in Resources */,
 				DEBDBC461A4C04450092521E /* SearchViewController_iphone.xib in Resources */,
@@ -1199,7 +1199,7 @@
 				DEACA8381A493CF500CFF53D /* CategoryCollectionViewLayout.m in Sources */,
 				DEBDBCAD1A5243110092521E /* CategoryTableView.m in Sources */,
 				DEBDBDF51A5BB10D0092521E /* UIImage+KVNEmpty.m in Sources */,
-				DEADAF131A4A928900C19A2B /* SubCategoryViewController.m in Sources */,
+				DEADAF131A4A928900C19A2B /* WPSubCategoryViewController.m in Sources */,
 				DEADAF041A4A632C00C19A2B /* CategoryCell.m in Sources */,
 				DEBDBE0F1A5CCBA10092521E /* GridViewCell2.m in Sources */,
 				DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */,

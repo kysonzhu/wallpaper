@@ -18,9 +18,9 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    int mod = _groupList.count%3;
+    int mod = _groupList.count%2;
     
-    int sectionCount = (int)_groupList.count/3;
+    int sectionCount = (int)_groupList.count/2;
     if (mod > 0 ) {
         sectionCount++;
         if (section == (sectionCount - 1) ) {
@@ -28,13 +28,13 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
         }
     }
     
-    return 3;
+    return 2;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     int mod = _groupList.count%3;
-    int sectionCount = (int)_groupList.count/3;
+    int sectionCount = (int)_groupList.count/2;
     if (mod > 0 ) {
         sectionCount++;
     }
@@ -43,7 +43,8 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds )/3 - 2, 176);
+    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds )/2 - 0.5f;
+    return CGSizeMake(width, width / 3.f * 4);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -55,7 +56,7 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(320, 2);
+    return CGSizeMake(320, 0.5f);
 }
 
 
@@ -72,7 +73,6 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     GridViewCell2   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier2 forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
     [imageView loadImage:group.coverImgUrl];
-//    cell.themeNameLabel.text = group.gName;
     
     //group number
     NSString *picNumString = [NSString stringWithFormat:@"(%i张)",[group.picNum intValue]];
@@ -88,25 +88,7 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     NSRange range2;
     range2.length = [attributeGroupNameString length];
     range2.location = 0;
-    //    NSInteger stringLength = 0;
-    //
-    //
-    //    for (int i = 0; i < range2.length; ++ i) {
-    //        NSString *tempString = [attributeGroupNameString string];
-    //
-    //        int a = [tempString characterAtIndex:i ];
-    //        if (a > 0x4e00 && a < 0x9fff) {
-    //            ++ stringLength;
-    //        }
-    //
-    //    }
-    //    if (stringLength > 12) {
-    //        NSString *tempString = [attributeGroupNameString string];
-    //        tempString = [tempString substringToIndex:10];
-    //        tempString = [NSString stringWithFormat:@"%@...",tempString];
-    //        attributeGroupNameString = [[NSMutableAttributedString alloc]initWithString:tempString];
-    //        range2.length = [attributeGroupNameString length];
-    //    }
+    
     [attributeGroupNameString setAttributes:attriDictionary2 range:range2];
     NSMutableAttributedString *detailString = [[NSMutableAttributedString alloc]initWithAttributedString:attributePicNumString];
     [detailString insertAttributedString:attributeGroupNameString atIndex:0];

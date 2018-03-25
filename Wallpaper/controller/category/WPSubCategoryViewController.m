@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 zhujinhui( http://kyson.cn ). All rights reserved.
 //
 
-#import "SubCategoryViewController.h"
+#import "WPSubCategoryViewController.h"
 #import "RecommndCollectionView.h"
 #import "LatestCollectionView.h"
 #import "HotestCollectionView.h"
@@ -38,7 +38,7 @@ typedef enum _CurrentCategoryType{
     CurrentCategoryTypeSub
 }CurrentCategoryType;
 
-@interface SubCategoryViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CateListViewControllerDelegate>{
+@interface WPSubCategoryViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CateListViewControllerDelegate>{
     
     __weak IBOutlet UIButton *recommendButton;
     __weak IBOutlet UIButton *latestButton;
@@ -78,7 +78,7 @@ typedef enum _CurrentCategoryType{
 
 @end
 
-@implementation SubCategoryViewController
+@implementation WPSubCategoryViewController
 
 @synthesize type;
 @synthesize startCategoryRecommended,startSecondaryCategoryRecommended;

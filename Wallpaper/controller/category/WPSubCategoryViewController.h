@@ -10,7 +10,7 @@
 #import "Classification.h"
 #import "WPBaseViewController.h"
 
-@interface SubCategoryViewController : WPBaseViewController
+@interface WPSubCategoryViewController : WPBaseViewController
 
 @property (nonatomic, strong) Classification *category;
 
