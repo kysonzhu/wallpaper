@@ -83,7 +83,8 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     NSString *imageURLString = group.coverImgUrl;
     NSString *smallURLString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"bmiddle"];
     NSURL *smallURL = [NSURL URLWithString:smallURLString];
-    [imageView sd_setImageWithURL:smallURL placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    UIImage *tempImage = [UIImage imageNamed:@"AppIcon"];
+    [imageView sd_setImageWithURL:smallURL placeholderImage:tempImage options:SDWebImageLowPriority completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         ;
     }];
     
