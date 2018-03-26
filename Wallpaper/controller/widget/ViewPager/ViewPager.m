@@ -116,12 +116,15 @@
         for (int index = 0; index < imageCount; ++index) {
             AutoLoadImageView *imgv = [[AutoLoadImageView alloc]init];
             imgv.backgroundColor = [[UserCenter shareInstance]getRandomColor];
+            [self.scrollView addSubview:imgv];
             NSString *imageURLString = imageUrls[index];
-            NSString *largeUrlString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"bmiddle"];
-            NSURL *url = [NSURL URLWithString:largeUrlString];
-            [imgv sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            NSString *largeUrlString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"large"];
+            NSURL *largeUrl = [NSURL URLWithString:largeUrlString];
+            UIImage *tempImage = [UIImage imageNamed:@"AppIcon"];
+            [imgv sd_setImageWithURL:largeUrl placeholderImage:tempImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                 ;
             }];
+            
             CGRect frame = CGRectMake(index * screenWidth, 0, screenWidth, HEIGHT_VIEWPAGER);
             
             [imgv setFrame:frame];
