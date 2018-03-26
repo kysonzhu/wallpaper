@@ -9,6 +9,7 @@
 #import "CategoryTableView.h"
 #import "CategoryTableViewCell.h"
 #import "Classification.h"
+#import <UIImageView+WebCache.h>
 
 @implementation CategoryTableView
 
@@ -37,8 +38,11 @@
     CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategoryTableViewCellReuseIdentifier"];
     cell.cateNameLabel.text = category.cateName;
     cell.cateDetailLabel.text = category.keyword;
-    [cell.coverImageView loadImage:category.coverImgUrl];
-    
+
+    NSURL *url = [NSURL URLWithString:category.coverImgUrl];
+    [cell.coverImageView sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        ;
+    }];
     return cell;
 }
 

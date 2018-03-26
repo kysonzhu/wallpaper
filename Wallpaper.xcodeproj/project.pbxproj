@@ -150,8 +150,8 @@
 		DECCCD2C1A36FAA1000C73BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCD2B1A36FAA1000C73BA /* AppDelegate.m */; };
 		DECCCD341A36FAA1000C73BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECCCD331A36FAA1000C73BA /* Images.xcassets */; };
 		DECCCD941A381BBF000C73BA /* WPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCD931A381BBF000C73BA /* WPMenuViewController.m */; };
-		DEE67B0F1A415B7200BFA114 /* WrapperDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE67B0E1A415B7200BFA114 /* WrapperDetailViewController.m */; };
-		DEE67B111A415C5300BFA114 /* WrapperDetailViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE67B101A415C5300BFA114 /* WrapperDetailViewController_iphone.xib */; };
+		DEE67B0F1A415B7200BFA114 /* WPWrapperDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */; };
+		DEE67B111A415C5300BFA114 /* WPWrapperDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE67B101A415C5300BFA114 /* WPWrapperDetailViewController.xib */; };
 		DEE67B3F1A43BE5B00BFA114 /* ViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE67B3E1A43BE5B00BFA114 /* ViewPager.m */; };
 		DEF963ED1A6CE8A6009A7D4E /* EnvironmentConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF963EC1A6CE8A6009A7D4E /* EnvironmentConfigure.m */; };
 /* End PBXBuildFile section */
@@ -373,9 +373,9 @@
 		DECCCD3A1A36FAA1000C73BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DECCCD921A381BBF000C73BA /* WPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPMenuViewController.h; sourceTree = "<group>"; };
 		DECCCD931A381BBF000C73BA /* WPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPMenuViewController.m; sourceTree = "<group>"; };
-		DEE67B0D1A415B7200BFA114 /* WrapperDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapperDetailViewController.h; sourceTree = "<group>"; };
-		DEE67B0E1A415B7200BFA114 /* WrapperDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapperDetailViewController.m; sourceTree = "<group>"; };
-		DEE67B101A415C5300BFA114 /* WrapperDetailViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WrapperDetailViewController_iphone.xib; sourceTree = "<group>"; };
+		DEE67B0D1A415B7200BFA114 /* WPWrapperDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWrapperDetailViewController.h; sourceTree = "<group>"; };
+		DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPWrapperDetailViewController.m; sourceTree = "<group>"; };
+		DEE67B101A415C5300BFA114 /* WPWrapperDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPWrapperDetailViewController.xib; sourceTree = "<group>"; };
 		DEE67B3D1A43BE5B00BFA114 /* ViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPager.h; sourceTree = "<group>"; };
 		DEE67B3E1A43BE5B00BFA114 /* ViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPager.m; sourceTree = "<group>"; };
 		DEF963EB1A6CE8A6009A7D4E /* EnvironmentConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentConfigure.h; sourceTree = "<group>"; };
@@ -426,8 +426,9 @@
 				DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */,
 				DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */,
 				DE9584F51A3935E9000C6B70 /* WPHomeViewController.xib */,
-				DEE67B0D1A415B7200BFA114 /* WrapperDetailViewController.h */,
-				DEE67B0E1A415B7200BFA114 /* WrapperDetailViewController.m */,
+				DEE67B0D1A415B7200BFA114 /* WPWrapperDetailViewController.h */,
+				DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */,
+				DEE67B101A415C5300BFA114 /* WPWrapperDetailViewController.xib */,
 				DEACA8191A481ADA00CFF53D /* LatestCollectionView.h */,
 				DEACA81A1A481ADA00CFF53D /* LatestCollectionView.m */,
 				DEACA81C1A481AF800CFF53D /* RecommndCollectionView.h */,
@@ -891,7 +892,6 @@
 		DECCCD591A37075F000C73BA /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				DEE67B101A415C5300BFA114 /* WrapperDetailViewController_iphone.xib */,
 				DEADAF271A4AB9A400C19A2B /* FeedbackViewController_iphone.xib */,
 				DEBDBC451A4C04450092521E /* SearchViewController_iphone.xib */,
 				DEBDBCCC1A538BC00092521E /* CateListViewController_iphone.xib */,
@@ -1025,7 +1025,7 @@
 				DEBDBC381A4BBBDC0092521E /* qq@2x.png in Resources */,
 				DEAED54B1A64CE0C0047318C /* ViewPager.xib in Resources */,
 				DEBDBE2F1A5D19C90092521E /* tab_icon_down@2x.png in Resources */,
-				DEE67B111A415C5300BFA114 /* WrapperDetailViewController_iphone.xib in Resources */,
+				DEE67B111A415C5300BFA114 /* WPWrapperDetailViewController.xib in Resources */,
 				DEADAF281A4AB9A400C19A2B /* FeedbackViewController_iphone.xib in Resources */,
 				DEBDBCD01A538E490092521E /* CateListItemCell.xib in Resources */,
 				DEBDBCD71A53BBB00092521E /* nav_screen@2x.png in Resources */,
@@ -1172,7 +1172,7 @@
 				96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */,
 				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
 				DEACA81E1A481AF800CFF53D /* RecommndCollectionView.m in Sources */,
-				DEE67B0F1A415B7200BFA114 /* WrapperDetailViewController.m in Sources */,
+				DEE67B0F1A415B7200BFA114 /* WPWrapperDetailViewController.m in Sources */,
 				DECCCD941A381BBF000C73BA /* WPMenuViewController.m in Sources */,
 				DE9585511A3ADEAC000C6B70 /* FileManager.m in Sources */,
 				DEACA82E1A491D4B00CFF53D /* ViewPagerAdapter.m in Sources */,

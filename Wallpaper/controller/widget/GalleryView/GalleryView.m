@@ -9,18 +9,15 @@
 #import "GalleryView.h"
 #import "AutoLoadImageView.h"
 #import "UserCenter.h"
+#import <UIImageView+WebCache.h>
 
 #define TAG_BTN_OFFSET 12345
 
 @interface GalleryView ()<UIScrollViewDelegate>{
-//    UIPageControl *mPageControl;
     NSTimer *timer;
 }
 @property (nonatomic,strong)UIPageControl *pageControl;
 @property (nonatomic,strong)UIScrollView  *mScrollView;
-
-
-//@property (nonatomic, assign,readonly) NSInteger imageCount;
 
 @end
 
@@ -32,7 +29,6 @@
     if (self) {
         // Initialization code
         [self resetInit];
-
     }
     return self;
 }
@@ -181,7 +177,10 @@
         for (int index = 0; index < imageCount; ++index) {
             AutoLoadImageView *imgv = [[AutoLoadImageView alloc]init];
             imgv.backgroundColor = [[UserCenter shareInstance] getRandomColor];
-            [imgv loadImage:imageUrls[index]];
+            NSURL *url = [NSURL URLWithString:imageUrls[index]];
+            [imgv sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                ;
+            }];
             CGRect frame = CGRectMake(index * screenWidth, 0, screenWidth, HEIGHT_GALLERY);
             [imgv setFrame:frame];
             //add gesture to image

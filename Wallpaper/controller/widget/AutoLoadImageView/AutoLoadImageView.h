@@ -10,8 +10,5 @@
 
 @interface AutoLoadImageView : UIImageView
 
-@property (nonatomic,assign) BOOL hasImageFetchFinished;
-
--(void)loadImage:(NSString *)imageUrl;
 
 @end

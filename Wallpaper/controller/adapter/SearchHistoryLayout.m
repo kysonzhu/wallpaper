@@ -9,6 +9,7 @@
 #import "SearchHistoryLayout.h"
 #import "GridViewCell.h"
 #import "Group.h"
+#import <UIImageView+WebCache.h>
 
 static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 
@@ -81,7 +82,11 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     Group *group = _groupList[section *2 +row ];
     GridViewCell   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
-    [imageView loadImage:group.coverImgUrl];
+    NSURL *url = [NSURL URLWithString:group.coverImgUrl];
+    [imageView sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        ;
+    }];
+    
     cell.themeNameLabel.text = group.gName;
     
     return cell;

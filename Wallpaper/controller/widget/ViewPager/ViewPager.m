@@ -11,6 +11,7 @@
 #import "UserCenter.h"
 #import "FileManager.h"
 #import <Masonry/Masonry.h>
+#import <UIImageView+WebCache.h>
 
 #define TAG_BTN_OFFSET 12347
 
@@ -115,7 +116,12 @@
         for (int index = 0; index < imageCount; ++index) {
             AutoLoadImageView *imgv = [[AutoLoadImageView alloc]init];
             imgv.backgroundColor = [[UserCenter shareInstance]getRandomColor];
-            [imgv loadImage:imageUrls[index]];
+            NSString *imageURLString = imageUrls[index];
+            NSString *largeUrlString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"bmiddle"];
+            NSURL *url = [NSURL URLWithString:largeUrlString];
+            [imgv sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                ;
+            }];
             CGRect frame = CGRectMake(index * screenWidth, 0, screenWidth, HEIGHT_VIEWPAGER);
             
             [imgv setFrame:frame];
@@ -143,7 +149,6 @@
 -(void)clearErrorImageView{
     for (AutoLoadImageView *viewItem in self.scrollView.subviews) {
         if ([viewItem isKindOfClass:[AutoLoadImageView class]]) {
-            if (viewItem.hasImageFetchFinished ) {
                 if (nil == viewItem.image) {
                     //remove nil imageview
                     NSInteger index = [self.scrollView.subviews indexOfObject:viewItem];
@@ -176,7 +181,6 @@
                     times = times <0?0:times;
                 }
                 
-            }
         }
     }
     

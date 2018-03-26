@@ -1,5 +1,5 @@
 //
-//  WrapperDetailViewController.m
+//  WPWrapperDetailViewController.m
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-17.
@@ -348,7 +348,7 @@
  Public License instead of this License.
  */
 
-#import "WrapperDetailViewController.h"
+#import "WPWrapperDetailViewController.h"
 #import "ViewPager.h"
 #import "WrapperServiceMediator.h"
 #import "Image.h"
@@ -374,7 +374,7 @@
 #define TAG_IMGV_HOME        211
 #define TAG_IMGV_LOCKSCREEN  212
 
-@interface WrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
+@interface WPWrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
     __weak IBOutlet ViewPager *mViewPager;
     __weak IBOutlet UIButton *backButton;
     __weak IBOutlet UIView *mToolBar;
@@ -398,21 +398,21 @@
 
 @end
 
-@implementation WrapperDetailViewController
+@implementation WPWrapperDetailViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     // 设置状态栏和导航栏
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 }
 
 #pragma mark - 状态栏隐藏
 
 -(void)viewWillDisappear:(BOOL)animated{
     // 下面这两句顺序不能改
-    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 
     [self.navigationController setNavigationBarHidden:NO animated:animated];
@@ -433,7 +433,7 @@
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
         //延迟执行
-        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 15 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 8 * NSEC_PER_SEC); //设置时间2秒
         dispatch_after(time, dispatch_get_main_queue(), ^{
             if (self.interstitial.isReady)
                 [self.interstitial presentFromRootViewController:self];
@@ -538,8 +538,6 @@
             }else{
                 [KVNProgress showErrorWithStatus:@"没有图片可以预览"];
             }
-
-            
         }
             break;
         case TAG_BTN_LAUNCH:{

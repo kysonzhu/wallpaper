@@ -14,4 +14,5 @@ target "Wallpaper" do
         pod 'ReactiveObjC','3.1.0'
         pod 'JSDecoupledAppDelegate', '~> 1.1.0'
         pod 'BlocksKit'
+        pod 'SDWebImage'
 end

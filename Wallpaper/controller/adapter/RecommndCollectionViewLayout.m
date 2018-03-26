@@ -12,6 +12,7 @@
 #import "AutoLoadImageView.h"
 #import "UserCenter.h"
 #import <CoreText/CoreText.h>
+#import <UIImageView+WebCache.h>
 
 static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 
@@ -78,7 +79,13 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
     imageView.layer.cornerRadius = 2.f;
     imageView.clipsToBounds = YES;
-    [imageView loadImage:group.coverImgUrl];
+
+    NSString *imageURLString = group.coverImgUrl;
+    NSString *smallURLString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"bmiddle"];
+    NSURL *smallURL = [NSURL URLWithString:smallURLString];
+    [imageView sd_setImageWithURL:smallURL placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        ;
+    }];
     
     //group number
     NSString *picNumString = [NSString stringWithFormat:@"(%i张)",[group.picNum intValue]];

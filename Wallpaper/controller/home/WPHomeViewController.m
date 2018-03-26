@@ -357,7 +357,7 @@
 #import "LatestCollectionViewLayout.h"
 #import "SearchViewController.h"
 
-#import "WrapperDetailViewController.h"
+#import "WPWrapperDetailViewController.h"
 #import "WPSubCategoryViewController.h"
 
 #import "GalleryView.h"
@@ -753,7 +753,7 @@
         RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *2 +row ];
-        WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
+        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
         detailViewController.fromcontroller = FromControllerRecommended;
         detailViewController.group = group;
         [self.navigationController pushViewController:detailViewController animated:YES];
@@ -764,7 +764,7 @@
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *2 +row ];
         
-        WrapperDetailViewController *detailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
+        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
         detailViewController.fromcontroller = FromControllerLatest;
         detailViewController.group = group;
         [self.navigationController pushViewController:detailViewController animated:YES];

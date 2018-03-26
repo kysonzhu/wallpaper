@@ -7,7 +7,7 @@
 //
 
 #import "RecommndCollectionView.h"
-#import "WrapperDetailViewController.h"
+#import "WPWrapperDetailViewController.h"
 #import "GalleryView.h"
 #import "WPBaseViewController.h"
 
@@ -36,7 +36,7 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    WrapperDetailViewController *wrapperDetailViewController = [[WrapperDetailViewController alloc]initWithNibName:@"WrapperDetailViewController_iphone" bundle:nil];
+    WPWrapperDetailViewController *wrapperDetailViewController = [[WPWrapperDetailViewController alloc]init];
     [self.controller.navigationController pushViewController:wrapperDetailViewController animated:YES];
 }
 

@@ -10,6 +10,7 @@
 
 #import "GridViewCell2.h"
 #import "Group.h"
+#import <UIImageView+WebCache.h>
 
 @implementation HotestCollectionViewLayout
 
@@ -72,8 +73,10 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     Group *group = _groupList[section *2 +row ];
     GridViewCell2   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier2 forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
-    [imageView loadImage:group.coverImgUrl];
-    
+    NSURL *url = [NSURL URLWithString:group.coverImgUrl];
+    [imageView sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        ;
+    }];
     //group number
     NSString *picNumString = [NSString stringWithFormat:@"(%i张)",[group.picNum intValue]];
     NSMutableAttributedString *attributePicNumString = [[NSMutableAttributedString alloc]initWithString:picNumString];
