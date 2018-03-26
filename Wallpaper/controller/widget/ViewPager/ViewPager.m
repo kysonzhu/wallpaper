@@ -120,17 +120,27 @@
             NSString *imageURLString = imageUrls[index];
             NSString *largeUrlString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"large"];
             NSURL *largeUrl = [NSURL URLWithString:largeUrlString];
-            UIImage *tempImage = [UIImage imageNamed:@"AppIcon"];
-            [imgv sd_setImageWithURL:largeUrl placeholderImage:tempImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-                ;
-            }];
             
+            NSString *smallUrlString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"thumbnail"];
+            NSURL *smallUrl = [NSURL URLWithString:smallUrlString];
+
+            UIImage *tempImage = [UIImage imageNamed:@"AppIcon"];
+            imgv.contentMode = UIViewContentModeCenter;
+            //先加载缩略图
+            [imgv sd_setImageWithURL:smallUrl placeholderImage:tempImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                //再加载原图
+                imgv.contentMode = UIViewContentModeScaleAspectFit;
+                [imgv sd_setImageWithURL:largeUrl placeholderImage:image completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                    ;
+                }];
+                
+            }];
             CGRect frame = CGRectMake(index * screenWidth, 0, screenWidth, HEIGHT_VIEWPAGER);
             
             [imgv setFrame:frame];
             //add gesture to image
             imgv.userInteractionEnabled = YES;
-            imgv.contentMode = UIViewContentModeScaleAspectFit;
+
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]init];
             [tapGestureRecognizer addTarget:self action:@selector(tapped:)];
             [imgv addGestureRecognizer:tapGestureRecognizer];
