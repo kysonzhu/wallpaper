@@ -6,8 +6,7 @@
 //  Copyright © 2018年 zhujinhui. All rights reserved.
 //
 
-#import "WPNotificationAppDelegate.h"
-#import <JSDecoupledAppDelegate.h>
+#import "AppDelegate+RemoteNotification.h"
 // iOS10 及以上需导入 UserNotifications.framework
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 #import <UserNotifications/UserNotifications.h>
@@ -26,17 +25,14 @@
 #define kGtAppSecret       @"StvkGGyHG379uwdoF20Mq5"
 #endif
 
-@interface WPNotificationAppDelegate() <JSApplicationStateDelegate,UNUserNotificationCenterDelegate,GeTuiSdkDelegate>
+@interface AppDelegate()<UNUserNotificationCenterDelegate,GeTuiSdkDelegate>
 
 @end
 
-@implementation WPNotificationAppDelegate
+@implementation AppDelegate(RemoteNotification)
 
-+ (void)load {
-    [JSDecoupledAppDelegate sharedAppDelegate].remoteNotificationsDelegate = [[self alloc] init];
-}
 
--(void) didFinishLaunchingWithOptions
+-(void) registeRemoteNotificationService
 {
     [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // register APNs
@@ -98,7 +94,7 @@
 
 
 /** APP已经接收到“远程”通知(推送) - 透传推送消息  */
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+- (void)categoryApplication:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     // 处理APNs代码，通过userInfo可以取到推送的信息（包括内容，角标，自定义参数等）。如果需要弹窗等其他操作，则需要自行编码。
     NSLog(@"\n>>>[Receive RemoteNotification - Background Fetch]:%@\n\n",userInfo);
     
@@ -122,7 +118,8 @@
     NSLog(@"\n>>>[GexinSdk ReceivePayload]:%@\n\n", msg);
 }
 
--(void)applicationDidBecomeActive{
+-(void)setRemoteNotificationBadge
+{
     /**
      * add network status listener
      */

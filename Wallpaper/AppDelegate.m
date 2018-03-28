@@ -352,17 +352,16 @@
 #import "AppDelegate.h"
 #import "WPHomeViewController.h"
 #import "EnvironmentConfigure.h"
-#import <JSDecoupledAppDelegate.h>
 
 #define CHINAL_ID_APP_STORE @"App Store"
 #define CHINAL_ID_ZOL @"zol"
 #import <MGTaskPool.h>
 @import GoogleMobileAds;
 #import <Bugly/Bugly.h>
-#import <AFNetworking/AFNetworking.h>
-#import "WPNotificationAppDelegate.h"
+#import "AppDelegate+RemoteNotification.h"
 #import "WPNavigationController.h"
 #import "WPMenuViewController.h"
+#import "AppDelegate+NetworkMonitor.h"
 
 
 @interface AppDelegate ()<UIApplicationDelegate>{
@@ -398,19 +397,25 @@
     [self.window makeKeyAndVisible];
 
     //通知相关
-    WPNotificationAppDelegate *notificationDelegate = (WPNotificationAppDelegate *)[JSDecoupledAppDelegate sharedAppDelegate].remoteNotificationsDelegate;
-    [notificationDelegate didFinishLaunchingWithOptions];
-    // 开启网络监控
-    AFNetworkReachabilityManager *netReachabilityManger = [AFNetworkReachabilityManager sharedManager];
-    [netReachabilityManger startMonitoring];
-    
+    [self registeRemoteNotificationService];
+    [self registeNetworkMonitorService];
     return YES;
 }
 
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     //通知
-    WPNotificationAppDelegate *notificationDelegate = (WPNotificationAppDelegate *)[JSDecoupledAppDelegate sharedAppDelegate].remoteNotificationsDelegate;
-    [notificationDelegate applicationDidBecomeActive];
+    [self setRemoteNotificationBadge];
 }
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [self categoryApplication:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    [self categoryApplication:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+
 
 @end

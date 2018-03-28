@@ -12,7 +12,6 @@ target "Wallpaper" do
         pod 'GTSDK','2.2.0.0'
         pod 'IQKeyboardManager'
         pod 'ReactiveObjC','3.1.0'
-        pod 'JSDecoupledAppDelegate', '~> 1.1.0'
         pod 'BlocksKit'
         pod 'SDWebImage'
 end
