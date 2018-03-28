@@ -16,6 +16,11 @@
 		96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */; };
 		96A70D12202756ED00790B1D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D11202756ED00790B1D /* BaseModel.m */; };
 		96A70D1520276BAE00790B1D /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D1420276BAE00790B1D /* KSModel.m */; };
+		96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F95206C02EE00A37B9D /* WPLessonViewController.m */; };
+		96D10F98206C02EE00A37B9D /* WPLessonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */; };
+		96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */; };
+		96D10F9D206C069D00A37B9D /* WPLessonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */; };
+		96D10F9F206C0B6E00A37B9D /* lesson1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F9E206C0B6D00A37B9D /* lesson1.jpg */; };
 		96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBBE20498FC800689E89 /* KSRouter.m */; };
 		96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */; };
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
@@ -172,6 +177,13 @@
 		96A70D11202756ED00790B1D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		96A70D1320276BAE00790B1D /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		96A70D1420276BAE00790B1D /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
+		96D10F94206C02EE00A37B9D /* WPLessonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPLessonViewController.h; sourceTree = "<group>"; };
+		96D10F95206C02EE00A37B9D /* WPLessonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPLessonViewController.m; sourceTree = "<group>"; };
+		96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPLessonViewController.xib; sourceTree = "<group>"; };
+		96D10F99206C069D00A37B9D /* WPLessonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPLessonTableViewCell.h; sourceTree = "<group>"; };
+		96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPLessonTableViewCell.m; sourceTree = "<group>"; };
+		96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPLessonTableViewCell.xib; sourceTree = "<group>"; };
+		96D10F9E206C0B6D00A37B9D /* lesson1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lesson1.jpg; sourceTree = "<group>"; };
 		96E6CBBC2046F98800689E89 /* Wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallpaper.entitlements; sourceTree = "<group>"; };
 		96E6CBBD20498FC800689E89 /* KSRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSRouter.h; sourceTree = "<group>"; };
 		96E6CBBE20498FC800689E89 /* KSRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSRouter.m; sourceTree = "<group>"; };
@@ -416,6 +428,20 @@
 				9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */,
 			);
 			path = appdelegate;
+			sourceTree = "<group>";
+		};
+		96D10F93206C02C800A37B9D /* lesson */ = {
+			isa = PBXGroup;
+			children = (
+				96D10F9E206C0B6D00A37B9D /* lesson1.jpg */,
+				96D10F94206C02EE00A37B9D /* WPLessonViewController.h */,
+				96D10F95206C02EE00A37B9D /* WPLessonViewController.m */,
+				96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */,
+				96D10F99206C069D00A37B9D /* WPLessonTableViewCell.h */,
+				96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */,
+				96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */,
+			);
+			path = lesson;
 			sourceTree = "<group>";
 		};
 		B991A543E4C347A1A27096E6 /* Pods */ = {
@@ -830,6 +856,7 @@
 		DECCCD501A36FB22000C73BA /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				96D10F93206C02C800A37B9D /* lesson */,
 				DE4392EA1A872DDA0009181D /* greetingcard */,
 				DEBDBC411A4C02AF0092521E /* search */,
 				DEADAF291A4ABD0000C19A2B /* feedback */,
@@ -1061,6 +1088,7 @@
 				DEBDC0091A5D35160092521E /* lef_Feedback@2x.png in Resources */,
 				DEBDC0121A5E8C8F0092521E /* tab_icon_collect_pre@2x.png in Resources */,
 				DEBDBC401A4C01B50092521E /* nav_search@2x.png in Resources */,
+				96D10F98206C02EE00A37B9D /* WPLessonViewController.xib in Resources */,
 				DEBDBE311A5D1A2A0092521E /* tab_icon_desktop@2x.png in Resources */,
 				DEAED5541A64E61A0047318C /* launtchscreen_1@2x.png in Resources */,
 				96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */,
@@ -1083,6 +1111,8 @@
 				DEBDBC341A4BB9F50092521E /* mod_bg@2x.png in Resources */,
 				DEBDC0081A5D35160092521E /* lef_del@2x.png in Resources */,
 				DEAED5591A64E61A0047318C /* lockscreen_2@2x.png in Resources */,
+				96D10F9D206C069D00A37B9D /* WPLessonTableViewCell.xib in Resources */,
+				96D10F9F206C0B6E00A37B9D /* lesson1.jpg in Resources */,
 				DE9585351A3AD9BB000C6B70 /* recommended_nav_background@2x.png in Resources */,
 				DEBDBD871A5911E00092521E /* SearchDetailViewController_iphone.xib in Resources */,
 				DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */,
@@ -1180,6 +1210,7 @@
 				96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */,
 				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
 				DEACA81E1A481AF800CFF53D /* RecommndCollectionView.m in Sources */,
+				96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */,
 				DEE67B0F1A415B7200BFA114 /* WPWrapperDetailViewController.m in Sources */,
 				DECCCD941A381BBF000C73BA /* WPMenuViewController.m in Sources */,
 				DE9585511A3ADEAC000C6B70 /* FileManager.m in Sources */,
@@ -1190,6 +1221,7 @@
 				DEBDBCCB1A538B250092521E /* CateListViewController.m in Sources */,
 				96A70D12202756ED00790B1D /* BaseModel.m in Sources */,
 				DEBDBD8D1A593F530092521E /* UIImage+Compress.m in Sources */,
+				96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */,
 				DE9585551A3ADEED000C6B70 /* NSString+Util.m in Sources */,
 				DECCCD281A36FAA1000C73BA /* main.m in Sources */,
 				96A70D1520276BAE00790B1D /* KSModel.m in Sources */,
