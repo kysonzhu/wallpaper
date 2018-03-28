@@ -672,6 +672,7 @@
             Image *image = [[Image alloc] init];
             imageList = [image loadArrayPropertyWithDataSource:imageList requireModel:@"Image"];
             NSMutableArray *imgUrls = [[NSMutableArray alloc]init];
+            [imgUrls addObject:self.group.coverImgUrl];
             for (Image *imageItem in imageList) {
                 NSURL *imgURL = [NSURL URLWithString:imageItem.babyImgUrl];
                 if ([imgURL.scheme isEqualToString:@"http"] || [imgURL.scheme isEqualToString:@"https"]) {
