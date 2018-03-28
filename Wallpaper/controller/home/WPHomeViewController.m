@@ -405,8 +405,8 @@
 @property (weak, nonatomic) UIView *titleBarView;
 
 @property (nonatomic, strong) LatestCollectionView        *mLastestCollectionView;;
-@property (nonatomic, strong) CategoryTableView           *mCategoryTableView;;
 @property (nonatomic, strong) RecommndCollectionView      *mRecommndCollectionView;
+@property (nonatomic, strong) CategoryTableView           *mCategoryTableView;;
 
 @property(nonatomic, strong) GADBannerView *bannerView;
 
