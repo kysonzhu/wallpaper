@@ -129,7 +129,8 @@
             //先加载缩略图
             [imgv sd_setImageWithURL:smallUrl placeholderImage:tempImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                 //再加载原图
-                imgv.contentMode = UIViewContentModeScaleAspectFit;
+                imgv.contentMode = UIViewContentModeScaleAspectFill;
+                imgv.clipsToBounds = YES;
                 [imgv sd_setImageWithURL:largeUrl placeholderImage:image completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                     ;
                 }];
