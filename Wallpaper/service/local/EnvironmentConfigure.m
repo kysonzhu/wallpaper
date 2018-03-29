@@ -47,6 +47,7 @@ static EnvironmentConfigure *environmentConfigure = nil;
 }
 
 -(BOOL) shouldFilter:(NSString *) gName{
+    return NO;
     if (self.showAllData) {
         return NO;
     }

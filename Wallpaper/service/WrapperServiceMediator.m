@@ -15,6 +15,7 @@
 #define HOST @"http://sj.zol.com.cn"
 
 #define HOST_KYSON @"http://kyson.cn/wallpaper/index.php"
+#define HOST_XIUXIUPic @"http://api.kongyouran.com"
 
 #define SERVICE_METHOD_MAP(__SERVICENAME_,METHODNAME) \
 if ([self.serviceName isEqualToString:__SERVICENAME_]) {\
@@ -22,6 +23,9 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 }\
 
 @implementation WrapperServiceMediator
+
+#define kWallPaperSourceKyson @"2"
+#define kWallPaperSourceXiuXiu @"3"
 
 -(void)main{
     [super main];
@@ -39,18 +43,43 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
+    
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
+        //以下来自kyson源
+        MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_XIUXIUPic modulePath:@"znfllist/"];
+        networkAccess2.requestType = RequestTypeGet;
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        params[@"page"] = @"1";
+        params[@"ver"] = @"1";
+        MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:nil params:params];
+        
+        NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+        NSArray *resultArry = response2.rawResponseDictionary[@"list"];
+        NSMutableArray *array2 = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictItem in resultArry) {
+            NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
+            resultDictionary2[@"coverImgUrl"] = dictItem[@"HeadPic"];
+            resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"JieTitle"]];
+            resultDictionary2[@"id"] = dictItem[@"JieID"];
+            resultDictionary2[@"wallPaperSource"] = kWallPaperSourceXiuXiu;
+            resultDictionary2[@"voteGood"] = @"111";
+            resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
+            [array2 addObject:resultDictionary2];
+        }
+        [array2 addObjectsFromArray:babyList];
+        response.rawResponseArray = array2;
+        ////////
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
+
     return response;
 }
 
 
 -(MGNetwokResponse *)getRecommendDetail{
     NSString *source = self.requestParams[@"source"];
-#define kWallPaperSourceKyson @"2"
     if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue) {
         MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
         NSMutableDictionary *params = [[NSMutableDictionary alloc]init];

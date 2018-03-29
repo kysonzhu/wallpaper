@@ -776,12 +776,11 @@
     [KVNProgress dismiss];
     if (response.errorCode == 0) {
         if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-            NSDictionary *resultDict = response.rawResponseDictionary;
-            NSArray *Aryresponse1 = resultDict[@"result"][@"groupList"];
+            NSArray *responseArray = response.rawResponseArray;
             Group *group = [[Group alloc] init];
-            Aryresponse1 = [group loadArrayPropertyWithDataSource:Aryresponse1 requireModel:@"Group"];
+            responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
             NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-            for (Group *item in Aryresponse1)
+            for (Group *item in responseArray)
             {
                 NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
                 if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
