@@ -1397,7 +1397,7 @@
 					"-framework",
 					"\"Bugly\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dada.store;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1434,7 +1434,7 @@
 					"-framework",
 					"\"Bugly\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dada.store;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

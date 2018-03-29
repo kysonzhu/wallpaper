@@ -93,6 +93,20 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
         return response;
     }
     
+    if (source && safeString(source).integerValue == kWallPaperSourceXiuXiu.integerValue) {
+        MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_XIUXIUPic modulePath:@"znflcontent/"];
+        networkAccess.requestType = RequestTypeGet;
+        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+        params[@"id"]= self.requestParams[@"id"];
+        MGNetwokResponse *response = [networkAccess doServiceRequestWithName:nil params:params];
+        if (0 == response.errorCode) {
+            [MGJsonHandler convertToErrorResponse:&response];
+        }else{
+            NSLog(@"error message:%@",response.errorMessage);
+        }
+        return response;
+    }
+    
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];

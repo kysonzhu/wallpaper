@@ -684,6 +684,13 @@
             return;
         }
         
+        if (safeString(self.group.wallPaperSource).integerValue == 3) {
+            NSArray *imageList = resultDict[@"ListContent"];
+            mViewPager.imageUrls = imageList;
+            self.imageList = imageList;
+            return;
+        }
+        
         NSArray *imageList = resultDict[@"result"][@"imageList"];
         Image *image = [[Image alloc] init];
         imageList = [image loadArrayPropertyWithDataSource:imageList requireModel:@"Image"];
