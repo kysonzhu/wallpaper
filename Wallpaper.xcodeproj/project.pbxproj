@@ -21,6 +21,7 @@
 		96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */; };
 		96D10F9D206C069D00A37B9D /* WPLessonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */; };
 		96D10F9F206C0B6E00A37B9D /* lesson1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F9E206C0B6D00A37B9D /* lesson1.jpg */; };
+		96D10FAA206E841200A37B9D /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10FA9206E841200A37B9D /* AppDelegate+Config.m */; };
 		96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBBE20498FC800689E89 /* KSRouter.m */; };
 		96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */; };
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
@@ -184,6 +185,8 @@
 		96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPLessonTableViewCell.m; sourceTree = "<group>"; };
 		96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPLessonTableViewCell.xib; sourceTree = "<group>"; };
 		96D10F9E206C0B6D00A37B9D /* lesson1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lesson1.jpg; sourceTree = "<group>"; };
+		96D10FA8206E841200A37B9D /* AppDelegate+Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Config.h"; sourceTree = "<group>"; };
+		96D10FA9206E841200A37B9D /* AppDelegate+Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Config.m"; sourceTree = "<group>"; };
 		96E6CBBC2046F98800689E89 /* Wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallpaper.entitlements; sourceTree = "<group>"; };
 		96E6CBBD20498FC800689E89 /* KSRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSRouter.h; sourceTree = "<group>"; };
 		96E6CBBE20498FC800689E89 /* KSRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSRouter.m; sourceTree = "<group>"; };
@@ -680,9 +683,11 @@
 		DEBDBC961A4E603A0092521E /* service */ = {
 			isa = PBXGroup;
 			children = (
-				9689C7DE206BCC2600058E8B /* appdelegate */,
 				DEBDBD8E1A594BCE0092521E /* local */,
 				DEBDBC9D1A4E9A140092521E /* model */,
+				9689C7DE206BCC2600058E8B /* appdelegate */,
+				96D10FA8206E841200A37B9D /* AppDelegate+Config.h */,
+				96D10FA9206E841200A37B9D /* AppDelegate+Config.m */,
 				DEBDBC971A4E649C0092521E /* WrapperServiceMediator.h */,
 				DEBDBC981A4E649C0092521E /* WrapperServiceMediator.m */,
 			);
@@ -1233,6 +1238,7 @@
 				DEBDBD911A594BEF0092521E /* UserCenter.m in Sources */,
 				DECC453320529D59009F884C /* AppDelegate+RemoteNotification.m in Sources */,
 				96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */,
+				96D10FAA206E841200A37B9D /* AppDelegate+Config.m in Sources */,
 				DEBDBC991A4E649C0092521E /* WrapperServiceMediator.m in Sources */,
 				DE95854B1A3ADDE4000C6B70 /* ImageCache.m in Sources */,
 				DE4392F21A8731030009181D /* SelectBgViewController.m in Sources */,

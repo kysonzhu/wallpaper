@@ -362,7 +362,7 @@
 #import "WPNavigationController.h"
 #import "WPMenuViewController.h"
 #import "AppDelegate+NetworkMonitor.h"
-
+#import "AppDelegate+Config.h"
 
 @interface AppDelegate ()<UIApplicationDelegate>{
 }
@@ -399,11 +399,13 @@
     //通知相关
     [self registeRemoteNotificationService];
     [self registeNetworkMonitorService];
+    [self appConfigService];
     return YES;
 }
 
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     //通知
+//    [self appConfigService];
     [self setRemoteNotificationBadge];
 }
 

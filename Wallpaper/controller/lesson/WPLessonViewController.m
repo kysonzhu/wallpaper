@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"视频教程";
     // Do any additional setup after loading the view from its nib.
     [self handleNavigationWithScrollView:self.tableView];
 

@@ -17,7 +17,8 @@ static EnvironmentConfigure *environmentConfigure = nil;
 
 +(EnvironmentConfigure *)shareInstance{
     @synchronized(self){
-        if (nil == environmentConfigure) {
+        if (nil == environmentConfigure)
+        {
             environmentConfigure = [[EnvironmentConfigure alloc]init];
             [environmentConfigure setShowAllData:NO];
         }
@@ -47,7 +48,6 @@ static EnvironmentConfigure *environmentConfigure = nil;
 }
 
 -(BOOL) shouldFilter:(NSString *) gName{
-    return NO;
     if (self.showAllData) {
         return NO;
     }
