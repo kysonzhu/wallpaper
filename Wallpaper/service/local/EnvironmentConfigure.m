@@ -8,6 +8,7 @@
 
 #import "EnvironmentConfigure.h"
 #define SHOW_ALL_DATA @"SHOW_ALL_DATA"
+#define APP_START_TIME @"START_TIME"
 #define SHOW_ALL_DATA_YES @"SHOW_ALL_DATA_YES"
 #define SHOW_ALL_DATA_NO @"SHOW_ALL_DATA_NO"
 
@@ -46,6 +47,18 @@ static EnvironmentConfigure *environmentConfigure = nil;
     }
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
+
+
+-(NSInteger)startAppTime{
+    
+    NSInteger time = [[NSUserDefaults standardUserDefaults] integerForKey:APP_START_TIME];
+    return time;
+}
+
+-(void)setStartAppTime:(NSInteger)startAppTime{
+    [[NSUserDefaults standardUserDefaults] setInteger:startAppTime forKey:APP_START_TIME];
+}
+
 
 -(BOOL) shouldFilter:(NSString *) gName{
     if (self.showAllData) {

@@ -400,6 +400,8 @@
     [self registeRemoteNotificationService];
     [self registeNetworkMonitorService];
     [self appConfigService];
+    [EnvironmentConfigure shareInstance].startAppTime += 1;
+
     return YES;
 }
 
