@@ -433,7 +433,7 @@
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
         //延迟执行
-        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 8 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC); //设置时间2秒
         dispatch_after(time, dispatch_get_main_queue(), ^{
             if (self.interstitial.isReady)
                 [self.interstitial presentFromRootViewController:self];

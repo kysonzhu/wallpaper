@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 
 #import <AssetsLibrary/AssetsLibrary.h>
+@import GoogleMobileAds;
 
 @interface WPWebViewController()<WKNavigationDelegate>
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) UIButton *rightNavigationBarButton;
 
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -69,6 +71,21 @@
         make.center.equalTo(self.view);
         make.size.mas_equalTo(CGSizeMake(16, 16));
     }];
+    
+    BOOL hasBuyed = [[NSUserDefaults standardUserDefaults] boolForKey:kHasBuySuccess];
+    if (!hasBuyed) {
+        self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-7896672979027584/3984670568"];
+        GADRequest *request = [GADRequest request];
+        [self.interstitial loadRequest:request];
+        //延迟执行
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_after(time, dispatch_get_main_queue(), ^{
+            if (self.interstitial.isReady)
+                [self.interstitial presentFromRootViewController:self];
+        });
+        
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

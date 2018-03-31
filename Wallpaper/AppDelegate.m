@@ -380,7 +380,7 @@
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 #ifdef DEBUG
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasBuySuccess];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
 #endif
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -406,7 +406,6 @@
 
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     //通知
-//    [self appConfigService];
     [self setRemoteNotificationBadge];
 }
 
