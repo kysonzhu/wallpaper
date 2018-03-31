@@ -162,10 +162,17 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_LATESTLIST params:params];
-    NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
 
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
+        
+        if (![EnvironmentConfigure shareInstance].showAllData)
+        {
+            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+            response.rawResponseArray = babyList;
+            return response;
+        }
+        
         //以下来自kyson源
         MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
         MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:@"baby" params:nil];
