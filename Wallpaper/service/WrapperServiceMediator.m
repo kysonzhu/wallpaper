@@ -165,10 +165,10 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
-        
+        NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+
         if (![EnvironmentConfigure shareInstance].showAllData)
         {
-            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
             response.rawResponseArray = babyList;
             return response;
         }
