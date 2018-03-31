@@ -667,13 +667,15 @@
     if (0 == response.errorCode) {
         [KVNProgress dismiss];
         NSDictionary *resultDict = response.rawResponseDictionary;
-        if (safeString(self.group.wallPaperSource).integerValue == 2) {
+        if (safeString(self.group.wallPaperSource).integerValue == 2)
+        {
             NSArray *imageList = resultDict[@"content"];
             Image *image = [[Image alloc] init];
             imageList = [image loadArrayPropertyWithDataSource:imageList requireModel:@"Image"];
             NSMutableArray *imgUrls = [[NSMutableArray alloc]init];
             [imgUrls addObject:self.group.coverImgUrl];
-            for (Image *imageItem in imageList) {
+            for (Image *imageItem in imageList)
+            {
                 NSURL *imgURL = [NSURL URLWithString:imageItem.babyImgUrl];
                 if ([imgURL.scheme isEqualToString:@"http"] || [imgURL.scheme isEqualToString:@"https"]) {
                     [imgUrls addObject:imageItem.babyImgUrl];
