@@ -376,6 +376,7 @@
 #import "EnvironmentConfigure.h"
 #import "HomeNavigatiaonTitleView.h"
 #import "EnvironmentConfigure.h"
+#import "WPWebViewController.h"
 @import GoogleMobileAds;
 
 
@@ -752,11 +753,21 @@
         NSInteger row = [indexPath row];
         RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
-        Group *group = groupList[section *2 +row ];
-        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
-        detailViewController.fromcontroller = FromControllerRecommended;
-        detailViewController.group = group;
-        [self.navigationController pushViewController:detailViewController animated:YES];
+        Group *group = groupList[section *2 +row];
+        if (safeString(group.babyMOVUrl).length > 0 && [(safeString(group.babyMOVUrl)).uppercaseString hasSuffix:@"MOV"])
+        {
+            WPWebViewController *webViewController = [[WPWebViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webViewController];
+            webViewController.loadingURL = safeString(group.babyMOVUrl);
+            [self showDetailViewController:nav sender:nil];
+        }else
+        {
+            WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+            detailViewController.fromcontroller = FromControllerRecommended;
+            detailViewController.group = group;
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
+        
     }else if ([layout isKindOfClass:[LatestCollectionViewLayout class]]){
         NSInteger section = [indexPath section];
         NSInteger row = [indexPath row];
@@ -764,10 +775,20 @@
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *2 +row ];
         
-        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
-        detailViewController.fromcontroller = FromControllerLatest;
-        detailViewController.group = group;
-        [self.navigationController pushViewController:detailViewController animated:YES];
+        if (safeString(group.babyMOVUrl).length > 0 && [(safeString(group.babyMOVUrl)).uppercaseString hasSuffix:@"MOV"])
+        {
+            WPWebViewController *webViewController = [[WPWebViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webViewController];
+            webViewController.loadingURL = safeString(group.babyMOVUrl);
+            webViewController.title = @"Live 壁纸";
+            [self showDetailViewController:nav sender:nil];
+        }else
+        {
+            WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+            detailViewController.fromcontroller = FromControllerRecommended;
+            detailViewController.group = group;
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
     }
 }
 

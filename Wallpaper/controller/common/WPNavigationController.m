@@ -7,6 +7,7 @@
 //
 
 #import "WPNavigationController.h"
+#import "EnvironmentConfigure.h"
 @import GoogleMobileAds;
 
 @interface WPNavigationController ()
@@ -32,8 +33,17 @@
             if (self.interstitial.isReady)
                 [self.interstitial presentFromRootViewController:self.topViewController];
         });
+        
+
     }
     
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 10.1 )
+    {
+        if ([EnvironmentConfigure shareInstance].startAppTime == 2 || [EnvironmentConfigure shareInstance].startAppTime == 20 || [EnvironmentConfigure shareInstance].startAppTime == 200) {
+            [SKStoreReviewController requestReview];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

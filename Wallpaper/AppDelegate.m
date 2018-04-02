@@ -362,7 +362,7 @@
 #import "WPNavigationController.h"
 #import "WPMenuViewController.h"
 #import "AppDelegate+NetworkMonitor.h"
-
+#import "AppDelegate+Config.h"
 
 @interface AppDelegate ()<UIApplicationDelegate>{
 }
@@ -378,7 +378,6 @@
     [Bugly startWithAppId:@"fc2ba95d28"];
 #endif
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
-    [[EnvironmentConfigure shareInstance] setShowAllData:YES];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 #ifdef DEBUG
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasBuySuccess];
@@ -399,11 +398,15 @@
     //通知相关
     [self registeRemoteNotificationService];
     [self registeNetworkMonitorService];
+    [self appConfigService];
+    [EnvironmentConfigure shareInstance].startAppTime += 1;
+
     return YES;
 }
 
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     //通知
+//    [self appConfigService];
     [self setRemoteNotificationBadge];
 }
 
