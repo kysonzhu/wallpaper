@@ -15,7 +15,6 @@
 #define HOST @"http://sj.zol.com.cn"
 
 #define HOST_KYSON @"http://kyson.cn/wallpaper/index.php"
-#define HOST_XIUXIUPic @"http://api.kongyouran.com"
 
 #define SERVICE_METHOD_MAP(__SERVICENAME_,METHODNAME) \
 if ([self.serviceName isEqualToString:__SERVICENAME_]) {\
@@ -55,33 +54,6 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
             response.rawResponseArray = babyList;
             return response;
         }
-        //以下来自kyson源
-        MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_XIUXIUPic modulePath:@"znfllist/"];
-        networkAccess2.requestType = RequestTypeGet;
-        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-        NSInteger pageInteger = [self.requestParams[@"start"] integerValue];
-        NSString *page = [NSString stringWithFormat:@"%li",(long)(pageInteger / 30) + 1];
-        params[@"page"] = page;
-        params[@"ver"] = @"1";
-        MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:nil params:params];
-        
-        NSArray *resultArry = response2.rawResponseDictionary[@"list"];
-        NSMutableArray *array2 = [[NSMutableArray alloc] init];
-        for (NSDictionary *dictItem in resultArry)
-        {
-            NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
-            resultDictionary2[@"coverImgUrl"] = dictItem[@"HeadPic"];
-            resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"JieTitle"]];
-            resultDictionary2[@"id"] = dictItem[@"JieID"];
-            resultDictionary2[@"wallPaperSource"] = kWallPaperSourceXiuXiu;
-            resultDictionary2[@"voteGood"] = @"111";
-            resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
-            [array2 addObject:resultDictionary2];
-        }
-        //移除第一个广告
-        [array2 removeObjectAtIndex:0];
-        response.rawResponseArray = array2;
-        ////////
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -99,21 +71,6 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
         NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
         params[@"id"]= self.requestParams[@"id"];
         MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"babyImageDetail" params:params];
-        if (0 == response.errorCode) {
-            [MGJsonHandler convertToErrorResponse:&response];
-        }else{
-            NSLog(@"error message:%@",response.errorMessage);
-        }
-        return response;
-    }
-    
-    if (source && safeString(source).integerValue == kWallPaperSourceXiuXiu.integerValue)
-    {
-        MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_XIUXIUPic modulePath:@"znflcontent/"];
-        networkAccess.requestType = RequestTypeGet;
-        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-        params[@"id"]= self.requestParams[@"id"];
-        MGNetwokResponse *response = [networkAccess doServiceRequestWithName:nil params:params];
         if (0 == response.errorCode) {
             [MGJsonHandler convertToErrorResponse:&response];
         }else{

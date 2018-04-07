@@ -362,7 +362,7 @@
 #import "WPNavigationController.h"
 #import "WPMenuViewController.h"
 #import "AppDelegate+NetworkMonitor.h"
-#import "AppDelegate+Config.h"
+
 
 @interface AppDelegate ()<UIApplicationDelegate>{
 }
@@ -398,7 +398,6 @@
     //通知相关
     [self registeRemoteNotificationService];
     [self registeNetworkMonitorService];
-    [self appConfigService];
     [EnvironmentConfigure shareInstance].startAppTime += 1;
 
     return YES;
