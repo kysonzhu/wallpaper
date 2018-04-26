@@ -32,7 +32,7 @@ PODS:
   - Bugly (2.4.7)
   - Google-Mobile-Ads-SDK (7.30.0)
   - GTSDK (2.2.0.0)
-  - IQKeyboardManager (5.0.8)
+  - IQKeyboardManager (6.0.2)
   - Mangogo (1.0.2)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
@@ -54,13 +54,27 @@ DEPENDENCIES:
   - ReactiveObjC (= 3.1.0)
   - SDWebImage
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - BlocksKit
+    - Bugly
+    - Google-Mobile-Ads-SDK
+    - GTSDK
+    - IQKeyboardManager
+    - Mangogo
+    - Masonry
+    - MJRefresh
+    - ReactiveObjC
+    - SDWebImage
+
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   Google-Mobile-Ads-SDK: 7404f68120ae8682afeb5af001fbf4aad731c78e
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
-  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  IQKeyboardManager: c49d59e358aeeffaa0280aa305093c2b194d2607
   Mangogo: 57f02a2312544f1f0dc5410de2588cd9a618cebe
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
@@ -69,4 +83,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 524b0012adabc6bafa7b9ea89b677a962617e4b6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

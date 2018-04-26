@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DECA351B2091C78100B4E0E5 /* OCLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DECA351E2091C78100B4E0E5 /* Build configuration list for PBXAggregateTarget "OCLint" */;
+			buildPhases = (
+				DECA35212091C79F00B4E0E5 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = OCLint;
+			productName = OCLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
@@ -1004,7 +1018,6 @@
 				DECCCD141A36FAA1000C73BA /* Sources */,
 				DECCCD151A36FAA1000C73BA /* Frameworks */,
 				DECCCD161A36FAA1000C73BA /* Resources */,
-				96498D1743ED14C15DF8A7FD /* [CP] Embed Pods Frameworks */,
 				AC646AF123BEA744E61264AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1025,6 +1038,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = zhujinhui;
 				TargetAttributes = {
+					DECA351B2091C78100B4E0E5 = {
+						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = T7Z76WDTD6;
+						ProvisioningStyle = Automatic;
+					};
 					DECCCD171A36FAA1000C73BA = {
 						DevelopmentTeam = T7Z76WDTD6;
 						ProvisioningStyle = Manual;
@@ -1051,6 +1069,7 @@
 			projectRoot = "";
 			targets = (
 				DECCCD171A36FAA1000C73BA /* Wallpaper */,
+				DECA351B2091C78100B4E0E5 /* OCLint */,
 			);
 		};
 /* End PBXProject section */
@@ -1150,21 +1169,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96498D1743ED14C15DF8A7FD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AC646AF123BEA744E61264AD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1184,6 +1188,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DECA35212091C79F00B4E0E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#! /bin/sh\n#或者source ~/.bash_profile\nexport LC_ALL=en_US.UTF-8\n\nsource /etc/profile\n\nif which oclint 2>/dev/null; then\necho 'oclint exist'\nelse\nbrew tap oclint/formulae\nbrew install oclint\nfi\nif which xcpretty 2>/dev/null; then\necho 'xcpretty exist'\nelse\ngem install xcpretty\nfi\n\nrm compile_commands.json;\n\nxcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper clean && xcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper \\\n-configuration Debug \\\n| xcpretty -r json-compilation-database -o compile_commands.json\noclint-json-compilation-database  -v \\\n-e Pods \\\n-- -report-type html -o oclint_result.html \\\n-rc LONG_LINE=200 \\\n-rc=NCSS_METHOD=100 \\\n-max-priority-1=100000 \\\n-max-priority-2=100000 \\\n-max-priority-3=100000; \\\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1283,6 +1300,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DECA351C2091C78100B4E0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T7Z76WDTD6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DECA351D2091C78100B4E0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T7Z76WDTD6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DECCCD481A36FAA1000C73BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1391,6 +1426,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				COMPILER_INDEX_STORE_ENABLE = NO;
 				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1428,6 +1464,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				CODE_SIGN_STYLE = Manual;
+				COMPILER_INDEX_STORE_ENABLE = NO;
 				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1458,6 +1495,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DECA351E2091C78100B4E0E5 /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DECA351C2091C78100B4E0E5 /* Debug */,
+				DECA351D2091C78100B4E0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		DECCCD131A36FAA1000C73BA /* Build configuration list for PBXProject "Wallpaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
