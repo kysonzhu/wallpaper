@@ -28,13 +28,13 @@
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
         //延迟执行
-        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 30 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC); //设置时间2秒
         dispatch_after(time, dispatch_get_main_queue(), ^{
             if (self.interstitial.isReady)
                 [self.interstitial presentFromRootViewController:self.topViewController];
         });
         
-
+        
     }
     
     NSString *version = [UIDevice currentDevice].systemVersion;
@@ -53,6 +53,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
 }
 
 /*

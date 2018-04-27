@@ -53,8 +53,6 @@ platform :ios do
       skip_screenshots:true,
       force:true,
       submit_for_review:true,
-      add_id_info_serves_ads: false,
-
     	)
   end
 
