@@ -1195,7 +1195,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#! /bin/sh\n#或者source ~/.bash_profile\nexport LC_ALL=en_US.UTF-8\n\nsource /etc/profile\n\nif which oclint 2>/dev/null; then\necho 'oclint exist'\nelse\nbrew tap oclint/formulae\nbrew install oclint\nfi\nif which xcpretty 2>/dev/null; then\necho 'xcpretty exist'\nelse\ngem install xcpretty\nfi\n\nrm compile_commands.json;\n\nxcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper clean && xcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper \\\n-configuration Debug \\\n| xcpretty -r json-compilation-database -o compile_commands.json\noclint-json-compilation-database  -v \\\n-e Pods \\\n-- -report-type html -o oclint_result.html \\\n-rc LONG_LINE=200 \\\n-rc=NCSS_METHOD=100 \\\n-max-priority-1=100000 \\\n-max-priority-2=100000 \\\n-max-priority-3=100000; \\\n";
+			shellScript = "#! /bin/sh\n#或者source ~/.bash_profile\nexport LC_ALL=en_US.UTF-8\n\nsource /etc/profile\n\nif which oclint 2>/dev/null; then\necho 'oclint exist'\nelse\nbrew tap oclint/formulae\nbrew install oclint\nfi\nif which xcpretty 2>/dev/null; then\necho 'xcpretty exist'\nelse\ngem install xcpretty\nfi\n\nrm compile_commands.json;\n\nxcodebuild clean \\\nxcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper -configuration Debug \\\n| xcpretty -r json-compilation-database -o compile_commands.json\noclint-json-compilation-database  -v \\\n-e Pods \\\n-- -report-type html -o oclint_result.html \\\n-rc LONG_LINE=200 \\\n-rc=NCSS_METHOD=100 \\\n-max-priority-1=100000 \\\n-max-priority-2=100000 \\\n-max-priority-3=100000; \\\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1417,11 +1417,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 28;
 				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1440,8 +1439,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
+				PROVISIONING_PROFILE = "2f8feb67-9973-4225-91b5-80973b5c7141";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1456,11 +1455,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 28;
 				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1479,8 +1477,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
+				PROVISIONING_PROFILE = "2f8feb67-9973-4225-91b5-80973b5c7141";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
