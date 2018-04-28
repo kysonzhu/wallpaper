@@ -7,6 +7,7 @@
 //
 
 #import "WPNavigationController.h"
+#import "EnvironmentConfigure.h"
 @import GoogleMobileAds;
 
 @interface WPNavigationController ()
@@ -27,13 +28,22 @@
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
         //延迟执行
-        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 30 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC); //设置时间2秒
         dispatch_after(time, dispatch_get_main_queue(), ^{
             if (self.interstitial.isReady)
                 [self.interstitial presentFromRootViewController:self.topViewController];
         });
+        
+        
     }
     
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if (version.doubleValue >= 10.1 )
+    {
+        if ([EnvironmentConfigure shareInstance].startAppTime == 2 || [EnvironmentConfigure shareInstance].startAppTime == 20 || [EnvironmentConfigure shareInstance].startAppTime == 200) {
+            [SKStoreReviewController requestReview];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +53,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
 }
 
 /*

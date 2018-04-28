@@ -10,7 +10,7 @@
 #import "WrapperServiceMediator.h"
 #import <MGNetworkAccess.h>
 #import <MGJsonHandler.h>
-
+#import "EnvironmentConfigure.h"
 //#define HOST @"http://sj.zol.com.cn:8088"
 #define HOST @"http://sj.zol.com.cn"
 
@@ -22,6 +22,9 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 }\
 
 @implementation WrapperServiceMediator
+
+#define kWallPaperSourceKyson @"2"
+#define kWallPaperSourceXiuXiu @"3"
 
 -(void)main{
     [super main];
@@ -38,20 +41,32 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     
-    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
-    if (0 == response.errorCode) {
+    MGNetwokResponse *response = nil;
+    
+    if (0 == response.errorCode)
+    {
+        response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
         [MGJsonHandler convertToErrorResponse:&response];
+
+        if (![EnvironmentConfigure shareInstance].showAllData)
+        {
+            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+            response.rawResponseArray = babyList;
+            return response;
+        }
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
+
     return response;
 }
 
 
--(MGNetwokResponse *)getRecommendDetail{
+-(MGNetwokResponse *)getRecommendDetail
+{
     NSString *source = self.requestParams[@"source"];
-#define kWallPaperSourceKyson @"2"
-    if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue) {
+    if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue)
+    {
         MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
         NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
         params[@"id"]= self.requestParams[@"id"];
@@ -91,7 +106,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 }
 
 
--(MGNetwokResponse *)getLatestList{
+-(MGNetwokResponse *)getLatestList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     //set params
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
@@ -103,15 +119,24 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_LATESTLIST params:params];
+
     if (0 == response.errorCode) {
         [MGJsonHandler convertToErrorResponse:&response];
+        NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+
+        if (![EnvironmentConfigure shareInstance].showAllData)
+        {
+            response.rawResponseArray = babyList;
+            return response;
+        }
+        
         //以下来自kyson源
         MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
         MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:@"baby" params:nil];
-        NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
         NSArray *resultArry = response2.rawResponseDictionary[@"content"];
         NSMutableArray *array2 = [[NSMutableArray alloc] init];
-        for (NSDictionary *dictItem in resultArry) {
+        for (NSDictionary *dictItem in resultArry)
+        {
             NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
             resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
             resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
@@ -121,8 +146,29 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
             resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
             [array2 addObject:resultDictionary2];
         }
+        
+        MGNetworkAccess *networkAccess3 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
+        MGNetwokResponse *response3 = [networkAccess3 doServiceRequestWithName:@"livePaperList" params:nil];
+        NSMutableArray *livebabyList = [NSMutableArray arrayWithArray:response3.rawResponseDictionary[@"content"]];
+        NSMutableArray *array3 = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictItem in livebabyList)
+        {
+            NSMutableDictionary *resultDictionary3 = [[NSMutableDictionary alloc] init];
+            resultDictionary3[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
+            resultDictionary3[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
+            resultDictionary3[@"id"] = dictItem[@"id"];
+            resultDictionary3[@"wallPaperSource"] = kWallPaperSourceKyson;
+            resultDictionary3[@"babyMOVUrl"] = dictItem[@"babyMOVUrl"];
+            resultDictionary3[@"voteGood"] = @"111";
+            resultDictionary3[@"editDate"] = @"2018-02-06 13:53:33";
+            [array3 addObject:resultDictionary3];
+        }
+        [array3 addObjectsFromArray:array2];
+        [array3 addObjectsFromArray:babyList];
+        response.rawResponseArray = array3;
+        
         [array2 addObjectsFromArray:babyList];
-        response.rawResponseArray = array2;
+
         ////////
         
     }else{
@@ -131,10 +177,12 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     return response;
 }
 
--(MGNetwokResponse *)getCategoryList{
+-(MGNetwokResponse *)getCategoryList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_CATEGORYLIST params:nil];
-    if (0 == response.errorCode) {
+    if (0 == response.errorCode)
+    {
         [MGJsonHandler convertToErrorResponse:&response];
     }else{
         NSLog(@"error message:%@",response.errorMessage);
@@ -145,7 +193,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 /**
  * Category list
  */
--(MGNetwokResponse *)getCategoryRecommendedList{
+-(MGNetwokResponse *)getCategoryRecommendedList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = self.requestParams[@"cateId"];
@@ -166,7 +215,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     return response;
 }
 
--(MGNetwokResponse *)getCategoryLatestList{
+-(MGNetwokResponse *)getCategoryLatestList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"]   = self.requestParams[@"cateId"];
@@ -187,7 +237,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     return response;
 }
 
--(MGNetwokResponse *)getCategoryHotestList{
+-(MGNetwokResponse *)getCategoryHotestList
+{
     MGNetworkAccess *networkAccess  = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params     = [[NSMutableDictionary alloc]init];
     params[@"cateId"]   = self.requestParams[@"cateId"];
@@ -211,7 +262,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 /**
  * Secondary category
  */
--(MGNetwokResponse *)getSecondaryCategoryList{
+-(MGNetwokResponse *)getSecondaryCategoryList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"fatherId"] = self.requestParams[@"fatherId"];
@@ -225,7 +277,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 }
 
 
--(MGNetwokResponse *)getSecondaryCategoryRecommendedList{
+-(MGNetwokResponse *)getSecondaryCategoryRecommendedList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = self.requestParams[@"cateId"];
@@ -248,7 +301,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 }
 
 
--(MGNetwokResponse *)getSecondaryCategoryLatestList{
+-(MGNetwokResponse *)getSecondaryCategoryLatestList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = self.requestParams[@"cateId"];
@@ -270,7 +324,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     
 }
 
--(MGNetwokResponse *)getSecondaryCategoryHotestList{
+-(MGNetwokResponse *)getSecondaryCategoryHotestList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"] = self.requestParams[@"cateId"];
@@ -291,7 +346,8 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     return response;
 }
 
--(MGNetwokResponse *)getSearchResultList{
+-(MGNetwokResponse *)getSearchResultList
+{
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"wd"] = self.requestParams[@"word"];
@@ -306,8 +362,22 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     return response;
 }
 
+-(MGNetwokResponse *)appConfig
+{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_APPCONFIG params:params];
+    if (0 == response.errorCode) {
+        [MGJsonHandler convertToErrorResponse:&response];
+    }else{
+        NSLog(@"error message:%@",response.errorMessage);
+    }
+    return response;
+}
 
--(void)setServiceName:(NSString *)serviceName{
+
+-(void)setServiceName:(NSString *)serviceName
+{
     super.serviceName = serviceName;
     SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDLIST,getRecommendList)
     SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDDETAIL,getRecommendDetail)
@@ -321,6 +391,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     SERVICE_METHOD_MAP(SERVICENAME_SECONDARYCATEGORYLATESTLIST,getSecondaryCategoryLatestList)
     SERVICE_METHOD_MAP(SERVICENAME_SECONDARYCATEGORYHOTESTLIST,getSecondaryCategoryHotestList)
     SERVICE_METHOD_MAP(SERVICENAME_SEARCHGETSEARCHRESULTLIST,getSearchResultList)
+    SERVICE_METHOD_MAP(SERVICENAME_APPCONFIG,appConfig)
 }
 
 

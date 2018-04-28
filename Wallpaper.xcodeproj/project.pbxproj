@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DECA351B2091C78100B4E0E5 /* OCLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DECA351E2091C78100B4E0E5 /* Build configuration list for PBXAggregateTarget "OCLint" */;
+			buildPhases = (
+				DECA35212091C79F00B4E0E5 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = OCLint;
+			productName = OCLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
@@ -16,6 +30,12 @@
 		96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */; };
 		96A70D12202756ED00790B1D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D11202756ED00790B1D /* BaseModel.m */; };
 		96A70D1520276BAE00790B1D /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D1420276BAE00790B1D /* KSModel.m */; };
+		96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F95206C02EE00A37B9D /* WPLessonViewController.m */; };
+		96D10F98206C02EE00A37B9D /* WPLessonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */; };
+		96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */; };
+		96D10F9D206C069D00A37B9D /* WPLessonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */; };
+		96D10F9F206C0B6E00A37B9D /* lesson1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F9E206C0B6D00A37B9D /* lesson1.jpg */; };
+		96D10FAC206F316F00A37B9D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D10FAB206F316F00A37B9D /* AssetsLibrary.framework */; };
 		96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBBE20498FC800689E89 /* KSRouter.m */; };
 		96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */; };
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
@@ -172,6 +192,14 @@
 		96A70D11202756ED00790B1D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		96A70D1320276BAE00790B1D /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		96A70D1420276BAE00790B1D /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
+		96D10F94206C02EE00A37B9D /* WPLessonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPLessonViewController.h; sourceTree = "<group>"; };
+		96D10F95206C02EE00A37B9D /* WPLessonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPLessonViewController.m; sourceTree = "<group>"; };
+		96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPLessonViewController.xib; sourceTree = "<group>"; };
+		96D10F99206C069D00A37B9D /* WPLessonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPLessonTableViewCell.h; sourceTree = "<group>"; };
+		96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPLessonTableViewCell.m; sourceTree = "<group>"; };
+		96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPLessonTableViewCell.xib; sourceTree = "<group>"; };
+		96D10F9E206C0B6D00A37B9D /* lesson1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lesson1.jpg; sourceTree = "<group>"; };
+		96D10FAB206F316F00A37B9D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		96E6CBBC2046F98800689E89 /* Wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallpaper.entitlements; sourceTree = "<group>"; };
 		96E6CBBD20498FC800689E89 /* KSRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSRouter.h; sourceTree = "<group>"; };
 		96E6CBBE20498FC800689E89 /* KSRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSRouter.m; sourceTree = "<group>"; };
@@ -388,6 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D10FAC206F316F00A37B9D /* AssetsLibrary.framework in Frameworks */,
 				962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */,
 				DE204A5F1A6CABC700FB0DA5 /* CoreText.framework in Frameworks */,
 				DEBDBDC51A5B828F0092521E /* libz.dylib in Frameworks */,
@@ -416,6 +445,20 @@
 				9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */,
 			);
 			path = appdelegate;
+			sourceTree = "<group>";
+		};
+		96D10F93206C02C800A37B9D /* lesson */ = {
+			isa = PBXGroup;
+			children = (
+				96D10F9E206C0B6D00A37B9D /* lesson1.jpg */,
+				96D10F94206C02EE00A37B9D /* WPLessonViewController.h */,
+				96D10F95206C02EE00A37B9D /* WPLessonViewController.m */,
+				96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */,
+				96D10F99206C069D00A37B9D /* WPLessonTableViewCell.h */,
+				96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */,
+				96D10F9B206C069D00A37B9D /* WPLessonTableViewCell.xib */,
+			);
+			path = lesson;
 			sourceTree = "<group>";
 		};
 		B991A543E4C347A1A27096E6 /* Pods */ = {
@@ -654,9 +697,9 @@
 		DEBDBC961A4E603A0092521E /* service */ = {
 			isa = PBXGroup;
 			children = (
-				9689C7DE206BCC2600058E8B /* appdelegate */,
 				DEBDBD8E1A594BCE0092521E /* local */,
 				DEBDBC9D1A4E9A140092521E /* model */,
+				9689C7DE206BCC2600058E8B /* appdelegate */,
 				DEBDBC971A4E649C0092521E /* WrapperServiceMediator.h */,
 				DEBDBC981A4E649C0092521E /* WrapperServiceMediator.m */,
 			);
@@ -781,6 +824,7 @@
 		DECCCD1A1A36FAA1000C73BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96D10FAB206F316F00A37B9D /* AssetsLibrary.framework */,
 				962D7735205ACBF800A6C956 /* StoreKit.framework */,
 				DE204A5E1A6CABC700FB0DA5 /* CoreText.framework */,
 				DEBDBDC41A5B828F0092521E /* libz.dylib */,
@@ -830,6 +874,7 @@
 		DECCCD501A36FB22000C73BA /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				96D10F93206C02C800A37B9D /* lesson */,
 				DE4392EA1A872DDA0009181D /* greetingcard */,
 				DEBDBC411A4C02AF0092521E /* search */,
 				DEADAF291A4ABD0000C19A2B /* feedback */,
@@ -968,7 +1013,6 @@
 				DECCCD141A36FAA1000C73BA /* Sources */,
 				DECCCD151A36FAA1000C73BA /* Frameworks */,
 				DECCCD161A36FAA1000C73BA /* Resources */,
-				96498D1743ED14C15DF8A7FD /* [CP] Embed Pods Frameworks */,
 				AC646AF123BEA744E61264AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -989,6 +1033,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = zhujinhui;
 				TargetAttributes = {
+					DECA351B2091C78100B4E0E5 = {
+						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = T7Z76WDTD6;
+						ProvisioningStyle = Automatic;
+					};
 					DECCCD171A36FAA1000C73BA = {
 						DevelopmentTeam = T7Z76WDTD6;
 						ProvisioningStyle = Manual;
@@ -1015,6 +1064,7 @@
 			projectRoot = "";
 			targets = (
 				DECCCD171A36FAA1000C73BA /* Wallpaper */,
+				DECA351B2091C78100B4E0E5 /* OCLint */,
 			);
 		};
 /* End PBXProject section */
@@ -1061,6 +1111,7 @@
 				DEBDC0091A5D35160092521E /* lef_Feedback@2x.png in Resources */,
 				DEBDC0121A5E8C8F0092521E /* tab_icon_collect_pre@2x.png in Resources */,
 				DEBDBC401A4C01B50092521E /* nav_search@2x.png in Resources */,
+				96D10F98206C02EE00A37B9D /* WPLessonViewController.xib in Resources */,
 				DEBDBE311A5D1A2A0092521E /* tab_icon_desktop@2x.png in Resources */,
 				DEAED5541A64E61A0047318C /* launtchscreen_1@2x.png in Resources */,
 				96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */,
@@ -1083,6 +1134,8 @@
 				DEBDBC341A4BB9F50092521E /* mod_bg@2x.png in Resources */,
 				DEBDC0081A5D35160092521E /* lef_del@2x.png in Resources */,
 				DEAED5591A64E61A0047318C /* lockscreen_2@2x.png in Resources */,
+				96D10F9D206C069D00A37B9D /* WPLessonTableViewCell.xib in Resources */,
+				96D10F9F206C0B6E00A37B9D /* lesson1.jpg in Resources */,
 				DE9585351A3AD9BB000C6B70 /* recommended_nav_background@2x.png in Resources */,
 				DEBDBD871A5911E00092521E /* SearchDetailViewController_iphone.xib in Resources */,
 				DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */,
@@ -1111,21 +1164,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96498D1743ED14C15DF8A7FD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AC646AF123BEA744E61264AD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1145,6 +1183,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DECA35212091C79F00B4E0E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#! /bin/sh\n#或者source ~/.bash_profile\nexport LC_ALL=en_US.UTF-8\n\nsource /etc/profile\n\nif which oclint 2>/dev/null; then\necho 'oclint exist'\nelse\nbrew tap oclint/formulae\nbrew install oclint\nfi\nif which xcpretty 2>/dev/null; then\necho 'xcpretty exist'\nelse\ngem install xcpretty\nfi\n\nrm compile_commands.json;\n\nxcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper clean && xcodebuild -workspace Wallpaper.xcworkspace -scheme Wallpaper \\\n-configuration Debug \\\n| xcpretty -r json-compilation-database -o compile_commands.json\noclint-json-compilation-database  -v \\\n-e Pods \\\n-- -report-type html -o oclint_result.html \\\n-rc LONG_LINE=200 \\\n-rc=NCSS_METHOD=100 \\\n-max-priority-1=100000 \\\n-max-priority-2=100000 \\\n-max-priority-3=100000; \\\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1180,6 +1231,7 @@
 				96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */,
 				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
 				DEACA81E1A481AF800CFF53D /* RecommndCollectionView.m in Sources */,
+				96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */,
 				DEE67B0F1A415B7200BFA114 /* WPWrapperDetailViewController.m in Sources */,
 				DECCCD941A381BBF000C73BA /* WPMenuViewController.m in Sources */,
 				DE9585511A3ADEAC000C6B70 /* FileManager.m in Sources */,
@@ -1190,6 +1242,7 @@
 				DEBDBCCB1A538B250092521E /* CateListViewController.m in Sources */,
 				96A70D12202756ED00790B1D /* BaseModel.m in Sources */,
 				DEBDBD8D1A593F530092521E /* UIImage+Compress.m in Sources */,
+				96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */,
 				DE9585551A3ADEED000C6B70 /* NSString+Util.m in Sources */,
 				DECCCD281A36FAA1000C73BA /* main.m in Sources */,
 				96A70D1520276BAE00790B1D /* KSModel.m in Sources */,
@@ -1241,6 +1294,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DECA351C2091C78100B4E0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T7Z76WDTD6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DECA351D2091C78100B4E0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T7Z76WDTD6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DECCCD481A36FAA1000C73BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1347,9 +1418,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1386,7 +1459,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1416,6 +1491,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DECA351E2091C78100B4E0E5 /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DECA351C2091C78100B4E0E5 /* Debug */,
+				DECA351D2091C78100B4E0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		DECCCD131A36FAA1000C73BA /* Build configuration list for PBXProject "Wallpaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

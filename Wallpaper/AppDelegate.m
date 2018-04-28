@@ -378,10 +378,9 @@
     [Bugly startWithAppId:@"fc2ba95d28"];
 #endif
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
-    [[EnvironmentConfigure shareInstance] setShowAllData:YES];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 #ifdef DEBUG
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasBuySuccess];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
 #endif
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -399,6 +398,8 @@
     //通知相关
     [self registeRemoteNotificationService];
     [self registeNetworkMonitorService];
+    [EnvironmentConfigure shareInstance].startAppTime += 1;
+
     return YES;
 }
 

@@ -17,11 +17,12 @@
 #import "FileManager.h"
 #import "EnvironmentConfigure.h"
 #import "MakingGreetingCardViewController.h"
+#import "WPLessonViewController.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 #define TAG_BTN_ABOUTUS         1287
 #define TAG_BTN_FEEDBACK        1288
 #define TAG_BTN_CLEARCACHE      1289
-#define TAG_BTN_GREENINGCARD    1291
 
 @interface WPMenuViewController()<UIActionSheetDelegate,UIAlertViewDelegate>{
     __weak IBOutlet UIButton *aboutUsButton;
@@ -40,13 +41,18 @@
     aboutUsButton.tag = TAG_BTN_ABOUTUS;
     feedbackButton.tag = TAG_BTN_FEEDBACK;
     clearCacheButton.tag = TAG_BTN_CLEARCACHE;
-    greetingCardButton.tag = TAG_BTN_GREENINGCARD;
     
     [aboutUsButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [feedbackButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [clearCacheButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [greetingCardButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    [[greetingCardButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
+        DDMenuController *rootViewController =  kAppDelegate.rootViewController;
+        UINavigationController *navigationController = (UINavigationController *)rootViewController.rootViewController;
+        WPLessonViewController *lessonViewController = [[WPLessonViewController alloc] init];
+        [navigationController pushViewController:lessonViewController animated:YES];
+        [rootViewController showRootController:YES];
+    }];
 }
 
 
@@ -73,11 +79,6 @@
         case TAG_BTN_CLEARCACHE:{
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"马上清除缓存" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:@"取消", nil];
             [alertView show];
-        }
-            break;
-        case TAG_BTN_GREENINGCARD:{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"敬请期待!" delegate:nil cancelButtonTitle:@"知道啦" otherButtonTitles:nil, nil];
-            [alert show];
         }
             break;
             
