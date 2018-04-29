@@ -14,4 +14,5 @@ target "Wallpaper" do
         pod 'ReactiveObjC','3.1.0'
         pod 'BlocksKit'
         pod 'SDWebImage'
+        pod 'WechatOpenSDK'
 end

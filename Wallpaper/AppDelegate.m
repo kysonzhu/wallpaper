@@ -363,14 +363,18 @@
 #import "WPMenuViewController.h"
 #import "AppDelegate+NetworkMonitor.h"
 
+#import <WXApi.h>
 
-@interface AppDelegate ()<UIApplicationDelegate>{
+@interface AppDelegate ()<UIApplicationDelegate,WXApiDelegate>{
 }
 
 @end
 
 @implementation AppDelegate
 
+/**
+ https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417694084&token=cc718493c6f2e38fc2e8459453a2f03ce2d3c7ef&lang=zh_CN
+ */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -382,6 +386,10 @@
 #ifdef DEBUG
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
 #endif
+    [WXApi registerApp:@""];
+
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
+
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -408,6 +416,7 @@
     [self setRemoteNotificationBadge];
 }
 
+
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [self categoryApplication:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
@@ -416,6 +425,28 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     [self categoryApplication:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
+}
+
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
+}
+
+-(void) onReq:(BaseReq*)reqonReq
+{
+    
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+    
 }
 
 
