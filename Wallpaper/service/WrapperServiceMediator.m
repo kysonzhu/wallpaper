@@ -119,6 +119,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
         resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
         resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
         resultDictionary2[@"id"] = dictItem[@"id"];
+        resultDictionary2[@"wallPaperSource"] = kWallPaperSourceKyson;
         resultDictionary2[@"voteGood"] = @"111";
         resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
         [array2 addObject:resultDictionary2];
