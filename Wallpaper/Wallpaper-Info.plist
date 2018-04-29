@@ -2,16 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>weixin</string>
-		<string>wechat</string>
-		<string>sinaweibo</string>
-		<string>weibosdk</string>
-		<string>sinaweibohd</string>
-		<string>weibosdk2.5</string>
-		<string>sinaweibosso</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
@@ -57,6 +47,16 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>sinaweibo</string>
+		<string>weibosdk</string>
+		<string>sinaweibohd</string>
+		<string>weibosdk2.5</string>
+		<string>sinaweibosso</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -68,6 +68,10 @@
 	<string>为保证信息准确，请允许使用相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>为保证信息准确，请允许使用相册</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
