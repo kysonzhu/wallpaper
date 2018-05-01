@@ -127,7 +127,9 @@
         [KVNProgress show];
         NSInteger page = self.mViewPager.currentPage;
         NSString *imageUrl = self.mViewPager.imageUrls[page];
-        [WPShareManager shareWithURL:imageUrl type:WPShareTypePicture];
+        [WPShareManager shareWithURL:imageUrl type:WPShareTypePicture finished:^(BOOL success) {
+            [KVNProgress dismiss];
+        }];
     }];
     
     [KVNProgress show];

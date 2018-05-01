@@ -33,7 +33,7 @@ typedef enum : NSUInteger {
  @param imageURL URL
  @param shareType 分享类型
  */
-+(void)shareWithURL:(NSString *)imageURL type:(WPShareType) shareType;
++(void)shareWithURL:(NSString *)imageURL type:(WPShareType) shareType finished:(void (^)(BOOL success))block;
 
 
 @end

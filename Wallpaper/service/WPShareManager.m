@@ -21,13 +21,12 @@
 
 
 
-+(void)shareWithURL:(NSString *)imageURL type:(WPShareType) shareType
++(void)shareWithURL:(NSString *)imageURL type:(WPShareType) shareType finished:(void (^)(BOOL success))block
 {
     NSURL *url = [NSURL URLWithString:imageURL];
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         ;
     } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-//        [KVNProgress dismiss];
         
         if (image != nil)
         {
@@ -47,7 +46,15 @@
             req.message = message;
             //发送请求
             [WXApi sendReq:req];
+            
+            if (block) {
+                block(YES);
+            }
+            
+        } else{
+            block(NO);
         }
+        
     }];
 }
 
