@@ -20,10 +20,7 @@
 #import "EnvironmentConfigure.h"
 #import <UIAlertView+BlocksKit.h>
 
-#import <WXApiObject.h>
-#import <WXApi.h>
-#import <SDWebImageDownloader.h>
-
+#import "WPShareManager.h"
 @import GoogleMobileAds;
 
 
@@ -36,7 +33,6 @@
 #define TAG_IMGV_LOCKSCREEN  212
 
 @interface WPWrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
-    __weak IBOutlet ViewPager *mViewPager;
     __weak IBOutlet UIView *mToolBar;
     BOOL isWidgetRevealed;
     
@@ -57,6 +53,7 @@
 
 @property(nonatomic, weak) IBOutlet UIButton *shareButton;
 @property(nonatomic, weak) IBOutlet UIButton *backButton;
+@property(nonatomic, weak) IBOutlet ViewPager *mViewPager;
 
 @end
 
@@ -86,7 +83,7 @@
     [super viewDidLoad];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.view sendSubviewToBack:mViewPager];
+    [self.view sendSubviewToBack:self.mViewPager];
     
     // 广告
     BOOL hasBuyed = [[NSUserDefaults standardUserDefaults] boolForKey:kHasBuySuccess];
@@ -102,7 +99,7 @@
         });
     }
 
-    mViewPager.mDelegate = self;
+    self.mViewPager.mDelegate = self;
     
     //add event
 
@@ -125,39 +122,13 @@
         [self.navigationController popViewControllerAnimated:YES];
     }];
     
-      [[self.shareButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-          
-          NSInteger page = mViewPager.currentPage;
-          NSString *imageUrl = mViewPager.imageUrls[page];
-          NSURL *url = [NSURL URLWithString:imageUrl];
-          
-          [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-              ;
-          } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-              if (image != nil)
-              {
-                  WXMediaMessage * message = [WXMediaMessage message];
-                  message.title = @"壁纸宝贝为您推荐一位宝贝！";
-                  UIImage *appIcon = [UIImage imageNamed:@"AppIcon"];
-                  NSData *iconData = UIImagePNGRepresentation(appIcon);
-                  message.thumbData = iconData;
-                  //media object
-                  WXImageObject *mediaObj = [WXImageObject object];
-                  mediaObj.imageData = data;
-                  //set object
-                  message.mediaObject = mediaObj;
-                  //创建请求
-                  SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-                  req.bText = NO;
-                  req.message = message;
-                  //发送请求
-                  [WXApi sendReq:req];
-              }
-              
-          }];
-          
+    [[self.shareButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        [KVNProgress show];
+        NSInteger page = self.mViewPager.currentPage;
+        NSString *imageUrl = self.mViewPager.imageUrls[page];
+        [WPShareManager shareWithURL:imageUrl type:WPShareTypePicture];
     }];
-    
     
     [KVNProgress show];
     NSDictionary *params = @{@"gId":self.group.gId,@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
@@ -205,7 +176,7 @@
     switch (sender.tag) {
         case TAG_BTN_LOCKSCREEN:
         {
-            if (mViewPager.page > 0)
+            if (self.mViewPager.page > 0)
             {
                 CGRect frame = [UIScreen mainScreen].bounds;
                 UIImageView *imgview = [[UIImageView alloc]initWithFrame:frame];
@@ -233,7 +204,7 @@
             break;
         case TAG_BTN_LAUNCH:
         {
-            if (mViewPager.page > 0)
+            if (self.mViewPager.page > 0)
             {
                 CGRect frame = [UIScreen mainScreen].bounds;
                 UIImageView *imgview = [[UIImageView alloc]initWithFrame:frame];
@@ -261,10 +232,10 @@
             break;
         case TAG_BTN_DOWNLOAD:
         {
-            if (mViewPager.page > 0)
+            if (self.mViewPager.page > 0)
             {
-                NSInteger page = mViewPager.currentPage;
-                NSString *imageUrl = mViewPager.imageUrls[page];
+                NSInteger page = self.mViewPager.currentPage;
+                NSString *imageUrl = self.mViewPager.imageUrls[page];
                 
                 //reset url to change image size
                 CGRect rect = [UIScreen mainScreen].bounds;
@@ -284,7 +255,7 @@
             break;
         case TAG_BTN_PRAISE:
         {
-            if (mViewPager.page > 0)
+            if (self.mViewPager.page > 0)
             {
                 if (!hasPraised) {
                     if (nil != _group && nil != _group.gId) {
@@ -352,14 +323,14 @@
                     [imgUrls addObject:imageItem.babyImgUrl];
                 }
             }
-            mViewPager.imageUrls = imgUrls;
+            self.mViewPager.imageUrls = imgUrls;
             self.imageList = imageList;
             return;
         }
         
         if (safeString(self.group.wallPaperSource).integerValue == 3) {
             NSArray *imageList = resultDict[@"ListContent"];
-            mViewPager.imageUrls = imageList;
+            self.mViewPager.imageUrls = imageList;
             self.imageList = imageList;
             return;
         }
@@ -374,7 +345,7 @@
                 [imgUrls addObject:imageItem.imgUrl];
             }
         }
-        mViewPager.imageUrls = imgUrls;
+        self.mViewPager.imageUrls = imgUrls;
         self.imageList = imageList;
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
@@ -402,10 +373,9 @@
 }
 
 -(void)fileDownloadError:(FileDownload *)filedownload error:(NSString *)error{
-//    [KVNProgress showErrorWithStatus:@"下载失败"];
     //save to album
-    NSInteger page = mViewPager.currentPage;
-    NSString *imageUrl = mViewPager.imageUrls[page];
+    NSInteger page = self.mViewPager.currentPage;
+    NSString *imageUrl = self.mViewPager.imageUrls[page];
     NSData *data = [FileManager getFileWithName:[imageUrl md5] type:DirectoryTypeDocument];
     UIImage *image = [UIImage imageWithData:data];
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:),nil);

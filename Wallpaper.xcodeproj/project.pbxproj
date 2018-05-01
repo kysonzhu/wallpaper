@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
+		9625ACDE20981E6900992C25 /* WPShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625ACDD20981E6900992C25 /* WPShareManager.m */; };
+		9625ACE12098219600992C25 /* AppDelegate+Share.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625ACE02098219600992C25 /* AppDelegate+Share.m */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
 		962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962D7735205ACBF800A6C956 /* StoreKit.framework */; };
 		9689C7E1206BCC4600058E8B /* AppDelegate+NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */; };
@@ -178,6 +180,10 @@
 
 /* Begin PBXFileReference section */
 		51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
+		9625ACDC20981E6900992C25 /* WPShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPShareManager.h; sourceTree = "<group>"; };
+		9625ACDD20981E6900992C25 /* WPShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPShareManager.m; sourceTree = "<group>"; };
+		9625ACDF2098219600992C25 /* AppDelegate+Share.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Share.h"; sourceTree = "<group>"; };
+		9625ACE02098219600992C25 /* AppDelegate+Share.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Share.m"; sourceTree = "<group>"; };
 		962D773220596CCB00A6C956 /* WPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPNavigationController.h; sourceTree = "<group>"; };
 		962D773320596CCB00A6C956 /* WPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPNavigationController.m; sourceTree = "<group>"; };
 		962D7735205ACBF800A6C956 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -443,6 +449,8 @@
 				DECC453220529D59009F884C /* AppDelegate+RemoteNotification.m */,
 				9689C7DF206BCC4600058E8B /* AppDelegate+NetworkMonitor.h */,
 				9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */,
+				9625ACDF2098219600992C25 /* AppDelegate+Share.h */,
+				9625ACE02098219600992C25 /* AppDelegate+Share.m */,
 			);
 			path = appdelegate;
 			sourceTree = "<group>";
@@ -702,6 +710,8 @@
 				9689C7DE206BCC2600058E8B /* appdelegate */,
 				DEBDBC971A4E649C0092521E /* WrapperServiceMediator.h */,
 				DEBDBC981A4E649C0092521E /* WrapperServiceMediator.m */,
+				9625ACDC20981E6900992C25 /* WPShareManager.h */,
+				9625ACDD20981E6900992C25 /* WPShareManager.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -1269,6 +1279,7 @@
 				DEF963ED1A6CE8A6009A7D4E /* EnvironmentConfigure.m in Sources */,
 				DEBDBDF61A5BB10D0092521E /* UIImage+KVNImageEffects.m in Sources */,
 				DEADAEFE1A4A5FC600C19A2B /* GridViewCell.m in Sources */,
+				9625ACE12098219600992C25 /* AppDelegate+Share.m in Sources */,
 				DEC4E4EC1A64E99600E3A593 /* Platform.m in Sources */,
 				DEBDBD911A594BEF0092521E /* UserCenter.m in Sources */,
 				DECC453320529D59009F884C /* AppDelegate+RemoteNotification.m in Sources */,
@@ -1293,6 +1304,7 @@
 				DEADAF2C1A4ABD0F00C19A2B /* FeedbackViewController.m in Sources */,
 				DEADAF241A4AB97200C19A2B /* AboutUsViewController.m in Sources */,
 				DEBDBC491A4C090C0092521E /* SearchDetailViewController.m in Sources */,
+				9625ACDE20981E6900992C25 /* WPShareManager.m in Sources */,
 				DEBDBCBE1A5273EE0092521E /* Classification.m in Sources */,
 				96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */,
 				DEBDBCC81A529C020092521E /* HotestCollectionView.m in Sources */,

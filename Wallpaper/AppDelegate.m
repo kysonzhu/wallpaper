@@ -20,9 +20,10 @@
 #import "WPMenuViewController.h"
 #import "AppDelegate+NetworkMonitor.h"
 
-#import <WXApi.h>
+#import "WPShareManager.h"
+#import "AppDelegate+Share.h"
 
-@interface AppDelegate ()<UIApplicationDelegate,WXApiDelegate>{
+@interface AppDelegate ()<UIApplicationDelegate>{
 }
 
 @end
@@ -43,8 +44,7 @@
 #ifdef DEBUG
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
 #endif
-    [WXApi registerApp:@"wxa186e910754a13fc"];
-
+    [self registeShareService];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 
     WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
@@ -82,26 +82,17 @@
 }
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    [WXApi handleOpenURL:url delegate:self];
+    [self share_application:application handleOpenURL:url];
     return YES;
 }
 
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [WXApi handleOpenURL:url delegate:self];
+    [self share_application:application handleOpenURL:url];
     return YES;
 }
 
--(void) onReq:(BaseReq*)reqonReq
-{
-    
-}
-
--(void) onResp:(BaseResp*)resp
-{
-    
-}
 
 
 @end
