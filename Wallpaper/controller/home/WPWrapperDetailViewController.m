@@ -34,7 +34,7 @@
 
 @interface WPWrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
     __weak IBOutlet UIView *mToolBar;
-    BOOL isWidgetRevealed;
+    
     
     __weak IBOutlet UIButton *lockButton;
     __weak IBOutlet UIButton *homeButton;
@@ -54,30 +54,10 @@
 @property(nonatomic, weak) IBOutlet UIButton *shareButton;
 @property(nonatomic, weak) IBOutlet UIButton *backButton;
 @property(nonatomic, weak) IBOutlet ViewPager *mViewPager;
-
+@property(nonatomic, assign) BOOL isWidgetRevealed;
 @end
 
 @implementation WPWrapperDetailViewController
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    // 设置状态栏和导航栏
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-}
-
-#pragma mark - 状态栏隐藏
-
--(void)viewWillDisappear:(BOOL)animated{
-    // 下面这两句顺序不能改
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
-
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -100,7 +80,6 @@
     }
 
     self.mViewPager.mDelegate = self;
-    
     //add event
 
     lockButton.tag = TAG_BTN_LOCKSCREEN;
@@ -116,6 +95,8 @@
     [homeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [downloadButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
+    //如果没有安装微信就不显示分享按钮
+    self.shareButton.hidden = ![WXApi isWXAppInstalled];
     @weakify(self);
     [[self.backButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
@@ -138,27 +119,41 @@
     [self doNetworkService:serviceMediator];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    // 设置状态栏和导航栏
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
     //hide all widgets
-    isWidgetRevealed = YES;
+    self.isWidgetRevealed = YES;
     [self revealWidgets:YES];
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+#pragma mark - 状态栏隐藏
+
+-(void)viewWillDisappear:(BOOL)animated{
+    // 下面这两句顺序不能改
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
+
 
 -(void)revealWidgets:(BOOL)reveal{
     if (!reveal) {
-        self.shareButton.hidden = YES;
         mToolBar.hidden = YES;
-        isWidgetRevealed = NO;
+        self.isWidgetRevealed = NO;
     }else{
-        self.shareButton.hidden = NO;
         mToolBar.hidden = NO;
-        isWidgetRevealed = YES;
+        self.isWidgetRevealed = YES;
     }
 }
 
@@ -291,7 +286,7 @@
     //hide lock screen view
     [self hideLockScreenViewAndLauntchScreenView];
     //hide all widget
-    [self revealWidgets:!isWidgetRevealed];
+    [self revealWidgets:!self.isWidgetRevealed];
 }
 
 -(void)viewPagerDidScroll:(ViewPager *)viewPager{

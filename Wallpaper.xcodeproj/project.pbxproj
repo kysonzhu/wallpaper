@@ -24,6 +24,7 @@
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		9625ACDE20981E6900992C25 /* WPShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625ACDD20981E6900992C25 /* WPShareManager.m */; };
 		9625ACE12098219600992C25 /* AppDelegate+Share.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625ACE02098219600992C25 /* AppDelegate+Share.m */; };
+		9625ACE32098281000992C25 /* note in Resources */ = {isa = PBXBuildFile; fileRef = 9625ACE22098281000992C25 /* note */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
 		962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962D7735205ACBF800A6C956 /* StoreKit.framework */; };
 		9689C7E1206BCC4600058E8B /* AppDelegate+NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */; };
@@ -184,6 +185,7 @@
 		9625ACDD20981E6900992C25 /* WPShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPShareManager.m; sourceTree = "<group>"; };
 		9625ACDF2098219600992C25 /* AppDelegate+Share.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Share.h"; sourceTree = "<group>"; };
 		9625ACE02098219600992C25 /* AppDelegate+Share.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Share.m"; sourceTree = "<group>"; };
+		9625ACE22098281000992C25 /* note */ = {isa = PBXFileReference; lastKnownFileType = text; path = note; sourceTree = "<group>"; };
 		962D773220596CCB00A6C956 /* WPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPNavigationController.h; sourceTree = "<group>"; };
 		962D773320596CCB00A6C956 /* WPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPNavigationController.m; sourceTree = "<group>"; };
 		962D7735205ACBF800A6C956 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -815,6 +817,7 @@
 		DECCCD0F1A36FAA1000C73BA = {
 			isa = PBXGroup;
 			children = (
+				9625ACE22098281000992C25 /* note */,
 				96E6CBC8204A31B600689E89 /* LICENSE */,
 				DECCCD211A36FAA1000C73BA /* Wallpaper */,
 				DECCCD1A1A36FAA1000C73BA /* Frameworks */,
@@ -1152,6 +1155,7 @@
 				96D10F9F206C0B6E00A37B9D /* lesson1.jpg in Resources */,
 				DE9585351A3AD9BB000C6B70 /* recommended_nav_background@2x.png in Resources */,
 				DEBDBD871A5911E00092521E /* SearchDetailViewController_iphone.xib in Resources */,
+				9625ACE32098281000992C25 /* note in Resources */,
 				DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */,
 				DEBDC0071A5D35160092521E /* bg@2x.png in Resources */,
 			);
@@ -1452,7 +1456,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1470,8 +1474,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2f8feb67-9973-4225-91b5-80973b5c7141";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
+				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1486,11 +1490,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1508,8 +1512,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kyson.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2f8feb67-9973-4225-91b5-80973b5c7141";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
+				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
