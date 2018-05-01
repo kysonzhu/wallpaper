@@ -22,14 +22,14 @@
 
 #import <WXApiObject.h>
 #import <WXApi.h>
+#import <SDWebImageDownloader.h>
 
 @import GoogleMobileAds;
 
-#define TAG_BTN_BACK        2109
+
 #define TAG_BTN_LOCKSCREEN  2110
 #define TAG_BTN_LAUNCH        2111
 #define TAG_BTN_DOWNLOAD    2112
-#define TAG_BTN_SHARE       2113
 #define TAG_BTN_PRAISE      2114
 
 #define TAG_IMGV_HOME        211
@@ -37,7 +37,6 @@
 
 @interface WPWrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
     __weak IBOutlet ViewPager *mViewPager;
-    __weak IBOutlet UIButton *backButton;
     __weak IBOutlet UIView *mToolBar;
     BOOL isWidgetRevealed;
     
@@ -57,6 +56,7 @@
 @property (nonatomic, retain) NSArray *imageList;
 
 @property(nonatomic, weak) IBOutlet UIButton *shareButton;
+@property(nonatomic, weak) IBOutlet UIButton *backButton;
 
 @end
 
@@ -105,7 +105,7 @@
     mViewPager.mDelegate = self;
     
     //add event
-    backButton.tag = TAG_BTN_BACK;
+
     lockButton.tag = TAG_BTN_LOCKSCREEN;
     homeButton.tag = TAG_BTN_LAUNCH;
     downloadButton.tag = TAG_BTN_DOWNLOAD;
@@ -115,18 +115,46 @@
         UIImage *image = [UIImage imageNamed:@"tab_icon_collect_pre"];
         [praiseButton setBackgroundImage:image forState:UIControlStateNormal];
     }
-    [backButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [lockButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [homeButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [downloadButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
-//    @weakify(self);
+    @weakify(self);
+    [[self.backButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
       [[self.shareButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-//          @strongify(self);
-          SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-          req.text = @"人文的东西并不是体现在你看得到的方面，它更多的体现在你看不到的那些方面，它会影响每一个功能，这才是最本质的。但是，对这点可能很多人没有思考过，以为人文的东西就是我们搞一个很小清新的图片什么的。”综合来看，人文的东西其实是贯穿整个产品的脉络，或者说是它的灵魂所在。";
-          req.bText = YES;
-          [WXApi sendReq:req];
+          
+          NSInteger page = mViewPager.currentPage;
+          NSString *imageUrl = mViewPager.imageUrls[page];
+          NSURL *url = [NSURL URLWithString:imageUrl];
+          
+          [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+              ;
+          } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+              if (image != nil)
+              {
+                  WXMediaMessage * message = [WXMediaMessage message];
+                  message.title = @"壁纸宝贝为您推荐一位宝贝！";
+                  UIImage *appIcon = [UIImage imageNamed:@"AppIcon"];
+                  NSData *iconData = UIImagePNGRepresentation(appIcon);
+                  message.thumbData = iconData;
+                  //media object
+                  WXImageObject *mediaObj = [WXImageObject object];
+                  mediaObj.imageData = data;
+                  //set object
+                  message.mediaObject = mediaObj;
+                  //创建请求
+                  SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+                  req.bText = NO;
+                  req.message = message;
+                  //发送请求
+                  [WXApi sendReq:req];
+              }
+              
+          }];
           
     }];
     
@@ -164,7 +192,8 @@
 
 -(void)hideLockScreenViewAndLauntchScreenView{
     //hide lock screen view or hide launtch screen view
-    for (UIImageView *imgvItem in self.view.subviews) {
+    for (UIImageView *imgvItem in self.view.subviews)
+    {
         if (imgvItem.tag == TAG_IMGV_LOCKSCREEN || imgvItem.tag == TAG_IMGV_HOME) {
             [imgvItem removeFromSuperview];
         }
@@ -174,14 +203,10 @@
 -(void)buttonClicked:(UIButton *) sender{
     [self hideLockScreenViewAndLauntchScreenView];
     switch (sender.tag) {
-        case TAG_BTN_BACK:{
-            
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-            break;
-            
-        case TAG_BTN_LOCKSCREEN:{
-            if (mViewPager.page > 0) {
+        case TAG_BTN_LOCKSCREEN:
+        {
+            if (mViewPager.page > 0)
+            {
                 CGRect frame = [UIScreen mainScreen].bounds;
                 UIImageView *imgview = [[UIImageView alloc]initWithFrame:frame];
                 imgview.tag = TAG_IMGV_LOCKSCREEN;
@@ -206,8 +231,10 @@
             }
         }
             break;
-        case TAG_BTN_LAUNCH:{
-            if (mViewPager.page > 0) {
+        case TAG_BTN_LAUNCH:
+        {
+            if (mViewPager.page > 0)
+            {
                 CGRect frame = [UIScreen mainScreen].bounds;
                 UIImageView *imgview = [[UIImageView alloc]initWithFrame:frame];
                 imgview.tag = TAG_IMGV_HOME;
@@ -232,8 +259,10 @@
             
         }
             break;
-        case TAG_BTN_DOWNLOAD:{
-            if (mViewPager.page > 0) {
+        case TAG_BTN_DOWNLOAD:
+        {
+            if (mViewPager.page > 0)
+            {
                 NSInteger page = mViewPager.currentPage;
                 NSString *imageUrl = mViewPager.imageUrls[page];
                 
@@ -251,36 +280,12 @@
             }else{
                 [KVNProgress showErrorWithStatus:@"没有图片可以下载"];
             }
-            
-            
         }
             break;
-        case TAG_BTN_SHARE:{
-            if (mViewPager.page > 0) {
-                NSInteger page = mViewPager.currentPage;
-                NSString *imageUrlTemp = mViewPager.imageUrls[page];
-//
-                NSData *data = [FileManager getFileWithName:[imageUrlTemp md5] type:DirectoryTypeDocument];
-                //reset url to change image size
-                CGRect rect = [UIScreen mainScreen].bounds;
-                NSInteger width = (int) (rect.size.width * 2);
-                NSInteger height = (int) (rect.size.height * 2);
-                NSString *string = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-                imageUrlTemp = [imageUrlTemp stringByReplacingOccurrencesOfString:@"480x854" withString:string];
-                imageUrlTemp = [imageUrlTemp stringByReplacingOccurrencesOfString:@"320x480" withString:string];
-//                UIImage *image = [UIImage imageWithData:data];
-                
-//                Image *imageModel = self.imageList[page];
-//                NSString *imageUrl = [NSString stringWithFormat:@"%@/detail_%@_%@.html#p%li",HOST_PICSHOW,imageModel.gId,imageModel.pId,(long)(page+1)];
-            }else{
-                [KVNProgress showErrorWithStatus:@"没有图片可以分享"];
-            }
-            
-        }
-            break;
-        case TAG_BTN_PRAISE:{
-
-            if (mViewPager.page > 0) {
+        case TAG_BTN_PRAISE:
+        {
+            if (mViewPager.page > 0)
+            {
                 if (!hasPraised) {
                     if (nil != _group && nil != _group.gId) {
                         [[UserCenter shareInstance] addPraiseData:_group.gId];

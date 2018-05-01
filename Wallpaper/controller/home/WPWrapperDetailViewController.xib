@@ -76,10 +76,10 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Ha-np-e2Z">
-                            <rect key="frame" x="326" y="11" width="28" height="28"/>
+                            <rect key="frame" x="319" y="11" width="28" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" backgroundImage="tab_icon_down.png">
+                            <state key="normal" backgroundImage="icon_share.png">
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
@@ -95,6 +95,7 @@
     </objects>
     <resources>
         <image name="icon_back.png" width="38" height="38"/>
+        <image name="icon_share.png" width="43" height="43"/>
         <image name="tab_bg.png" width="320" height="68"/>
         <image name="tab_icon_collect.png" width="40" height="36"/>
         <image name="tab_icon_desktop.png" width="40" height="24"/>
