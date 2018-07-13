@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 zhujinhui( http://kyson.cn ). All rights reserved.
 //
 
-#import "BaseModel.h"
 #import "KSModel.h"
 
 @interface Image : KSModel

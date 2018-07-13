@@ -28,7 +28,6 @@
 		969B5933206600D400941204 /* WPMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 969B5932206600D400941204 /* WPMenuViewController.xib */; };
 		96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */; };
 		96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */; };
-		96A70D12202756ED00790B1D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D11202756ED00790B1D /* BaseModel.m */; };
 		96A70D1520276BAE00790B1D /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D1420276BAE00790B1D /* KSModel.m */; };
 		96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F95206C02EE00A37B9D /* WPLessonViewController.m */; };
 		96D10F98206C02EE00A37B9D /* WPLessonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */; };
@@ -188,8 +187,6 @@
 		96A70D0B2026A8DB00790B1D /* HomeNavigatiaonTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigatiaonTitleView.h; sourceTree = "<group>"; };
 		96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationTitileViewButton.m; sourceTree = "<group>"; };
 		96A70D0E2026A95B00790B1D /* HomeNavigationTitileViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationTitileViewButton.h; sourceTree = "<group>"; };
-		96A70D10202756ED00790B1D /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
-		96A70D11202756ED00790B1D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		96A70D1320276BAE00790B1D /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		96A70D1420276BAE00790B1D /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
 		96D10F94206C02EE00A37B9D /* WPLessonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPLessonViewController.h; sourceTree = "<group>"; };
@@ -719,8 +716,6 @@
 				DEBDBCA91A50FF250092521E /* Image.m */,
 				DEBDBCBC1A5273EE0092521E /* Classification.h */,
 				DEBDBCBD1A5273EE0092521E /* Classification.m */,
-				96A70D10202756ED00790B1D /* BaseModel.h */,
-				96A70D11202756ED00790B1D /* BaseModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1240,7 +1235,6 @@
 				DE4392ED1A872DF70009181D /* MakingGreetingCardViewController.m in Sources */,
 				DEBDBCAA1A50FF250092521E /* Image.m in Sources */,
 				DEBDBCCB1A538B250092521E /* CateListViewController.m in Sources */,
-				96A70D12202756ED00790B1D /* BaseModel.m in Sources */,
 				DEBDBD8D1A593F530092521E /* UIImage+Compress.m in Sources */,
 				96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */,
 				DE9585551A3ADEED000C6B70 /* NSString+Util.m in Sources */,
@@ -1421,7 +1415,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 28;
 				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1460,7 +1453,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 28;
 				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
