@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 
 typedef enum _PlatformType{
-    PlatformType640960,
-    PlatformType6401136,
-    PlatformTypeiPhone6,
-    PlatformTypeiPhone6P,
-    PlatformTypeiPhone320480
+    //    PlatformType640960,
+    //    PlatformType6401136,
+    //    PlatformTypeiPhone6,
+    //    PlatformTypeiPhone6P,
+    //    PlatformTypeiPhone320480
+    PlatformType414736,
+    PlatformType375667,
+    PlatformType320568,
+    PlatformType320480,
+    PlatformTypeX
 }PlatformType;
 
 

@@ -54,20 +54,6 @@ DEPENDENCIES:
   - ReactiveObjC (= 3.1.0)
   - SDWebImage
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - BlocksKit
-    - Bugly
-    - Google-Mobile-Ads-SDK
-    - GTSDK
-    - IQKeyboardManager
-    - Mangogo
-    - Masonry
-    - MJRefresh
-    - ReactiveObjC
-    - SDWebImage
-
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
@@ -83,4 +69,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 524b0012adabc6bafa7b9ea89b677a962617e4b6
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.3.1

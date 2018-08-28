@@ -390,7 +390,7 @@
     
     NSMutableData *receiveData;
     FileDownload *fileDownload;
-
+    
 }
 @property(nonatomic, strong) GADInterstitial *interstitial;
 
@@ -414,7 +414,7 @@
     // 下面这两句顺序不能改
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-
+    
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
@@ -422,7 +422,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view sendSubviewToBack:mViewPager];
     
@@ -439,12 +439,12 @@
                 [self.interstitial presentFromRootViewController:self];
         });
     }
-
+    
     mViewPager.mDelegate = self;
-//    if (nil != _group && nil != _group.coverImgUrl) {
-//        mViewPager.imageNames = [NSArray arrayWithObjects:[_group.coverImgUrl md5], nil];
-//    }
-//    mViewPager.imageUrls = [NSArray arrayWithObjects:@"http://www.baidu.com/img/bd_logo1.png",@"http://talent.baidu.com/component1000/corp/baidu/images/about/baidu.jpg",@"http://talent.baidu.com/component1000/corp/baidu/images/about/course.jpg",@"http://ww4.sinaimg.cn/bmiddle/9b7ad446jw1ekumvq1g3cj20c80m8q5g.jpg", nil];
+    //    if (nil != _group && nil != _group.coverImgUrl) {
+    //        mViewPager.imageNames = [NSArray arrayWithObjects:[_group.coverImgUrl md5], nil];
+    //    }
+    //    mViewPager.imageUrls = [NSArray arrayWithObjects:@"http://www.baidu.com/img/bd_logo1.png",@"http://talent.baidu.com/component1000/corp/baidu/images/about/baidu.jpg",@"http://talent.baidu.com/component1000/corp/baidu/images/about/course.jpg",@"http://ww4.sinaimg.cn/bmiddle/9b7ad446jw1ekumvq1g3cj20c80m8q5g.jpg", nil];
     
     //add event
     backButton.tag = TAG_BTN_BACK;
@@ -473,7 +473,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-
+    
     //hide all widgets
     isWidgetRevealed = YES;
     [self revealWidgets:YES];
@@ -506,6 +506,7 @@
 }
 
 -(void)buttonClicked:(UIButton *) sender{
+    
     [self hideLockScreenViewAndLauntchScreenView];
     switch (sender.tag) {
         case TAG_BTN_BACK:{
@@ -521,13 +522,13 @@
                 imgview.tag = TAG_IMGV_LOCKSCREEN;
                 PlatformType type = [Platform getPlatform];
                 UIImage *image = nil;
-                if (type == PlatformType640960) {
+                if (type == PlatformType320480) {
                     image = [UIImage imageNamed:@"lockscreen_1"];
-                }else if (type == PlatformType6401136){
+                }else if (type == PlatformType320568){
                     image = [UIImage imageNamed:@"lockscreen_2"];
-                }else if (type == PlatformTypeiPhone6){
+                }else if (type == PlatformType375667){
                     image = [UIImage imageNamed:@"lockscreen_3"];
-                }else if(type == PlatformTypeiPhone6P){
+                }else if(type == PlatformTypeX || type == PlatformType414736){
                     image = [UIImage imageNamed:@"lockscreen_4"];
                 }
                 image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeStretch];
@@ -547,15 +548,17 @@
                 imgview.tag = TAG_IMGV_HOME;
                 UIImage *image = nil;
                 PlatformType type = [Platform getPlatform];
-                if (type == PlatformType640960) {
-                    image = [UIImage imageNamed:@"launtchscreen_1"];
-                }else if (type == PlatformType6401136){
-                    image = [UIImage imageNamed:@"launtchscreen_2"];
-                }else if (type == PlatformTypeiPhone6){
-                    image = [UIImage imageNamed:@"launtchscreen_3"];
-                }else if(type == PlatformTypeiPhone6P){
-                    image = [UIImage imageNamed:@"launtchscreen_4"];
+                
+                if (type == PlatformType320480) {
+                    image = [UIImage imageNamed:@"lockscreen_1"];
+                }else if (type == PlatformType320568){
+                    image = [UIImage imageNamed:@"lockscreen_2"];
+                }else if (type == PlatformType375667){
+                    image = [UIImage imageNamed:@"lockscreen_3"];
+                }else if(type == PlatformTypeX || type == PlatformType414736){
+                    image = [UIImage imageNamed:@"lockscreen_4"];
                 }
+                image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeStretch];
                 imgview.image = image;
                 [self.view addSubview:imgview];
                 [self.view bringSubviewToFront:imgview];
@@ -593,7 +596,7 @@
             if (mViewPager.page > 0) {
                 NSInteger page = mViewPager.currentPage;
                 NSString *imageUrlTemp = mViewPager.imageUrls[page];
-//
+                //
                 NSData *data = [FileManager getFileWithName:[imageUrlTemp md5] type:DirectoryTypeDocument];
                 //reset url to change image size
                 CGRect rect = [UIScreen mainScreen].bounds;
@@ -602,10 +605,10 @@
                 NSString *string = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
                 imageUrlTemp = [imageUrlTemp stringByReplacingOccurrencesOfString:@"480x854" withString:string];
                 imageUrlTemp = [imageUrlTemp stringByReplacingOccurrencesOfString:@"320x480" withString:string];
-//                UIImage *image = [UIImage imageWithData:data];
+                //                UIImage *image = [UIImage imageWithData:data];
                 
-//                Image *imageModel = self.imageList[page];
-//                NSString *imageUrl = [NSString stringWithFormat:@"%@/detail_%@_%@.html#p%li",HOST_PICSHOW,imageModel.gId,imageModel.pId,(long)(page+1)];
+                //                Image *imageModel = self.imageList[page];
+                //                NSString *imageUrl = [NSString stringWithFormat:@"%@/detail_%@_%@.html#p%li",HOST_PICSHOW,imageModel.gId,imageModel.pId,(long)(page+1)];
             }else{
                 [KVNProgress showErrorWithStatus:@"没有图片可以分享"];
             }
@@ -613,7 +616,7 @@
         }
             break;
         case TAG_BTN_PRAISE:{
-
+            
             if (mViewPager.page > 0) {
                 if (!hasPraised) {
                     if (nil != _group && nil != _group.gId) {
@@ -708,7 +711,7 @@
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
     }
-   
+    
 }
 
 
@@ -731,7 +734,7 @@
 }
 
 -(void)fileDownloadError:(FileDownload *)filedownload error:(NSString *)error{
-//    [KVNProgress showErrorWithStatus:@"下载失败"];
+    //    [KVNProgress showErrorWithStatus:@"下载失败"];
     //save to album
     NSInteger page = mViewPager.currentPage;
     NSString *imageUrl = mViewPager.imageUrls[page];

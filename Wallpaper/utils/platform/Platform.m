@@ -13,19 +13,38 @@
 +(PlatformType)getPlatform{
     PlatformType type ;
     CGRect rect = [UIScreen mainScreen].bounds;
-    NSInteger width = rect.size.width * 2;
-    NSInteger height = rect.size.height * 2;
-    
-    if (width == 640 && height == 960) {
-        type = PlatformType640960;
-    }else if (width == 640 && height == 1136){
-        type = PlatformType6401136;
-    }else if (width == 1080 && height == 1920){
-        type = PlatformTypeiPhone6P;
-    }else if (width == 750 && height == 1334){
-        type = PlatformTypeiPhone6;
-    }else{
-        type = PlatformTypeiPhone320480;
+    NSInteger width = rect.size.width;
+    NSInteger height = rect.size.height;
+    if (width == 414 && height == 736)
+    {
+        type = PlatformType414736;
+    }
+    else if (width == 375 && height == 667)
+    {
+        type = PlatformType375667;
+    }
+    else if (width == 320 && height == 568)
+    {
+        type = PlatformType320568;
+    }
+    else if (width == 320 && height == 480)
+    {
+        type = PlatformType320480;
+    }
+    else
+    {
+        
+    }
+    if (width == 414 && height == 736) {
+        type = PlatformType414736; //p
+    }else if (width == 375 && height == 667){
+        type = PlatformType375667; //6
+    }else if (width == 320 && height == 568){
+        type = PlatformType320568; //5
+    }else if (width == 320 && height == 480){
+        type = PlatformType320480; //4s
+    }else if (width == 375 * 812){
+        type = PlatformTypeX;
     }
     return type;
 }
