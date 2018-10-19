@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b0000000" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/color_white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp" >
+
+            <ImageView
+                android:id="@+id/img_title"
+                android:layout_width="@dimen/dialog_image_width"
+                android:layout_height="@dimen/dialog_image_height"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_space_10"
+                android:layout_marginRight="@dimen/margin_space_10"
+                android:scaleType="fitCenter"
+                android:src="@drawable/alert_tips" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_title"
+                android:text="提示"
+                android:textColor="@color/color_blue_7"
+                android:textSize="@dimen/text_size_7" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/grape_alert_dialogue_topline"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:background="@color/color_blue_7" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/btn_click"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" 
+            android:gravity="center"
+            android:text="知道了"/>
+    </LinearLayout>
+
+</RelativeLayout>

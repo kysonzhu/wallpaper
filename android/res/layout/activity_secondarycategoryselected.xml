@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/black">
+    
+    <LinearLayout 
+        android:id="@+id/biaotou"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linearlayout_height"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/background_title" 
+        >
+        <TextView 
+             android:layout_marginLeft="@dimen/layout_marginleft_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_15" 
+            android:visibility="invisible"
+            />
+
+        <!-- <ImageView 
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="fanhui_BeautyActivity_click"
+            android:clickable="true"
+            android:layout_marginLeft="10dp"
+           android:background="@drawable/nav_back_click"
+            /> -->
+        <TextView
+            android:id="@+id/erji_fenlei_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+        <!-- <ImageView 
+            android:id="@+id/image_click_bianhuan_two"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/nav_screen"
+            /> -->
+            <TextView 
+             android:layout_marginRight="@dimen/layout_marginleft_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="@string/close"
+            android:onClick="fanhui_BeautyActivity_click"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_15" />
+             
+    </LinearLayout>
+
+    
+    <ListView 
+        android:id="@+id/erji_fenlei_lv"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:divider="#20000000"  
+        android:background="@color/white"
+        android:dividerHeight="0.5dp" />
+    
+    <RelativeLayout 
+      android:id="@+id/secondarycategoryselected_relativeLayout"
+       android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+      >
+    <ImageView
+        android:id="@+id/latest_netWork_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/rr"
+        android:onClick="secondarycategoryselectedClick"
+         />
+
+    <TextView
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/layout_marginbottom_1"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/text_color_9"
+        android:text="@string/network" />
+
+    <TextView
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/layout_margintop_7"
+        android:text="@string/click_load"
+        android:textColor="@color/text_color_9"
+        android:textSize="@dimen/text_size_177"
+         />
+
+</RelativeLayout>
+        
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/white"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/item_erji_feilei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_space_10"
+        android:layout_marginLeft="@dimen/margin_space_20"
+        android:layout_marginTop="@dimen/margin_space_10"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/text_size_177" />
+
+    <ImageView
+        android:id="@+id/icon_into_pre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_space_10"
+        android:layout_marginRight="@dimen/margin_space_20"
+        android:layout_marginTop="@dimen/margin_space_10"
+        android:src="@drawable/mod_icon" />
+
+</LinearLayout>

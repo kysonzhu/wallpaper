@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/menu_listview_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space_22"
+        android:gravity="center"
+         >
+
+        <ImageView
+            android:id="@+id/menu_listview_imageview"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space_17"
+            android:background="@drawable/ic_lef_del"
+            />
+
+        <TextView
+            android:id="@+id/menu_listview_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/margin_space_72"
+            android:clickable="true"
+            android:text="@string/about"
+            android:textColor="@drawable/text_click_color"
+            android:textSize="@dimen/text_size_16" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_below="@id/menu_listview_linearLayout"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:layout_marginLeft="@dimen/margin_space_70"
+        android:background="@color/fff55" />
+
+</RelativeLayout>

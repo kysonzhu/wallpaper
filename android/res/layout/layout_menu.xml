@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_space_25"
+            android:text="@string/app_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_22" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_space_15"
+            android:layout_marginTop="@dimen/margin_space_4"
+            android:text="@string/versions"
+            android:textColor="@color/text_color_9"
+            android:textSize="@dimen/text_size_20" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/bjtm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_12"
+        android:background="@color/fff33" />
+    
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space_22"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/menu_clear_image"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:src="@drawable/ic_lef_del" />
+
+        <TextView
+            android:id="@+id/menu_clear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_space_30"
+            android:clickable="true"
+            android:text="@string/clear"
+             android:textColor="@drawable/text_click_color" 
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_marginLeft="@dimen/margin_space_70"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:background="@color/fff55" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space_22"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/menu_evaluate_image"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space_17"
+            android:src="@drawable/ic_lef_remove" />
+
+        <TextView
+            android:id="@+id/menu_evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_space_28"
+            android:clickable="true"
+            android:text="@string/evaluate"
+            android:textColor="@drawable/text_click_color"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_marginLeft="@dimen/margin_space_70"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:background="@color/fff55" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space_22"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/menu_opinion_image"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space_17"
+            android:src="@drawable/ic_lef_feedback" />
+
+        <TextView
+            android:id="@+id/menu_opinion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_space_28"
+            android:clickable="true"
+            android:text="@string/opinion"
+            android:textColor="@drawable/text_click_color"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_marginLeft="@dimen/margin_space_70"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:background="@color/fff55" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space_22"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/menu_about_image"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space_17"
+            android:src="@drawable/ic_lef_on" />
+
+        <TextView
+            android:id="@+id/menu_about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_space_28"
+            android:clickable="true"
+            android:text="@string/about"
+            android:textColor="@drawable/text_click_color"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_marginLeft="@dimen/margin_space_70"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:background="@color/fff55" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space_22"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space_17"
+            android:src="@drawable/ic_lef_on" />
+
+        <TextView
+            android:id="@+id/menu_replace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_space_28"
+            android:clickable="true"
+            android:text="@string/replace"
+            android:textColor="@drawable/text_click_color"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_marginLeft="@dimen/margin_space_70"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:background="@color/fff55" /> -->
+
+    
+    <ListView
+        android:id="@+id/menu_listview"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/clear"
+        android:divider="@color/clear"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@color/clear" >
+    </ListView>
+</LinearLayout>

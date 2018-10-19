@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <com.leftbrain.wallwrapper.widget.AutoLoadImageView
+        android:id="@+id/recommended_grid_autoloadimageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/margin_space_16"
+        android:layout_alignBottom="@id/recommended_grid_autoloadimageview"
+        android:layout_alignLeft="@id/recommended_grid_autoloadimageview"
+        android:layout_alignRight="@id/recommended_grid_autoloadimageview"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/mod_mask" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_space_8"
+            android:src="@drawable/con_pra" />
+
+        <TextView
+            android:id="@+id/recommended_zan_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_space_5"
+            android:layout_toRightOf="@+id/imageView1"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_10" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/recommended_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_35"
+        android:layout_alignLeft="@id/recommended_grid_autoloadimageview"
+        android:layout_alignRight="@id/recommended_grid_autoloadimageview"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginLeft="@dimen/margin_space_1"
+        android:layout_marginRight="@dimen/margin_space_1"
+        android:background="@color/white_1"
+        android:gravity="clip_horizontal"
+        android:text=""
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/text_size_12" />
+
+</RelativeLayout>
