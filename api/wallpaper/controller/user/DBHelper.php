@@ -18,7 +18,7 @@ class DBHelper
     public function __construct()
     {
 //         $this->connect = mysqli_connect('127.0.0.1','root','root','wallpaper','8889');
-         $this->connect = mysqli_connect('127.0.0.1','kysoncn_zjh171','hq21709d30','kysoncn_wallpaper','3306');
+         $this->connect = mysqli_connect('127.0.0.1','这里是用户名','这里是密码','kysoncn_wallpaper','3306');
         // 检查连接
         if (!$this->connect)
         {
