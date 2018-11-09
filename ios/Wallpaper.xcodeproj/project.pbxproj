@@ -44,6 +44,8 @@
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
 		DE09046A1A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0904691A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png */; };
 		DE204A5F1A6CABC700FB0DA5 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE204A5E1A6CABC700FB0DA5 /* CoreText.framework */; };
+		DE2E3FDE2195372C007321A6 /* AppDelegate+Share.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2E3FDC2195372B007321A6 /* AppDelegate+Share.m */; };
+		DE2E3FE12195374B007321A6 /* WPShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2E3FDF2195374B007321A6 /* WPShareManager.m */; };
 		DE2F64111A846EC100958C41 /* SearchClearHistoryItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2F640F1A846EC100958C41 /* SearchClearHistoryItemCell.m */; };
 		DE2F64121A846EC100958C41 /* SearchClearHistoryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2F64101A846EC100958C41 /* SearchClearHistoryItemCell.xib */; };
 		DE4392ED1A872DF70009181D /* MakingGreetingCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4392EC1A872DF70009181D /* MakingGreetingCardViewController.m */; };
@@ -212,6 +214,10 @@
 		DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recommended_praise@2x.png"; sourceTree = "<group>"; };
 		DE0904691A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftbar_Dividing-line@2x.png"; sourceTree = "<group>"; };
 		DE204A5E1A6CABC700FB0DA5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		DE2E3FDC2195372B007321A6 /* AppDelegate+Share.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Share.m"; sourceTree = "<group>"; };
+		DE2E3FDD2195372B007321A6 /* AppDelegate+Share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Share.h"; sourceTree = "<group>"; };
+		DE2E3FDF2195374B007321A6 /* WPShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPShareManager.m; sourceTree = "<group>"; };
+		DE2E3FE02195374B007321A6 /* WPShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPShareManager.h; sourceTree = "<group>"; };
 		DE2F640E1A846EC100958C41 /* SearchClearHistoryItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchClearHistoryItemCell.h; sourceTree = "<group>"; };
 		DE2F640F1A846EC100958C41 /* SearchClearHistoryItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchClearHistoryItemCell.m; sourceTree = "<group>"; };
 		DE2F64101A846EC100958C41 /* SearchClearHistoryItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchClearHistoryItemCell.xib; sourceTree = "<group>"; };
@@ -434,6 +440,8 @@
 		9689C7DE206BCC2600058E8B /* appdelegate */ = {
 			isa = PBXGroup;
 			children = (
+				DE2E3FDD2195372B007321A6 /* AppDelegate+Share.h */,
+				DE2E3FDC2195372B007321A6 /* AppDelegate+Share.m */,
 				DECC453120529D59009F884C /* AppDelegate+RemoteNotification.h */,
 				DECC453220529D59009F884C /* AppDelegate+RemoteNotification.m */,
 				9689C7DF206BCC4600058E8B /* AppDelegate+NetworkMonitor.h */,
@@ -692,6 +700,8 @@
 		DEBDBC961A4E603A0092521E /* service */ = {
 			isa = PBXGroup;
 			children = (
+				DE2E3FE02195374B007321A6 /* WPShareManager.h */,
+				DE2E3FDF2195374B007321A6 /* WPShareManager.m */,
 				DEBDBD8E1A594BCE0092521E /* local */,
 				DEBDBC9D1A4E9A140092521E /* model */,
 				9689C7DE206BCC2600058E8B /* appdelegate */,
@@ -1034,6 +1044,9 @@
 						DevelopmentTeam = T7Z76WDTD6;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1195,6 +1208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2E3FDE2195372C007321A6 /* AppDelegate+Share.m in Sources */,
 				DEE67B3F1A43BE5B00BFA114 /* ViewPager.m in Sources */,
 				962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */,
 				9689C7E1206BCC4600058E8B /* AppDelegate+NetworkMonitor.m in Sources */,
@@ -1264,6 +1278,7 @@
 				DEADAF2C1A4ABD0F00C19A2B /* FeedbackViewController.m in Sources */,
 				DEADAF241A4AB97200C19A2B /* AboutUsViewController.m in Sources */,
 				DEBDBC491A4C090C0092521E /* SearchDetailViewController.m in Sources */,
+				DE2E3FE12195374B007321A6 /* WPShareManager.m in Sources */,
 				DEBDBCBE1A5273EE0092521E /* Classification.m in Sources */,
 				96E6CBBF20498FC800689E89 /* KSRouter.m in Sources */,
 				DEBDBCC81A529C020092521E /* HotestCollectionView.m in Sources */,
@@ -1407,11 +1422,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1449,7 +1464,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				CODE_SIGN_STYLE = Manual;
 				COMPILER_INDEX_STORE_ENABLE = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = T7Z76WDTD6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

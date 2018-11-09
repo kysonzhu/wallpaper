@@ -108,72 +108,23 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 
 -(MGNetwokResponse *)getLatestList
 {
-    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];;
-    //set params
-    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"start"] = self.requestParams[@"start"];
-    params[@"end"] = @"30";
-    //filter image size
-    CGRect rect = [UIScreen mainScreen].bounds;
-    NSInteger width = (int) (rect.size.width * 2);
-    NSInteger height = (int) (rect.size.height * 2);
-    params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:SERVICENAME_LATESTLIST params:params];
-
-    if (0 == response.errorCode) {
-        [MGJsonHandler convertToErrorResponse:&response];
-        NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
-
-        if (![EnvironmentConfigure shareInstance].showAllData)
-        {
-            response.rawResponseArray = babyList;
-            return response;
-        }
-        
-        //以下来自kyson源
-        MGNetworkAccess *networkAccess2 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
-        MGNetwokResponse *response2 = [networkAccess2 doServiceRequestWithName:@"baby" params:nil];
-        NSArray *resultArry = response2.rawResponseDictionary[@"content"];
-        NSMutableArray *array2 = [[NSMutableArray alloc] init];
-        for (NSDictionary *dictItem in resultArry)
-        {
-            NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
-            resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
-            resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
-            resultDictionary2[@"id"] = dictItem[@"id"];
-            resultDictionary2[@"wallPaperSource"] = kWallPaperSourceKyson;
-            resultDictionary2[@"voteGood"] = @"111";
-            resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
-            [array2 addObject:resultDictionary2];
-        }
-        
-        MGNetworkAccess *networkAccess3 = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
-        MGNetwokResponse *response3 = [networkAccess3 doServiceRequestWithName:@"livePaperList" params:nil];
-        NSMutableArray *livebabyList = [NSMutableArray arrayWithArray:response3.rawResponseDictionary[@"content"]];
-        NSMutableArray *array3 = [[NSMutableArray alloc] init];
-        for (NSDictionary *dictItem in livebabyList)
-        {
-            NSMutableDictionary *resultDictionary3 = [[NSMutableDictionary alloc] init];
-            resultDictionary3[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
-            resultDictionary3[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
-            resultDictionary3[@"id"] = dictItem[@"id"];
-            resultDictionary3[@"wallPaperSource"] = kWallPaperSourceKyson;
-            resultDictionary3[@"babyMOVUrl"] = dictItem[@"babyMOVUrl"];
-            resultDictionary3[@"voteGood"] = @"111";
-            resultDictionary3[@"editDate"] = @"2018-02-06 13:53:33";
-            [array3 addObject:resultDictionary3];
-        }
-        [array3 addObjectsFromArray:array2];
-        [array3 addObjectsFromArray:babyList];
-        response.rawResponseArray = array3;
-        
-        [array2 addObjectsFromArray:babyList];
-
-        ////////
-        
-    }else{
-        NSLog(@"error message:%@",response.errorMessage);
+    //以下来自kyson源
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"baby" params:nil];
+    NSArray *resultArry = response.rawResponseDictionary[@"content"];
+    NSMutableArray *array2 = [[NSMutableArray alloc] init];
+    for (NSDictionary *dictItem in resultArry)
+    {
+        NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
+        resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
+        resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"brief"]];
+        resultDictionary2[@"id"] = dictItem[@"id"];
+        resultDictionary2[@"wallPaperSource"] = kWallPaperSourceKyson;
+        resultDictionary2[@"voteGood"] = @"111";
+        resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
+        [array2 addObject:resultDictionary2];
     }
+    response.rawResponseArray = array2;
     return response;
 }
 
