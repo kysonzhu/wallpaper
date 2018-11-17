@@ -1,18 +1,18 @@
 PODS:
-  - AFNetworking (3.2.0):
-    - AFNetworking/NSURLSession (= 3.2.0)
-    - AFNetworking/Reachability (= 3.2.0)
-    - AFNetworking/Security (= 3.2.0)
-    - AFNetworking/Serialization (= 3.2.0)
-    - AFNetworking/UIKit (= 3.2.0)
-  - AFNetworking/NSURLSession (3.2.0):
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.0)
-  - AFNetworking/Security (3.2.0)
-  - AFNetworking/Serialization (3.2.0)
-  - AFNetworking/UIKit (3.2.0):
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
@@ -30,17 +30,17 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - Bugly (2.4.7)
-  - Google-Mobile-Ads-SDK (7.30.0)
+  - Google-Mobile-Ads-SDK (7.36.0)
   - GTSDK (2.2.0.0)
-  - IQKeyboardManager (5.0.8)
+  - IQKeyboardManager (6.2.0)
   - Mangogo (1.0.2)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
   - ReactiveObjC (3.1.0)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
-  - WechatOpenSDK (1.8.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - WechatOpenSDK (1.8.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -56,20 +56,35 @@ DEPENDENCIES:
   - SDWebImage
   - WechatOpenSDK
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - BlocksKit
+    - Bugly
+    - Google-Mobile-Ads-SDK
+    - GTSDK
+    - IQKeyboardManager
+    - Mangogo
+    - Masonry
+    - MJRefresh
+    - ReactiveObjC
+    - SDWebImage
+    - WechatOpenSDK
+
 SPEC CHECKSUMS:
-  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
-  Google-Mobile-Ads-SDK: 7404f68120ae8682afeb5af001fbf4aad731c78e
+  Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
-  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   Mangogo: 57f02a2312544f1f0dc5410de2588cd9a618cebe
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
-  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
 PODFILE CHECKSUM: 904d3c09ef9f26dbb045e07731a364ac77846ac8
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
