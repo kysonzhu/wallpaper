@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:gravity="center"
+     >
+
+    <TextView
+        android:id="@+id/item_shousuo_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="1"
+        android:text=""
+        android:layout_marginLeft="@dimen/margin_space_21"
+        android:layout_marginTop="@dimen/margin_space_15"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/text_size_13" />
+
+    <ImageView
+        android:id="@+id/searchHistoryListView_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/margin_space_15"
+         android:layout_marginRight="@dimen/margin_space_21"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/icon_add" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_0.5"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/margin_space_42"
+        android:layout_marginLeft="@dimen/margin_space_15"
+        android:layout_marginRight="@dimen/margin_space_15"
+        android:layout_below="@+id/imageView1"
+        android:background="@color/fff" />
+
+</RelativeLayout>

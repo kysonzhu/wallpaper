@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     >
+
+    <com.leftbrain.wallwrapper.widget.AutoLoadImageView
+        android:id="@+id/hottest_grid_autoloadimageview"
+         android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/hottest_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_35"
+        android:layout_below="@id/hottest_grid_autoloadimageview"
+        android:background="@color/white_1"
+        android:text=""
+        android:layout_marginLeft="@dimen/margin_space_1"
+        android:layout_marginRight="@dimen/margin_space_1"
+        android:layout_alignLeft="@id/hottest_grid_autoloadimageview"
+        android:layout_alignRight="@id/hottest_grid_autoloadimageview"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/text_size_12" />
+
+    <ImageView
+        android:layout_alignLeft="@id/hottest_grid_autoloadimageview"
+        android:layout_alignRight="@id/hottest_grid_autoloadimageview"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/margin_space_16"
+        android:layout_alignBottom="@+id/hottest_grid_autoloadimageview"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/mod_mask" />
+
+    <TextView
+        android:id="@+id/hottest_down_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hottest_grid_autoloadimageview"
+        android:layout_alignLeft="@+id/hottest_grid_autoloadimageview"
+        android:text=""
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/margin_space_10"
+        android:layout_marginTop="@dimen/margin_space_4.5"
+        android:textSize="@dimen/text_size_10" />
+
+</RelativeLayout>

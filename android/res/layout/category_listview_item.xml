@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white_1" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout_categorylistviewadapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.leftbrain.wallwrapper.widget.RoundAngleImageView
+            android:id="@+id/category_listview_autoloadimageview"
+            android:layout_width="@dimen/margin_space_80"
+            android:layout_height="@dimen/margin_space_57"
+            android:layout_marginLeft="@dimen/margin_space_15"
+            android:layout_marginTop="@dimen/margin_space_15"
+            android:scaleType="fitXY"
+             />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_space_20"
+            android:layout_marginTop="@dimen/margin_space_10"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/category_listview_cateName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_space_10"
+                android:text=""
+                android:textColor="@color/color_gray_3"
+                android:textSize="@dimen/text_size_177" />
+
+            <TextView
+                android:id="@+id/category_listview_keyword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_size_tt_7"
+                android:text=""
+                android:textColor="@color/text_color_9"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_space_35"
+            android:layout_marginTop="@dimen/margin_space_35"
+            android:src="@drawable/mod_icon" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_space_1"
+        android:layout_below="@id/linearlayout_categorylistviewadapter"
+        android:layout_marginLeft="@dimen/margin_space_115"
+        android:layout_marginTop="@dimen/margin_space_10"
+        android:background="@color/radiobutton_bg" />
+
+</RelativeLayout>

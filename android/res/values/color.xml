@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="abc">#008bea</color>
+    <color name="holo_green_dark">#ff669900</color>
+    <color name="fff33">#33ffffff</color>
+    <color name="fff55">#55ffffff</color>
+    <color name="radiobutton_bg">#cbcbcb</color>
+    <color name="blue">#33b2e5</color>
+    <color name="fff">#20000000</color>
+    <color name="black">#000000</color>
+    <color name="text_color_9">#999999</color>
+    <color name="text_color_33">#30333333</color>
+    <color name="white">#ffffff</color>
+    <color name="white_1">#f1f1f1</color>
+    <color name="white2">#f8f8f8</color>
+    <color name="white3">#f2f2f2</color>
+    <color name="text_color_orange">#fb7016</color>
+    <color name="text_color_orange2">#c8c8c8</color>
+    <color name="orange_color">#fe802f</color>
+    <color name="item_gray">#f7f7f7</color>
+    <color name="text_gray">#666666</color>
+    <color name="transparent_background">#50000000</color>
+    <color name="clear">#00000000</color>
+    <color name="clear2">#e0000000</color>
+    <!-- 2.白色 color_white_ -->
+    <color name="color_white">#ffffff</color>
+    <!-- 3.蓝色 color_blue_ -->
+    <color name="color_blue_1">#3f67bf</color>
+    <color name="color_blue_2">#485e74</color>
+    <color name="color_blue_5">#1c95ea</color>
+    <color name="color_blue_7">#2bb7ff</color>
+    <color name="color_blue_9">#0f9be3</color>
+    <!-- 1.灰色 color_gray_ -->
+    <color name="color_gray_1">#525252</color>
+    <color name="color_gray_2">#ffffff</color>
+    <color name="color_gray_3">#333333</color>
+    <color name="color_gray_4">#424242</color>
+    <color name="color_gray_5">#666666</color>
+    <color name="color_gray_6">#a9a9a9</color>
+    <color name="color_gray_7">#999999</color>
+    <color name="color_gray_8">#c4c4c4</color>
+    <color name="color_gray_9">#e3e3e3</color>
+    <color name="color_gray_10">#a9a9a9</color>
+    <color name="color_gray_11">#eeeded</color>
+    <color name="color_gray_13">#f3f3f3</color>
+    <color name="color_gray_13_00">#f0eeeded</color>
+    <color name="color_gray_15">#b4b4b4</color>
+    
+    <!-- 图片背景色 -->
+    <color name="randomcolor_0">#b4cdd1</color>
+    <color name="randomcolor_1">#e8cbd1</color>
+    <color name="randomcolor_2">#b7a9c0</color>
+    <color name="randomcolor_3">#e7e5d2</color>
+    <color name="randomcolor_4">#dccddb</color>
+    <color name="randomcolor_5">#e5bec7</color>
+    <color name="randomcolor_6">#ecbbab</color>
+    <color name="randomcolor_7">#f2dfdd</color>
+
+</resources>
