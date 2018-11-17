@@ -14,7 +14,7 @@
 //#define HOST @"http://sj.zol.com.cn:8088"
 #define HOST @"http://sj.zol.com.cn"
 
-#define HOST_KYSON @"http://kyson.cn/wallpaper/index.php"
+#define HOST_KYSON @"https://kyson.cn/wallpaper/index.php"
 
 #define SERVICE_METHOD_MAP(__SERVICENAME_,METHODNAME) \
 if ([self.serviceName isEqualToString:__SERVICENAME_]) {\
@@ -30,36 +30,63 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     [super main];
 }
 
--(MGNetwokResponse *)getRecommendList{
-    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
+
+-(MGNetwokResponse *)getWallpaperList
+{
+    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"start"] = self.requestParams[@"start"];
     params[@"end"] = @"30";
-    //filter image size
-    CGRect rect = [UIScreen mainScreen].bounds;
-    NSInteger width = (int) (rect.size.width * 2);
-    NSInteger height = (int) (rect.size.height * 2);
-    params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    
-    MGNetwokResponse *response = nil;
-    
-    if (0 == response.errorCode)
+    MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"v2_0_wallpaperList" params:params];
+    NSArray *resultArry = response.rawResponseDictionary[@"content"];
+    NSMutableArray *array2 = [[NSMutableArray alloc] init];
+    for (NSDictionary *dictItem in resultArry)
     {
-        response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
-        [MGJsonHandler convertToErrorResponse:&response];
-
-        if (![EnvironmentConfigure shareInstance].showAllData)
-        {
-            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
-            response.rawResponseArray = babyList;
-            return response;
-        }
-    }else{
-        NSLog(@"error message:%@",response.errorMessage);
+        NSMutableDictionary *resultDictionary2 = [[NSMutableDictionary alloc] init];
+        resultDictionary2[@"coverImgUrl"] = dictItem[@"coverImageUrl"];
+        resultDictionary2[@"gName"] = [NSString stringWithFormat:@"%@",dictItem[@"desc"]];
+        resultDictionary2[@"id"] = dictItem[@"id"];
+        resultDictionary2[@"wallPaperSource"] = kWallPaperSourceKyson;
+        resultDictionary2[@"voteGood"] = @"111";
+        resultDictionary2[@"editDate"] = @"2018-02-06 13:53:33";
+        [array2 addObject:resultDictionary2];
     }
-
+    response.rawResponseArray = array2;
+    
     return response;
 }
+
+
+//-(MGNetwokResponse *)getRecommendList{
+//    MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
+//    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+//    params[@"start"] = self.requestParams[@"start"];
+//    params[@"end"] = @"30";
+//    //filter image size
+//    CGRect rect = [UIScreen mainScreen].bounds;
+//    NSInteger width = (int) (rect.size.width * 2);
+//    NSInteger height = (int) (rect.size.height * 2);
+//    params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
+//
+//    MGNetwokResponse *response = nil;
+//
+//    if (0 == response.errorCode)
+//    {
+//        response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
+//        [MGJsonHandler convertToErrorResponse:&response];
+//
+//        if (![EnvironmentConfigure shareInstance].showAllData)
+//        {
+//            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+//            response.rawResponseArray = babyList;
+//            return response;
+//        }
+//    }else{
+//        NSLog(@"error message:%@",response.errorMessage);
+//    }
+//
+//    return response;
+//}
 
 
 -(MGNetwokResponse *)getRecommendDetail
@@ -330,7 +357,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 -(void)setServiceName:(NSString *)serviceName
 {
     super.serviceName = serviceName;
-    SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDLIST,getRecommendList)
+    SERVICE_METHOD_MAP(SERVICENAME_WALLPAPERLIST,getWallpaperList)
     SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDDETAIL,getRecommendDetail)
     SERVICE_METHOD_MAP(SERVICENAME_LATESTLIST,getLatestList)
     SERVICE_METHOD_MAP(SERVICENAME_CATEGORYLIST,getCategoryList)

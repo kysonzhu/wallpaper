@@ -688,7 +688,7 @@
             [self.titleView setButtonHighlighedAtIndex:1];
             //request
             if (isFirstTimeFetchDataRecommended) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":@"0"}];
+                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_WALLPAPERLIST params:@{@"start":@"0"}];
                 [self doNetworkService:serviceMediator];
                 [KVNProgress show];
             }
@@ -796,7 +796,7 @@
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     [KVNProgress dismiss];
     if (response.errorCode == 0) {
-        if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
+        if ([serviceName isEqualToString:SERVICENAME_WALLPAPERLIST]) {
             NSArray *responseArray = response.rawResponseArray;
             Group *group = [[Group alloc] init];
             responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
@@ -873,7 +873,7 @@
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
         
-        if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
+        if ([serviceName isEqualToString:SERVICENAME_WALLPAPERLIST]) {
             [self.mRecommndCollectionView .mj_footer endRefreshing];
             [self.mRecommndCollectionView .mj_header endRefreshing];
             startRecommended -= 30;
@@ -911,7 +911,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startRecommended = weakSelf.startRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_WALLPAPERLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];
         }];
@@ -921,7 +921,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
+            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_WALLPAPERLIST params:@{@"start":startString}];
             [weakSelf doNetworkService:serviceMediator];
             [KVNProgress show];
         }];
