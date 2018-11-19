@@ -29,6 +29,7 @@
 		96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */; };
 		96A70D0F2026A95B00790B1D /* HomeNavigationTitileViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */; };
 		96A70D1520276BAE00790B1D /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D1420276BAE00790B1D /* KSModel.m */; };
+		96C5DE5321A12D8900B91CDC /* libobjc.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C5DE5221A12D8800B91CDC /* libobjc.A.tbd */; };
 		96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F95206C02EE00A37B9D /* WPLessonViewController.m */; };
 		96D10F98206C02EE00A37B9D /* WPLessonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */; };
 		96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D10F9A206C069D00A37B9D /* WPLessonTableViewCell.m */; };
@@ -190,6 +191,7 @@
 		96A70D0E2026A95B00790B1D /* HomeNavigationTitileViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationTitileViewButton.h; sourceTree = "<group>"; };
 		96A70D1320276BAE00790B1D /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		96A70D1420276BAE00790B1D /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
+		96C5DE5221A12D8800B91CDC /* libobjc.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.A.tbd; path = usr/lib/libobjc.A.tbd; sourceTree = SDKROOT; };
 		96D10F94206C02EE00A37B9D /* WPLessonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPLessonViewController.h; sourceTree = "<group>"; };
 		96D10F95206C02EE00A37B9D /* WPLessonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPLessonViewController.m; sourceTree = "<group>"; };
 		96D10F96206C02EE00A37B9D /* WPLessonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPLessonViewController.xib; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C5DE5321A12D8900B91CDC /* libobjc.A.tbd in Frameworks */,
 				96D10FAC206F316F00A37B9D /* AssetsLibrary.framework in Frameworks */,
 				962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */,
 				DE204A5F1A6CABC700FB0DA5 /* CoreText.framework in Frameworks */,
@@ -826,6 +829,7 @@
 		DECCCD1A1A36FAA1000C73BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96C5DE5221A12D8800B91CDC /* libobjc.A.tbd */,
 				96D10FAB206F316F00A37B9D /* AssetsLibrary.framework */,
 				962D7735205ACBF800A6C956 /* StoreKit.framework */,
 				DE204A5E1A6CABC700FB0DA5 /* CoreText.framework */,

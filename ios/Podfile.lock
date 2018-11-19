@@ -30,9 +30,9 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - Bugly (2.4.7)
-  - Google-Mobile-Ads-SDK (7.34.0)
+  - Google-Mobile-Ads-SDK (7.36.0)
   - GTSDK (2.2.0.0)
-  - IQKeyboardManager (6.1.1)
+  - IQKeyboardManager (6.2.0)
   - Mangogo (1.0.2)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
@@ -40,7 +40,7 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
-  - WechatOpenSDK (1.8.2)
+  - WechatOpenSDK (1.8.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -75,15 +75,15 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
-  Google-Mobile-Ads-SDK: a1cbce28c0c78ca1fb0b6c4f213485f55527c99f
+  Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
   GTSDK: 9be6d3c6e7608cb78bb35deba7dbabcde651b0c3
-  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   Mangogo: 57f02a2312544f1f0dc5410de2588cd9a618cebe
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
-  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
 PODFILE CHECKSUM: 904d3c09ef9f26dbb045e07731a364ac77846ac8
 

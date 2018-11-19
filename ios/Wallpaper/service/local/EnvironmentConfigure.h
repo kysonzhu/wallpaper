@@ -21,16 +21,10 @@
     
 }
 
-@property (nonatomic, assign) BOOL showAllData;
-
 @property (nonatomic, assign) NSInteger startAppTime;
 
 
 +(EnvironmentConfigure *)shareInstance;
-
-
-
--(BOOL) shouldFilter:(NSString *) gName;
 
 
 @end
