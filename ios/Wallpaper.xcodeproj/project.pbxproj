@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5311497D22A166B400FC71DF /* PicToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5311497C22A166B400FC71DF /* PicToolBar.swift */; };
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
 		962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962D7735205ACBF800A6C956 /* StoreKit.framework */; };
@@ -178,6 +179,8 @@
 
 /* Begin PBXFileReference section */
 		51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
+		5311497922A1644100FC71DF /* Wallpaper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wallpaper-Bridging-Header.h"; sourceTree = "<group>"; };
+		5311497C22A166B400FC71DF /* PicToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicToolBar.swift; sourceTree = "<group>"; };
 		962D773220596CCB00A6C956 /* WPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPNavigationController.h; sourceTree = "<group>"; };
 		962D773320596CCB00A6C956 /* WPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPNavigationController.m; sourceTree = "<group>"; };
 		962D7735205ACBF800A6C956 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -496,6 +499,7 @@
 				DEACA8231A481BD100CFF53D /* KSCollectionView.m */,
 				DEBDBCAB1A5243110092521E /* CategoryTableView.h */,
 				DEBDBCAC1A5243110092521E /* CategoryTableView.m */,
+				5311497C22A166B400FC71DF /* PicToolBar.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -869,6 +873,7 @@
 				DECCCD241A36FAA1000C73BA /* InfoPlist.strings */,
 				DECCCD271A36FAA1000C73BA /* main.m */,
 				DECCCD291A36FAA1000C73BA /* Wallpaper-Prefix.pch */,
+				5311497922A1644100FC71DF /* Wallpaper-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1042,6 +1047,7 @@
 					};
 					DECCCD171A36FAA1000C73BA = {
 						DevelopmentTeam = T7Z76WDTD6;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1059,6 +1065,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -1174,7 +1181,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
@@ -1185,7 +1192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DECA35212091C79F00B4E0E5 /* ShellScript */ = {
@@ -1244,6 +1251,7 @@
 				DEBDBD8A1A59146F0092521E /* SearchHistoryLayout.m in Sources */,
 				DE4392ED1A872DF70009181D /* MakingGreetingCardViewController.m in Sources */,
 				DEBDBCAA1A50FF250092521E /* Image.m in Sources */,
+				5311497D22A166B400FC71DF /* PicToolBar.swift in Sources */,
 				DEBDBCCB1A538B250092521E /* CateListViewController.m in Sources */,
 				DEBDBD8D1A593F530092521E /* UIImage+Compress.m in Sources */,
 				96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */,
@@ -1363,7 +1371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
@@ -1408,7 +1416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1421,6 +1429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jinhui Zhu (8RC8JMR2XA)";
@@ -1432,7 +1441,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wallpaper/Wallpaper-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Wallpaper/Wallpaper-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -1446,6 +1456,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.kyson.wallpaper";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wallpaper/Wallpaper-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1459,6 +1472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jinhui Zhu (T7Z76WDTD6)";
@@ -1470,7 +1484,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wallpaper/Wallpaper-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Wallpaper/Wallpaper-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -1484,6 +1499,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "16722ddb-2dd7-4d5b-95e5-b907ca35791a";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.kyson.wallpaper";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wallpaper/Wallpaper-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
