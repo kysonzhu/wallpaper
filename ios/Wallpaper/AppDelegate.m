@@ -39,7 +39,7 @@
 #ifndef DEBUG
     [Bugly startWithAppId:@"fc2ba95d28"];
 #endif
-    [GADMobileAds configureWithApplicationID:@"ca-app-pub-7896672979027584~2412534838"];
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:^(GADInitializationStatus *status) {} ];
     [MGTaskPool registerNetworkMediatorWithName:@"WrapperServiceMediator"];
 #ifdef DEBUG
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kHasBuySuccess];
