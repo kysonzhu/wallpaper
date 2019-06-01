@@ -19,22 +19,12 @@
 #import "UserCenter.h"
 #import "EnvironmentConfigure.h"
 #import <UIAlertView+BlocksKit.h>
+#import "PicToolBar.h"
 
 #import "WPShareManager.h"
 @import GoogleMobileAds;
 
-
-#define TAG_BTN_LOCKSCREEN  2110
-#define TAG_BTN_LAUNCH        2111
-#define TAG_BTN_DOWNLOAD    2112
-#define TAG_BTN_PRAISE      2114
-
-#define TAG_IMGV_HOME        211
-#define TAG_IMGV_LOCKSCREEN  212
-
 @interface WPWrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
-    __weak IBOutlet UIView *mToolBar;
-    
     
     __weak IBOutlet UIButton *lockButton;
     __weak IBOutlet UIButton *homeButton;
@@ -55,13 +45,15 @@
 @property(nonatomic, weak) IBOutlet UIButton *backButton;
 @property(nonatomic, weak) IBOutlet ViewPager *mViewPager;
 @property(nonatomic, assign) BOOL isWidgetRevealed;
+@property(nonatomic, strong) PicToolBar *picToolBar;
+@property(nonatomic, strong) UIView *toolBarBackground;
 @end
 
 @implementation WPWrapperDetailViewController
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view sendSubviewToBack:self.mViewPager];
     
@@ -78,10 +70,9 @@
                 [self.interstitial presentFromRootViewController:self];
         });
     }
-
     self.mViewPager.mDelegate = self;
     //add event
-
+    
     lockButton.tag = TAG_BTN_LOCKSCREEN;
     homeButton.tag = TAG_BTN_LAUNCH;
     downloadButton.tag = TAG_BTN_DOWNLOAD;
@@ -102,17 +93,7 @@
         @strongify(self);
         [self.navigationController popViewControllerAnimated:YES];
     }];
-    
-    [[self.shareButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        @strongify(self);
-        [KVNProgress show];
-        NSInteger page = self.mViewPager.currentPage;
-        NSString *imageUrl = self.mViewPager.imageUrls[page];
-        [WPShareManager shareWithURL:imageUrl type:WPShareTypePicture finished:^(BOOL success) {
-            [KVNProgress dismiss];
-        }];
-    }];
-    
+    [self setupToolBar];
     [KVNProgress show];
     NSDictionary *params = @{@"gId":self.group.gId,@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
     WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:params];
@@ -146,13 +127,59 @@
     [super viewWillDisappear:animated];
 }
 
+-(void)setupToolBar{
+    
+    self.picToolBar = [[PicToolBar alloc] init];
+    [self.view addSubview: self.picToolBar];
+    
+    for (UIButton *subview in self.picToolBar.arrangedSubviews) {
+        if (subview.tag == TAG_BTN_SHARE) {
+            subview.hidden = ![WXApi isWXAppInstalled];
+            continue;
+        }
+        [subview addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    @weakify(self);
+    [[self.picToolBar.shareButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        [KVNProgress show];
+        NSInteger page = self.mViewPager.currentPage;
+        NSString *imageUrl = self.mViewPager.imageUrls[page];
+        [WPShareManager shareWithURL:imageUrl type:WPShareTypePicture finished:^(BOOL success) {
+            [KVNProgress dismiss];
+        }];
+    }];
+    
+    [self.picToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            CGFloat offset = KIsFullScreeniPhone ? 0 : -10;
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(offset);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom).offset(-10);
+        }
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@33);
+    }];
+    
+    self.toolBarBackground = [[UIView alloc] init];
+    self.toolBarBackground.backgroundColor = [UIColor colorWithRed:0.91 green:0.90 blue:0.92 alpha:0.5];
+    [self.view insertSubview:self.toolBarBackground belowSubview: self.picToolBar];
+    [self.toolBarBackground mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.bottom.equalTo(self.view);
+        make.top.equalTo(self.picToolBar.mas_top).offset(-10);
+    }];
+    
+}
 
 -(void)revealWidgets:(BOOL)reveal{
     if (!reveal) {
-        mToolBar.hidden = YES;
+        self.picToolBar.hidden = YES;
+        self.toolBarBackground.hidden = YES;
         self.isWidgetRevealed = NO;
     }else{
-        mToolBar.hidden = NO;
+        self.picToolBar.hidden = NO;
+        self.toolBarBackground.hidden = NO;
         self.isWidgetRevealed = YES;
     }
 }
@@ -271,7 +298,6 @@
             }else{
                 [KVNProgress showErrorWithStatus:@"没有图片可以点赞"];
             }
-            
             
         }
             break;

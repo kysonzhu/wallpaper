@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		5311497D22A166B400FC71DF /* PicToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5311497C22A166B400FC71DF /* PicToolBar.swift */; };
+		5311498122A173FD00FC71DF /* PicToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5311498022A173FD00FC71DF /* PicToolBar.m */; };
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
 		962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962D7735205ACBF800A6C956 /* StoreKit.framework */; };
@@ -180,7 +180,8 @@
 /* Begin PBXFileReference section */
 		51294B5392CEDDDB7FC63D8B /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
 		5311497922A1644100FC71DF /* Wallpaper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wallpaper-Bridging-Header.h"; sourceTree = "<group>"; };
-		5311497C22A166B400FC71DF /* PicToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicToolBar.swift; sourceTree = "<group>"; };
+		5311497F22A173FD00FC71DF /* PicToolBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicToolBar.h; sourceTree = "<group>"; };
+		5311498022A173FD00FC71DF /* PicToolBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicToolBar.m; sourceTree = "<group>"; };
 		962D773220596CCB00A6C956 /* WPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPNavigationController.h; sourceTree = "<group>"; };
 		962D773320596CCB00A6C956 /* WPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPNavigationController.m; sourceTree = "<group>"; };
 		962D7735205ACBF800A6C956 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -499,7 +500,8 @@
 				DEACA8231A481BD100CFF53D /* KSCollectionView.m */,
 				DEBDBCAB1A5243110092521E /* CategoryTableView.h */,
 				DEBDBCAC1A5243110092521E /* CategoryTableView.m */,
-				5311497C22A166B400FC71DF /* PicToolBar.swift */,
+				5311497F22A173FD00FC71DF /* PicToolBar.h */,
+				5311498022A173FD00FC71DF /* PicToolBar.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1251,7 +1253,6 @@
 				DEBDBD8A1A59146F0092521E /* SearchHistoryLayout.m in Sources */,
 				DE4392ED1A872DF70009181D /* MakingGreetingCardViewController.m in Sources */,
 				DEBDBCAA1A50FF250092521E /* Image.m in Sources */,
-				5311497D22A166B400FC71DF /* PicToolBar.swift in Sources */,
 				DEBDBCCB1A538B250092521E /* CateListViewController.m in Sources */,
 				DEBDBD8D1A593F530092521E /* UIImage+Compress.m in Sources */,
 				96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */,
@@ -1273,6 +1274,7 @@
 				DEBDBCAD1A5243110092521E /* CategoryTableView.m in Sources */,
 				DEBDBDF51A5BB10D0092521E /* UIImage+KVNEmpty.m in Sources */,
 				DEADAF131A4A928900C19A2B /* WPSubCategoryViewController.m in Sources */,
+				5311498122A173FD00FC71DF /* PicToolBar.m in Sources */,
 				DEADAF041A4A632C00C19A2B /* CategoryCell.m in Sources */,
 				DEBDBE0F1A5CCBA10092521E /* GridViewCell2.m in Sources */,
 				DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */,
