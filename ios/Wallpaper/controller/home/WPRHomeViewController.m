@@ -1,5 +1,5 @@
 //
-//  WPHomeViewController.m
+//  WPRHomeViewController.m
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-9.
@@ -348,7 +348,7 @@
  Public License instead of this License.
  */
 
-#import "WPHomeViewController.h"
+#import "WPRHomeViewController.h"
 #import "GridViewCell.h"
 #import "RecommndCollectionView.h"
 #import "LatestCollectionView.h"
@@ -377,6 +377,9 @@
 #import "HomeNavigatiaonTitleView.h"
 #import "EnvironmentConfigure.h"
 #import "WPWebViewController.h"
+#import "WPRHomeViewModel.h"
+
+#import <ReactiveObjC/ReactiveObjC.h>
 @import GoogleMobileAds;
 
 
@@ -387,7 +390,7 @@
 #define TAG_BTN_NAV_RIGHT   8911
 #define TAG_BTN_NAV_TITLE   8912
 
-@interface WPHomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
+@interface WPRHomeViewController ()<ViewPagerDelegate,KSCollectionViewLayoutDelegate,CategoryTableViewDelegate,GADBannerViewDelegate>{
     UIButton *recommendButton;
     UIButton *latestButton;
     UIButton *categoryButton;
@@ -405,23 +408,37 @@
 
 @property (weak, nonatomic) UIView *titleBarView;
 
+@property (nonatomic, strong) WPRHomeViewModel *viewModel;
+
 @property (nonatomic, strong) LatestCollectionView        *mLastestCollectionView;;
 @property (nonatomic, strong) RecommndCollectionView      *mRecommndCollectionView;
-@property (nonatomic, strong) CategoryTableView           *mCategoryTableView;;
+@property (nonatomic, strong) CategoryTableView           *mCategoryTableView;
 
 @property(nonatomic, strong) GADBannerView *bannerView;
 
 @end
 
-@implementation WPHomeViewController
+@implementation WPRHomeViewController
 
 @synthesize startRecommended,startLatest;
 
+@dynamic viewModel;
+
 @synthesize isFirstTimeFetchDataLatest,isFirstTimeFetchDataCategory,isFirstTimeFetchDataRecommended;
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.viewModel = [[WPRHomeViewModel alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [self handleNavigationWithScrollView:mViewPager.scrollView];
     
     isFirstTimeFetchDataCategory = YES;
@@ -530,6 +547,19 @@
         [self.bannerView loadRequest:[GADRequest request]];
         self.bannerView.delegate = self;
     }
+}
+
+-(void)bindViewModel {
+    [super bindViewModel];
+    [self.viewModel.babiesListCommand.executionSignals.switchToLatest subscribeNext:^(NSArray *x) {
+        LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
+        layout2.groupList = x;
+        [self.mLastestCollectionView reloadData];
+        [self.mLastestCollectionView .mj_footer endRefreshing];
+        [self.mLastestCollectionView .mj_header endRefreshing];
+        isFirstTimeFetchDataLatest = NO;
+    }];
+    [self.viewModel.babiesListCommand execute:nil];
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView
@@ -700,9 +730,9 @@
             [self.titleView setButtonHighlighedAtIndex:0];
             //request
             if (isFirstTimeFetchDataLatest) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":@"0"}];
-                self.startLatest = 0;
-                [self doNetworkService:serviceMediator];
+
+//                self.startLatest = 0;
+
                 [KVNProgress show];
             }
         }
@@ -823,34 +853,9 @@
             [self.mRecommndCollectionView .mj_footer endRefreshing];
             [self.mRecommndCollectionView .mj_header endRefreshing];
             isFirstTimeFetchDataRecommended = NO;
-        }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-            NSArray *responseArray = response.rawResponseArray;
-            Group *group = [[Group alloc] init];
-            responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
-            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-            for (Group *item in responseArray)
-            {
-                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
-                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
-                        [tempArray addObject:item];
-                    }
-                }
-            }
-            LatestCollectionViewLayout *layout2 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
-            NSMutableArray *temAry2 = nil;
-            if (startLatest != 0) {
-                temAry2 = [[NSMutableArray alloc]initWithArray:layout2.groupList];
-            }else{
-                temAry2 = [[NSMutableArray alloc]init];
-            }
-            [temAry2 addObjectsFromArray:tempArray];
-            layout2.groupList = temAry2;
-            [self.mLastestCollectionView reloadData];
-            [self.mLastestCollectionView .mj_footer endRefreshing];
-            [self.mLastestCollectionView .mj_header endRefreshing];
-            isFirstTimeFetchDataLatest = NO;
-        }else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
+        }
+        
+        else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
             NSDictionary *resultDict = response.rawResponseDictionary;
             NSArray *classificationlist = resultDict[@"result"][@"classificationlist"];
             Classification *group = [[Classification alloc] init];
@@ -878,11 +883,6 @@
             [self.mRecommndCollectionView .mj_header endRefreshing];
             startRecommended -= 30;
             startRecommended = startRecommended >0 ? startRecommended :0;
-        }else if ([serviceName isEqualToString:SERVICENAME_LATESTLIST]){
-            [self.mLastestCollectionView .mj_footer endRefreshing];
-            [self.mLastestCollectionView .mj_header endRefreshing];
-            startLatest -= 30;
-            startLatest = startLatest >0 ? startLatest :0;
         }
     }
     
@@ -942,9 +942,7 @@
         _mLastestCollectionView .mj_footer =  [MJRefreshFooter footerWithRefreshingBlock:^{
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startLatest = weakSelf.startLatest + 30;
-            NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":startString}];
-            [weakSelf doNetworkService:serviceMediator];
+            [self.viewModel.babiesListCommand execute:nil];
             [KVNProgress show];
         }];
         
@@ -952,9 +950,7 @@
             //remove all cache
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startLatest = 0;
-            NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startLatest];
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_LATESTLIST params:@{@"start":startString}];
-            [weakSelf doNetworkService:serviceMediator];
+            [self.viewModel.babiesListCommand execute:nil];
             [KVNProgress show];
         }];
     }

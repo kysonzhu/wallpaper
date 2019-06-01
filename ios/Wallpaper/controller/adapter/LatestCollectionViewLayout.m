@@ -9,6 +9,7 @@
 #import "LatestCollectionViewLayout.h"
 #import "GridViewCell2.h"
 #import "Group.h"
+#import "WPRBaby.h"
 #import <UIImageView+WebCache.h>
 
 static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
@@ -77,11 +78,15 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     NSInteger section = [indexPath section];
     NSInteger row = [indexPath row];
     Group *group = _groupList[section *2 +row ];
+    
     GridViewCell2   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier2 forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
     imageView.layer.cornerRadius = 2.f;
     imageView.clipsToBounds = YES;
     NSString *imageURLString = group.coverImgUrl;
+    if ([group isKindOfClass:[WPRBaby class]]) {
+        imageURLString = ((WPRBaby *) group).coverImageUrl;
+    }
     NSString *smallURLString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"bmiddle"];
     NSURL *smallURL = [NSURL URLWithString:smallURLString];
     UIImage *tempImage = [UIImage imageNamed:@"AppIcon"];
@@ -99,7 +104,8 @@ static NSString *GridViewCellReuseIdentifier2 = @"GridViewCellReuseIdentifier2";
     range.location = 0;
     [attributePicNumString setAttributes:attriDictionary range:range];
     //group name
-    NSMutableAttributedString *attributeGroupNameString = [[NSMutableAttributedString alloc]initWithString:group.gName];
+    NSString *gName = [NSString stringWithFormat:@"%@",group.gName];
+    NSMutableAttributedString *attributeGroupNameString = [[NSMutableAttributedString alloc]initWithString:gName];
     NSDictionary *attriDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil];
     NSRange range2;
     range2.length = [attributeGroupNameString length];

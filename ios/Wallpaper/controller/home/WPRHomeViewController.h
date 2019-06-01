@@ -1,5 +1,5 @@
 //
-//  WPHomeViewController.h
+//  WPRHomeViewController.h
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-9.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WPBaseViewController.h"
 
-@interface WPHomeViewController : WPBaseViewController
+@interface WPRHomeViewController : WPBaseViewController
 
 @end

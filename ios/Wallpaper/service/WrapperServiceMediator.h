@@ -13,7 +13,7 @@
 
 #define SERVICENAME_RECOMMENDEDLIST     @"corp/bizhiClient/getGroupInfo.php?isAttion=1"
 #define SERVICENAME_RECOMMENDEDDETAIL   @"corp/bizhiClient/getGroupPic.php"
-#define SERVICENAME_LATESTLIST          @"corp/bizhiClient/getGroupInfo.php?isNow=1"
+
 #define SERVICENAME_CATEGORYLIST        @"corp/bizhiClient/getCateInfo.php"
 //category
 #define SERVICENAME_CATEGORYRECOMMENDEDLIST         @"corp/bizhiClient/getGroupInfo.php"

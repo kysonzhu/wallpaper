@@ -11,7 +11,6 @@
 #define TAG_BTN_NAV_LEFT 1090
 #import "WPWebViewController.h"
 #import <StoreKit/StoreKit.h>
-#import <UIAlertView+BlocksKit.h>
 
 @interface AboutUsViewController ()<UITableViewDelegate,UITableViewDataSource,SKProductsRequestDelegate,SKPaymentTransactionObserver>{
     UIButton *leftNavigationBarButton;
@@ -87,8 +86,6 @@
 -(void)tapped:(UITapGestureRecognizer *)gesture{
     static int count = 0;
     if (count == 10) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"表白" message:@"Yanyufei我爱你!" delegate:nil cancelButtonTitle:@"接受" otherButtonTitles:@"接受", nil];
-        [alert show];
         count = 0;
     }
     ++count;
@@ -202,8 +199,8 @@
                         [self requestProductID:self.selectProductID];
                     }else{
                         // NSLog(@"不允许程序内付费");
-                        UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"请先开启应用内付费购买功能。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-                        [alertError show];
+//                        UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"请先开启应用内付费购买功能。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//                        [alertError show];
                     }
                 }
                     break;
@@ -279,11 +276,11 @@
     }
     for (SKProduct *sKProduct in product)
     {
-        [UIAlertView bk_showAlertViewWithTitle:@"提示" message:safeString(sKProduct.localizedDescription) cancelButtonTitle:@"不了" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            if (buttonIndex == 1) {
-                [self buyProduct:sKProduct];
-            }
-        }];
+//        [UIAlertView bk_showAlertViewWithTitle:@"提示" message:safeString(sKProduct.localizedDescription) cancelButtonTitle:@"不了" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+//            if (buttonIndex == 1) {
+//                [self buyProduct:sKProduct];
+//            }
+//        }];
         
         if([sKProduct.productIdentifier isEqualToString:self.selectProductID])
         {

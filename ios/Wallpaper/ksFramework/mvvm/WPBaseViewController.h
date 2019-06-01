@@ -17,6 +17,8 @@
 
 @interface WPBaseViewController : UIViewController
 
+@property (nonatomic, strong) NSObject *viewModel;
+
 /**
  处理覆盖导航栏问题
  
@@ -28,5 +30,6 @@
 
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response;
 
+-(void)bindViewModel ;
 
 @end

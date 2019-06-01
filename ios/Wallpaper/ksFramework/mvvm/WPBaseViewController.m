@@ -25,8 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    // Do any additional setup after loading the view.
     requestTokens = [[NSMutableArray alloc]init];
+    
+    [self bindViewModel];
 }
 
 
@@ -71,6 +74,8 @@
 -(MGTaskPool *)taskPool{
     return [MGTaskPool shareInstance];
 }
+
+-(void)bindViewModel {}
 
 - (void)showNetWorkStateError
 {

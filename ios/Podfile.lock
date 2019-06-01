@@ -14,21 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - BlocksKit (2.2.5):
-    - BlocksKit/All (= 2.2.5)
-  - BlocksKit/All (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.5)
-  - BlocksKit/DynamicDelegate (2.2.5)
-  - BlocksKit/MessageUI (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
   - Bugly (2.4.7)
   - Google-Mobile-Ads-SDK (7.44.0):
     - GoogleAppMeasurement (~> 6.0)
@@ -58,6 +43,7 @@ PODS:
   - IQKeyboardManager (6.3.0)
   - Mangogo (1.0.2)
   - Masonry (1.1.0)
+  - MJExtension (3.0.17)
   - MJRefresh (3.1.15.1)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -72,13 +58,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - BlocksKit
   - Bugly (= 2.4.7)
   - Google-Mobile-Ads-SDK
   - GTSDK (= 2.2.0.0)
   - IQKeyboardManager
   - Mangogo
   - Masonry (= 1.1.0)
+  - MJExtension
   - MJRefresh (= 3.1.15.1)
   - ReactiveObjC (= 3.1.0)
   - SDWebImage
@@ -87,7 +73,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
-    - BlocksKit
     - Bugly
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -96,6 +81,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - Mangogo
     - Masonry
+    - MJExtension
     - MJRefresh
     - nanopb
     - ReactiveObjC
@@ -104,7 +90,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   Google-Mobile-Ads-SDK: 1e72b4f438d997ab0f2ee62b3a7b0cbcc87c47cb
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
@@ -113,12 +98,13 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
   Mangogo: 57f02a2312544f1f0dc5410de2588cd9a618cebe
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDWebImage: c739016e4bdf0a4a1f9a04b5e0385395ad63a282
   WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
 
-PODFILE CHECKSUM: 904d3c09ef9f26dbb045e07731a364ac77846ac8
+PODFILE CHECKSUM: 7d37a10cd3df8b88fbb33434ba02355cb4c288fa
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.5.3

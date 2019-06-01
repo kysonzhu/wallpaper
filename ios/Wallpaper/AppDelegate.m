@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WPHomeViewController.h"
+#import "WPRHomeViewController.h"
 #import "EnvironmentConfigure.h"
 
 #define CHINAL_ID_APP_STORE @"App Store"
@@ -47,7 +47,7 @@
     [self registeShareService];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    WPHomeViewController *homeViewController = [[WPHomeViewController alloc] init];
+    WPRHomeViewController *homeViewController = [[WPRHomeViewController alloc] init];
     WPMenuViewController *menuViewController = [[WPMenuViewController alloc] init];
     WPNavigationController *navigationController = [[WPNavigationController alloc]initWithRootViewController:homeViewController];
 

@@ -18,7 +18,7 @@
 #import "Platform.h"
 #import "UserCenter.h"
 #import "EnvironmentConfigure.h"
-#import <UIAlertView+BlocksKit.h>
+
 #import "PicToolBar.h"
 
 #import "WPShareManager.h"

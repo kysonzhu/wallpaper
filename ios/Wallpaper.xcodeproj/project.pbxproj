@@ -25,6 +25,8 @@
 		8EBAC10CFC220A47DE42A8E3 /* libPods-Wallpaper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */; };
 		962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D773320596CCB00A6C956 /* WPNavigationController.m */; };
 		962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962D7735205ACBF800A6C956 /* StoreKit.framework */; };
+		9675441722A26ED7007857AF /* WPRHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9675441622A26ED7007857AF /* WPRHomeViewModel.m */; };
+		9675441C22A27515007857AF /* WPRBaby.m in Sources */ = {isa = PBXBuildFile; fileRef = 9675441B22A27515007857AF /* WPRBaby.m */; };
 		9689C7E1206BCC4600058E8B /* AppDelegate+NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */; };
 		969B5933206600D400941204 /* WPMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 969B5932206600D400941204 /* WPMenuViewController.xib */; };
 		96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */; };
@@ -40,7 +42,7 @@
 		96E6CBC22049A12500689E89 /* WPAboutUsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC12049A12500689E89 /* WPAboutUsTableViewHeaderView.m */; };
 		96E6CBC42049A13400689E89 /* WPAboutUsTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E6CBC32049A13400689E89 /* WPAboutUsTableViewHeaderView.xib */; };
 		96E6CBC72049B1A000689E89 /* WPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6CBC62049B1A000689E89 /* WPWebViewController.m */; };
-		DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */; };
+		DE0904471A3EC39A006B1FCD /* WPRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0904461A3EC39A006B1FCD /* WPRHomeViewController.m */; };
 		DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */; };
 		DE09045E1A3F223A006B1FCD /* recommended_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */; };
 		DE09046A1A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0904691A3F24F8006B1FCD /* leftbar_Dividing-line@2x.png */; };
@@ -185,6 +187,10 @@
 		962D773220596CCB00A6C956 /* WPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPNavigationController.h; sourceTree = "<group>"; };
 		962D773320596CCB00A6C956 /* WPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPNavigationController.m; sourceTree = "<group>"; };
 		962D7735205ACBF800A6C956 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9675441522A26ED7007857AF /* WPRHomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPRHomeViewModel.h; sourceTree = "<group>"; };
+		9675441622A26ED7007857AF /* WPRHomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPRHomeViewModel.m; sourceTree = "<group>"; };
+		9675441A22A27515007857AF /* WPRBaby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPRBaby.h; sourceTree = "<group>"; };
+		9675441B22A27515007857AF /* WPRBaby.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPRBaby.m; sourceTree = "<group>"; };
 		9689C7DF206BCC4600058E8B /* AppDelegate+NetworkMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+NetworkMonitor.h"; sourceTree = "<group>"; };
 		9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+NetworkMonitor.m"; sourceTree = "<group>"; };
 		969B5932206600D400941204 /* WPMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPMenuViewController.xib; sourceTree = "<group>"; };
@@ -211,8 +217,8 @@
 		96E6CBC52049B1A000689E89 /* WPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPWebViewController.h; sourceTree = "<group>"; };
 		96E6CBC62049B1A000689E89 /* WPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPWebViewController.m; sourceTree = "<group>"; };
 		BD944BC03E257BF2E9717259 /* libPods-Wallpaper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wallpaper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHomeViewController.h; sourceTree = "<group>"; };
-		DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHomeViewController.m; sourceTree = "<group>"; };
+		DE0904451A3EC39A006B1FCD /* WPRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPRHomeViewController.h; sourceTree = "<group>"; };
+		DE0904461A3EC39A006B1FCD /* WPRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPRHomeViewController.m; sourceTree = "<group>"; };
 		DE09045A1A3F1E76006B1FCD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		DE09045B1A3F1E76006B1FCD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		DE09045D1A3F223A006B1FCD /* recommended_praise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recommended_praise@2x.png"; sourceTree = "<group>"; };
@@ -441,6 +447,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9675441422A26EB7007857AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9675441522A26ED7007857AF /* WPRHomeViewModel.h */,
+				9675441622A26ED7007857AF /* WPRHomeViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9675441922A274ED007857AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9675441A22A27515007857AF /* WPRBaby.h */,
+				9675441B22A27515007857AF /* WPRBaby.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9689C7DE206BCC2600058E8B /* appdelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,12 +504,13 @@
 		DE0904441A3EC39A006B1FCD /* home */ = {
 			isa = PBXGroup;
 			children = (
+				9675441422A26EB7007857AF /* ViewModel */,
 				96A70D0E2026A95B00790B1D /* HomeNavigationTitileViewButton.h */,
 				96A70D0D2026A95B00790B1D /* HomeNavigationTitileViewButton.m */,
 				96A70D0B2026A8DB00790B1D /* HomeNavigatiaonTitleView.h */,
 				96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */,
-				DE0904451A3EC39A006B1FCD /* WPHomeViewController.h */,
-				DE0904461A3EC39A006B1FCD /* WPHomeViewController.m */,
+				DE0904451A3EC39A006B1FCD /* WPRHomeViewController.h */,
+				DE0904461A3EC39A006B1FCD /* WPRHomeViewController.m */,
 				DE9584F51A3935E9000C6B70 /* WPHomeViewController.xib */,
 				DEE67B0D1A415B7200BFA114 /* WPWrapperDetailViewController.h */,
 				DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */,
@@ -854,6 +879,7 @@
 		DECCCD211A36FAA1000C73BA /* Wallpaper */ = {
 			isa = PBXGroup;
 			children = (
+				9675441922A274ED007857AF /* Model */,
 				96E6CBBC2046F98800689E89 /* Wallpaper.entitlements */,
 				DEBDBC961A4E603A0092521E /* service */,
 				DEBDBC631A4E5FD10092521E /* ksFramework */,
@@ -1183,7 +1209,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
@@ -1194,7 +1220,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallpaper/Pods-Wallpaper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DECA35212091C79F00B4E0E5 /* ShellScript */ = {
@@ -1233,6 +1259,7 @@
 				DEADAF091A4A8B2900C19A2B /* KSCollectionViewLayout.m in Sources */,
 				DEACA8351A493A7200CFF53D /* LatestCollectionViewLayout.m in Sources */,
 				DEBDBCA01A4E9A1F0092521E /* Group.m in Sources */,
+				9675441C22A27515007857AF /* WPRBaby.m in Sources */,
 				DE09045C1A3F1E76006B1FCD /* UIColor+Hex.m in Sources */,
 				DEBDBC3C1A4BD29E0092521E /* UIImage+Utils.m in Sources */,
 				DE95853E1A3ADD1A000C6B70 /* GalleryView.m in Sources */,
@@ -1253,6 +1280,7 @@
 				DEBDBD8A1A59146F0092521E /* SearchHistoryLayout.m in Sources */,
 				DE4392ED1A872DF70009181D /* MakingGreetingCardViewController.m in Sources */,
 				DEBDBCAA1A50FF250092521E /* Image.m in Sources */,
+				9675441722A26ED7007857AF /* WPRHomeViewModel.m in Sources */,
 				DEBDBCCB1A538B250092521E /* CateListViewController.m in Sources */,
 				DEBDBD8D1A593F530092521E /* UIImage+Compress.m in Sources */,
 				96D10F97206C02EE00A37B9D /* WPLessonViewController.m in Sources */,
@@ -1277,7 +1305,7 @@
 				5311498122A173FD00FC71DF /* PicToolBar.m in Sources */,
 				DEADAF041A4A632C00C19A2B /* CategoryCell.m in Sources */,
 				DEBDBE0F1A5CCBA10092521E /* GridViewCell2.m in Sources */,
-				DE0904471A3EC39A006B1FCD /* WPHomeViewController.m in Sources */,
+				DE0904471A3EC39A006B1FCD /* WPRHomeViewController.m in Sources */,
 				DEACA8241A481BD100CFF53D /* KSCollectionView.m in Sources */,
 				DEBDBCBB1A5256CC0092521E /* Bigcategory.m in Sources */,
 				DEACA8211A481B0600CFF53D /* CategoryCollectionView.m in Sources */,

@@ -64,20 +64,20 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 
 -(MGNetwokResponse *)getRecommendDetail
 {
-    NSString *source = self.requestParams[@"source"];
-    if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue)
-    {
-        MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
-        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-        params[@"id"]= self.requestParams[@"id"];
-        MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"babyImageDetail" params:params];
-        if (0 == response.errorCode) {
-            [MGJsonHandler convertToErrorResponse:&response];
-        }else{
-            NSLog(@"error message:%@",response.errorMessage);
-        }
-        return response;
-    }
+//    NSString *source = self.requestParams[@"source"];
+//    if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue)
+//    {
+//        MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
+//        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+//        params[@"id"]= self.requestParams[@"id"];
+//        MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"babyImageDetail" params:params];
+//        if (0 == response.errorCode) {
+//            [MGJsonHandler convertToErrorResponse:&response];
+//        }else{
+//            NSLog(@"error message:%@",response.errorMessage);
+//        }
+//        return response;
+//    }
     
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     //set params
@@ -332,7 +332,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     super.serviceName = serviceName;
     SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDLIST,getRecommendList)
     SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDDETAIL,getRecommendDetail)
-    SERVICE_METHOD_MAP(SERVICENAME_LATESTLIST,getLatestList)
+
     SERVICE_METHOD_MAP(SERVICENAME_CATEGORYLIST,getCategoryList)
     SERVICE_METHOD_MAP(SERVICENAME_CATEGORYRECOMMENDEDLIST,getCategoryRecommendedList)
     SERVICE_METHOD_MAP(SERVICENAME_CATEGORYLATESTLIST,getCategoryLatestList)
