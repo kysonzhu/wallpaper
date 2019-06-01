@@ -10,10 +10,6 @@
 
 @interface KSCollectionView : UICollectionView
 
-
-
-
-
 @property (nonatomic, strong) UIViewController *controller;
 
 -(id)initWithController:(UIViewController *) controller;
