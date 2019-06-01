@@ -174,9 +174,11 @@
 -(void)revealWidgets:(BOOL)reveal{
     if (!reveal) {
         self.picToolBar.hidden = YES;
+        self.toolBarBackground.hidden = YES;
         self.isWidgetRevealed = NO;
     }else{
         self.picToolBar.hidden = NO;
+        self.toolBarBackground.hidden = NO;
         self.isWidgetRevealed = YES;
     }
 }
@@ -309,8 +311,7 @@
     //hide lock screen view
     [self hideLockScreenViewAndLauntchScreenView];
     //hide all widget
-//    [self revealWidgets:!self.isWidgetRevealed];
-    [self revealWidgets:YES];
+    [self revealWidgets:!self.isWidgetRevealed];
 }
 
 -(void)viewPagerDidScroll:(ViewPager *)viewPager{
