@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WPRPaperDetailViewModel : NSObject
 
+
+@property (nonatomic, strong, readonly) RACCommand *babyDetailCommand;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -23,6 +23,7 @@
 
 #import "WPShareManager.h"
 #import "WPRPaperDetailViewModel.h"
+#import "WPRBaby.h"
 
 @import GoogleMobileAds;
 
@@ -55,6 +56,7 @@
 @end
 
 @implementation WPRPaperDetailViewController
+@dynamic viewModel;
 
 - (instancetype)init
 {
@@ -78,7 +80,7 @@
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
         //延迟执行
-        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC); //设置时间2秒
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC); //设置时间2秒
         dispatch_after(time, dispatch_get_main_queue(), ^{
             if (self.interstitial.isReady)
                 [self.interstitial presentFromRootViewController:self];
@@ -109,15 +111,25 @@
     }];
     [self setupToolBar];
     [KVNProgress show];
-    NSDictionary *params = @{@"gId":safeString(self.group.gId),@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
-    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:params];
-    [self doNetworkService:serviceMediator];
+//    NSDictionary *params = @{@"gId":safeString(self.group.gId),@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
+//    WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:params];
+//    [self doNetworkService:serviceMediator];
 }
 
 - (void)bindViewModel {
     [super bindViewModel];
     self.viewModel = [[WPRPaperDetailViewModel alloc] init];
     
+    [self.viewModel.babyDetailCommand.executionSignals.switchToLatest subscribeNext:^(NSArray *x) {
+        NSMutableArray *strs = [NSMutableArray array];
+        for (WPRBaby *item in x) {
+            [strs addObject:safeString(item.babyImgUrl)];
+        }
+        self.mViewPager.imageUrls = strs;
+        
+    }];
+    NSString *babyId = self.group.id;
+    [self.viewModel.babyDetailCommand execute:babyId];
     
 }
 

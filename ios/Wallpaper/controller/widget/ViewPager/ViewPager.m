@@ -101,10 +101,10 @@
     [self initScrollView];
     
     NSInteger imageCount = imageUrls.count;
-    CGRect appFrame = [UIScreen mainScreen].applicationFrame;
-    float screenWidth = appFrame.size.width;
+
+    float screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
     //content size
-    [self.scrollView setContentSize:CGSizeMake(appFrame.size.width * imageCount, HEIGHT_VIEWPAGER)];
+    [self.scrollView setContentSize:CGSizeMake(screenWidth * imageCount, HEIGHT_VIEWPAGER)];
     
     //if data is not a array of string,it will throw exception
     @try {
