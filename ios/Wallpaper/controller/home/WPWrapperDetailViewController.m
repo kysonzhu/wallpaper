@@ -152,7 +152,9 @@
     
     [self.picToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
-            CGFloat offset = KIsFullScreeniPhone ? 0 : -10; make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(offset);
+            CGFloat offset = KIsFullScreeniPhone ? 0 : -10;
+            
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(offset);
         } else {
             make.bottom.equalTo(self.view.mas_bottom).offset(-10);
         }
