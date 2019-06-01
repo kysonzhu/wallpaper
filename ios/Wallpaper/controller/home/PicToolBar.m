@@ -31,19 +31,19 @@
         self.praiseButton.tag = TAG_BTN_PRAISE;
         self.shareButton.tag = TAG_BTN_SHARE;
         
-        [self.praiseButton setBackgroundImage:[UIImage imageNamed:@"tab_icon_collect"] forState:UIControlStateNormal];
-        [self.downloadButton setBackgroundImage:[UIImage imageNamed:@"tab_icon_down"] forState:UIControlStateNormal];
-        [self.homeButton setBackgroundImage:[UIImage imageNamed:@"tab_icon_desktop"] forState:UIControlStateNormal];
-        [self.lockButton setBackgroundImage:[UIImage imageNamed:@"tab_icon_lock"] forState:UIControlStateNormal];
-        [self.shareButton setBackgroundImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
-        
+        [self.praiseButton setBackgroundImage:[[UIImage imageNamed:@"tab_icon_collect"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal] ;
+        [self.downloadButton setBackgroundImage:[[UIImage imageNamed:@"tab_icon_down"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [self.homeButton setBackgroundImage:[[UIImage imageNamed:@"tab_icon_desktop"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [self.lockButton setBackgroundImage:[[UIImage imageNamed:@"tab_icon_lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [self.shareButton setBackgroundImage:[[UIImage imageNamed:@"icon_share"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal] ;
         self = [super initWithArrangedSubviews:@[self.praiseButton, self.downloadButton, self.homeButton, self.lockButton, self.shareButton]];
         
-        for (UIView *view in self.arrangedSubviews) {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        for (UIButton *button in self.arrangedSubviews) {
+            [button mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@ToolBarButtonHeight);
                 make.width.equalTo(@ToolBarButtonWidth);
             }];
+            button.tintColor = UIColor.blackColor;
         }
         
         self.axis = UILayoutConstraintAxisHorizontal;
