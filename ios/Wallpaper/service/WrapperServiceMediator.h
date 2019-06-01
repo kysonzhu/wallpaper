@@ -11,7 +11,6 @@
 
 #define HOST_PICSHOW @"http://app.zol.com.cn/bizhi"
 
-#define SERVICENAME_RECOMMENDEDLIST     @"corp/bizhiClient/getGroupInfo.php?isAttion=1"
 #define SERVICENAME_RECOMMENDEDDETAIL   @"corp/bizhiClient/getGroupPic.php"
 
 #define SERVICENAME_CATEGORYLIST        @"corp/bizhiClient/getCateInfo.php"

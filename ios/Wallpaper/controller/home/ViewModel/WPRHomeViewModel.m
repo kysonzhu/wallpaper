@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong, readwrite) NSArray<WPRBaby *> *babies;
 @property (nonatomic, strong, readwrite) RACCommand *babiesListCommand;
+@property (nonatomic, strong, readwrite) RACCommand *wallPaperListCommand;
 
 @end
 
@@ -31,8 +32,6 @@
 }
 
 -(void)initilize {
-    
-    
     
 }
 
@@ -75,6 +74,46 @@
         _babiesListCommand.allowsConcurrentExecution = YES;
     }
     return _babiesListCommand;
+}
+
+
+-(RACCommand *)wallPaperListCommand {
+    if (!_wallPaperListCommand) {
+        _wallPaperListCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                
+                //1.创建会话管理者
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                
+                [manager GET:@"https://www.kyson.cn/wallpaper/index.php/v2_0_wallPaperList" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    NSDictionary *responseDict = responseObject;
+                    if([responseDict isKindOfClass:[NSDictionary class]]) {
+                        NSArray *result = responseDict[@"content"];
+                        if ([result isKindOfClass:[NSArray class]]) {
+                            NSArray *babies = [WPRBaby mj_objectArrayWithKeyValuesArray:result];
+                            [subscriber sendNext:babies];
+                        }
+                    }
+                    NSLog(@"%@---%@",[responseObject class],responseObject);
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSLog(@"请求失败--%@",error);
+                    [subscriber sendError:error];
+                }];
+                
+                RACDisposable *dispose = [RACDisposable disposableWithBlock:^{
+                    
+                }];
+                
+                return dispose;
+                
+            }];
+            
+            return signal;
+        }] ;
+        _wallPaperListCommand.allowsConcurrentExecution = YES;
+    }
+    return _wallPaperListCommand;
 }
 
 @end

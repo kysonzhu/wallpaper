@@ -559,6 +559,16 @@
         [self.mLastestCollectionView .mj_header endRefreshing];
         isFirstTimeFetchDataLatest = NO;
     }];
+    
+    [self.viewModel.wallPaperListCommand.executionSignals.switchToLatest subscribeNext:^(NSArray *x) {
+        RecommndCollectionViewLayout *layout2 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
+        layout2.groupList = x;
+        [self.mRecommndCollectionView reloadData];
+        [self.mRecommndCollectionView.mj_footer endRefreshing];
+        [self.mRecommndCollectionView.mj_header endRefreshing];
+        isFirstTimeFetchDataLatest = NO;
+    }];
+    
     [self.viewModel.babiesListCommand execute:nil];
 }
 
@@ -718,8 +728,8 @@
             [self.titleView setButtonHighlighedAtIndex:1];
             //request
             if (isFirstTimeFetchDataRecommended) {
-                WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":@"0"}];
-                [self doNetworkService:serviceMediator];
+                [self.viewModel.wallPaperListCommand execute:nil];
+                
                 [KVNProgress show];
             }
         }
@@ -730,8 +740,6 @@
             [self.titleView setButtonHighlighedAtIndex:0];
             //request
             if (isFirstTimeFetchDataLatest) {
-
-//                self.startLatest = 0;
 
                 [KVNProgress show];
             }
@@ -826,36 +834,7 @@
 -(void)refreshData:(NSString *)serviceName response:(MGNetwokResponse *)response{
     [KVNProgress dismiss];
     if (response.errorCode == 0) {
-        if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-            NSArray *responseArray = response.rawResponseArray;
-            Group *group = [[Group alloc] init];
-            responseArray = [group loadArrayPropertyWithDataSource:responseArray requireModel:@"Group"];
-            NSMutableArray *Aryresponse = [[NSMutableArray alloc] init];
-            for (Group *item in responseArray)
-            {
-                NSURL *coverUrl = [NSURL URLWithString:item.coverImgUrl];
-                if ([coverUrl.scheme isEqualToString:@"http"] || [coverUrl.scheme isEqualToString:@"https"]) {
-                    if (![[EnvironmentConfigure shareInstance] shouldFilter:item.gName]) {
-                        [Aryresponse addObject:item];
-                    }
-                }
-            }
-            RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
-            NSMutableArray *temAry = nil;
-            if (startRecommended != 0) {
-                temAry = [[NSMutableArray alloc]initWithArray:layout1.groupList];
-            }else{
-                temAry = [[NSMutableArray alloc]init];
-            }
-            [temAry addObjectsFromArray:Aryresponse];
-            layout1.groupList = temAry;
-            [self.mRecommndCollectionView reloadData];
-            [self.mRecommndCollectionView .mj_footer endRefreshing];
-            [self.mRecommndCollectionView .mj_header endRefreshing];
-            isFirstTimeFetchDataRecommended = NO;
-        }
-        
-        else if ([serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
+        if ([serviceName isEqualToString:SERVICENAME_CATEGORYLIST]){
             NSDictionary *resultDict = response.rawResponseDictionary;
             NSArray *classificationlist = resultDict[@"result"][@"classificationlist"];
             Classification *group = [[Classification alloc] init];
@@ -877,13 +856,6 @@
         }
     }else{
         [KVNProgress showErrorWithStatus:response.errorMessage];
-        
-        if ([serviceName isEqualToString:SERVICENAME_RECOMMENDEDLIST]) {
-            [self.mRecommndCollectionView .mj_footer endRefreshing];
-            [self.mRecommndCollectionView .mj_header endRefreshing];
-            startRecommended -= 30;
-            startRecommended = startRecommended >0 ? startRecommended :0;
-        }
     }
     
 }
@@ -911,8 +883,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startRecommended = weakSelf.startRecommended + 30;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
-            [weakSelf doNetworkService:serviceMediator];
+            [self.viewModel.wallPaperListCommand execute:nil];
             [KVNProgress show];
         }];
         
@@ -921,8 +892,7 @@
             [[NSURLCache sharedURLCache] removeAllCachedResponses];
             weakSelf.startRecommended = 0;
             NSString *startString = [NSString stringWithFormat:@"%i",weakSelf.startRecommended];
-            WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDLIST params:@{@"start":startString}];
-            [weakSelf doNetworkService:serviceMediator];
+            [self.viewModel.wallPaperListCommand execute:nil];
             [KVNProgress show];
         }];
     }

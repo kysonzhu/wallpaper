@@ -218,7 +218,7 @@
             {
                 case 0:
                 {
-                    webViewController.loadingURL = @"https://www.jianshu.com/u/98c026b409f2";
+                    webViewController.loadingURL = @"https://github.com/1337189261";
                 }
                     break;
                 case 1:
@@ -416,7 +416,7 @@
 
 -(NSArray *)titles{
     if (!_titles) {
-        _titles = @[@"小菲菲",@"闫策",@"姚怀广",@"朱金辉"];
+        _titles = @[@"陈浩宇",@"闫策",@"姚怀广",@"朱金辉"];
     }
     return _titles;
 }

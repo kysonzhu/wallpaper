@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) NSArray<WPRBaby *> *babies;
 @property (nonatomic, strong, readonly) RACCommand *babiesListCommand;
+@property (nonatomic, strong, readonly) RACCommand *wallPaperListCommand;
 
 
 @end

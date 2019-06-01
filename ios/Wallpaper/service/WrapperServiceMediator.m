@@ -45,15 +45,15 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
     
     if (0 == response.errorCode)
     {
-        response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
-        [MGJsonHandler convertToErrorResponse:&response];
-
-        if (![EnvironmentConfigure shareInstance].showAllData)
-        {
-            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
-            response.rawResponseArray = babyList;
-            return response;
-        }
+//        response = [networkAccess doServiceRequestWithName:SERVICENAME_RECOMMENDEDLIST params:params];
+//        [MGJsonHandler convertToErrorResponse:&response];
+//
+//        if (![EnvironmentConfigure shareInstance].showAllData)
+//        {
+//            NSMutableArray *babyList = [NSMutableArray arrayWithArray:response.rawResponseDictionary[@"result"][@"groupList"]];
+//            response.rawResponseArray = babyList;
+//            return response;
+//        }
     }else{
         NSLog(@"error message:%@",response.errorMessage);
     }
@@ -316,7 +316,7 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 -(void)setServiceName:(NSString *)serviceName
 {
     super.serviceName = serviceName;
-    SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDLIST,getRecommendList)
+
     SERVICE_METHOD_MAP(SERVICENAME_RECOMMENDEDDETAIL,getRecommendDetail)
 
     SERVICE_METHOD_MAP(SERVICENAME_CATEGORYLIST,getCategoryList)

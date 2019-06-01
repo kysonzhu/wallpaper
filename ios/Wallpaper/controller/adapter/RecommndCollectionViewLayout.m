@@ -13,6 +13,7 @@
 #import "UserCenter.h"
 #import <CoreText/CoreText.h>
 #import <UIImageView+WebCache.h>
+#import "WPRBaby.h"
 
 static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 
@@ -73,14 +74,14 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
 {
     NSInteger section = [indexPath section];
     NSInteger row = [indexPath row];
-    Group *group = _groupList[section *2 +row ];
+    WPRBaby *baby = _groupList[section *2 +row ];
     
     GridViewCell   *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GridViewCellReuseIdentifier forIndexPath:indexPath];
     AutoLoadImageView *imageView = (AutoLoadImageView *)cell.coverImageView;
     imageView.layer.cornerRadius = 2.f;
     imageView.clipsToBounds = YES;
 
-    NSString *imageURLString = group.coverImgUrl;
+    NSString *imageURLString = baby.coverImageUrl;
     NSString *smallURLString = [imageURLString stringByReplacingOccurrencesOfString:@"large" withString:@"bmiddle"];
     NSURL *smallURL = [NSURL URLWithString:smallURLString];
     UIImage *tempImage = [UIImage imageNamed:@"AppIcon"];
@@ -89,8 +90,8 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     }];
     
     //group number
-    NSString *picNumString = [NSString stringWithFormat:@"(%i张)",[group.picNum intValue]];
-    NSMutableAttributedString *attributePicNumString = [[NSMutableAttributedString alloc]initWithString:picNumString];
+//    NSString *picNumString = [NSString stringWithFormat:@"(%i张)",[group.picNum intValue]];
+    NSMutableAttributedString *attributePicNumString = [[NSMutableAttributedString alloc]initWithString:@""];
     NSDictionary *attriDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHex:0xc8c8c8],NSForegroundColorAttributeName,[UIFont systemFontOfSize:10],NSFontAttributeName, nil];
     NSRange range;
     range.length = [attributePicNumString length];
