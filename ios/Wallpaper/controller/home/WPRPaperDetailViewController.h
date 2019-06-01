@@ -1,5 +1,5 @@
 //
-//  WPWrapperDetailViewController.h
+//  WPRPaperDetailViewController.h
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-17.
@@ -16,7 +16,7 @@ typedef enum _FromController{
     FromControllerHotest
 }FromController;
 
-@interface WPWrapperDetailViewController : WPBaseViewController
+@interface WPRPaperDetailViewController : WPBaseViewController
 
 @property (nonatomic, retain) Group *group;
 

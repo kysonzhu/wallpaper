@@ -1,12 +1,12 @@
 //
-//  WPWrapperDetailViewController.m
+//  WPRPaperDetailViewController.m
 //  WallWrapper ( https://github.com/kysonzhu/wallpaper.git )
 //
 //  Created by zhujinhui on 14-12-17.
 //  Copyright (c) 2014年 zhujinhui( http://kyson.cn ). All rights reserved.
 //
 
-#import "WPWrapperDetailViewController.h"
+#import "WPRPaperDetailViewController.h"
 #import "ViewPager.h"
 #import "WrapperServiceMediator.h"
 #import "Image.h"
@@ -22,9 +22,11 @@
 #import "PicToolBar.h"
 
 #import "WPShareManager.h"
+#import "WPRPaperDetailViewModel.h"
+
 @import GoogleMobileAds;
 
-@interface WPWrapperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
+@interface WPRPaperDetailViewController ()<ViewPagerDelegate,FileDownloadDelegate>{
     
     __weak IBOutlet UIButton *lockButton;
     __weak IBOutlet UIButton *homeButton;
@@ -47,9 +49,21 @@
 @property(nonatomic, assign) BOOL isWidgetRevealed;
 @property(nonatomic, strong) PicToolBar *picToolBar;
 @property(nonatomic, strong) UIView *toolBarBackground;
+
+@property (nonatomic, strong) WPRPaperDetailViewModel *viewModel;
+
 @end
 
-@implementation WPWrapperDetailViewController
+@implementation WPRPaperDetailViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -95,10 +109,18 @@
     }];
     [self setupToolBar];
     [KVNProgress show];
-    NSDictionary *params = @{@"gId":self.group.gId,@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
+    NSDictionary *params = @{@"gId":safeString(self.group.gId),@"source":safeString(self.group.wallPaperSource),@"id":safeString(self.group.id)};
     WrapperServiceMediator *serviceMediator = [[WrapperServiceMediator alloc]initWithName:SERVICENAME_RECOMMENDEDDETAIL params:params];
     [self doNetworkService:serviceMediator];
 }
+
+- (void)bindViewModel {
+    [super bindViewModel];
+    self.viewModel = [[WPRPaperDetailViewModel alloc] init];
+    
+    
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

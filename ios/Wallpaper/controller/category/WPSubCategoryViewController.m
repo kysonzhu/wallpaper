@@ -15,7 +15,7 @@
 #import "LatestCollectionViewLayout.h"
 #import "RecommndCollectionViewLayout.h"
 #import "HotestCollectionViewLayout.h"
-#import "WPWrapperDetailViewController.h"
+#import "WPRPaperDetailViewController.h"
 #import "WrapperServiceMediator.h"
 #import "CateListViewController.h"
 #import "UIScrollView+MJRefresh.h"
@@ -461,7 +461,7 @@ typedef enum _CurrentCategoryType{
         RecommndCollectionViewLayout *layout1 = (RecommndCollectionViewLayout *)self.mRecommndCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *2 +row ];
-        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+        WPRPaperDetailViewController *detailViewController = [[WPRPaperDetailViewController alloc]init];
         detailViewController.fromcontroller = FromControllerRecommended;
         detailViewController.group = group;
         [self.navigationController pushViewController:detailViewController animated:YES];
@@ -471,7 +471,7 @@ typedef enum _CurrentCategoryType{
         LatestCollectionViewLayout *layout1 = (LatestCollectionViewLayout *)self.mLastestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *2 +row ];
-        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+        WPRPaperDetailViewController *detailViewController = [[WPRPaperDetailViewController alloc]init];
         detailViewController.fromcontroller = FromControllerLatest;
         detailViewController.group = group;
         [self.navigationController pushViewController:detailViewController animated:YES];
@@ -481,7 +481,7 @@ typedef enum _CurrentCategoryType{
         HotestCollectionViewLayout *layout1 = (HotestCollectionViewLayout *)self.mHotestCollectionView.collectionViewLayout;
         NSArray *groupList = layout1.groupList;
         Group *group = groupList[section *2 +row];
-        WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+        WPRPaperDetailViewController *detailViewController = [[WPRPaperDetailViewController alloc]init];
         detailViewController.fromcontroller = FromControllerHotest;
         detailViewController.group = group;
         [self.navigationController pushViewController:detailViewController animated:YES];

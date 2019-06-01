@@ -357,7 +357,7 @@
 #import "LatestCollectionViewLayout.h"
 #import "SearchViewController.h"
 
-#import "WPWrapperDetailViewController.h"
+#import "WPRPaperDetailViewController.h"
 #import "WPSubCategoryViewController.h"
 
 #import "GalleryView.h"
@@ -792,7 +792,7 @@
             [self showDetailViewController:nav sender:nil];
         }else
         {
-            WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+            WPRPaperDetailViewController *detailViewController = [[WPRPaperDetailViewController alloc]init];
             detailViewController.fromcontroller = FromControllerRecommended;
             detailViewController.group = group;
             [self.navigationController pushViewController:detailViewController animated:YES];
@@ -814,7 +814,7 @@
             [self showDetailViewController:nav sender:nil];
         }else
         {
-            WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+            WPRPaperDetailViewController *detailViewController = [[WPRPaperDetailViewController alloc]init];
             detailViewController.fromcontroller = FromControllerRecommended;
             detailViewController.group = group;
             [self.navigationController pushViewController:detailViewController animated:YES];

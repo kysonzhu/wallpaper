@@ -10,7 +10,7 @@
 #import "SearchHistoryLayout.h"
 #import "WrapperServiceMediator.h"
 #import "UIScrollView+MJRefresh.h"
-#import "WPWrapperDetailViewController.h"
+#import "WPRPaperDetailViewController.h"
 #import "Group.h"
 
 #define TAG_BTN_NAV_LEFT    8910
@@ -131,7 +131,7 @@ static NSString *GridViewCellReuseIdentifier = @"GridViewCellReuseIdentifier";
     SearchHistoryLayout *layout1 = (SearchHistoryLayout *)mCollectionView.collectionViewLayout;
     NSArray *groupList = layout1.groupList;
     Group *group = groupList[section *2 +row ];
-    WPWrapperDetailViewController *detailViewController = [[WPWrapperDetailViewController alloc]init];
+    WPRPaperDetailViewController *detailViewController = [[WPRPaperDetailViewController alloc]init];
     detailViewController.fromcontroller = FromControllerRecommended;
     detailViewController.group = group;
     [self.navigationController pushViewController:detailViewController animated:YES];

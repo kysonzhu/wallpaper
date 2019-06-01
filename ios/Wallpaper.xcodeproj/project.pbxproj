@@ -27,6 +27,7 @@
 		962D7736205ACBF900A6C956 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962D7735205ACBF800A6C956 /* StoreKit.framework */; };
 		9675441722A26ED7007857AF /* WPRHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9675441622A26ED7007857AF /* WPRHomeViewModel.m */; };
 		9675441C22A27515007857AF /* WPRBaby.m in Sources */ = {isa = PBXBuildFile; fileRef = 9675441B22A27515007857AF /* WPRBaby.m */; };
+		9675441F22A288BE007857AF /* WPRPaperDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9675441E22A288BE007857AF /* WPRPaperDetailViewModel.m */; };
 		9689C7E1206BCC4600058E8B /* AppDelegate+NetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */; };
 		969B5933206600D400941204 /* WPMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 969B5932206600D400941204 /* WPMenuViewController.xib */; };
 		96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A70D0A2026A8DA00790B1D /* HomeNavigatiaonTitleView.m */; };
@@ -173,8 +174,8 @@
 		DECCCD2C1A36FAA1000C73BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCD2B1A36FAA1000C73BA /* AppDelegate.m */; };
 		DECCCD341A36FAA1000C73BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DECCCD331A36FAA1000C73BA /* Images.xcassets */; };
 		DECCCD941A381BBF000C73BA /* WPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCCD931A381BBF000C73BA /* WPMenuViewController.m */; };
-		DEE67B0F1A415B7200BFA114 /* WPWrapperDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */; };
-		DEE67B111A415C5300BFA114 /* WPWrapperDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE67B101A415C5300BFA114 /* WPWrapperDetailViewController.xib */; };
+		DEE67B0F1A415B7200BFA114 /* WPRPaperDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE67B0E1A415B7200BFA114 /* WPRPaperDetailViewController.m */; };
+		DEE67B111A415C5300BFA114 /* WPRPaperDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE67B101A415C5300BFA114 /* WPRPaperDetailViewController.xib */; };
 		DEE67B3F1A43BE5B00BFA114 /* ViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE67B3E1A43BE5B00BFA114 /* ViewPager.m */; };
 		DEF963ED1A6CE8A6009A7D4E /* EnvironmentConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF963EC1A6CE8A6009A7D4E /* EnvironmentConfigure.m */; };
 /* End PBXBuildFile section */
@@ -191,6 +192,8 @@
 		9675441622A26ED7007857AF /* WPRHomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPRHomeViewModel.m; sourceTree = "<group>"; };
 		9675441A22A27515007857AF /* WPRBaby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPRBaby.h; sourceTree = "<group>"; };
 		9675441B22A27515007857AF /* WPRBaby.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPRBaby.m; sourceTree = "<group>"; };
+		9675441D22A288BE007857AF /* WPRPaperDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPRPaperDetailViewModel.h; sourceTree = "<group>"; };
+		9675441E22A288BE007857AF /* WPRPaperDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPRPaperDetailViewModel.m; sourceTree = "<group>"; };
 		9689C7DF206BCC4600058E8B /* AppDelegate+NetworkMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+NetworkMonitor.h"; sourceTree = "<group>"; };
 		9689C7E0206BCC4600058E8B /* AppDelegate+NetworkMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+NetworkMonitor.m"; sourceTree = "<group>"; };
 		969B5932206600D400941204 /* WPMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPMenuViewController.xib; sourceTree = "<group>"; };
@@ -412,9 +415,9 @@
 		DECCCD3A1A36FAA1000C73BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DECCCD921A381BBF000C73BA /* WPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPMenuViewController.h; sourceTree = "<group>"; };
 		DECCCD931A381BBF000C73BA /* WPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPMenuViewController.m; sourceTree = "<group>"; };
-		DEE67B0D1A415B7200BFA114 /* WPWrapperDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWrapperDetailViewController.h; sourceTree = "<group>"; };
-		DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPWrapperDetailViewController.m; sourceTree = "<group>"; };
-		DEE67B101A415C5300BFA114 /* WPWrapperDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPWrapperDetailViewController.xib; sourceTree = "<group>"; };
+		DEE67B0D1A415B7200BFA114 /* WPRPaperDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPRPaperDetailViewController.h; sourceTree = "<group>"; };
+		DEE67B0E1A415B7200BFA114 /* WPRPaperDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPRPaperDetailViewController.m; sourceTree = "<group>"; };
+		DEE67B101A415C5300BFA114 /* WPRPaperDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPRPaperDetailViewController.xib; sourceTree = "<group>"; };
 		DEE67B3D1A43BE5B00BFA114 /* ViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPager.h; sourceTree = "<group>"; };
 		DEE67B3E1A43BE5B00BFA114 /* ViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPager.m; sourceTree = "<group>"; };
 		DEF963EB1A6CE8A6009A7D4E /* EnvironmentConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentConfigure.h; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 			children = (
 				9675441522A26ED7007857AF /* WPRHomeViewModel.h */,
 				9675441622A26ED7007857AF /* WPRHomeViewModel.m */,
+				9675441D22A288BE007857AF /* WPRPaperDetailViewModel.h */,
+				9675441E22A288BE007857AF /* WPRPaperDetailViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -512,9 +517,9 @@
 				DE0904451A3EC39A006B1FCD /* WPRHomeViewController.h */,
 				DE0904461A3EC39A006B1FCD /* WPRHomeViewController.m */,
 				DE9584F51A3935E9000C6B70 /* WPHomeViewController.xib */,
-				DEE67B0D1A415B7200BFA114 /* WPWrapperDetailViewController.h */,
-				DEE67B0E1A415B7200BFA114 /* WPWrapperDetailViewController.m */,
-				DEE67B101A415C5300BFA114 /* WPWrapperDetailViewController.xib */,
+				DEE67B0D1A415B7200BFA114 /* WPRPaperDetailViewController.h */,
+				DEE67B0E1A415B7200BFA114 /* WPRPaperDetailViewController.m */,
+				DEE67B101A415C5300BFA114 /* WPRPaperDetailViewController.xib */,
 				DEACA8191A481ADA00CFF53D /* LatestCollectionView.h */,
 				DEACA81A1A481ADA00CFF53D /* LatestCollectionView.m */,
 				DEACA81C1A481AF800CFF53D /* RecommndCollectionView.h */,
@@ -1123,7 +1128,7 @@
 				DEBDBC381A4BBBDC0092521E /* qq@2x.png in Resources */,
 				DEAED54B1A64CE0C0047318C /* ViewPager.xib in Resources */,
 				DEBDBE2F1A5D19C90092521E /* tab_icon_down@2x.png in Resources */,
-				DEE67B111A415C5300BFA114 /* WPWrapperDetailViewController.xib in Resources */,
+				DEE67B111A415C5300BFA114 /* WPRPaperDetailViewController.xib in Resources */,
 				DEADAF281A4AB9A400C19A2B /* FeedbackViewController_iphone.xib in Resources */,
 				DEBDBCD01A538E490092521E /* CateListItemCell.xib in Resources */,
 				DEBDBCD71A53BBB00092521E /* nav_screen@2x.png in Resources */,
@@ -1244,6 +1249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE2E3FDE2195372C007321A6 /* AppDelegate+Share.m in Sources */,
+				9675441F22A288BE007857AF /* WPRPaperDetailViewModel.m in Sources */,
 				DEE67B3F1A43BE5B00BFA114 /* ViewPager.m in Sources */,
 				962D773420596CCB00A6C956 /* WPNavigationController.m in Sources */,
 				9689C7E1206BCC4600058E8B /* AppDelegate+NetworkMonitor.m in Sources */,
@@ -1273,7 +1279,7 @@
 				96A70D0C2026A8DB00790B1D /* HomeNavigatiaonTitleView.m in Sources */,
 				DEACA81E1A481AF800CFF53D /* RecommndCollectionView.m in Sources */,
 				96D10F9C206C069D00A37B9D /* WPLessonTableViewCell.m in Sources */,
-				DEE67B0F1A415B7200BFA114 /* WPWrapperDetailViewController.m in Sources */,
+				DEE67B0F1A415B7200BFA114 /* WPRPaperDetailViewController.m in Sources */,
 				DECCCD941A381BBF000C73BA /* WPMenuViewController.m in Sources */,
 				DE9585511A3ADEAC000C6B70 /* FileManager.m in Sources */,
 				DEACA82E1A491D4B00CFF53D /* ViewPagerAdapter.m in Sources */,

@@ -64,20 +64,6 @@ self.methodName = NSStringFromSelector(@selector(METHODNAME));\
 
 -(MGNetwokResponse *)getRecommendDetail
 {
-//    NSString *source = self.requestParams[@"source"];
-//    if (source && safeString(source).integerValue == kWallPaperSourceKyson.integerValue)
-//    {
-//        MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST_KYSON modulePath:nil];
-//        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-//        params[@"id"]= self.requestParams[@"id"];
-//        MGNetwokResponse *response = [networkAccess doServiceRequestWithName:@"babyImageDetail" params:params];
-//        if (0 == response.errorCode) {
-//            [MGJsonHandler convertToErrorResponse:&response];
-//        }else{
-//            NSLog(@"error message:%@",response.errorMessage);
-//        }
-//        return response;
-//    }
     
     MGNetworkAccess *networkAccess = [[MGNetworkAccess alloc] initWithHost:HOST modulePath:nil];
     //set params
