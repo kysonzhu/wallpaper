@@ -17,8 +17,6 @@ import cn.kyson.wallpaper.base.WallWrapperEnvConfigure;
 import cn.kyson.wallpaper.model.Group;
 import cn.kyson.wallpaper.widget.AutoLoadImageView;
 
-//zjh171@bitbucket.org/jinyifeng/wallwrapper.git
-
 /**
  * 
  * @author dell

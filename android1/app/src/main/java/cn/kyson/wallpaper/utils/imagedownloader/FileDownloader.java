@@ -38,13 +38,13 @@ public class FileDownloader {
 
 	public void startDownload() {
 		// TODO Auto-generated method stub
-//		AndroidHttpClient httpClient = AndroidHttpClient.newInstance(null);
+		if (!mFileUrlString.contains("http")) {
+			return;
+		}
 		OkHttpClient client = new OkHttpClient();
 		Request request = new Request.Builder().url(mFileUrlString).build();
 
-
 		Log.i("kyson", "file url string :"+ mFileUrlString);
-//		HttpGet get = new HttpGet(mFileUrlString);
 
 		okHttpClient.newCall(request).enqueue(new Callback() {
 
