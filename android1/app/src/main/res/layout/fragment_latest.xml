@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_1"
+    android:orientation="vertical" >
+
+    <com.leftbrain.wallwrapper.widget.PullToRefreshView
+        android:id="@+id/fragment_pull_latest_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <GridView
+            android:id="@+id/fragment_latest_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_space_2.5"
+            android:background="@color/white_1"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="0dp" >
+        </GridView>
+    </com.leftbrain.wallwrapper.widget.PullToRefreshView>
+  <RelativeLayout 
+      android:id="@+id/latest_netWork_relativeLayout"
+       android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"
+      >
+    <ImageView
+        android:id="@+id/latest_netWork_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/rr"
+        android:onClick="latestNetWorkClick"
+         />
+
+    <TextView
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/layout_marginbottom_1"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/text_color_9"
+        android:text="@string/network" />
+
+    <TextView
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_space_32"
+        android:text="@string/click_load"
+        android:textColor="@color/text_color_9"
+        android:textSize="@dimen/text_size_177"
+         />
+
+</RelativeLayout>
+</LinearLayout>

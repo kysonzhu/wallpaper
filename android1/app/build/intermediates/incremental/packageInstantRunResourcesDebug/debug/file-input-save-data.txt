@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sun Jun 09 12:41:29 CST 2019
+0.baseType=DIRECTORY
+0.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/assets/debug
+0.path=image/qq_two.png
+0.set=ASSET
+count=1

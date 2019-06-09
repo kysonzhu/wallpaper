@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:clickable="true"
+        android:onClick="DDDDD"
+        android:id="@+id/textView1_quxiao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="#1fb1e8"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_above="@+id/textView1_quxiao"
+        android:layout_alignParentLeft="true"
+        android:background="#F2F2F2" />
+
+    <TextView
+        android:id="@+id/textView2_paizhao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:text="马上拍照"
+        android:textColor="#1fb1e8"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_above="@+id/textView2_paizhao"
+        android:layout_alignParentLeft="true"
+        android:background="#F2F2F2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:text="本地相册"
+        android:textColor="#1fb1e8"
+        android:textSize="20sp" android:id="@+id/textView1"/>
+
+    <ImageView
+        android:id="@+id/imageView3_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

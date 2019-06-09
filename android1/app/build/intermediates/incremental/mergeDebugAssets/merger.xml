@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/kyson/ios_proj/wallpaper/android1/app/src/main/assets"><file name="image/qq_two.png" path="/Users/kyson/ios_proj/wallpaper/android1/app/src/main/assets/image/qq_two.png"/></source><source path="/Users/kyson/ios_proj/wallpaper/android1/app/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/kyson/ios_proj/wallpaper/android1/app/src/debug/assets"/></dataSet></merger>

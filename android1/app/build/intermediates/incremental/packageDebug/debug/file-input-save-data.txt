@@ -1,0 +1,35 @@
+#Internal package file, do not edit.
+#Sun Jun 09 12:41:50 CST 2019
+7.path=classes.dex
+2.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/12
+5.set=DEX
+0.path=image/qq_two.png
+2.baseType=DIRECTORY
+3.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/15
+7.baseType=DIRECTORY
+2.set=DEX
+1.path=classes.dex
+4.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/11
+7.set=DEX
+count=8
+5.baseType=DIRECTORY
+2.path=classes.dex
+5.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/14
+4.set=DEX
+3.path=classes.dex
+6.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/mergeJniLibs/debug/0
+3.baseType=DIRECTORY
+1.set=DEX
+4.path=classes.dex
+7.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/16
+6.set=NATIVE_RESOURCE
+1.baseType=DIRECTORY
+6.baseType=DIRECTORY
+5.path=classes.dex
+0.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/assets/debug
+0.baseType=DIRECTORY
+3.set=DEX
+6.path=lib/armeabi/libbspatch.so
+1.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/13
+4.baseType=DIRECTORY
+0.set=ASSET

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">高清壁纸管家</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="border_top">Border Top</string>
+    <string name="border_bottom">Border Bottom</string>
+    <string name="image_url">Image Url</string>
+    <string name="pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
+    <string name="title_activity_wall_wrapper_base">WallWrapperBaseActivity</string>
+
+    <string name="main_title">最新</string>
+    <string name="main_title1">推荐</string>
+    <string name="main_title2">分类</string>
+    <string name="main_title3">最热</string>
+    <string name="app_title">高清壁纸管家</string>
+    <string name="versions">v1.3.6</string>
+    <string name="aboutus_text">声明 ：</string>
+    <string name="commit">提交</string>
+    <string name="Keyword">请输入关键字</string>
+    <string name="network">无法连接网络</string>
+    <string name="click_load">点击屏幕重新加载</string>
+    <string name="close">关闭    </string>
+    <string name="back">返回</string>
+    <string name="vgood">点赞</string>
+    <string name="download">下载</string>
+    <string name="desktop">设为桌面</string>
+    <string name="share">分享</string>
+    <string name="clear">清除缓存</string>
+    <string name="evaluate">评价我们</string>
+    <string name="about">关于我们</string>
+    <string name="replace">自动更换壁纸</string>
+    <string name="opinion">意见反馈</string>
+    
+    <string-array name="menu_string">
+        <item>清除缓存</item>
+        <item>评价我们</item>
+        <item>关于我们</item>
+        <item>意见反馈</item>
+        <item>自动更换壁纸(本地)</item>
+        <item>自动更换壁纸(网络)</item>
+        <item>关闭自动更换壁纸(本地)</item>
+        <item>关闭自动更换壁纸(网络)</item>
+    </string-array>
+    
+    <string name="about_count">高清壁纸管家有部分资源来源于互联网，图片版权归原作者所有，若有侵权问题敬请告知，我们会立即处理。本站图片资源如果没有特殊声明，一律禁止任何形式的转载和盗用。</string>
+
+
+</resources>

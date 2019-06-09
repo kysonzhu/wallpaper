@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    >
+
+   
+    <LinearLayout 
+        android:id="@+id/biaotou"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linearlayout_height"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:background="@drawable/nav_two"
+        >
+<!--         android:background="@drawable/background_title"  -->
+
+
+        <ImageView 
+            android:id="@+id/main_menu_imageView"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/layout_marginleft_1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nav_but_por_click"
+            />
+        <TextView
+            android:layout_weight="1"
+             android:layout_marginRight="@dimen/layout_marginright_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_9" />
+        <ImageView 
+            android:id="@+id/main_search_imageview"
+            android:layout_marginRight="@dimen/layout_marginright_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/nav_but_search_click"
+            />
+    </LinearLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:background="@color/white_1"
+        android:id="@+id/main_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlelayout" 
+        >
+    </android.support.v4.view.ViewPager>
+
+    
+    <LinearLayout
+        android:id="@+id/titlelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/linearlayout_height_2"
+        android:layout_below="@+id/biaotou" 
+        android:background="@drawable/tab"
+        android:gravity="center"
+         >
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+<!--             android:background="@drawable/tab_bg" -->
+
+            <RadioButton
+                android:id="@+id/main_latest_radio"
+                style="@style/navigation_style"
+                android:text="@string/main_title" 
+                android:textSize="@dimen/text_size_16"
+                />
+<!--                 android:drawableTop="@drawable/tab_home_icon_selector" -->
+            <RadioButton 
+                android:layout_width="@dimen/linearlayout_width"
+                android:layout_height="@dimen/linearlayout_height_3"
+                android:background="@color/radiobutton_bg"
+                />
+            
+
+            <RadioButton
+                android:id="@+id/main_recommended_radio"
+                style="@style/navigation_style"
+                android:text="@string/main_title1"
+                android:textSize="@dimen/text_size_16" />
+
+           <RadioButton 
+                android:layout_width="@dimen/linearlayout_width"
+                android:layout_height="@dimen/linearlayout_height_3"
+                android:background="@color/radiobutton_bg"
+                />
+
+            <RadioButton
+                android:id="@+id/main_category_radio"
+                style="@style/navigation_style"
+                android:text="@string/main_title2"
+                android:textSize="@dimen/text_size_16" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+</RelativeLayout>

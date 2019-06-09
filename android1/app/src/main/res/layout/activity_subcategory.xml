@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    >
+
+    <LinearLayout 
+        android:id="@+id/biaotou"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linearlayout_height"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:background="@drawable/nav_two"
+        >
+
+        <ImageView 
+            android:id="@+id/subcategory_back_image"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/layout_marginright_1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nav_back_click"
+            />
+         <TextView
+            android:id="@+id/subcategory_title_textview"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+        <ImageView 
+            android:id="@+id/subcategory_screen_image"
+            android:layout_marginRight="@dimen/layout_marginright_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/nav_scr_click"
+            />
+
+       
+
+    </LinearLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:background="@color/white_1"
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlelayout" 
+        >
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/titlelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/linearlayout_height_2"
+        android:layout_below="@+id/biaotou" 
+        android:background="@drawable/tab"
+        android:gravity="center"
+         >
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio_sub_latest"
+                style="@style/navigation_style"
+                android:text="@string/main_title" 
+                android:textSize="@dimen/text_size_16"
+                />
+            <RadioButton 
+                android:layout_width="@dimen/linearlayout_width"
+                android:layout_height="@dimen/linearlayout_width_2"
+                android:background="@color/radiobutton_bg"
+                />
+            
+
+            <RadioButton
+                android:id="@+id/radio_sub_recommended"
+                style="@style/navigation_style"
+                android:text="@string/main_title1"
+                android:textSize="@dimen/text_size_16" />
+
+           <RadioButton 
+                android:layout_width="@dimen/linearlayout_width"
+                android:layout_height="@dimen/linearlayout_width_2"
+                android:background="@color/radiobutton_bg"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_hottest"
+                style="@style/navigation_style"
+                android:text="@string/main_title3"
+                android:textSize="@dimen/text_size_16" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+</RelativeLayout>

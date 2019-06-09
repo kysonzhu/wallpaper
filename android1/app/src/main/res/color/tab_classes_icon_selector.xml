@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/classes_light" android:state_checked="true" android:state_enabled="true"></item>
+    <item android:drawable="@drawable/classes_dark" android:state_checked="false" android:state_enabled="false"></item>
+    <item android:drawable="@drawable/classes_dark"></item>
+
+</selector>

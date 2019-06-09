@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/clear"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dialog_title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_space_10"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/margin_space_8"
+            android:paddingRight="@dimen/margin_space_8"
+            android:text="title"
+            android:textColor="@color/color_blue_7"
+            android:textSize="@dimen/text_size_18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/clear2"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:id="@+id/loading_progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="@dimen/margin_space_30"
+            android:layout_height="@dimen/margin_space_30"
+            android:layout_marginLeft="@dimen/margin_space_10" >
+        </ProgressBar>
+
+        <ImageView
+            android:id="@+id/loading_ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/loading_loadingmsg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="@color/color_gray_2"
+            android:textSize="@dimen/text_size_15" />
+
+        <Button
+            android:id="@+id/positiveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/dialog_close_normal"
+            android:singleLine="true"
+            android:textColor="@color/color_blue_1"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/negativeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/margin_space_5"
+            android:background="@drawable/dialog_close_normal"
+            android:singleLine="true"
+            android:textColor="@color/color_blue_1" />
+    </LinearLayout>
+
+</LinearLayout>

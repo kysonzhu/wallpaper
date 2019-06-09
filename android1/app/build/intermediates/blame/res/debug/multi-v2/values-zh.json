@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
+            "map": [
+                {
+                    "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/values-zh/umeng_update_string.xml",
+                    "from": {
+                        "startLines": "10,2,14,8,12,4,11,7,13,5,9,6,3",
+                        "startColumns": "1,1,1,1,1,1,1,1,1,1,1,1,1",
+                        "startOffsets": "419,52,593,323,500,142,461,278,539,187,377,233,97",
+                        "endColumns": "41,44,58,53,38,44,38,44,53,45,41,44,44",
+                        "endOffsets": "459,95,650,375,537,185,498,321,591,231,417,276,140"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,100,148,210,267,309,357,399,447,504,553,598,646",
+                        "endColumns": "44,47,61,56,41,47,41,47,56,48,44,47,47",
+                        "endOffsets": "95,143,205,262,304,352,394,442,499,548,593,641,689"
+                    }
+                },
+                {
+                    "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/values-zh/umeng_common_strings.xml",
+                    "from": {
+                        "startLines": "6,5,2,4,12,13,7,3,11,14,8,15,9,10",
+                        "startColumns": "1,1,1,1,1,1,1,1,4,1,1,1,1,1",
+                        "startOffsets": "295,238,52,184,709,768,350,115,640,833,424,895,493,566",
+                        "endColumns": "54,56,62,53,58,64,73,68,71,61,68,75,72,70",
+                        "endOffsets": "348,293,113,236,766,831,422,182,707,893,491,969,564,635"
+                    },
+                    "to": {
+                        "startLines": "15,16,17,18,19,20,21,22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "694,752,812,878,935,997,1065,1142,1214,1286,1351,1423,1502,1578",
+                        "endColumns": "57,59,65,56,61,67,76,71,71,64,71,78,75,73",
+                        "endOffsets": "747,807,873,930,992,1060,1137,1209,1281,1346,1418,1497,1573,1647"
+                    }
+                }
+            ]
+        }
+    ]
+}
