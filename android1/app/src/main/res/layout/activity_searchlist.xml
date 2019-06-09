@@ -39,7 +39,7 @@
             />
     </LinearLayout>
 
-    <com.leftbrain.wallwrapper.widget.PullToRefreshView
+    <cn.kyson.wallpaper.widget.PullToRefreshView
         android:id="@+id/main_pull_refresh_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -56,7 +56,7 @@
             android:stretchMode="columnWidth"
             android:verticalSpacing="0dp" >
         </GridView>
-    </com.leftbrain.wallwrapper.widget.PullToRefreshView>
+    </cn.kyson.wallpaper.widget.PullToRefreshView>
     
     <RelativeLayout 
       android:id="@+id/searchdetail_relativeLayout"

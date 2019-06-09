@@ -5,7 +5,7 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        applicationId "com.leftbrain.wallwrapper"
+        applicationId "cn.kyson.wallpaper"
         minSdkVersion 8
         targetSdkVersion 18
     }

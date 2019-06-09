@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <com.leftbrain.wallwrapper.widget.RoundAngleImageView
+        <cn.kyson.wallpaper.widget.RoundAngleImageView
             android:id="@+id/category_listview_autoloadimageview"
             android:layout_width="@dimen/margin_space_80"
             android:layout_height="@dimen/margin_space_57"

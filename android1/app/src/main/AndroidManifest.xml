@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.leftbrain.wallwrapper"
+    package="cn.kyson.wallpaper"
     android:versionCode="3"
     android:versionName="1.3.6" >
 
@@ -125,13 +125,13 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.leftbrain.wallwrapper.controller.WXEntryActivity"
+            android:name="cn.kyson.wallpaper.controller.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.leftbrain.wallwrapper.controller.SplashActivity"
+            android:name="cn.kyson.wallpaper.controller.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
             <intent-filter>
@@ -141,12 +141,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.leftbrain.wallwrapper.base.WallWrapperBaseActivity"
+            android:name="cn.kyson.wallpaper.base.WallWrapperBaseActivity"
             android:label="@string/title_activity_wall_wrapper_base" >
         </activity>
         <!-- 服务   自动更换壁纸 -->
         <service
-            android:name="com.leftbrain.wallwrapper.service.MyService"
+            android:name="cn.kyson.wallpaper.service.MyService"
             android:process=":DownloadingService" >
         </service>
     </application>

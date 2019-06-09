@@ -1,4 +1,4 @@
-com.leftbrain.wallwrapper
+cn.kyson.wallpaper
 int anim in 0x7f010000
 int anim out 0x7f010001
 int anim push_left_in 0x7f010002

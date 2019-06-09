@@ -7,7 +7,7 @@
 
   
 
-    <com.leftbrain.wallwrapper.widget.PullToRefreshView 
+    <cn.kyson.wallpaper.widget.PullToRefreshView
     android:id="@+id/fragment_pull_sub_recommended_view"
     android:background="@android:color/white"
     android:layout_width="fill_parent"
@@ -26,7 +26,7 @@
         android:verticalSpacing="0dp"
         ></GridView>
     
-</com.leftbrain.wallwrapper.widget.PullToRefreshView>
+</cn.kyson.wallpaper.widget.PullToRefreshView>
 
      <RelativeLayout 
         android:id="@+id/sub_recommended_netWork_relativeLayout"

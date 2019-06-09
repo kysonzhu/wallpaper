@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sp"
-    tools:context="com.leftbrain.wallwrapper.controller.SplashActivity" >
+    tools:context="cn.kyson.wallpaper.controller.SplashActivity" >
 
     <ImageView
         android:id="@+id/splash_image"

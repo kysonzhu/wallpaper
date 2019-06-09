@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
      >
 
-    <com.leftbrain.wallwrapper.widget.AutoLoadImageView
+    <cn.kyson.wallpaper.widget.AutoLoadImageView
         android:id="@+id/lastest_grid_autoloadimageview"
          android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
