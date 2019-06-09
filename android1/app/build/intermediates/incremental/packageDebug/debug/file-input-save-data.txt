@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jun 09 14:21:27 CST 2019
+#Sun Jun 09 19:27:57 CST 2019
 7.path=classes.dex
 2.base=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/12
 5.set=DEX

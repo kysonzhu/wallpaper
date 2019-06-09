@@ -40,7 +40,11 @@
     <color name="fff55">#55ffffff</color>
     <color name="holo_green_dark">#ff669900</color>
     <color name="item_gray">#f7f7f7</color>
+    <color name="notification_action_color_filter">#ffffffff</color>
+    <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="orange_color">#fe802f</color>
+    <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="radiobutton_bg">#cbcbcb</color>
     <color name="randomcolor_0">#b4cdd1</color>
     <color name="randomcolor_1">#e8cbd1</color>
@@ -50,6 +54,9 @@
     <color name="randomcolor_5">#e5bec7</color>
     <color name="randomcolor_6">#ecbbab</color>
     <color name="randomcolor_7">#f2dfdd</color>
+    <color name="ripple_material_light">#1f000000</color>
+    <color name="secondary_text_default_material_dark">#b3ffffff</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="tb_munion_item_force">#e3e3e3</color>
     <color name="text_color_33">#30333333</color>
     <color name="text_color_9">#999999</color>
@@ -74,10 +81,28 @@
     <color name="white2">#f8f8f8</color>
     <color name="white3">#f2f2f2</color>
     <color name="white_1">#f1f1f1</color>
+    <declare-styleable name="FontFamily"><attr format="string" name="fontProviderAuthority"/><attr format="string" name="fontProviderPackage"/><attr format="string" name="fontProviderQuery"/><attr format="reference" name="fontProviderCerts"/><attr name="fontProviderFetchStrategy">
+            
+            <enum name="blocking" value="0"/>
+            
+            <enum name="async" value="1"/>
+        </attr><attr format="integer" name="fontProviderFetchTimeout">
+          
+            <enum name="forever" value="-1"/>
+        </attr></declare-styleable>
+    <declare-styleable name="FontFamilyFont"><attr name="fontStyle">
+            <enum name="normal" value="0"/>
+            <enum name="italic" value="1"/>
+        </attr><attr format="reference" name="font"/><attr format="integer" name="fontWeight"/></declare-styleable>
     <declare-styleable name="RoundAngleImageView"><attr format="dimension" name="roundWidth"/><attr format="dimension" name="roundHeight"/></declare-styleable>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="alphabet_size">12dip</dimen>
+    <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
+    <dimen name="compat_button_inset_vertical_material">6dp</dimen>
+    <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
+    <dimen name="compat_button_padding_vertical_material">4dp</dimen>
+    <dimen name="compat_control_corner_material">2dp</dimen>
     <dimen name="dialog_image_height">30dp</dimen>
     <dimen name="dialog_image_width">30dp</dimen>
     <dimen name="footerbar_height">60dp</dimen>
@@ -157,6 +182,21 @@
     <dimen name="margin_space_80">80dp</dimen>
     <dimen name="margin_space_9">9dp</dimen>
     <dimen name="margin_space_90">90dp</dimen>
+    <dimen name="notification_action_icon_size">32dp</dimen>
+    <dimen name="notification_action_text_size">13sp</dimen>
+    <dimen name="notification_big_circle_margin">12dp</dimen>
+    <dimen name="notification_content_margin_start">8dp</dimen>
+    <dimen name="notification_large_icon_height">64dp</dimen>
+    <dimen name="notification_large_icon_width">64dp</dimen>
+    <dimen name="notification_main_column_padding_top">10dp</dimen>
+    <dimen name="notification_media_narrow_margin">@dimen/notification_content_margin_start</dimen>
+    <dimen name="notification_right_icon_size">16dp</dimen>
+    <dimen name="notification_right_side_padding_top">2dp</dimen>
+    <dimen name="notification_small_icon_background_padding">3dp</dimen>
+    <dimen name="notification_small_icon_size_as_large">24dp</dimen>
+    <dimen name="notification_subtext_size">13sp</dimen>
+    <dimen name="notification_top_pad">10dp</dimen>
+    <dimen name="notification_top_pad_large_text">5dp</dimen>
     <dimen name="padding_space_10">10dp</dimen>
     <dimen name="padding_space_15">15dp</dimen>
     <dimen name="padding_space_16">16dp</dimen>
@@ -197,7 +237,16 @@
     <dimen name="text_size_tt_7">7sp</dimen>
     <dimen name="umeng_socialize_pad_window_height">350dip</dimen>
     <dimen name="umeng_socialize_pad_window_width">580dip</dimen>
+    <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
+    <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
+    <item name="line1" type="id"/>
+    <item name="line3" type="id"/>
+    <item name="text" type="id"/>
+    <item name="text2" type="id"/>
+    <item name="title" type="id"/>
+    <integer name="cancel_button_image_alpha">127</integer>
     <integer name="num_cols">1</integer>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="Keyword">请输入关键字</string>
     <string name="UMAppUpdate">App updating</string>
     <string name="UMBreak_Network">Please make sure you are connected to internet,update failed</string>
@@ -247,6 +296,7 @@
     <string name="pull_to_refresh_tap_label" translatable="false">点击刷新</string>
     <string name="replace">自动更换壁纸</string>
     <string name="share">分享</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
     <string name="tb_munion_tip_download_prefix">正在下载:</string>
     <string name="title_activity_wall_wrapper_base">WallWrapperBaseActivity</string>
     <string name="umeng_common_action_cancel">Cancel</string>
@@ -344,6 +394,22 @@
         <item name="android:background">@color/white</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+    <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
+    <style name="TextAppearance.Compat.Notification.Info">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Info.Media"/>
+    <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
+    <style name="TextAppearance.Compat.Notification.Line2.Media" parent="TextAppearance.Compat.Notification.Info.Media"/>
+    <style name="TextAppearance.Compat.Notification.Media"/>
+    <style name="TextAppearance.Compat.Notification.Time">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Time.Media"/>
+    <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <style name="TextAppearance.Compat.Notification.Title.Media"/>
     <style name="Theme.UMDefault" parent="android:style/Theme.NoTitleBar"/>
     <style name="Theme.UMDialog" parent="android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
@@ -359,6 +425,8 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowBackground">@color/transparent_background</item>
     </style>
+    <style name="Widget.Compat.NotificationActionContainer" parent=""/>
+    <style name="Widget.Compat.NotificationActionText" parent=""/>
     <style name="navigation_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

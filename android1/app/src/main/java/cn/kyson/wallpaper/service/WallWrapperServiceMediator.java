@@ -7,18 +7,10 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
 import android.util.Log;
 
@@ -378,26 +370,26 @@ public class WallWrapperServiceMediator extends ServiceMediator {
 	
 	public static String feedback_post(String content, String contact, String version, String system, String uuid) {
 		String count = "";
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://luhaojie.test.abab.com/index.php");//?picSize=320x510&imgSize=320x510
-		List<BasicNameValuePair> valuePairs = new ArrayList<BasicNameValuePair>();
-			valuePairs.add(new BasicNameValuePair("c", "AbabInterface_Sj"));
-			valuePairs.add(new BasicNameValuePair("a", "Pic"));
-			valuePairs.add(new BasicNameValuePair("param", "{\"content\":\"" + content + "\",\"system\":\"Android\",\"version\":\"" + version + "\",\"contact\":\"" + contact + "\",\"uuid\":\""+uuid+"\"}"));						
-		try {
-			httpPost.setEntity(new UrlEncodedFormEntity(valuePairs, "UTF-8"));
-			httpPost.setHeader("Content-Type",
-					"application/x-www-form-urlencoded; charset=utf-8");
-		} catch (UnsupportedEncodingException e2) {
-			e2.printStackTrace();
-		}
-		try {
-			HttpResponse response = httpClient.execute(httpPost);
-			count = EntityUtils.toString(response.getEntity(), "utf-8");
-		
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+//		HttpClient httpClient = new DefaultHttpClient();
+//		HttpPost httpPost = new HttpPost("http://luhaojie.test.abab.com/index.php");//?picSize=320x510&imgSize=320x510
+//		List<BasicNameValuePair> valuePairs = new ArrayList<BasicNameValuePair>();
+//			valuePairs.add(new BasicNameValuePair("c", "AbabInterface_Sj"));
+//			valuePairs.add(new BasicNameValuePair("a", "Pic"));
+//			valuePairs.add(new BasicNameValuePair("param", "{\"content\":\"" + content + "\",\"system\":\"Android\",\"version\":\"" + version + "\",\"contact\":\"" + contact + "\",\"uuid\":\""+uuid+"\"}"));
+//		try {
+//			httpPost.setEntity(new UrlEncodedFormEntity(valuePairs, "UTF-8"));
+//			httpPost.setHeader("Content-Type",
+//					"application/x-www-form-urlencoded; charset=utf-8");
+//		} catch (UnsupportedEncodingException e2) {
+//			e2.printStackTrace();
+//		}
+//		try {
+//			HttpResponse response = httpClient.execute(httpPost);
+//			count = EntityUtils.toString(response.getEntity(), "utf-8");
+//
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
 		return count;
 		
 	}

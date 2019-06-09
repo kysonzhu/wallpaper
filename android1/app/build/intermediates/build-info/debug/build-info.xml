@@ -7,31 +7,31 @@
     format="10"
     ir-eligibility="CLASS_ADDED"
     plugin-version="3.0.1"
-    timestamp="1560061273671"
+    timestamp="1560079649896"
     token="8424144373808334955"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1467" />
+        duration="2973" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="470" />
+        duration="681" />
     <task
         name="verifier"
-        duration="226" />
+        duration="356" />
 
     <artifact
         location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
         type="SPLIT" />
     <artifact
         location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
@@ -40,13 +40,13 @@
         location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
     <artifact
         location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
     <artifact
         location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
@@ -64,16 +64,16 @@
     <build
         build-mode="FULL"
         ir-eligibility="CLASS_ADDED"
-        timestamp="1560061273671"
+        timestamp="1560079649896"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
             location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
@@ -82,13 +82,13 @@
             location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
             location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
             location="/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/split-apk/debug/slices/slice_7.apk"

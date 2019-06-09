@@ -5,10 +5,13 @@ import java.io.FileOutputStream;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
@@ -155,5 +158,14 @@ public class ImageUtils {
 		return resizeBmp;
 		}
 	}
+
+//	public static boolean hasPermission(@NonNull Context context, @NonNull String permission) {
+//		if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED
+//				|| PermissionChecker.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+//			return false;
+//		}
+//
+//		return true;
+//	}
 
 }

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
+    compileSdkVersion 26
     buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "cn.kyson.wallpaper"
-        minSdkVersion 8
-        targetSdkVersion 18
+        minSdkVersion 14
+        targetSdkVersion 26
     }
 
     buildTypes {
@@ -19,8 +19,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:26.1.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.squareup.okhttp3:okhttp:3.0.0'
     compile files('libs/SocialSDK_QQZone_1.jar')
     compile files('libs/SocialSDK_QQZone_2.jar')
     compile files('libs/SocialSDK_QQZone_3.jar')

@@ -32,6 +32,14 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_renren_off.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_facebook.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_facebook.png"
     },
@@ -66,6 +74,14 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_nav_screen.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/nav_screen.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_lines_media.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_wri1.png.flat",
@@ -140,12 +156,20 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_title_tab_button_left.xml"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout-v21/notification_action.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_tab_ic_down_def.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/tab_ic_down_def.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_umeng_socialize_full_alert_dialog.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/umeng_socialize_full_alert_dialog.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_action_tombstone.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout/notification_action_tombstone.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_nav_bar_bg.png.flat",
@@ -172,6 +196,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xhdpi/home_light.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_media.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_media.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_item_shousuo.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/item_shousuo.xml"
     },
@@ -190,6 +218,10 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_shape_solid_grey.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_shape_solid_grey.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_part_time.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout/notification_template_part_time.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_title_right_bt.xml.flat",
@@ -356,6 +388,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_qq_off.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_nav_two.9.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/nav_two.9.png"
     },
@@ -412,6 +448,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/slidingmenu_shadow.xml"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_logo.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/logo.png"
     },
@@ -444,12 +484,24 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/ic_mask.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout-v16_notification_template_custom_big.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout-v16/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-v21/notification_action_background.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_sidebar_normal.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_sidebar_normal.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/anim_push_left_out.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/anim/push_left_out.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_action.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout/notification_action.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_mod.png.flat",
@@ -592,6 +644,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_button_grey_blue.xml"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_narrow.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_share_transparent_corner.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_share_transparent_corner.xml"
     },
@@ -604,8 +660,20 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/back_def.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi_wri1.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xhdpi/wri1.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi_tab_ic_share_def.png.flat",
@@ -628,12 +696,24 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xhdpi/back_def.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout-v21_notification_action_tombstone.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout-v21_notification_template_custom_big.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/anim_umeng_socialize_slide_out_from_bottom.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/anim/umeng_socialize_slide_out_from_bottom.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_nav_bar_bg_pad.9.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_nav_bar_bg_pad.9.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable/notification_icon_background.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_nav_back_click.xml.flat",
@@ -684,8 +764,20 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-mdpi/tab_ic_col_def.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_back_pre.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/back_pre.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_lef_remove.png.flat",
@@ -720,8 +812,16 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_follow_check.xml"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_title_right_bt_selected.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_title_right_bt_selected.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_light_bar_bg.9.png.flat",
@@ -868,6 +968,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_location_on.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable/notification_bg.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_icon_add.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/icon_add.png"
     },
@@ -908,6 +1012,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_at_button.xml"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_custom.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_update_btn_check_off_focused_holo_light.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_update_btn_check_off_focused_holo_light.png"
     },
@@ -942,6 +1050,14 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_button_red_blue.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_button_red_blue.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_big_media.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_mod_mask.png.flat",
@@ -984,12 +1100,20 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_qzone_off.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_oauth_check_on.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_oauth_check_on.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_fragment_recommended.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/fragment_recommended.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_custom_big.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout/notification_template_custom_big.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_shareboard_item_background.xml.flat",
@@ -1046,6 +1170,10 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_tb_munion_icon.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/tb_munion_icon.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable/notification_tile_bg.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_title_tab_button_right.xml.flat",
@@ -1204,6 +1332,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_qq_off.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_media_action.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_media_action.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_update_btn_check_on_focused_holo_light.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_update_btn_check_on_focused_holo_light.png"
     },
@@ -1276,6 +1408,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_sina_off.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable/notification_bg_low.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_back_def.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/back_def.png"
     },
@@ -1290,6 +1426,10 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_tab_ic_share_def.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/tab_ic_share_def.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_nav_but_sear.png.flat",
@@ -1322,6 +1462,14 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_nav_but_search_click.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/nav_but_search_click.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_media_cancel_action.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi_sp.png.flat",
@@ -1380,6 +1528,10 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_icon_group.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/layout/notification_template_icon_group.xml"
+    },
+    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_lef_on.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-mdpi/ic_lef_on.png"
     },
@@ -1398,6 +1550,10 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/beea1b550d4fdea44522013734a32d6d/res/drawable-hdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi_tab_ic_share_pre.png.flat",
@@ -1478,6 +1634,10 @@
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_icon_into_def.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/icon_into_def.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_notification_template_media_custom.xml.flat",
+        "source": "/Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/res/layout/notification_template_media_custom.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_button_login_pressed.png.flat",
