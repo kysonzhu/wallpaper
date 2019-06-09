@@ -237,23 +237,23 @@ public class WrapperDetailActivity extends WallWrapperBaseActivity implements On
 
 				UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(WrapperDetailActivity.this, "1103993167", "54d02757fd98c53a2300063b");
 				qqSsoHandler.addToSocialSDK();
-				qqSsoHandler.setTitle("高清壁纸管家");
+				qqSsoHandler.setTitle("壁纸宝贝");
 
 				// 添加微信平台
 				UMWXHandler wxHandler = new UMWXHandler(WrapperDetailActivity.this, "wx5c7035562be049ac", "d785b6006c978d906c3bfdededbc92e3");
 				wxHandler.addToSocialSDK();
 				// 设置分享标题
-				wxHandler.setTitle("高清壁纸管家");
+				wxHandler.setTitle("壁纸宝贝");
 
 				// 添加微信朋友圈
 				UMWXHandler wxCircleHandler = new UMWXHandler(WrapperDetailActivity.this, "wx5c7035562be049ac", "d785b6006c978d906c3bfdededbc92e3");
 				wxCircleHandler.setToCircle(true);
 				wxCircleHandler.addToSocialSDK();
-				wxCircleHandler.setTitle("高清壁纸管家");
+				wxCircleHandler.setTitle("壁纸宝贝");
 
 				final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share");
 				// 设置分享内容
-				mController.setShareContent("来自高清壁纸管家的优美图片");
+				mController.setShareContent("来自壁纸宝贝的优美图片");
 				// 设置分享图片, 参数2为图片的url地址
 				mController.setShareMedia(new UMImage(this, "http://app.zol.com.cn/bizhi/detail_" + gid + "_" + images4.get(currentItemIndex4).pId + ".html#p" + (currentItemIndex4 + 1)));
 

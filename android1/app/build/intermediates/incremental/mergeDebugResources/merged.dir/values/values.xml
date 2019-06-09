@@ -214,11 +214,11 @@
     <string name="UMUpdateSize">Update size: </string>
     <string name="UMUpdateTitle">New version found</string>
     <string name="about">关于我们</string>
-    <string name="about_count">高清壁纸管家有部分资源来源于互联网，图片版权归原作者所有，若有侵权问题敬请告知，我们会立即处理。本站图片资源如果没有特殊声明，一律禁止任何形式的转载和盗用。</string>
+    <string name="about_count">壁纸宝贝有部分资源来源于互联网，图片版权归原作者所有，若有侵权问题敬请告知，我们会立即处理。本站图片资源如果没有特殊声明，一律禁止任何形式的转载和盗用。</string>
     <string name="aboutus_text">声明 ：</string>
     <string name="action_settings">Settings</string>
-    <string name="app_name">高清壁纸管家</string>
-    <string name="app_title">高清壁纸管家</string>
+    <string name="app_name">壁纸宝贝</string>
+    <string name="app_title">壁纸宝贝</string>
     <string name="back">返回</string>
     <string name="border_bottom">Border Bottom</string>
     <string name="border_top">Border Top</string>
@@ -324,16 +324,10 @@
     <string name="versions">v1.3.6</string>
     <string name="vgood">点赞</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-
-
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="Dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -351,7 +345,7 @@
     </style>
     <style name="Transparent" parent="@android:style/Theme.Dialog">
         <item name="android:windowFullscreen">true</item>
-        <!--<item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>-->
+        
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">true</item>
