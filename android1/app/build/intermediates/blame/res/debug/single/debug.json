@@ -84,12 +84,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/con_module.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_location_on.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_location_on.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_wxcircle_gray.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_wxcircle_gray.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_location_on.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_location_on.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_bind_bg.9.png.flat",
@@ -148,20 +148,20 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/umeng_socialize_full_alert_dialog.xml"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_nav_bar_bg.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_nav_bar_bg.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_tab_ic_col_def.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/tab_ic_col_def.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_umeng_bak_platform_selector_dialog.xml.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/umeng_bak_platform_selector_dialog.xml"
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_nav_bar_bg.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_nav_bar_bg.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_douban_on.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_douban_on.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_umeng_bak_platform_selector_dialog.xml.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/umeng_bak_platform_selector_dialog.xml"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_action_back.xml.flat",
@@ -212,12 +212,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_refersh.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_title_right_bt_normal.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_title_right_bt_normal.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_details_download_click.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/details_download_click.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_title_right_bt_normal.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_title_right_bt_normal.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi_tab_ic_col_pre.png.flat",
@@ -236,12 +236,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_shape_solid_grey.xml"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_wechat.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_wechat.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_list_item_bg.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/list_item_bg.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_wechat.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_wechat.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_shape.xml.flat",
@@ -268,12 +268,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-mdpi/tab_ic_lock_def.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_button_grey.9.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_button_grey.9.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_follow_on.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_follow_on.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_button_grey.9.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_button_grey.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_pulltorefresh_arrow_up.png.flat",
@@ -312,12 +312,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_wxcircle.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_tab_ic_down_pre.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/tab_ic_down_pre.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_button_red_blue.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_button_red_blue.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xxhdpi_tab_ic_down_pre.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-xxhdpi/tab_ic_down_pre.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_google.png.flat",
@@ -356,20 +356,20 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_qq_off.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_nav_two.9.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/nav_two.9.png"
-    },
-    {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi_back_pre.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-mdpi/back_pre.png"
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_icon_search.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/icon_search.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_wechat.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_wechat.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_icon_search.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/icon_search.png"
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-mdpi_back_pre.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-mdpi/back_pre.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_nav_two.9.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/nav_two.9.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_sina_on.png.flat",
@@ -500,12 +500,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_sidebar_selected.xml"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_title_back_bt_normal.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_title_back_bt_normal.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_twitter.png.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_twitter.png"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-hdpi_umeng_socialize_title_back_bt_normal.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable-hdpi/umeng_socialize_title_back_bt_normal.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_lef_feedback.png.flat",
@@ -668,12 +668,12 @@
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_douban_off.png"
     },
     {
-        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_action_back_normal.png.flat",
-        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_action_back_normal.png"
-    },
-    {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout_umeng_socialize_at_view.xml.flat",
         "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/layout/umeng_socialize_at_view.xml"
+    },
+    {
+        "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/drawable_umeng_socialize_action_back_normal.png.flat",
+        "source": "/Users/kyson/ios_proj/wallpaper/android1/app/src/main/res/drawable/umeng_socialize_action_back_normal.png"
     },
     {
         "merged": "/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/res/merged/debug/layout-v9_umeng_common_download_notification.xml.flat",
