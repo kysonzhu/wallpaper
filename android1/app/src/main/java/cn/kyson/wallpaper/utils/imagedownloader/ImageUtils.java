@@ -148,15 +148,16 @@ public class ImageUtils {
 		int h = options.outHeight;
 		
 		Bitmap bitmap = ImageUtils.readFileToBitmapWithCompress(imageFilePathString);
-		options.inJustDecodeBounds = false;
-		Matrix matrix = new Matrix(); 
-		matrix.postScale(f,f);
-		if(bitmap==null){
-			return null;
-		}else{
-		Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,w,h,matrix,true);
-		return resizeBmp;
-		}
+//		options.inJustDecodeBounds = false;
+//		Matrix matrix = new Matrix();
+//		matrix.postScale(f,f);
+//		if(bitmap==null){
+//			return null;
+//		}else{
+//		Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,w,h,matrix,true);
+//		return resizeBmp;
+//		}
+		return bitmap;
 	}
 
 //	public static boolean hasPermission(@NonNull Context context, @NonNull String permission) {

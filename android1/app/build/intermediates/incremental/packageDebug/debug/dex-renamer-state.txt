@@ -1,19 +1,4 @@
-#Sun Jun 09 19:27:57 CST 2019
-path.1=classes.dex
+#Sun Jun 30 16:50:46 CST 2019
+base.0=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/18
 path.0=classes.dex
-renamed.5=classes6.dex
-renamed.4=classes5.dex
-renamed.3=classes4.dex
-renamed.2=classes3.dex
-renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/13
-base.4=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/12
-base.3=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/15
-base.2=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/14
-base.1=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/16
-base.0=/Users/kyson/ios_proj/wallpaper/android1/app/build/intermediates/transforms/dexMerger/debug/11
-path.5=classes.dex
-path.4=classes.dex
-path.3=classes.dex
-path.2=classes.dex

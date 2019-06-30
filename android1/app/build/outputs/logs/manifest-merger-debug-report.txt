@@ -5,6 +5,7 @@ INJECTED from /Users/kyson/ios_proj/wallpaper/android1/app/src/main/AndroidManif
 INJECTED from /Users/kyson/ios_proj/wallpaper/android1/app/src/main/AndroidManifest.xml:2:1-154:12
 INJECTED from /Users/kyson/ios_proj/wallpaper/android1/app/src/main/AndroidManifest.xml:2:1-154:12
 MERGED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:2:1-19:12
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-fragment:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/d43ed0db20e45560c4e72d1854242eb8/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-utils:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/107154339947e67863fd1f00f882bbd7/AndroidManifest.xml:17:1-31:12
@@ -34,6 +35,8 @@ INJECTED from /Users/kyson/ios_proj/wallpaper/android1/app/src/main/AndroidManif
 INJECTED from /Users/kyson/ios_proj/wallpaper/android1/app/src/main/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:21:5-23:54
+MERGED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:7:5-9:41
+MERGED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-fragment:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/d43ed0db20e45560c4e72d1854242eb8/AndroidManifest.xml:21:5-23:60
@@ -138,6 +141,8 @@ application
 ADDED from /Users/kyson/ios_proj/wallpaper/android1/app/src/main/AndroidManifest.xml:36:5-152:19
 MERGED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:25:5-29:19
+MERGED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:11:5-17:19
+MERGED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:11:5-17:19
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d8de2dcccc05bd36a165ce46bcf71afc/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-fragment:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/d43ed0db20e45560c4e72d1854242eb8/AndroidManifest.xml:25:5-29:19
@@ -358,6 +363,16 @@ MERGED from [com.android.support:support-compat:26.1.0] /Users/kyson/.gradle/cac
 		ADDED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:28:13-35
 	android:name
 		ADDED from [com.android.support:support-v4:26.1.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/412ff1334a09708ddfd3e59514432ac0/AndroidManifest.xml:27:13-51
+provider#com.qw.soul.permission.InitProvider
+ADDED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:12:9-16:43
+	android:authorities
+		ADDED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:14:13-71
+	android:multiprocess
+		ADDED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:16:13-40
+	android:exported
+		ADDED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [com.qw:soulpermission:1.1.8] /Users/kyson/.gradle/caches/transforms-1/files-1.1/soulpermission-1.1.8.aar/d405ca56f73059744222d7561841d553/AndroidManifest.xml:13:13-63
 meta-data#android.arch.lifecycle.VERSION
 ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/kyson/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/f6afbe6ad8dc5e7df9f5f9921b511bfb/AndroidManifest.xml:25:9-27:47
 	android:value

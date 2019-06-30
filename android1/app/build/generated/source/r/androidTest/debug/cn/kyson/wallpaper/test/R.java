@@ -181,7 +181,19 @@ public final class R {
     public static final int notification_template_part_time=0x7f08000e;
   }
   public static final class string {
-    public static final int status_bar_notification_info_overflow=0x7f090000;
+    public static final int permission_calender=0x7f090000;
+    public static final int permission_call=0x7f090001;
+    public static final int permission_camera=0x7f090002;
+    public static final int permission_contact=0x7f090003;
+    public static final int permission_jump_failed=0x7f090004;
+    public static final int permission_location=0x7f090005;
+    public static final int permission_microphone=0x7f090006;
+    public static final int permission_phone_status=0x7f090007;
+    public static final int permission_sensor=0x7f090008;
+    public static final int permission_sms=0x7f090009;
+    public static final int permission_storage=0x7f09000a;
+    public static final int permission_undefined=0x7f09000b;
+    public static final int status_bar_notification_info_overflow=0x7f09000c;
   }
   public static final class style {
     public static final int TextAppearance_Compat_Notification=0x7f0a0000;

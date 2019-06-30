@@ -156,6 +156,13 @@
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />
+
+        <provider
+            android:name="com.qw.soul.permission.InitProvider"
+            android:authorities="cn.kyson.wallpaper.permission.provider"
+            android:exported="false"
+            android:multiprocess="true" />
+
         <meta-data
             android:name="android.arch.lifecycle.VERSION"
             android:value="27.0.0-SNAPSHOT" />
